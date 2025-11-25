@@ -1,0 +1,249 @@
+{
+  "id": "testimonials",
+  "type": "SharedSlice",
+  "name": "Testimonials",
+  "description": "Testimonials",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2"
+          }
+        },
+        "txt": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong"
+          }
+        },
+        "grp": {
+          "type": "Group",
+          "config": {
+            "label": "Grp",
+            "repeat": true,
+            "fields": {
+              "rate": {
+                "type": "Select",
+                "config": {
+                  "label": "Rate",
+                  "placeholder": "",
+                  "options": [
+                    "5",
+                    "4"
+                  ],
+                  "default_value": "5"
+                }
+              },
+              "quote": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Quote",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph"
+                }
+              },
+              "img": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "author": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Author",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph"
+                }
+              },
+              "company": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Company",
+                  "placeholder": "Position, Company name",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "variation1",
+      "name": "Variation 1",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2"
+          }
+        },
+        "txt": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong"
+          }
+        },
+        "grp": {
+          "type": "Group",
+          "config": {
+            "label": "Grp",
+            "repeat": true,
+            "fields": {
+              "rate": {
+                "type": "Select",
+                "config": {
+                  "label": "Rate",
+                  "placeholder": "",
+                  "options": [
+                    "5",
+                    "4"
+                  ],
+                  "default_value": "5"
+                }
+              },
+              "quote": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Quote",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph"
+                }
+              },
+              "img": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "author": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Author",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph"
+                }
+              },
+              "company": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Company",
+                  "placeholder": "Position, Company name",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph"
+                }
+              },
+              "logo": {
+                "type": "Image",
+                "config": {
+                  "label": "Logo",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "variation2",
+      "name": "Variation 2",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "grp": {
+          "type": "Group",
+          "config": {
+            "label": "Grp",
+            "repeat": true,
+            "fields": {
+              "logo": {
+                "type": "Image",
+                "config": {
+                  "label": "Logo",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "quote": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Quote",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph"
+                }
+              },
+              "img": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "author": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Author",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph"
+                }
+              },
+              "company": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Company",
+                  "placeholder": "Position, Company name",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

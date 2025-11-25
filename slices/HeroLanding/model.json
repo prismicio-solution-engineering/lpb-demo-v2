@@ -1,0 +1,275 @@
+{
+  "id": "hero_landing",
+  "type": "SharedSlice",
+  "name": "HeroLanding",
+  "description": "HeroLanding",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading1"
+          }
+        },
+        "txt": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong"
+          }
+        },
+        "btns": {
+          "type": "Link",
+          "config": {
+            "label": "Buttons",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": true,
+            "variants": [
+              "Primary",
+              "Secondary"
+            ]
+          }
+        },
+        "img": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "variation1",
+      "name": "Variation 1",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading1"
+          }
+        },
+        "txt": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong"
+          }
+        },
+        "btns": {
+          "type": "Link",
+          "config": {
+            "label": "Buttons",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": true,
+            "variants": [
+              "Primary",
+              "Secondary"
+            ]
+          }
+        },
+        "video": {
+          "type": "Embed",
+          "config": {
+            "label": "Video",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "variation2",
+      "name": "Variation 2",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading1"
+          }
+        },
+        "txt": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong"
+          }
+        },
+        "input_placeholder": {
+          "type": "Text",
+          "config": {
+            "label": "Input - placeholder",
+            "placeholder": "Enter your mail"
+          }
+        },
+        "btn_txt": {
+          "type": "Text",
+          "config": {
+            "label": "Button - Text",
+            "placeholder": "S'abonner"
+          }
+        },
+        "img": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "legals_dsc": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Legals description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,hyperlink,em,strong"
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "variation3",
+      "name": "Variation 3",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading1"
+          }
+        },
+        "txt": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong"
+          }
+        },
+        "btns": {
+          "type": "Link",
+          "config": {
+            "label": "Buttons",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": true,
+            "variants": [
+              "Primary",
+              "Secondary"
+            ]
+          }
+        },
+        "img": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "variation4",
+      "name": "Variation 4",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading1"
+          }
+        },
+        "txt": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong"
+          }
+        },
+        "btns": {
+          "type": "Link",
+          "config": {
+            "label": "Buttons",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": true,
+            "variants": [
+              "Primary",
+              "Secondary"
+            ]
+          }
+        },
+        "img": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

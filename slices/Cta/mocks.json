@@ -1,0 +1,198 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Sport"
+						}
+					}
+				]
+			},
+			"txt": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Sint culpa deserunt est voluptate in in magna. Consequat sint ad et laboris sunt laboris."
+						}
+					}
+				]
+			},
+			"btns": {
+				"__TYPE__": "RepeatableContent",
+				"type": "Link",
+				"value": [
+					{
+						"key": "e3375044-104d-4b99-8ee4-6f990c0a24c3",
+						"__TYPE__": "LinkContent",
+						"value": {
+							"__TYPE__": "ExternalLink",
+							"url": "http://google.com",
+							"text": "wait",
+							"variant": "Primary"
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "variation1",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Complex"
+						}
+					}
+				]
+			},
+			"txt": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Deserunt adipisicing laborum ex minim sint aute nisi id nisi. Excepteur non mollit culpa laborum qui non. Commodo consequat nulla ex duis aliquip ut nisi et consectetur aliquip ad."
+						}
+					}
+				]
+			},
+			"btns": {
+				"__TYPE__": "RepeatableContent",
+				"type": "Link",
+				"value": [
+					{
+						"key": "23578476-b68b-47cc-b10b-9eeb14139460",
+						"__TYPE__": "LinkContent",
+						"value": {
+							"__TYPE__": "ExternalLink",
+							"url": "http://twitter.com",
+							"text": "herself",
+							"variant": "Primary"
+						}
+					}
+				]
+			},
+			"img": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04",
+					"width": 4000,
+					"height": 4000
+				},
+				"url": "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04",
+				"width": 4000,
+				"height": 4000,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "two",
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "variation2",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Point"
+						}
+					}
+				]
+			},
+			"txt": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Ad duis consectetur proident amet nisi tempor commodo sit consequat. Quis irure non incididunt culpa aute ut adipisicing."
+						}
+					}
+				]
+			},
+			"img": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1600861194802-a2b11076bc51",
+					"width": 2545,
+					"height": 2545
+				},
+				"url": "https://images.unsplash.com/photo-1600861194802-a2b11076bc51",
+				"width": 2545,
+				"height": 2545,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "piece",
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"input_placeholder": {
+				"__TYPE__": "FieldContent",
+				"value": "typical",
+				"type": "Text"
+			},
+			"btn_txt": {
+				"__TYPE__": "FieldContent",
+				"value": "imagine",
+				"type": "Text"
+			},
+			"legals_dsc": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Ad sit velit officia commodo anim eu Lorem in irure laboris nulla adipisicing. Occaecat nisi officia nulla. Laborum consectetur ex sunt ad veniam."
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	}
+]

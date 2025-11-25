@@ -1,0 +1,189 @@
+{
+  "id": "carousel",
+  "type": "SharedSlice",
+  "name": "Carousel",
+  "description": "Carousel",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "ontitle": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Ontitle",
+            "placeholder": "Blog",
+            "allowTargetBlank": true,
+            "multi": "heading2"
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading3"
+          }
+        },
+        "txt": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
+        },
+        "btn_txt": {
+          "type": "Text",
+          "config": {
+            "label": "Button - Text",
+            "placeholder": "View all"
+          }
+        },
+        "grp": {
+          "type": "Group",
+          "config": {
+            "label": "Grp",
+            "repeat": true,
+            "fields": {
+              "article": {
+                "type": "Link",
+                "config": {
+                  "label": "Article",
+                  "select": "document",
+                  "repeat": false,
+                  "customtypes": [
+                    {
+                      "id": "article",
+                      "fields": [
+                        "read_time",
+                        "date",
+                        "img",
+                        "title",
+                        "desc",
+                        {
+                          "id": "author",
+                          "customtypes": [
+                            {
+                              "id": "author",
+                              "fields": [
+                                "img",
+                                "name"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "id": "category",
+                          "customtypes": [
+                            {
+                              "id": "category",
+                              "fields": [
+                                "name"
+                              ]
+                            }
+                          ]
+                        },
+                        "read_time_txt"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "variation1",
+      "name": "Variation 1",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading3"
+          }
+        },
+        "txt": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
+        },
+        "grp": {
+          "type": "Group",
+          "config": {
+            "label": "Grp",
+            "repeat": true,
+            "fields": {
+              "img": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "variation2",
+      "name": "Variation 2",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2"
+          }
+        },
+        "grp": {
+          "type": "Group",
+          "config": {
+            "label": "Grp",
+            "repeat": true,
+            "fields": {
+              "logo": {
+                "type": "Image",
+                "config": {
+                  "label": "Logo",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

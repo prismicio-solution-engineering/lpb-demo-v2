@@ -1,0 +1,164 @@
+{
+  "id": "cta",
+  "type": "SharedSlice",
+  "name": "Cta",
+  "description": "Cta",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2"
+          }
+        },
+        "txt": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
+        },
+        "btns": {
+          "type": "Link",
+          "config": {
+            "label": "Buttons",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": true,
+            "variants": [
+              "Primary",
+              "Secondary"
+            ]
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "variation1",
+      "name": "Variation 1",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2"
+          }
+        },
+        "txt": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
+        },
+        "btns": {
+          "type": "Link",
+          "config": {
+            "label": "Buttons",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": true,
+            "variants": [
+              "Primary",
+              "Secondary"
+            ]
+          }
+        },
+        "img": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "variation2",
+      "name": "Variation 2",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2"
+          }
+        },
+        "txt": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
+        },
+        "input_placeholder": {
+          "type": "Text",
+          "config": {
+            "label": "Input - placeholder",
+            "placeholder": "Enter your email"
+          }
+        },
+        "btn_txt": {
+          "type": "Text",
+          "config": {
+            "label": "Button - Text",
+            "placeholder": "Sign up"
+          }
+        },
+        "legals_dsc": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Legals description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,hyperlink,strong,em"
+          }
+        },
+        "img": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

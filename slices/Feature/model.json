@@ -1,0 +1,72 @@
+{
+  "type": "SharedSlice",
+  "id": "media_feature",
+  "name": "Feature",
+  "variations": [
+    {
+      "id": "default",
+      "name": "default",
+      "description": "Layout with the media (image or video) on the right and textual content (tagline, heading, description, and actions) on the left.",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "tagline": {
+          "type": "Text",
+          "config": {
+            "label": "Tagline"
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "multi": "paragraph,strong,em,hyperlink",
+            "label": "Description"
+          }
+        },
+        "buttons": {
+          "type": "Link",
+          "config": {
+            "label": "Buttons",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": true,
+            "variants": [
+              "Primary",
+              "Secondary"
+            ]
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "image_side": {
+          "type": "Boolean",
+          "config": {
+            "label": "Image side",
+            "placeholder_false": "left",
+            "placeholder_true": "right",
+            "default_value": true
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

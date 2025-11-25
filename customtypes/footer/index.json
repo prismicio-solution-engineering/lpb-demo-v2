@@ -1,0 +1,18 @@
+{
+  "id": "footer",
+  "json": {
+    "Main": {
+      "txt": {
+        "type": "Text",
+        "config": {
+          "label": "Text",
+          "placeholder": ""
+        }
+      }
+    }
+  },
+  "label": "Footer",
+  "repeatable": false,
+  "status": true,
+  "format": "custom"
+}

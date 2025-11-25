@@ -1,0 +1,257 @@
+{
+  "id": "faq",
+  "type": "SharedSlice",
+  "name": "Faq",
+  "description": "Faq",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2"
+          }
+        },
+        "txt": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
+        },
+        "btn": {
+          "type": "Link",
+          "config": {
+            "label": "Button",
+            "placeholder": "Contact",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false,
+            "variants": [
+              "Primary",
+              "Secondary"
+            ]
+          }
+        },
+        "grp": {
+          "type": "Group",
+          "config": {
+            "label": "Grp",
+            "repeat": true,
+            "fields": {
+              "question": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Question",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "heading3"
+                }
+              },
+              "answer": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Answer",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "variation1",
+      "name": "Variation 1",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2"
+          }
+        },
+        "txt": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
+        },
+        "grp": {
+          "type": "Group",
+          "config": {
+            "label": "Grp",
+            "repeat": true,
+            "fields": {
+              "question": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Question",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "heading3"
+                }
+              },
+              "answer": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Answer",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,strong,hyperlink"
+                }
+              }
+            }
+          }
+        },
+        "title_foot": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title - Foot",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading4"
+          }
+        },
+        "txt_foot": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text - Foot",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
+        },
+        "btn": {
+          "type": "Link",
+          "config": {
+            "label": "Button",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false,
+            "variants": [
+              "Primary",
+              "Secondary"
+            ]
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "variation2",
+      "name": "Variation 2",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2"
+          }
+        },
+        "txt": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
+        },
+        "grp": {
+          "type": "Group",
+          "config": {
+            "label": "Grp",
+            "repeat": true,
+            "fields": {
+              "question": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Question",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "heading3"
+                }
+              },
+              "answer": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Answer",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,strong,hyperlink"
+                }
+              }
+            }
+          }
+        },
+        "title_foot": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title - foot",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading4"
+          }
+        },
+        "txt_foot": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text - Foot",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
+        },
+        "btn": {
+          "type": "Link",
+          "config": {
+            "label": "Button",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false,
+            "variants": [
+              "Primary",
+              "Secondary"
+            ]
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

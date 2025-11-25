@@ -1,0 +1,287 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Silver"
+						}
+					}
+				]
+			},
+			"txt": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Cupidatat reprehenderit ea sint occaecat est enim."
+						}
+					}
+				]
+			},
+			"btn": {
+				"key": "c2565935-8f1c-40fc-8461-7666d1f1a073",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io",
+					"text": "correctly",
+					"variant": "Secondary"
+				}
+			},
+			"grp": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"question",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "heading3",
+											"content": {
+												"text": "Stage"
+											}
+										}
+									]
+								}
+							],
+							[
+								"answer",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Adipisicing ea ipsum sunt dolor proident."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "variation1",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Managed"
+						}
+					}
+				]
+			},
+			"txt": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Incididunt dolore anim aute laborum enim adipisicing. Deserunt eu consequat culpa voluptate ea enim laborum exercitation. Qui consequat quis esse deserunt aliqua tempor do anim sunt Lorem excepteur labore amet."
+						}
+					}
+				]
+			},
+			"grp": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"question",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "heading3",
+											"content": {
+												"text": "Deeply"
+											}
+										}
+									]
+								}
+							],
+							[
+								"answer",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Mollit exercitation dolore duis adipisicing."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			},
+			"title_foot": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading4",
+						"content": {
+							"text": "Belong"
+						}
+					}
+				]
+			},
+			"btn": {
+				"key": "af6a0cd2-44c0-4398-bbfd-a82c81eaaa9f",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io",
+					"text": "became",
+					"variant": "Primary"
+				}
+			},
+			"txt_foot": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Adipisicing irure labore nisi reprehenderit eu minim id et non ex id et duis dolor. Sint proident minim elit adipisicing do laborum officia cupidatat ex ea do in. Amet laborum amet deserunt eiusmod."
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "variation2",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Quickly"
+						}
+					}
+				]
+			},
+			"txt": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Ad culpa culpa duis proident esse esse eu aliqua exercitation tempor consectetur ex laboris occaecat sit."
+						}
+					}
+				]
+			},
+			"title_foot": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading4",
+						"content": {
+							"text": "Shape"
+						}
+					}
+				]
+			},
+			"btn": {
+				"key": "47e4f8be-7a16-46aa-875c-dd8854e177d6",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io",
+					"text": "mysterious",
+					"variant": "Primary"
+				}
+			},
+			"grp": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"question",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "heading3",
+											"content": {
+												"text": "Beneath"
+											}
+										}
+									]
+								}
+							],
+							[
+								"answer",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Culpa occaecat occaecat Lorem sunt. Excepteur sit ipsum culpa aute culpa incididunt ex anim id quis do occaecat incididunt."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			},
+			"txt_foot": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Adipisicing irure ea et sunt ipsum ullamco."
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	}
+]

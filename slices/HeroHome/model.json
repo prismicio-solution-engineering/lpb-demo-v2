@@ -1,0 +1,16 @@
+{
+  "id": "hero_home",
+  "type": "SharedSlice",
+  "name": "HeroHome",
+  "description": "HeroHome",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": ""
+    }
+  ]
+}

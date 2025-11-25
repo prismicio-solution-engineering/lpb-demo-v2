@@ -1,0 +1,385 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Positive"
+						}
+					}
+				]
+			},
+			"txt": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Ipsum pariatur ad eu officia sit. Anim anim elit culpa eiusmod irure officia amet labore enim nulla. Ut eu deserunt cillum."
+						}
+					}
+				]
+			},
+			"img": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853",
+					"width": 5243,
+					"height": 3495
+				},
+				"url": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853",
+				"width": 5243,
+				"height": 3495,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "mail",
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"btns": {
+				"__TYPE__": "RepeatableContent",
+				"type": "Link",
+				"value": [
+					{
+						"key": "0cc0f46a-6f68-46ee-b17b-a8267c44b11c",
+						"__TYPE__": "LinkContent",
+						"value": {
+							"__TYPE__": "ExternalLink",
+							"url": "http://google.com",
+							"text": "shelter",
+							"variant": "Secondary"
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "variation1",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Worth"
+						}
+					}
+				]
+			},
+			"txt": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Ipsum reprehenderit deserunt dolore ex commodo sint cupidatat ad nisi dolore. Voluptate nostrud qui velit quis officia eiusmod sunt. Ipsum culpa sint in velit nulla incididunt nisi ut excepteur pariatur."
+						}
+					}
+				]
+			},
+			"img": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2",
+					"width": 5616,
+					"height": 3744
+				},
+				"url": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2",
+				"width": 5616,
+				"height": 3744,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "aloud",
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"input_placeholder": {
+				"__TYPE__": "FieldContent",
+				"value": "actual",
+				"type": "Text"
+			},
+			"btn_txt": {
+				"__TYPE__": "FieldContent",
+				"value": "task",
+				"type": "Text"
+			},
+			"legals_dsc": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Duis ad consectetur magna ipsum incididunt do exercitation in nulla duis nisi. Amet laborum magna ipsum sit Lorem amet non sunt eiusmod cupidatat quis."
+						}
+					}
+				]
+			},
+			"btns": {
+				"__TYPE__": "RepeatableContent",
+				"type": "Link",
+				"value": [
+					{
+						"key": "ad59a6a2-710e-4037-bafb-a92f6f4cf747",
+						"__TYPE__": "LinkContent",
+						"value": {
+							"__TYPE__": "ExternalLink",
+							"url": "https://prismic.io",
+							"text": "catch",
+							"variant": "Primary"
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "variation2",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Blanket"
+						}
+					}
+				]
+			},
+			"txt": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Anim est est laboris officia velit. Dolor magna fugiat dolore nostrud dolor in in et nulla labore est ea sint aute velit."
+						}
+					}
+				]
+			},
+			"lnks": {
+				"__TYPE__": "RepeatableContent",
+				"type": "Link",
+				"value": [
+					{
+						"key": "ab82f082-477b-41fc-9e84-e389a619dba1",
+						"__TYPE__": "LinkContent",
+						"value": {
+							"__TYPE__": "ExternalLink",
+							"url": "http://google.com",
+							"text": "drive",
+							"variant": "Secondary"
+						}
+					}
+				]
+			},
+			"video": {
+				"embed_url": "https://twitter.com/prismicio/status/1354835716430319617",
+				"author_name": "Prismic",
+				"author_url": "https://twitter.com/prismicio",
+				"html": "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">Does anyone want to create a wildly popular website for discussing &#39;Wall Street Bets&#39; using Prismic?<br><br>It may or may not have to look a lot like <a href=\"https://twitter.com/hashtag/reddit?src=hash&amp;ref_src=twsrc%5Etfw\">#reddit</a> and we won&#39;t make it private.<br><br>Just asking for some friends...</p>&mdash; Prismic (@prismicio) <a href=\"https://twitter.com/prismicio/status/1354835716430319617?ref_src=twsrc%5Etfw\">January 28, 2021</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+				"type": "rich",
+				"cache_age": "3153600000",
+				"provider_name": "Twitter",
+				"provider_url": "http://www.twitter.com/",
+				"version": "1.0",
+				"all": {
+					"embed_url": "https://twitter.com/prismicio/status/1354835716430319617",
+					"author_name": "Prismic",
+					"author_url": "https://twitter.com/prismicio",
+					"html": "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">Does anyone want to create a wildly popular website for discussing &#39;Wall Street Bets&#39; using Prismic?<br><br>It may or may not have to look a lot like <a href=\"https://twitter.com/hashtag/reddit?src=hash&amp;ref_src=twsrc%5Etfw\">#reddit</a> and we won&#39;t make it private.<br><br>Just asking for some friends...</p>&mdash; Prismic (@prismicio) <a href=\"https://twitter.com/prismicio/status/1354835716430319617?ref_src=twsrc%5Etfw\">January 28, 2021</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+					"width": 550,
+					"height": null,
+					"type": "rich",
+					"cache_age": "3153600000",
+					"provider_name": "Twitter",
+					"provider_url": "http://www.twitter.com/",
+					"version": "1.0"
+				},
+				"__TYPE__": "EmbedContent"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "variation3",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Whole"
+						}
+					}
+				]
+			},
+			"txt": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Magna mollit ut sit occaecat."
+						}
+					}
+				]
+			},
+			"btns": {
+				"__TYPE__": "RepeatableContent",
+				"type": "Link",
+				"value": [
+					{
+						"key": "c0263ca5-9e42-4f1e-a568-a738faee759c",
+						"__TYPE__": "LinkContent",
+						"value": {
+							"__TYPE__": "ExternalLink",
+							"url": "https://slicemachine.dev",
+							"text": "adventure",
+							"variant": "Primary"
+						}
+					}
+				]
+			},
+			"img": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1589321578146-4c1ba445cc88",
+					"width": 3168,
+					"height": 4752
+				},
+				"url": "https://images.unsplash.com/photo-1589321578146-4c1ba445cc88",
+				"width": 3168,
+				"height": 4752,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "reach",
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "variation4",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Excited"
+						}
+					}
+				]
+			},
+			"txt": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Adipisicing labore veniam commodo laboris mollit."
+						}
+					}
+				]
+			},
+			"btns": {
+				"__TYPE__": "RepeatableContent",
+				"type": "Link",
+				"value": [
+					{
+						"key": "243b3f65-d5bd-4490-9ea4-f4d35d9f906c",
+						"__TYPE__": "LinkContent",
+						"value": {
+							"__TYPE__": "ExternalLink",
+							"url": "http://twitter.com",
+							"text": "powder",
+							"variant": "Secondary"
+						}
+					}
+				]
+			},
+			"img": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1587653915936-5623ea0b949a",
+					"width": 4000,
+					"height": 4000
+				},
+				"url": "https://images.unsplash.com/photo-1587653915936-5623ea0b949a",
+				"width": 4000,
+				"height": 4000,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "prepare",
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	}
+]

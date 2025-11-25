@@ -1,26 +1,57 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face {
+  font-family: Inter;
+  src: url(../assets/fonts/Inter-Variable.ttf);
+  font-display: swap;
+}
+@font-face {
+  font-family: Proxima-Bold;
+  src: url(../assets/fonts/Proxima-Bold.otf);
+  font-display: swap;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@theme {
+  /*----------  PRIMARY  ----------*/
+  --color-primary_1: #1d4ed8;
+  --color-primary_2: #f95b17;
+  /*----------  SECONDARY  ----------*/
+  --color-secondary_1: #ebb7f5;
+  --color-secondary_2: #b8ffc3;
+  /*----------  GREYSCALE  ----------*/
+  --color-greyscale_1: #0000;
+  --color-greyscale_2: #e5e7eb;
+  --color-greyscale_3: #d1d5db;
+  /*----------  SYSTEM PALETTE  ----------*/
+  --color-error: #ef4444;
+  --color-warning: #f59e0b;
+  --color-success: #10b981;
+  /*----------  FONTS ----------*/
+  --font-inter: "Inter", sans-serif;
+  --font-proxima-bold: "Proxima-Bold", sans-serif;
+  /*----------  BEZIER CURVES  ----------*/
+  --ease-in1: cubic-bezier(0.47, 0, 0.745, 0.715);
+  --ease-out1: cubic-bezier(0.39, 0.575, 0.565, 1);
+  --ease-inout1: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  --ease-in2: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  --ease-out2: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-inout2: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  --ease-in3: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  --ease-out3: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --ease-inout3: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --ease-in4: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+  --ease-out4: cubic-bezier(0.165, 0.84, 0.44, 1);
+  --ease-inout4: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-in5: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+  --ease-out5: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-inout5: cubic-bezier(0.86, 0, 0.07, 1);
+  --ease-in6: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+  --ease-out6: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-inout6: cubic-bezier(1, 0, 0, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+html,
+body,
+#__next {
+  height: 100%;
 }

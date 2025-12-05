@@ -903,6 +903,237 @@ export type CarouselSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *Content → Two columns images → Primary → Images*
+ */
+export interface ContentSliceTwoColumnsImagesPrimaryImagesItem {
+  /**
+   * Image field in *Content → Two columns images → Primary → Images*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content.twoColumnsImages.primary.images[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *Content → Default → Primary*
+ */
+export interface ContentSliceDefaultPrimary {
+  /**
+   * Content field in *Content → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content.default.primary.content
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Content Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ContentSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ContentSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *Content → Two columns → Primary*
+ */
+export interface ContentSliceTwoColumnsPrimary {
+  /**
+   * Content left column field in *Content → Two columns → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content.twoColumns.primary.content_left_column
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  content_left_column: prismic.RichTextField;
+
+  /**
+   * Content right column field in *Content → Two columns → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content.twoColumns.primary.content_right_column
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  content_right_column: prismic.RichTextField;
+}
+
+/**
+ * Two columns variation for Content Slice
+ *
+ * - **API ID**: `twoColumns`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ContentSliceTwoColumns = prismic.SharedSliceVariation<
+  "twoColumns",
+  Simplify<ContentSliceTwoColumnsPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *Content → Two columns image → Primary*
+ */
+export interface ContentSliceTwoColumnsImagePrimary {
+  /**
+   * Content field in *Content → Two columns image → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content.twoColumnsImage.primary.content
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  content: prismic.RichTextField;
+
+  /**
+   * Image field in *Content → Two columns image → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content.twoColumnsImage.primary.image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Image side field in *Content → Two columns image → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: content.twoColumnsImage.primary.image_side
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  image_side: prismic.BooleanField;
+}
+
+/**
+ * Two columns image variation for Content Slice
+ *
+ * - **API ID**: `twoColumnsImage`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ContentSliceTwoColumnsImage = prismic.SharedSliceVariation<
+  "twoColumnsImage",
+  Simplify<ContentSliceTwoColumnsImagePrimary>,
+  never
+>;
+
+/**
+ * Primary content in *Content → Quote → Primary*
+ */
+export interface ContentSliceQuotePrimary {
+  /**
+   * Content field in *Content → Quote → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content.quote.primary.content
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Quote variation for Content Slice
+ *
+ * - **API ID**: `quote`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ContentSliceQuote = prismic.SharedSliceVariation<
+  "quote",
+  Simplify<ContentSliceQuotePrimary>,
+  never
+>;
+
+/**
+ * Primary content in *Content → Two columns images → Primary*
+ */
+export interface ContentSliceTwoColumnsImagesPrimary {
+  /**
+   * Content field in *Content → Two columns images → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content.twoColumnsImages.primary.content
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  content: prismic.RichTextField;
+
+  /**
+   * Images field in *Content → Two columns images → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content.twoColumnsImages.primary.images[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  images: prismic.GroupField<
+    Simplify<ContentSliceTwoColumnsImagesPrimaryImagesItem>
+  >;
+
+  /**
+   * Images side field in *Content → Two columns images → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: content.twoColumnsImages.primary.images_side
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  images_side: prismic.BooleanField;
+}
+
+/**
+ * Two columns images variation for Content Slice
+ *
+ * - **API ID**: `twoColumnsImages`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ContentSliceTwoColumnsImages = prismic.SharedSliceVariation<
+  "twoColumnsImages",
+  Simplify<ContentSliceTwoColumnsImagesPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Content*
+ */
+type ContentSliceVariation =
+  | ContentSliceDefault
+  | ContentSliceTwoColumns
+  | ContentSliceTwoColumnsImage
+  | ContentSliceQuote
+  | ContentSliceTwoColumnsImages;
+
+/**
+ * Content Shared Slice
+ *
+ * - **API ID**: `content`
+ * - **Description**: Content
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ContentSlice = prismic.SharedSlice<
+  "content",
+  ContentSliceVariation
+>;
+
+/**
  * Primary content in *Cta → Default → Primary*
  */
 export interface CtaSliceDefaultPrimary {
@@ -2315,6 +2546,19 @@ declare module "@prismicio/client" {
       CarouselSliceDefault,
       CarouselSliceVariation1,
       CarouselSliceVariation2,
+      ContentSlice,
+      ContentSliceDefaultPrimary,
+      ContentSliceTwoColumnsPrimary,
+      ContentSliceTwoColumnsImagePrimary,
+      ContentSliceQuotePrimary,
+      ContentSliceTwoColumnsImagesPrimaryImagesItem,
+      ContentSliceTwoColumnsImagesPrimary,
+      ContentSliceVariation,
+      ContentSliceDefault,
+      ContentSliceTwoColumns,
+      ContentSliceTwoColumnsImage,
+      ContentSliceQuote,
+      ContentSliceTwoColumnsImages,
       CtaSlice,
       CtaSliceDefaultPrimary,
       CtaSliceVariation1Primary,

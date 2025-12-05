@@ -109,12 +109,12 @@ l-16.233-94.629l69.339-67.583C329.501,138.057,330.972,132.096,329.208,126.666z"
                     item.rate &&
                     renderStars(parseInt(item.rate as string))}
                 </div>
-                <div className="flex flex-col justify-between sm:min-h-[240px]">
+                <div className="flex flex-col justify-between sm:min-h-60">
                   <PrismicRichText
                     field={item.quote}
                     components={{
                       paragraph: ({ children }) => (
-                        <p className="min-h-[144px]">"{children}"</p>
+                        <p className="min-h-36">"{children}"</p>
                       )
                     }}
                   />

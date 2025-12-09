@@ -35,7 +35,7 @@ export default async function Home({
     }
   }
 
-  const [header, footer, languages] = await Promise.all([
+  const [header, footer, landingPages, languages] = await Promise.all([
     client
       .getSingle("header", {
         lang,
@@ -54,28 +54,17 @@ export default async function Home({
           lang: "en-us",
         })
       ),
+    client.getAllByType("landing", { lang }).catch(() => []),
     getLanguages(page, client, locales),
   ]);
 
-  let landingPages;
-  try {
-    landingPages = await client.getAllByType("landing", { lang });
-  } catch (error) {
-    // Try to fall back to the default locale (en-us)
-    try {
-      landingPages = await client.getAllByType("landing", { lang: "en-us" });
-    } catch (fallbackError) {
-      notFound();
-    }
-
-    return (
-      <SliceZone
-        slices={page.data.slices}
-        components={components}
-        context={{ landingPages: landingPages }}
-      />
-    );
-  }
+  return (
+    <SliceZone
+      slices={page.data.slices}
+      components={components}
+      context={{ lang }}
+    />
+  );
 }
 
 export async function generateMetadata({

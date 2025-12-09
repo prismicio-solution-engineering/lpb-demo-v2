@@ -1,10 +1,9 @@
-"use client";
 import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import Container from "@/components/Container";
-import { LandingDocument } from "@/prismicio-types";
 import Link from "next/link";
+import { getLandingPages } from "@/utils/getLandingPages";
 
 /**
  * Props for `HeroHome`.
@@ -14,8 +13,10 @@ export type HeroHomeProps = SliceComponentProps<Content.HeroHomeSlice>;
 /**
  * Component for "HeroHome" Slices.
  */
-const HeroHome: FC<HeroHomeProps> = ({ slice, context }) => {
-  const { landingPages } = context as { landingPages: LandingDocument[] };
+const HeroHome: FC<HeroHomeProps> = async ({ slice, context }) => {
+  const { lang } = context as { lang: string };
+
+  const landingPages = await getLandingPages(lang) || [];
 
   return (
     <section

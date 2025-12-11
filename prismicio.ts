@@ -40,6 +40,7 @@ const routes: Route[] = [
  */
 export const createClient = (config: ClientConfig = {}) => {
   const client = baseCreateClient(repositoryName, {
+    accessToken: process.env.NEXT_PUBLIC_PRISMIC_ENVIRONMENT ? process.env.PRISMIC_PRIVATE_TOKEN_DIANKA : "",
     routes,
     fetchOptions:
       process.env.NODE_ENV === "production"

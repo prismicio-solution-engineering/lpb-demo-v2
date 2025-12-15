@@ -10,7 +10,7 @@ export type TestimonialsProps = SliceComponentProps<Content.TestimonialsSlice>;
 const Testimonials = ({
   slice,
   ...otherProps
-}: TestimonialsProps) => {
+}: TestimonialsProps): JSX.Element => {
   switch (slice.variation) {
     case "variation1":
       return <TestimonialsVariant1 slice={slice} {...otherProps} />;

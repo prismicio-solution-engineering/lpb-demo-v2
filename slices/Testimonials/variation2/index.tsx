@@ -1,12 +1,13 @@
 "use client";
 import { useState, useEffect } from "react";
 import { FC } from "react";
-import { Content } from "@prismicio/client";
+import { Content, isFilled } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Container from "@/components/Container";
 import { getFontTextStyles, getFontHeadingStyles } from "@/utils/getFontStyles";
 import { LandingDocumentData } from "@/prismicio-types";
 import { PrismicNextImage } from "@prismicio/next";
+import { getBackgroundColor, getIconColor, getLightBackgroundColor, getLightIconColor } from "@/utils/getColors";
 
 /**
  * Props for `Testimonials`.
@@ -62,25 +63,26 @@ const Testimonials: FC<TestimonialsProps> = ({ slice, context }) => {
         size="xl"
       >
         <div
-          className={`flex justify-center gap-4 transition-opacity duration-500 ease-inout2 mt-5 ${
+          className={`w-full min-h-[400px] flex justify-center gap-4 rounded-xl transition-opacity duration-500 ease-inout2 mt-5 ${
             isTransitioning ? "opacity-0" : "opacity-100"
           }`}
+          style={getLightBackgroundColor(pageData)}
         >
           {getCurrentItems().map((item, index) => (
             <div
               key={`${currentIndex}-${index}`}
               className="flex flex-col justify-center items-center gap-8 p-4 sm:min-w-[50%] sm:max-w-[50%]"
             >
-              <div className="max-w-30 h-full">
+              {/* <div className="max-w-30 h-full"> */}
+              {/* </div> */}
+              <div className="flex flex-col items-center gap-10 ">
                 {"logo" in item && item.logo && (
                   <PrismicNextImage
                     field={item.logo}
-                    className="w-full h-full object-contain object-left"
+                    className="max-w-30 w-full h-full object-contain object-left"
                     priority
                   />
                 )}
-              </div>
-              <div className="flex flex-col gap-10 sm:min-h-[300px]">
                 <PrismicRichText
                   field={item.quote}
                   components={{
@@ -93,11 +95,15 @@ const Testimonials: FC<TestimonialsProps> = ({ slice, context }) => {
                 />
                 <div className="flex flex-col justify-center items-center gap-4 w-full">
                   <div className="w-14 h-14">
-                    <PrismicNextImage
-                      field={item.img}
-                      className="rounded-full w-full h-full object-cover"
-                      priority
-                    />
+                    {isFilled.image(item.img) ? (
+                      <PrismicNextImage
+                        field={item.img}
+                        className="rounded-full w-full h-full object-cover"
+                        priority
+                      />
+                    ) : (
+                      <div className="rounded-full w-full h-full" style={getBackgroundColor(pageData)}/>
+                    )}
                   </div>
                   <div className="flex flex-col text-center">
                     <PrismicRichText
@@ -120,9 +126,8 @@ const Testimonials: FC<TestimonialsProps> = ({ slice, context }) => {
           {Array.from({ length: maxIndex + 1 }, (_, index) => (
             <div
               key={index}
-              className={`w-2 h-2 rounded-full transition-colors duration-300 ease-in-out cursor-pointer ${
-                index === currentIndex ? "bg-gray-900" : "bg-gray-300"
-              }`}
+              className={`w-2 h-2 rounded-full transition-colors duration-300 ease-in-out cursor-pointer`}
+              style={index === currentIndex ? getIconColor(pageData) : getLightIconColor(pageData)}
               onClick={() => changeIndex(index)}
             />
           ))}

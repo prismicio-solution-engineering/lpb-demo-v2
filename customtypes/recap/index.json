@@ -1,0 +1,308 @@
+{
+  "format": "page",
+  "id": "recap",
+  "label": "Recap",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "UID"
+        }
+      },
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Title",
+          "placeholder": ""
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {}
+        }
+      }
+    },
+    "Hero": {
+      "client_logo": {
+        "type": "Image",
+        "config": {
+          "label": "Client Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "hero_eyebrow": {
+        "type": "Text",
+        "config": {
+          "label": "Hero Eyebrow",
+          "placeholder": ""
+        }
+      },
+      "hero_title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Hero Title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "heading1"
+        }
+      },
+      "hero_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Hero Text",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em"
+        }
+      },
+      "contact": {
+        "type": "Link",
+        "config": {
+          "label": "Contact",
+          "select": "document",
+          "repeat": false,
+          "customtypes": [
+            {
+              "id": "contact",
+              "fields": ["image", "name", "position", "email", "calendar"]
+            }
+          ]
+        }
+      }
+    },
+    "Context": {
+      "context_title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Context Title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "heading2"
+        }
+      },
+      "context_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Context Text",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em"
+        }
+      }
+    },
+    "Opportunities": {
+      "opportunities_title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Opportunities Title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "heading2"
+        }
+      },
+      "opportunity": {
+        "type": "Group",
+        "config": {
+          "label": "Opportunity",
+          "repeat": true,
+          "fields": {
+            "icon": {
+              "type": "Select",
+              "config": {
+                "label": "Icon",
+                "placeholder": "",
+                "options": ["zoom", "reuse", "hammer"]
+              }
+            },
+            "title": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Title",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "heading3"
+              }
+            },
+            "text": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Text",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "paragraph,strong,em"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Data": {
+      "data_title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Data Title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "heading2"
+        }
+      },
+      "data_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Data Text",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em"
+        }
+      },
+      "generated_page": {
+        "type": "Group",
+        "config": {
+          "label": "Generated Page",
+          "repeat": true,
+          "fields": {
+            "company_name": {
+              "type": "Text",
+              "config": {
+                "label": "Company Name",
+                "placeholder": ""
+              }
+            },
+            "first_name": {
+              "type": "Text",
+              "config": {
+                "label": "First name",
+                "placeholder": ""
+              }
+            },
+            "last_name": {
+              "type": "Text",
+              "config": {
+                "label": "Last Name",
+                "placeholder": ""
+              }
+            },
+            "role": {
+              "type": "Text",
+              "config": {
+                "label": "Role",
+                "placeholder": ""
+              }
+            },
+            "challenges": {
+              "type": "Text",
+              "config": {
+                "label": "Challenges",
+                "placeholder": ""
+              }
+            },
+            "pain_point": {
+              "type": "Text",
+              "config": {
+                "label": "Pain Point",
+                "placeholder": ""
+              }
+            },
+            "industry_information": {
+              "type": "Text",
+              "config": {
+                "label": "Industry Information",
+                "placeholder": ""
+              }
+            },
+            "key_message": {
+              "type": "Text",
+              "config": {
+                "label": "Key Message",
+                "placeholder": ""
+              }
+            },
+            "page": {
+              "type": "Link",
+              "config": {
+                "label": "Page",
+                "placeholder": "",
+                "select": null,
+                "allowTargetBlank": true,
+                "allowText": true,
+                "repeat": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "Next Steps": {
+      "next_eyebrow": {
+        "type": "Text",
+        "config": {
+          "label": "Next Eyebrow",
+          "placeholder": ""
+        }
+      },
+      "next_title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Next Title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "heading2"
+        }
+      },
+      "next_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Next Text",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,em,strong"
+        }
+      },
+      "buttons": {
+        "type": "Link",
+        "config": {
+          "label": "Buttons",
+          "placeholder": "",
+          "select": null,
+          "allowTargetBlank": true,
+          "allowText": true,
+          "repeat": true,
+          "variants": ["Filled", "Outlined"]
+        }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_title": {
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "A title of the page used for social media and search engines"
+        },
+        "type": "Text"
+      },
+      "meta_description": {
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "A brief summary of the page"
+        },
+        "type": "Text"
+      },
+      "meta_image": {
+        "config": {
+          "constraint": {
+            "height": 1260,
+            "width": 2400
+          },
+          "label": "Meta Image",
+          "thumbnails": []
+        },
+        "type": "Image"
+      }
+    }
+  }
+}

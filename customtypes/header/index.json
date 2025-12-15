@@ -2,11 +2,27 @@
   "id": "header",
   "json": {
     "Main": {
-      "txt": {
-        "type": "Text",
+      "ctas": {
+        "type": "Link",
         "config": {
-          "label": "Text",
-          "placeholder": ""
+          "label": "CTAs",
+          "placeholder": "",
+          "select": null,
+          "allowTargetBlank": true,
+          "allowText": true,
+          "repeat": true,
+          "variants": ["Primary", "Secondary", "Link"]
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "navigation_links": {
+              "type": "SharedSlice"
+            }
+          }
         }
       }
     }

@@ -7,6 +7,8 @@ import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import { getLanguages } from "@/utils/getLanguages";
 import { getLocales } from "@/utils/getLocales";
+import { Header } from "@/components/GlobalNavigation";
+import { getAllLanguages } from "@/utils/getAllLanguages";
 
 export default async function Home({
   params,
@@ -35,35 +37,54 @@ export default async function Home({
     }
   }
 
-  const [header, footer, landingPages, languages] = await Promise.all([
-    client
-      .getSingle("header", {
-        lang,
-      })
-      .catch(() =>
-        client.getSingle("header", {
-          lang: "en-us",
+  const [header, footer, settings, landingPages, languages] = await Promise.all(
+    [
+      client
+        .getSingle("header", {
+          lang,
         })
-      ),
-    client
-      .getSingle("footer", {
-        lang,
-      })
-      .catch(() =>
-        client.getSingle("footer", {
-          lang: "en-us",
+        .catch(() =>
+          client.getSingle("header", {
+            lang: "en-us",
+          })
+        ),
+
+      client
+        .getSingle("footer", {
+          lang,
         })
-      ),
-    client.getAllByType("landing", { lang }).catch(() => []),
-    getLanguages(page, client, locales),
-  ]);
+        .catch(() =>
+          client.getSingle("footer", {
+            lang: "en-us",
+          })
+        ),
+
+      client
+        .getSingle("settings", {
+          lang,
+        })
+        .catch(() =>
+          client.getSingle("settings", {
+            lang: "en-us",
+          })
+        ),
+
+      client.getAllByType("landing", { lang }).catch(() => []),
+
+      getAllLanguages(page, client, locales),
+    ]
+  );
 
   return (
-    <SliceZone
+    <>
+      <Header settings={settings} page={header} languages={languages} />
+      Hello World
+      {/* <SliceZone
       slices={page.data.slices}
       components={components}
       context={{ lang }}
-    />
+    /> */}
+    </>
   );
 }
 

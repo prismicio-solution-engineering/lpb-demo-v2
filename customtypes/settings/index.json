@@ -1,0 +1,26 @@
+{
+  "format": "custom",
+  "id": "settings",
+  "label": "Settings",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Company": {
+      "company_name": {
+        "type": "Text",
+        "config": {
+          "label": "Company name",
+          "placeholder": ""
+        }
+      },
+      "company_logo": {
+        "type": "Image",
+        "config": {
+          "label": "Company logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}

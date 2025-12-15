@@ -10,5 +10,6 @@ export const components = {
   hero_home: dynamic(() => import("./HeroHome")),
   hero_landing: dynamic(() => import("./HeroLanding")),
   media_feature: dynamic(() => import("./Feature")),
+  navigation_links: dynamic(() => import("./NavigationLinks")),
   testimonials: dynamic(() => import("./Testimonials")),
 };

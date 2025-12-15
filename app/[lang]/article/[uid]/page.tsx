@@ -7,6 +7,7 @@ import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import { getLocales } from "@/utils/getLocales";
 import { getLanguages } from "@/utils/getLanguages";
+import { Header } from "@/components/GlobalNavigation";
 
 export async function generateMetadata({
   params,
@@ -89,7 +90,7 @@ export default async function Article({
     }
   }
 
-  const [header, footer, languages] = await Promise.all([
+  const [header, footer, settings, languages] = await Promise.all([
     client
       .getSingle("header", {
         lang,
@@ -99,6 +100,7 @@ export default async function Article({
           lang: "en-us",
         })
       ),
+
     client
       .getSingle("footer", {
         lang,
@@ -108,18 +110,31 @@ export default async function Article({
           lang: "en-us",
         })
       ),
-    getLanguages(page, client, locales),
+
+    client
+      .getSingle("settings", {
+        lang,
+      })
+      .catch(() =>
+        client.getSingle("settings", {
+          lang: "en-us",
+        })
+      ),
+
+    getLanguages(page, client),
   ]);
 
   return (
-    <SliceZone
-      slices={page.data.slices}
-      components={components}
-      context={{
-        pageData: page.data,
-        locale: page?.lang,
-      }}
-    />
+    <>
+      <SliceZone
+        slices={page.data.slices}
+        components={components}
+        context={{
+          pageData: page.data,
+          locale: page?.lang,
+        }}
+      />
+    </>
   );
 }
 

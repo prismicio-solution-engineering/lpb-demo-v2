@@ -140,7 +140,10 @@ export function RichText({
       return (
         <>
           {node.data.label === "highlight" && (
-            <span className={clsx("font-semibold", classNames)}>
+            <span
+              className={clsx("font-semibold", classNames)}
+              style={{ color: page?.primary_color ?? "#000000" }}
+            >
               {children}
             </span>
           )}

@@ -1,5 +1,9 @@
 {
   "id": "landing",
+  "label": "Landing",
+  "repeatable": true,
+  "status": true,
+  "format": "page",
   "json": {
     "Main": {
       "uid": {
@@ -13,6 +17,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "media_feature": {
+              "type": "SharedSlice"
+            },
+            "content": {
+              "type": "SharedSlice"
+            },
             "hero_landing": {
               "type": "SharedSlice"
             },
@@ -135,9 +145,5 @@
         }
       }
     }
-  },
-  "label": "Landing",
-  "repeatable": true,
-  "status": true,
-  "format": "page"
+  }
 }

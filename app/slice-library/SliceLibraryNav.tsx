@@ -20,9 +20,9 @@ export default function SliceLibraryNav({
   return (
     <div>
       {/* Static sidebar for desktop */}
-      <div className="hidden md:fixed md:inset-y-0 md:flex md:w-64 md:flex-col">
-        <div className="flex flex-grow flex-col overflow-y-auto border-r border-gray-200 bg-white pt-5 pb-4">
-          <div className="flex flex-shrink-0 items-center px-4">
+      <div className="fixed md:fixed md:inset-y-0 md:flex md:w-64 md:flex-col">
+        <div className="flex grow flex-col overflow-y-auto border-r border-gray-200 bg-white pt-5 pb-4">
+          <div className="flex shrink-0 items-center px-4">
             <Image
               className="h-8 w-auto"
               src="https://images.prismic.io/prismicio/9430ed67-a303-4fb6-85a9-bad872f3eb2a_Prismic-logo.png?auto=compress,format"
@@ -32,7 +32,7 @@ export default function SliceLibraryNav({
               loader={imgixLoader}
             />
           </div>
-          <div className="mt-5 flex flex-grow flex-col">
+          <div className="mt-5 flex grow flex-col">
             <nav
               className="flex-1 space-y-1 bg-white px-2"
               aria-label="Sidebar"
@@ -57,7 +57,7 @@ function NavElementLibrary({ library }: { library: SliceLibrary }) {
             <svg
               className={classNames(
                 open ? "text-gray-400 rotate-90" : "text-gray-300",
-                "mr-2 h-6 w-6 flex-shrink-0 transform transition-colors duration-150 ease-in-out group-hover:text-gray-400"
+                "mr-2 h-6 w-6 shrink-0 transform transition-colors duration-150 ease-in-out group-hover:text-gray-400"
               )}
               viewBox="0 0 20 20"
               aria-hidden="true"
@@ -92,11 +92,11 @@ function NavElementSlice({
     <Disclosure as="div" className="space-y-1">
       {({ open }) => (
         <>
-          <Disclosure.Button className="bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900 group w-full flex items-center pl-[2rem] pr-2 py-2 text-sm font-medium rounded-md">
+          <Disclosure.Button className="bg-white text-gray-600 hover:bg-gray-50 hover:text-gray-900 group w-full flex items-center pl-8 pr-2 py-2 text-sm font-medium rounded-md">
             <svg
               className={classNames(
                 open ? "text-gray-400 rotate-90" : "text-gray-300",
-                "mr-2 h-5 w-5 flex-shrink-0 transform transition-colors duration-150 ease-in-out group-hover:text-gray-400"
+                "mr-2 h-5 w-5 shrink-0 transform transition-colors duration-150 ease-in-out group-hover:text-gray-400"
               )}
               viewBox="0 0 20 20"
               aria-hidden="true"

@@ -7,10 +7,7 @@ import { SliceComponentProps } from "@prismicio/react";
 
 export type TestimonialsProps = SliceComponentProps<Content.TestimonialsSlice>;
 
-const Testimonials = ({
-  slice,
-  ...otherProps
-}: TestimonialsProps): JSX.Element => {
+const Testimonials = ({ slice, ...otherProps }: TestimonialsProps) => {
   switch (slice.variation) {
     case "variation1":
       return <TestimonialsVariant1 slice={slice} {...otherProps} />;

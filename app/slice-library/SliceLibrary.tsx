@@ -27,7 +27,7 @@ export function SliceLibrary({ libraries }: { libraries: SliceLibrary[] }) {
       {/* Static sidebar for desktop */}
       <SliceLibraryNav libraries={libraries} />
       <div className="flex flex-1 flex-col md:pl-64 bg-gray-50">
-        <div className="sticky top-0 z-10 flex h-16 flex-shrink-0 bg-white shadow">
+        <div className="sticky top-0 z-10 flex h-16 shrink-0 bg-white shadow">
           <div className="m-auto max-w-7xl px-4 sm:px-6 md:px-8">
             <h1 className="text-2xl font-semibold text-gray-900">
               Explore your Slice Libraries
@@ -118,8 +118,10 @@ const renderContext: RenderContext = {
   emptyStringInsteadOfNull: false,
   Extension: {
     DocEncoder: {
+      // @ts-expect-error
       encodeDocId: Extensions.encodeDocId,
     },
+    // @ts-expect-error
     encoders: Extensions.IDEncoders,
   },
   LinkResolver: {

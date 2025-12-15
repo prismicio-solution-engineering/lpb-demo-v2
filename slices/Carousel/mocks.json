@@ -1,72 +1,6 @@
 [
 	{
 		"__TYPE__": "SharedSliceContent",
-		"variation": "default",
-		"primary": {
-			"ontitle": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading2",
-						"content": {
-							"text": "Fallen"
-						}
-					}
-				]
-			},
-			"title": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading3",
-						"content": {
-							"text": "Decide"
-						}
-					}
-				]
-			},
-			"txt": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Nulla officia quis deserunt aliquip occaecat."
-						}
-					}
-				]
-			},
-			"btn_txt": {
-				"__TYPE__": "FieldContent",
-				"value": "lips",
-				"type": "Text"
-			},
-			"grp": {
-				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"article",
-								{
-									"key": "553e793c-e993-4da8-8823-ec908c217887",
-									"__TYPE__": "LinkContent",
-									"value": {
-										"__TYPE__": "DocumentLink",
-										"id": "mock_document_id"
-									}
-								}
-							]
-						]
-					}
-				]
-			}
-		},
-		"items": []
-	},
-	{
-		"__TYPE__": "SharedSliceContent",
 		"variation": "variation1",
 		"primary": {
 			"title": {
@@ -193,5 +127,91 @@
 				"value": []
 			}
 		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"ontitle": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Fallen"
+						}
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "Decide"
+						}
+					}
+				]
+			},
+			"txt": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Nulla officia quis deserunt aliquip occaecat."
+						}
+					}
+				]
+			},
+			"btn_txt": {
+				"__TYPE__": "FieldContent",
+				"value": "lips",
+				"type": "Text"
+			},
+			"grp": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"article",
+								{
+									"key": "553e793c-e993-4da8-8823-ec908c217887",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "DocumentLink",
+										"id": "mock_document_id"
+									}
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [],
+						"key": "f221ed2f-7702-4541-9093-a6b7f4403fbd"
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [],
+						"key": "ffe399ed-eea1-4e82-b493-a57836c138a1"
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [],
+						"key": "0293294c-0cc1-4208-863c-bc3e8b4f082f"
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [],
+						"key": "5ba033cc-4023-4c6d-ab08-76a2a29b4639"
+					}
+				]
+			}
+		},
+		"items": []
 	}
 ]

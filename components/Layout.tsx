@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
-import FooterComponent from "@/components/Footer";
-import HeaderComponent from "@/components/Header";
+import FooterComponent from "@/components/LandingNavigation/LandingFooter";
+import HeaderComponent from "@/components/LandingNavigation/LandingHeader";
 import {
   FooterDocument,
   // HeaderDocument,
@@ -31,6 +31,7 @@ export default function Layout({
   ...props
 }: {
   children: ReactNode;
+  languages: { url: string; lang_name: string }[];
   lang: string;
   altLang: AlternateLanguage<string, string>[];
   currentPage: string;

@@ -7,6 +7,9 @@ import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import { getLanguages } from "@/utils/getLanguages";
 import { getLocales } from "@/utils/getLocales";
+import { Header } from "@/components/GlobalNavigation";
+import Layout from "@/components/Layout";
+import { LandingDocument } from "@/prismicio-types";
 
 export async function generateMetadata({
   params,
@@ -66,6 +69,7 @@ export default async function Landing({
 }: {
   params: Promise<{ lang: string; uid: string }>;
 }) {
+  // Fetch all available locales in the repo
   const locales = await getLocales();
 
   const resolvedParams = await params;
@@ -89,7 +93,7 @@ export default async function Landing({
     }
   }
 
-  const [header, footer, languages] = await Promise.all([
+  const [header, footer, settings, languages] = await Promise.all([
     client
       .getSingle("header", {
         lang,
@@ -99,6 +103,7 @@ export default async function Landing({
           lang: "en-us",
         })
       ),
+
     client
       .getSingle("footer", {
         lang,
@@ -108,18 +113,41 @@ export default async function Landing({
           lang: "en-us",
         })
       ),
-    getLanguages(page, client, locales),
+
+    client
+      .getSingle("settings", {
+        lang,
+      })
+      .catch(() =>
+        client.getSingle("settings", {
+          lang: "en-us",
+        })
+      ),
+
+    // Fetch available languages for the page and all exisitng locales in the project
+    getLanguages(page, client),
   ]);
 
   return (
-    <SliceZone
-      slices={page.data.slices}
-      components={components}
-      context={{
-        pageData: page.data,
-        locale: page?.lang,
-      }}
-    />
+    <>
+      {/* <Header settings={settings} page={header} languages={languages} /> */}
+      <Layout
+        lang={lang}
+        languages={languages}
+        altLang={page.alternate_languages}
+        currentPage={page.type}
+        page={page as LandingDocument}
+      >
+        <SliceZone
+          slices={page.data.slices}
+          components={components}
+          context={{
+            pageData: page.data,
+            locale: page?.lang,
+          }}
+        />
+      </Layout>
+    </>
   );
 }
 

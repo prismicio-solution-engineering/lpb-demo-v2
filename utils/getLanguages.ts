@@ -1,43 +1,37 @@
-import { Client, Content } from "@prismicio/client";
+import type { Client, Content } from "@prismicio/client";
 
-/**
- * Returns an array of document metadata containing each language a document has
- * been translated into.
- *
- * A `lang_name` property is included in each document containing the document's
- * language name as it is configured in the Prismic repository.
- *
- */
 export async function getLanguages(
   doc: Content.AllDocumentTypes,
-  client: Client<Content.AllDocumentTypes>,
-  locales?: string[]
+  client: Client<Content.AllDocumentTypes>
 ) {
-  if (locales && locales.length > 1) {
-    const [altDocs] = await Promise.all([
-      doc.alternate_languages.length > 0
-        ? client.getAllByIDs(
-            doc.alternate_languages.map((altLang) => altLang.id),
-            {
-              lang: "*",
-              // Exclude all fields to speed up the query.
-              fetch: `${doc.type}.__nonexistent-field__`,
-            }
-          )
-        : Promise.resolve([]),
-    ]);
+  // Fetch the actual translated docs (if any)
+  const altDocs =
+    doc.alternate_languages?.length > 0
+      ? await client.getAllByIDs(
+          doc.alternate_languages.map((alt) => alt.id),
+          {
+            lang: "*",
+            // speed: fetch nothing useful, we only need lang + url
+            fetch: `${doc.type}.__nonexistent-field__`,
+          }
+        )
+      : [];
 
-    //PLace current locale in first position
-    locales = locales.filter((lang) => lang !== doc.lang);
-    locales.unshift(doc.lang);
+  // Optional: map lang codes to the human names configured in the repo
+  const repo = await client.getRepository(); // has .languages :contentReference[oaicite:0]{index=0}
+  const nameByLang = new Map(
+    repo.languages.map((l) => [l.id, l.name] as const)
+  );
 
-    return locales.map((lang) => {
-      return {
-        url:
-          [doc, ...altDocs].find((doc) => lang === doc.lang)?.url || `/${lang}`,
-        lang_name: lang,
-      };
-    });
-  }
-  return [{url: doc.url || `/${doc.lang}`, lang_name: doc.lang}];
+  // Only languages where THIS document exists
+  const docs = [doc, ...altDocs];
+
+  // Current language first, then the rest
+  docs.sort((a, b) => (a.lang === doc.lang ? -1 : b.lang === doc.lang ? 1 : 0));
+
+  return docs.map((d) => ({
+    url: d.url ?? `/${d.lang}`, // should exist for real translated docs
+    // lang_name: nameByLang.get(d.lang) ?? d.lang, // display name
+    lang_name: d.lang, // keep the code if you want it
+  }));
 }

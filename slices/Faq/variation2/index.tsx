@@ -7,6 +7,7 @@ import { getFontTextStyles, getFontHeadingStyles } from "@/utils/getFontStyles";
 import { PrismicNextLink } from "@prismicio/next";
 import { getButtonStyles } from "@/utils/getButtonStyles";
 import { LandingDocumentData } from "@/prismicio-types";
+import { getLightBackgroundColor } from "@/utils/getColors";
 
 /**
  * Props for `Faq`.
@@ -23,6 +24,8 @@ const Faq: FC<FaqProps> = ({ slice, context }) => {
   const toggleItem = (index: number) => {
     setSelectedIndex(selectedIndex === index ? null : index);
   };
+
+  const [hoverIndex, setHoverIndex] = useState<number | null>(null);
 
   if (slice.variation !== "variation2") return null;
   return (
@@ -44,7 +47,7 @@ const Faq: FC<FaqProps> = ({ slice, context }) => {
                 >
                   {children}
                 </h2>
-              )
+              ),
             }}
           />
           <PrismicRichText
@@ -52,20 +55,26 @@ const Faq: FC<FaqProps> = ({ slice, context }) => {
             components={{
               paragraph: ({ children }) => (
                 <p className="text-gray-700 text-lg leading-7">{children}</p>
-              )
+              ),
             }}
           />
         </div>
-        <div className="flex flex-col border-b border-b-gray-900">
+        <div className="flex flex-col gap-4">
           {slice.primary.grp?.map((item, index) => {
             const isOpen = selectedIndex === index;
+            const isHover = hoverIndex === index;
             return (
               <div
                 key={index}
-                className="flex flex-col py-1 border-t border-t-gray-900 overflow-hidden"
+                className="flex flex-col rounded-xl overflow-hidden shadow-[4px_4px_24px_0px_rgba(175,175,175,0.25)] transition-colors duration-300"
+                onMouseEnter={() => setHoverIndex(index)}
+                onMouseLeave={() => setHoverIndex(null)}
+                style={
+                  isOpen || isHover ? getLightBackgroundColor(pageData) : {}
+                }
               >
                 <div
-                  className="flex justify-between items-center py-4 transition-colors duration-300 cursor-pointer"
+                  className="flex justify-between items-center p-4 cursor-pointer"
                   onClick={() => toggleItem(index)}
                 >
                   <PrismicRichText
@@ -78,7 +87,7 @@ const Faq: FC<FaqProps> = ({ slice, context }) => {
                         >
                           {children}
                         </h3>
-                      )
+                      ),
                     }}
                   />
                   <div className="relative w-6 h-6 cursor-pointer">
@@ -111,13 +120,13 @@ const Faq: FC<FaqProps> = ({ slice, context }) => {
                     isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
                   }`}
                 >
-                  <div className="pr-4 pb-4">
+                  <div className="px-4 pb-4">
                     <PrismicRichText
                       field={item.answer}
                       components={{
                         paragraph: ({ children }) => (
                           <p className="text-gray-700">{children}</p>
-                        )
+                        ),
                       }}
                     />
                   </div>
@@ -137,7 +146,7 @@ const Faq: FC<FaqProps> = ({ slice, context }) => {
                 >
                   {children}
                 </h4>
-              )
+              ),
             }}
           />
           <PrismicRichText
@@ -145,7 +154,7 @@ const Faq: FC<FaqProps> = ({ slice, context }) => {
             components={{
               paragraph: ({ children }) => (
                 <p className="text-gray-700 text-lg leading-7">{children}</p>
-              )
+              ),
             }}
           />
         </div>

@@ -43,7 +43,7 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
               >
                 {children}
               </h2>
-            )
+            ),
           }}
         />
         <div className="relative overflow-hidden">
@@ -51,14 +51,14 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
             className="flex"
             style={{
               animation: `scroll-left 10s linear infinite`,
-              width: `${groupWidth * 2}px`
+              width: `${groupWidth * 2}px`,
             }}
           >
             {Array.from({ length: 4 }, (_, groupIndex) =>
               slice.primary.grp.map((item, index) => (
                 <div
                   key={`group-${groupIndex}-${index}`}
-                  className="flex-shrink-0 mx-4 w-32 h-16"
+                  className="shrink-0 mx-4 w-32 h-16"
                 >
                   <PrismicNextImage
                     field={item.logo}

@@ -4,10 +4,15 @@ import { FC } from "react";
 import { Content, isFilled } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Container from "@/components/Container";
-import { getFontTextStyles, getFontHeadingStyles } from "@/utils/getFontStyles";
+import { getFontTextStyles } from "@/utils/getFontStyles";
 import { LandingDocumentData } from "@/prismicio-types";
 import { PrismicNextImage } from "@prismicio/next";
-import { getBackgroundColor, getIconColor, getLightBackgroundColor, getLightIconColor } from "@/utils/getColors";
+import {
+  getBackgroundColor,
+  getIconColor,
+  getLightBackgroundColor,
+  getLightIconColor,
+} from "@/utils/getColors";
 
 /**
  * Props for `Testimonials`.
@@ -90,7 +95,7 @@ const Testimonials: FC<TestimonialsProps> = ({ slice, context }) => {
                       <p className="font-bold text-lg text-center">
                         "{children}"
                       </p>
-                    )
+                    ),
                   }}
                 />
                 <div className="flex flex-col justify-center items-center gap-4 w-full">
@@ -102,7 +107,10 @@ const Testimonials: FC<TestimonialsProps> = ({ slice, context }) => {
                         priority
                       />
                     ) : (
-                      <div className="rounded-full w-full h-full" style={getBackgroundColor(pageData)}/>
+                      <div
+                        className="rounded-full w-full h-full"
+                        style={getBackgroundColor(pageData)}
+                      />
                     )}
                   </div>
                   <div className="flex flex-col text-center">
@@ -111,7 +119,7 @@ const Testimonials: FC<TestimonialsProps> = ({ slice, context }) => {
                       components={{
                         paragraph: ({ children }) => (
                           <span className="font-bold">{children}</span>
-                        )
+                        ),
                       }}
                     />
                     <PrismicRichText field={item.company} />
@@ -127,7 +135,11 @@ const Testimonials: FC<TestimonialsProps> = ({ slice, context }) => {
             <div
               key={index}
               className={`w-2 h-2 rounded-full transition-colors duration-300 ease-in-out cursor-pointer`}
-              style={index === currentIndex ? getIconColor(pageData) : getLightIconColor(pageData)}
+              style={
+                index === currentIndex
+                  ? getIconColor(pageData)
+                  : getLightIconColor(pageData)
+              }
               onClick={() => changeIndex(index)}
             />
           ))}

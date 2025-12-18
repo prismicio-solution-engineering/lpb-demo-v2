@@ -2,7 +2,7 @@
 import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
-import { getFontTextStyles, getFontHeadingStyles } from "@/utils/getFontStyles";
+import { getFontHeadingStyles } from "@/utils/getFontStyles";
 import { getButtonStyles } from "@/utils/getButtonStyles";
 import Container from "@/components/Container";
 import { LandingDocumentData } from "@/prismicio-types";

@@ -8,7 +8,11 @@ import { getFontTextStyles, getFontHeadingStyles } from "@/utils/getFontStyles";
 
 import { LandingDocumentData } from "@/prismicio-types";
 import { PrismicNextImage } from "@prismicio/next";
-import { getBackgroundColor, getIconColor, getLightBackgroundColor, getLightIconColor } from "@/utils/getColors";
+import {
+  getBackgroundColor,
+  getIconColor,
+  getLightIconColor,
+} from "@/utils/getColors";
 
 /**
  * Props for `Testimonials`.
@@ -46,7 +50,11 @@ const Testimonials: FC<TestimonialsProps> = ({ slice, context }) => {
     return Array.from({ length: 5 }, (_, index) => (
       <svg
         key={index}
-        fill={index < rating ? `${pageData?.primary_color ? pageData?.primary_color : "#797979"}` : "#D9D9D9"}
+        fill={
+          index < rating
+            ? `${pageData?.primary_color ? pageData?.primary_color : "#797979"}`
+            : "#D9D9D9"
+        }
         height="20px"
         width="20px"
         viewBox="0 0 329.942 329.942"
@@ -87,23 +95,23 @@ l-16.233-94.629l69.339-67.583C329.501,138.057,330.972,132.096,329.208,126.666z"
                 >
                   {children}
                 </h2>
-              )
+              ),
             }}
           />
           <PrismicRichText field={slice.primary.txt} />
         </div>
-        <div className="relative w-full overflow-hidden p-[24px]">
+        <div className="relative w-full overflow-hidden p-6">
           <div
             className="flex gap-4 transition-transform duration-800 ease-inout2"
             style={{
               width: `calc(${(totalItems / itemsPerView) * 100}% + ${gapWidth}px - 48px)`,
-              transform: `translateX(-${(currentIndex * itemsPerView * 100) / totalItems}%)`
+              transform: `translateX(-${(currentIndex * itemsPerView * 100) / totalItems}%)`,
             }}
           >
             {slice.primary.grp.map((item, index) => (
               <div
                 key={index}
-                className="box-border flex flex-col justify-between gap-4 p-6 rounded-xl shadow-[4px_4px_24px_0px_rgba(175,_175,_175,_0.25)] sm:max-w-[355px]"
+                className="box-border flex flex-col justify-between gap-4 p-6 rounded-xl shadow-[4px_4px_24px_0px_rgba(175,175,175,0.25)] sm:max-w-[355px]"
                 style={{ flex: `0 0 ${100 / totalItems}%` }}
               >
                 <div className="flex gap-1">
@@ -111,13 +119,13 @@ l-16.233-94.629l69.339-67.583C329.501,138.057,330.972,132.096,329.208,126.666z"
                     item.rate &&
                     renderStars(parseInt(item.rate as string))}
                 </div>
-                <div className="flex flex-col justify-between sm:min-h-[240px]">
+                <div className="flex flex-col justify-between sm:min-h-60">
                   <PrismicRichText
                     field={item.quote}
                     components={{
                       paragraph: ({ children }) => (
-                        <p className="min-h-[144px]">"{children}"</p>
-                      )
+                        <p className="min-h-36">"{children}"</p>
+                      ),
                     }}
                   />
                   <div className="flex items-center gap-4">
@@ -129,7 +137,10 @@ l-16.233-94.629l69.339-67.583C329.501,138.057,330.972,132.096,329.208,126.666z"
                           priority
                         />
                       ) : (
-                        <div className="rounded-full w-full h-full" style={getBackgroundColor(pageData)}/>
+                        <div
+                          className="rounded-full w-full h-full"
+                          style={getBackgroundColor(pageData)}
+                        />
                       )}
                     </div>
                     <div className="flex flex-col">
@@ -137,16 +148,18 @@ l-16.233-94.629l69.339-67.583C329.501,138.057,330.972,132.096,329.208,126.666z"
                         field={item.author}
                         components={{
                           paragraph: ({ children }) => (
-                            <span className="font-bold text-sm">{children}</span>
-                          )
+                            <span className="font-bold text-sm">
+                              {children}
+                            </span>
+                          ),
                         }}
                       />
-                      <PrismicRichText 
+                      <PrismicRichText
                         field={item.company}
                         components={{
                           paragraph: ({ children }) => (
                             <span className="w-full text-sm">{children}</span>
-                          )
+                          ),
                         }}
                       />
                     </div>
@@ -162,7 +175,11 @@ l-16.233-94.629l69.339-67.583C329.501,138.057,330.972,132.096,329.208,126.666z"
             <div
               key={index}
               className={`w-2 h-2 rounded-full transition-colors duration-300 ease-in-out cursor-pointer`}
-              style={index === currentIndex ? getIconColor(pageData) : getLightIconColor(pageData)}
+              style={
+                index === currentIndex
+                  ? getIconColor(pageData)
+                  : getLightIconColor(pageData)
+              }
               onClick={() => changeIndex(index)}
             />
           ))}

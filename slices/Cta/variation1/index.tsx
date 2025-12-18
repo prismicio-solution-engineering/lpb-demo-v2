@@ -7,6 +7,7 @@ import { getFontTextStyles, getFontHeadingStyles } from "@/utils/getFontStyles";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { getButtonStyles } from "@/utils/getButtonStyles";
 import { LandingDocumentData } from "@/prismicio-types";
+import { getLightBackgroundColor } from "@/utils/getColors";
 
 /**
  * Props for `Cta`.
@@ -25,7 +26,10 @@ const Cta: FC<CtaProps> = ({ slice, context }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className={`flex justify-center py-[60px]`}
-      style={getFontTextStyles(pageData)}
+      style={{
+        ...getFontTextStyles(pageData),
+        ...getLightBackgroundColor(pageData),
+      }}
     >
       <Container className="flex flex-col gap-20" size="xl">
         <div className="flex items-start gap-10">
@@ -39,10 +43,10 @@ const Cta: FC<CtaProps> = ({ slice, context }) => {
                 >
                   {children}
                 </h2>
-              )
+              ),
             }}
           />
-          <div className="flex flex-col gap-4 sm:max-w-[600px]">
+          <div className="flex flex-col gap-8 sm:max-w-[600px]">
             <PrismicRichText field={slice.primary.txt} />
             <div className="flex gap-2">
               {slice?.primary?.btns?.map((btn, index) => (

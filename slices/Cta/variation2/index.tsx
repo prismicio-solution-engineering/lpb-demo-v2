@@ -24,7 +24,7 @@ const Cta: FC<CtaProps> = ({ slice, context }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className={`flex justify-center py-[60px]`}
+      className={`flex justify-center items-center py-[60px]`}
       style={getFontTextStyles(pageData)}
     >
       <div className="absolute w-full h-full sm:max-h-[400px] overflow-hidden">
@@ -48,7 +48,7 @@ const Cta: FC<CtaProps> = ({ slice, context }) => {
                 >
                   {children}
                 </h2>
-              )
+              ),
             }}
           />
           <div className="flex flex-col justify-center items-center gap-4 sm:max-w-[600px]">
@@ -57,7 +57,7 @@ const Cta: FC<CtaProps> = ({ slice, context }) => {
               components={{
                 paragraph: ({ children }) => (
                   <p className="text-white text-center">{children}</p>
-                )
+                ),
               }}
             />
           </div>
@@ -66,7 +66,7 @@ const Cta: FC<CtaProps> = ({ slice, context }) => {
               <input
                 className="flex-1 p-2 border border-white text-white"
                 style={{
-                  outlineColor: "#FFFFFF"
+                  outlineColor: "#FFFFFF",
                 }}
                 placeholder={slice.primary.input_placeholder || "Your email"}
               />
@@ -83,7 +83,7 @@ const Cta: FC<CtaProps> = ({ slice, context }) => {
               components={{
                 paragraph: ({ children }) => (
                   <p className="text-white text-xs text-center">{children}</p>
-                )
+                ),
               }}
             />
           </div>

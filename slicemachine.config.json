@@ -1,5 +1,5 @@
 {
-  "repositoryName": "template-landing",
+  "repositoryName": "template-landing-test-dianka",
   "adapter": "@slicemachine/adapter-next",
   "libraries": ["./slices"],
   "localSliceSimulatorURL": "http://localhost:3000/slice-simulator"

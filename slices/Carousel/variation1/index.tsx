@@ -7,6 +7,7 @@ import Container from "@/components/Container";
 import { getFontTextStyles, getFontHeadingStyles } from "@/utils/getFontStyles";
 import { LandingDocumentData } from "@/prismicio-types";
 import { PrismicNextImage } from "@prismicio/next";
+import { getIconColor, getLightIconColor } from "@/utils/getColors";
 
 /**
  * Props for `Carousel`.
@@ -24,11 +25,11 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
   const maxIndex = Math.max(0, slice.primary.grp.length - itemsPerView);
 
   const handlePrevious = () => {
-    setCurrentIndex(prev => Math.max(0, prev - 1));
+    setCurrentIndex((prev) => Math.max(0, prev - 1));
   };
 
   const handleNext = () => {
-    setCurrentIndex(prev => Math.min(maxIndex, prev + 1));
+    setCurrentIndex((prev) => Math.min(maxIndex, prev + 1));
   };
 
   if (slice.variation !== "variation1") return null;
@@ -57,7 +58,7 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
                     >
                       {children}
                     </h2>
-                  )
+                  ),
                 }}
               />
               <PrismicRichText
@@ -65,7 +66,7 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
                 components={{
                   paragraph: ({ children }) => (
                     <p className="leading-7">{children}</p>
-                  )
+                  ),
                 }}
               />
             </div>
@@ -74,7 +75,7 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
             <div
               className="flex gap-4 transition-transform duration-500 ease-inout2"
               style={{
-                transform: `translateX(-${currentIndex * (500 + 16)}px)`
+                transform: `translateX(-${currentIndex * (500 + 16)}px)`,
               }}
             >
               {/* Carousel */}
@@ -84,7 +85,7 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
                     key={index}
                     className="flex flex-col gap-5 sm:w-[500px] cursor-pointer"
                   >
-                    <div className="w-full sm:w-full h-full aspect-[1/1]">
+                    <div className="w-full sm:w-full h-full aspect-square">
                       {item?.img && (
                         <PrismicNextImage
                           field={item.img}
@@ -103,9 +104,12 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
           <div className="flex gap-2">
             {[...Array(slice.primary.grp.length)]?.map((_, i) => (
               <div
-                className={`rounded-full cursor-pointer w-2 h-2 ${
-                  i === currentIndex ? "bg-gray-900" : "bg-gray-500"
-                }`}
+                className={`rounded-full cursor-pointer w-2 h-2`}
+                style={
+                  i === currentIndex
+                    ? getIconColor(pageData)
+                    : getLightIconColor(pageData)
+                }
                 key={i}
                 onClick={() => setCurrentIndex(i)}
               />

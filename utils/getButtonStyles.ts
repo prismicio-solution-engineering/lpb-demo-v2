@@ -25,7 +25,7 @@ export const getButtonStyles = (
       case "Square":
         return "0px";
       default:
-        return "12px";
+        return "100px";
     }
   };
 

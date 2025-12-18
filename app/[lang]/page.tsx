@@ -9,6 +9,7 @@ import { getLanguages } from "@/utils/getLanguages";
 import { getLocales } from "@/utils/getLocales";
 import { Header } from "@/components/GlobalNavigation";
 import { getAllLanguages } from "@/utils/getAllLanguages";
+import Container from "@/components/Container";
 
 export default async function Home({
   params,
@@ -78,7 +79,9 @@ export default async function Home({
   return (
     <>
       <Header settings={settings} page={header} languages={languages} />
-      Hello World
+      <Container size="full" className="mx-auto py-10">
+        <h1 className="text-center">Hello World</h1>
+      </Container>
       {/* <SliceZone
       slices={page.data.slices}
       components={components}
@@ -86,56 +89,4 @@ export default async function Home({
     /> */}
     </>
   );
-}
-
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ lang: string }>;
-}): Promise<Metadata> {
-  const resolvedParams = await params;
-  const { lang } = resolvedParams;
-
-  const client = createClient();
-  let page;
-  try {
-    page = await client.getSingle("home", {
-      lang,
-      graphQuery: `
-        {
-          home {
-            meta_title
-            meta_description
-            meta_image
-          }
-        }
-      `,
-    });
-  } catch (error) {
-    // Try to fall back to the default locale (en-us)
-    try {
-      page = await client.getSingle("home", {
-        lang: "en-us",
-        graphQuery: `
-        {
-          home {
-            meta_title
-            meta_description
-            meta_image
-          }
-        }
-      `,
-      });
-    } catch (fallbackError) {
-      notFound();
-    }
-  }
-
-  return {
-    title: page.data.meta_title,
-    description: page.data.meta_description,
-    openGraph: {
-      images: [{ url: asImageSrc(page.data.meta_image) ?? "" }],
-    },
-  };
 }

@@ -47,7 +47,7 @@ const Feature: FC<FeatureProps> = ({ slice, context }) => {
   );
 
   const image = (
-    <div className="flex-1 max-w-[1000px] w-full aspect-square">
+    <div className="flex-1 max-w-250 w-full aspect-square">
       <PrismicNextImage
         field={slice.primary.image}
         className="rounded-lg w-full h-full object-cover"
@@ -60,7 +60,7 @@ const Feature: FC<FeatureProps> = ({ slice, context }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="flex justify-center py-[60px]"
+      className="flex justify-center py-15"
     >
       <Container
         className="flex flex-col md:flex-row justify-center items-center gap-10 text-center"

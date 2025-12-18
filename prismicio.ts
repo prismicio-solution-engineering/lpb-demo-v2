@@ -29,6 +29,10 @@ const routes: Route[] = [
   {
     type: "article",
     path: "/:lang?/article/:uid"
+  },
+  {
+    type: "recap",
+    path: "/:lang?/recommandations/:uid"
   }
 ];
 
@@ -40,7 +44,10 @@ const routes: Route[] = [
  */
 export const createClient = (config: ClientConfig = {}) => {
   const client = baseCreateClient(repositoryName, {
-    accessToken: process.env.NEXT_PUBLIC_PRISMIC_ENVIRONMENT ? process.env.PRISMIC_PRIVATE_TOKEN_DIANKA : "",
+    accessToken: process.env.NEXT_PUBLIC_PRISMIC_ENVIRONMENT === "template-landing-dianka" ? process.env.PRISMIC_PRIVATE_TOKEN_DIANKA
+      : process.env.NEXT_PUBLIC_PRISMIC_ENVIRONMENT === "template-landing-raphael" ? process.env.PRISMIC_PRIVATE_TOKEN_RAPHAEL
+        : process.env.NEXT_PUBLIC_PRISMIC_ENVIRONMENT === "template-landing-staging" ? process.env.PRISMIC_PRIVATE_TOKEN_STAGING
+          : process.env.PRISMIC_PRIVATE_TOKEN,
     routes,
     fetchOptions:
       process.env.NODE_ENV === "production"

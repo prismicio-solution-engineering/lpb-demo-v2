@@ -354,15 +354,12 @@ export default async function Home({
                         {item.key_message}
                       </td>
                       <td className="p-4 border border-[#ffffff32] text-sm align-center text-left">
-                        {isFilled.keyText(item.page_link) && (
-                          <a
-                            href={item.page_link}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                        {isFilled.link(item.page_link) && (
+                          <PrismicNextLink 
+                            field={item.page_link}
+                            target="blank"
                             className="text-[#FFFFFF] px-4 py-2 rounded-lg border-2 border-[#8E44EC]"
-                          >
-                            Open
-                          </a>
+                          />
                         )}
                       </td>
                     </tr>

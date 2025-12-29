@@ -224,10 +224,14 @@
               }
             },
             "page_link": {
-              "type": "Text",
+              "type": "Link",
               "config": {
-                "label": "Page link",
-                "placeholder": ""
+                "label": "Page Link",
+                "placeholder": "",
+                "select": null,
+                "allowTargetBlank": true,
+                "allowText": true,
+                "repeat": false
               }
             }
           }

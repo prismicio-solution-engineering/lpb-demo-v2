@@ -5,6 +5,7 @@
   src: url(../assets/fonts/Inter-Variable.ttf);
   font-display: swap;
 }
+
 @font-face {
   font-family: Proxima-Bold;
   src: url(../assets/fonts/Proxima-Bold.otf);
@@ -54,4 +55,5 @@ html,
 body,
 #__next {
   height: 100%;
+  scroll-behavior: smooth;
 }

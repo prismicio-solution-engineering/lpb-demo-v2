@@ -223,15 +223,11 @@
                 "placeholder": ""
               }
             },
-            "page": {
-              "type": "Link",
+            "page_link": {
+              "type": "Text",
               "config": {
-                "label": "Page",
-                "placeholder": "",
-                "select": null,
-                "allowTargetBlank": true,
-                "allowText": true,
-                "repeat": false
+                "label": "Page link",
+                "placeholder": ""
               }
             }
           }
@@ -261,7 +257,7 @@
           "label": "Next Text",
           "placeholder": "",
           "allowTargetBlank": true,
-          "multi": "paragraph,em,strong"
+          "multi": "paragraph,heading3,heading4,strong,em,list-item,o-list-item,hyperlink"
         }
       },
       "buttons": {

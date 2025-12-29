@@ -84,7 +84,7 @@ interface _404DocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/slices
    */
-  slices: prismic.SliceZone<_404DocumentDataSlicesSlice> /**
+  slices: prismic.SliceZone<_404DocumentDataSlicesSlice>; /**
    * Meta Title field in *404*
    *
    * - **Field Type**: Text
@@ -92,7 +92,7 @@ interface _404DocumentData {
    * - **API ID Path**: 404.meta_title
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/fields/text
-   */;
+   */
   meta_title: prismic.KeyTextField;
 
   /**
@@ -237,7 +237,7 @@ interface ArticleDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/slices
    */
-  slices: prismic.SliceZone<ArticleDocumentDataSlicesSlice> /**
+  slices: prismic.SliceZone<ArticleDocumentDataSlicesSlice>; /**
    * Meta Title field in *Article*
    *
    * - **Field Type**: Text
@@ -245,7 +245,7 @@ interface ArticleDocumentData {
    * - **API ID Path**: article.meta_title
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/fields/text
-   */;
+   */
   meta_title: prismic.KeyTextField;
 
   /**
@@ -540,7 +540,7 @@ interface HomeDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/slices
    */
-  slices: prismic.SliceZone<HomeDocumentDataSlicesSlice> /**
+  slices: prismic.SliceZone<HomeDocumentDataSlicesSlice>; /**
    * Meta Title field in *Home*
    *
    * - **Field Type**: Text
@@ -548,7 +548,7 @@ interface HomeDocumentData {
    * - **API ID Path**: home.meta_title
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/fields/text
-   */;
+   */
   meta_title: prismic.KeyTextField;
 
   /**
@@ -608,7 +608,7 @@ interface LandingDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/slices
    */
-  slices: prismic.SliceZone<LandingDocumentDataSlicesSlice> /**
+  slices: prismic.SliceZone<LandingDocumentDataSlicesSlice>; /**
    * Meta Title field in *Landing*
    *
    * - **Field Type**: Text
@@ -616,7 +616,7 @@ interface LandingDocumentData {
    * - **API ID Path**: landing.meta_title
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/fields/text
-   */;
+   */
   meta_title: prismic.KeyTextField;
 
   /**
@@ -639,7 +639,7 @@ interface LandingDocumentData {
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/fields/image
    */
-  meta_image: prismic.ImageField<never> /**
+  meta_image: prismic.ImageField<never>; /**
    * Logo field in *Landing*
    *
    * - **Field Type**: Image
@@ -647,7 +647,7 @@ interface LandingDocumentData {
    * - **API ID Path**: landing.logo
    * - **Tab**: Header
    * - **Documentation**: https://prismic.io/docs/fields/image
-   */;
+   */
   logo: prismic.ImageField<never>;
 
   /**
@@ -678,7 +678,7 @@ interface LandingDocumentData {
     unknown,
     prismic.FieldState,
     "Primary" | "Secondary"
-  > /**
+  >; /**
    * Primary color field in *Landing*
    *
    * - **Field Type**: Color
@@ -686,7 +686,7 @@ interface LandingDocumentData {
    * - **API ID Path**: landing.primary_color
    * - **Tab**: Design
    * - **Documentation**: https://prismic.io/docs/fields/color
-   */;
+   */
   primary_color: prismic.ColorField;
 
   /**
@@ -878,14 +878,14 @@ export interface RecapDocumentDataGeneratedPageItem {
   key_message: prismic.KeyTextField;
 
   /**
-   * Page field in *Recap → Generated Page*
+   * Page link field in *Recap → Generated Page*
    *
-   * - **Field Type**: Link
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: recap.generated_page[].page
-   * - **Documentation**: https://prismic.io/docs/fields/link
+   * - **API ID Path**: recap.generated_page[].page_link
+   * - **Documentation**: https://prismic.io/docs/fields/text
    */
-  page: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+  page_link: prismic.KeyTextField;
 }
 
 /**
@@ -912,7 +912,7 @@ interface RecapDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/slices
    */
-  slices: prismic.SliceZone<RecapDocumentDataSlicesSlice> /**
+  slices: prismic.SliceZone<RecapDocumentDataSlicesSlice>; /**
    * Client Logo field in *Recap*
    *
    * - **Field Type**: Image
@@ -920,7 +920,7 @@ interface RecapDocumentData {
    * - **API ID Path**: recap.client_logo
    * - **Tab**: Hero
    * - **Documentation**: https://prismic.io/docs/fields/image
-   */;
+   */
   client_logo: prismic.ImageField<never>;
 
   /**
@@ -972,7 +972,7 @@ interface RecapDocumentData {
         fields: ["image", "name", "position", "email", "calendar"];
       },
     ]
-  > /**
+  >; /**
    * Context Title field in *Recap*
    *
    * - **Field Type**: Rich Text
@@ -980,7 +980,7 @@ interface RecapDocumentData {
    * - **API ID Path**: recap.context_title
    * - **Tab**: Context
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */;
+   */
   context_title: prismic.RichTextField;
 
   /**
@@ -992,7 +992,7 @@ interface RecapDocumentData {
    * - **Tab**: Context
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
-  context_text: prismic.RichTextField /**
+  context_text: prismic.RichTextField; /**
    * Opportunities Title field in *Recap*
    *
    * - **Field Type**: Rich Text
@@ -1000,7 +1000,7 @@ interface RecapDocumentData {
    * - **API ID Path**: recap.opportunities_title
    * - **Tab**: Opportunities
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */;
+   */
   opportunities_title: prismic.RichTextField;
 
   /**
@@ -1014,7 +1014,7 @@ interface RecapDocumentData {
    */
   opportunity: prismic.GroupField<
     Simplify<RecapDocumentDataOpportunityItem>
-  > /**
+  >; /**
    * Data Title field in *Recap*
    *
    * - **Field Type**: Rich Text
@@ -1022,7 +1022,7 @@ interface RecapDocumentData {
    * - **API ID Path**: recap.data_title
    * - **Tab**: Data
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */;
+   */
   data_title: prismic.RichTextField;
 
   /**
@@ -1047,7 +1047,7 @@ interface RecapDocumentData {
    */
   generated_page: prismic.GroupField<
     Simplify<RecapDocumentDataGeneratedPageItem>
-  > /**
+  >; /**
    * Next Eyebrow field in *Recap*
    *
    * - **Field Type**: Text
@@ -1055,7 +1055,7 @@ interface RecapDocumentData {
    * - **API ID Path**: recap.next_eyebrow
    * - **Tab**: Next Steps
    * - **Documentation**: https://prismic.io/docs/fields/text
-   */;
+   */
   next_eyebrow: prismic.KeyTextField;
 
   /**
@@ -1097,7 +1097,7 @@ interface RecapDocumentData {
       prismic.FieldState,
       "Filled" | "Outlined"
     >
-  > /**
+  >; /**
    * Meta Title field in *Recap*
    *
    * - **Field Type**: Text
@@ -1105,7 +1105,7 @@ interface RecapDocumentData {
    * - **API ID Path**: recap.meta_title
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/fields/text
-   */;
+   */
   meta_title: prismic.KeyTextField;
 
   /**

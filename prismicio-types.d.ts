@@ -587,6 +587,7 @@ export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<HomeDocumentData>, "home", Lang>;
 
 type LandingDocumentDataSlicesSlice =
+  | FeaturedArticlesSlice
   | MediaFeatureSlice
   | ContentSlice
   | HeroLandingSlice

@@ -49,7 +49,7 @@ const Cta: FC<CtaProps> = ({ slice, context }) => {
           }}
         />
         <PrismicRichText field={slice.primary.txt} />
-        <div className="flex gap-2">
+        <div className="flex flex-col md:flex-row gap-2">
           {slice?.primary?.btns?.map((btn, index) => (
             <PrismicNextLink
               field={btn}

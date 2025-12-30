@@ -35,7 +35,7 @@ const Faq: FC<FaqProps> = ({ slice, context }) => {
       className={`flex justify-center py-[60px]`}
       style={getFontTextStyles(pageData)}
     >
-      <Container className="flex justify-between gap-10 text-left" size="xl">
+      <Container className="flex flex-col lg:flex-row justify-between gap-10 sm:gap-14 text-left" size="xl">
         <div className="flex flex-col flex-1 gap-4">
           <PrismicRichText
             field={slice.primary.title}
@@ -69,14 +69,14 @@ const Faq: FC<FaqProps> = ({ slice, context }) => {
             }
           />
         </div>
-        <div className="flex flex-col gap-4 sm:max-w-[700px]">
+        <div className="w-full flex flex-col gap-4 lg:max-w-[700px]">
           {slice.primary.grp?.map((item, index) => {
             const isOpen = selectedIndex === index;
             const isHover = hoverIndex === index;
             return (
               <div
                 key={index}
-                className={`flex flex-col rounded-xl overflow-hidden shadow-[4px_4px_24px_0px_rgba(175,175,175,0.25)] transition-colors duration-300`}
+                className={`w-full flex flex-col rounded-xl overflow-hidden shadow-[4px_4px_24px_0px_rgba(175,175,175,0.25)] transition-colors duration-300`}
                 onMouseEnter={() => setHoverIndex(index)}
                 onMouseLeave={() => setHoverIndex(null)}
                 style={
@@ -84,7 +84,7 @@ const Faq: FC<FaqProps> = ({ slice, context }) => {
                 }
               >
                 <div
-                  className="flex justify-between items-center p-4 cursor-pointer"
+                  className="w-full flex justify-between items-center p-4 cursor-pointer"
                   onClick={() => toggleItem(index)}
                 >
                   <PrismicRichText

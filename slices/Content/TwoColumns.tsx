@@ -25,7 +25,7 @@ export default function TwoColumns({
         // className="flex flex-col md:flex-row justify-center items-center gap-10"
         size="xl"
       >
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-[1fr_1.5fr] md:gap-x-12 lg:gap-x-20">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 md:gap-x-12 lg:gap-x-20">
           <div>
             <RichText
               field={slice.primary.content_left_column}

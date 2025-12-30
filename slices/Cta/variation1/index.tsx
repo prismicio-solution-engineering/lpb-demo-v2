@@ -32,7 +32,7 @@ const Cta: FC<CtaProps> = ({ slice, context }) => {
       }}
     >
       <Container className="flex flex-col gap-20" size="xl">
-        <div className="flex items-start gap-10">
+        <div className="flex flex-col lg:flex-row items-start gap-10">
           <PrismicRichText
             field={slice.primary.title}
             components={{

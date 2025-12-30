@@ -29,7 +29,7 @@ const HeroLanding: FC<HeroLandingProps> = ({ slice, context }) => {
       className={`flex justify-center pt-[120px] pb-[60px]`}
       style={getFontTextStyles(pageData)}
     >
-      <Container className="flex justify-between gap-10 text-left" size="xl">
+      <Container className="flex flex-col md:flex-row justify-between gap-10 text-left" size="xl">
         <div className="flex flex-col flex-1 justify-center gap-5">
           <PrismicRichText
             field={slice.primary.title}

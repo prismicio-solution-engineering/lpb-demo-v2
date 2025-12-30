@@ -30,7 +30,7 @@ export default function TwoColumnsImages({
       >
         {slice.primary.images_side ? (
           <div className="grid grid-cols-1 items-start gap-y-12 md:grid-cols-2 md:gap-x-12 lg:gap-x-20">
-            <div className="static top-20 lg:sticky">
+            <div className="static top-20 lg:sticky flex flex-col gap-8">
               <RichText field={slice.primary.content} page={pageData} />
             </div>
             <div className="grid grid-cols-1 gap-6 md:gap-8">
@@ -56,7 +56,7 @@ export default function TwoColumnsImages({
                 </div>
               ))}
             </div>
-            <div className="static top-20 lg:sticky">
+            <div className="static top-20 lg:sticky flex flex-col gap-8">
               <RichText field={slice.primary.content} page={pageData} />
             </div>
           </div>

@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
@@ -25,8 +25,34 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
   };
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerView = 1;
+  const [itemsPerView, setItemsPerView] = useState(1);
+  // const itemsPerView = 1;
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setItemsPerView(3); // Desktop : 3 articles
+      } else if (window.innerWidth >= 768) {
+        setItemsPerView(2); // Tablette : 2 articles
+      } else {
+        setItemsPerView(1); // Mobile : 1 article
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const totalItems = slice.primary.grp.length;
   const maxIndex = Math.max(0, slice.primary.grp.length - itemsPerView);
+  const showNavigation = totalItems > itemsPerView;
+
+  useEffect(() => {
+    if (currentIndex > maxIndex) {
+      setCurrentIndex(maxIndex);
+    }
+  }, [maxIndex, currentIndex]);
 
   const formatDate = (isoDate?: string) => {
     if (!isoDate) return "";
@@ -53,6 +79,9 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
   const handleNext = () => {
     setCurrentIndex((prev) => Math.min(maxIndex, prev + 1));
   };
+
+  const GAP_PX = 16; 
+  const gapWidthPx = GAP_PX * Math.max(0, totalItems - 1);
 
   if (slice.variation !== "default") return null;
 
@@ -114,7 +143,8 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
         <div
           className="flex gap-4 justify-center transition-transform duration-500 ease-inout2"
           style={{
-            transform: `translateX(-${currentIndex * (350 + 16)}px)`,
+            width: `calc(${(totalItems / itemsPerView) * 100}% + ${gapWidthPx}px)`,
+            transform: `translateX(-${(currentIndex * 100) / totalItems}%)`,
           }}
         >
           {/* Carousel */}
@@ -125,7 +155,11 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
             return (
               <div
                 key={index}
-                className="flex flex-col rounded-xl shadow-[4px_4px_24px_0px_rgba(175,175,175,0.25)] overflow-hidden sm:w-[350px]"
+                className="flex flex-col rounded-xl shadow-[4px_4px_24px_0px_rgba(175,175,175,0.25)] overflow-hidden"
+                style={{ 
+                    // Chaque item prend exactement la largeur nécessaire (1/total)
+                    flex: `0 0 calc((100% - ${gapWidthPx}px) / ${totalItems})` 
+                  }}
               >
                 <div className="w-full rounded-t-xl">
                   {data?.img && (
@@ -167,55 +201,58 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
           })}
         </div>
         {/* Nav carousel */}
-        <div className="px-4 flex justify-between items-center">
-          <div></div>
-          <div className="flex gap-2">
-            {[...Array(slice.primary.grp.length)]?.map((_, i) => (
-              <div
-                className={`rounded-full w-2 h-2 cursor-pointer`}
-                style={
-                  i === currentIndex
-                    ? getIconColor(pageData)
-                    : getLightIconColor(pageData)
-                }
-                key={i}
-                onClick={() => setCurrentIndex(i)}
-              />
-            ))}
-          </div>
-          <div className="flex gap-4">
-            <button
-              onClick={handlePrevious}
-              disabled={currentIndex === 0}
-              className="group hover:bg-gray-900 disabled:opacity-50 p-1 border border-gray-900 rounded-full rotate-180 transition-all duration-200 ease-in-out cursor-pointer"
-            >
-              <svg
-                fill="#000000"
-                width="25px"
-                height="25px"
-                viewBox="0 0 256 256"
-                className="group-hover:fill-white"
+        {showNavigation && (
+          <div className="px-4 flex justify-between items-center mt-4">
+            <div className="hidden lg:block"></div>
+            <div className="flex gap-2">
+              {/* Correction de la boucle des points : maxIndex + 1 */}
+              {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+                <div
+                  key={i}
+                  className={`rounded-full w-2 h-2 cursor-pointer transition-colors duration-300`}
+                  style={
+                    i === currentIndex
+                      ? getIconColor(pageData)
+                      : getLightIconColor(pageData)
+                  }
+                  onClick={() => setCurrentIndex(i)}
+                />
+              ))}
+            </div>
+            <div className="flex gap-4">
+              <button
+                onClick={handlePrevious}
+                disabled={currentIndex === 0}
+                className="group hover:bg-gray-900 disabled:opacity-30 disabled:cursor-not-allowed p-2 border border-gray-900 rounded-full rotate-180 transition-all duration-200 ease-in-out cursor-pointer"
               >
-                <path d="M218.82812,130.82812l-72,72a3.99957,3.99957,0,0,1-5.65625-5.65625L206.34326,132H40a4,4,0,0,1,0-8H206.34326L141.17187,58.82812a3.99957,3.99957,0,0,1,5.65625-5.65625l72,72A3.99854,3.99854,0,0,1,218.82812,130.82812Z" />
-              </svg>
-            </button>
-            <button
-              onClick={handleNext}
-              disabled={currentIndex === maxIndex}
-              className="group hover:bg-gray-900 disabled:opacity-50 p-1 border border-gray-900 rounded-full transition-all duration-200 ease-in-out cursor-pointer"
-            >
-              <svg
-                fill="#000000"
-                width="25px"
-                height="25px"
-                viewBox="0 0 256 256"
-                className="group-hover:fill-white"
+                <svg
+                  fill="#000000"
+                  width="20px"
+                  height="20px"
+                  viewBox="0 0 256 256"
+                  className="group-hover:fill-white transition-colors"
+                >
+                  <path d="M218.82812,130.82812l-72,72a3.99957,3.99957,0,0,1-5.65625-5.65625L206.34326,132H40a4,4,0,0,1,0-8H206.34326L141.17187,58.82812a3.99957,3.99957,0,0,1,5.65625-5.65625l72,72A3.99854,3.99854,0,0,1,218.82812,130.82812Z" />
+                </svg>
+              </button>
+              <button
+                onClick={handleNext}
+                disabled={currentIndex === maxIndex}
+                className="group hover:bg-gray-900 disabled:opacity-30 disabled:cursor-not-allowed p-2 border border-gray-900 rounded-full transition-all duration-200 ease-in-out cursor-pointer"
               >
-                <path d="M218.82812,130.82812l-72,72a3.99957,3.99957,0,0,1-5.65625-5.65625L206.34326,132H40a4,4,0,0,1,0-8H206.34326L141.17187,58.82812a3.99957,3.99957,0,0,1,5.65625-5.65625l72,72A3.99854,3.99854,0,0,1,218.82812,130.82812Z" />
-              </svg>
-            </button>
+                <svg
+                  fill="#000000"
+                  width="20px"
+                  height="20px"
+                  viewBox="0 0 256 256"
+                  className="group-hover:fill-white transition-colors"
+                >
+                  <path d="M218.82812,130.82812l-72,72a3.99957,3.99957,0,0,1-5.65625-5.65625L206.34326,132H40a4,4,0,0,1,0-8H206.34326L141.17187,58.82812a3.99957,3.99957,0,0,1,5.65625-5.65625l72,72A3.99854,3.99854,0,0,1,218.82812,130.82812Z" />
+                </svg>
+              </button>
+            </div>
           </div>
-        </div>
+        )}
       </Container>
     </section>
   );

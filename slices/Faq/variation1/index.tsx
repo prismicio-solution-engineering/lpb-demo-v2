@@ -137,14 +137,14 @@ const Faq: FC<FaqProps> = ({ slice, context }) => {
           />
         </div>
         {/* Mobile */}
-        <div className="sm:hidden flex flex-col gap-4">
+        <div className="md:hidden flex flex-col gap-4">
           {slice.primary.grp?.map((item, index) => (
             <FaqItem key={index} item={item} index={index} />
           ))}
         </div>
 
         {/* Desktop */}
-        <div className="hidden gap-4 sm:grid sm:grid-cols-2">
+        <div className="hidden gap-4 md:grid md:grid-cols-2">
           <div className="flex flex-col gap-4">
             {slice.primary.grp?.map((item, index) =>
               index % 2 === 0 ? (

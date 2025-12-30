@@ -29,8 +29,8 @@ export default function TwoColumnsImage({
         size="xl"
       >
         {slice.primary.image_side ? (
-          <div className="grid grid-cols-1 items-start gap-y-12 md:grid-cols-2 md:gap-x-12 lg:gap-x-20">
-            <div>
+          <div className="grid grid-cols-1 items-start gap-y-12 lg:grid-cols-2 lg:gap-x-12 lg:gap-x-20">
+            <div className="flex flex-col gap-8">
               <RichText field={slice.primary.content} page={pageData} />
             </div>
             <div>
@@ -41,14 +41,14 @@ export default function TwoColumnsImage({
             </div>
           </div>
         ) : (
-          <div className="grid grid-cols-1 items-start gap-y-12 md:grid-cols-2 md:gap-x-12 lg:gap-x-20">
+          <div className="grid grid-cols-1 items-start gap-y-12 lg:grid-cols-2 lg:gap-x-12 lg:gap-x-20">
             <div>
               <PrismicNextImage
                 field={slice.primary.image}
                 className="w-full h-auto object-cover"
               />
             </div>
-            <div>
+            <div className="flex flex-col gap-8">
               <RichText field={slice.primary.content} page={pageData} />
             </div>
           </div>

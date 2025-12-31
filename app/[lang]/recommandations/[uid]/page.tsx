@@ -9,6 +9,12 @@ import Container from "@/components/Container";
 import Zoom from "@/components/Icons/Zoom";
 import Reuse from "@/components/Icons/Reuse";
 import Hammer from "@/components/Icons/Hammer";
+import Thunder from "@/components/Icons/Thunder";
+import Test from "@/components/Icons/Test";
+import Brand from "@/components/Icons/Brand";
+import CheckedCalendar from "@/components/Icons/CheckedCalendar";
+import Smile from "@/components/Icons/Smile";
+import Control from "@/components/Icons/Control";
 // animations
 import { Animation } from "@/components/Animations/Animation";
 import { TopAnimation } from "@/components/Animations/TopAnimation";
@@ -89,6 +95,12 @@ export default async function Home({
     zoom: Zoom,
     reuse: Reuse,
     hammer: Hammer,
+    thunder: Thunder,
+    test: Test,
+    brand: Brand,
+    smile: Smile,
+    checkedCalendar: CheckedCalendar,
+    control: Control,
   };
 
   return (
@@ -272,7 +284,7 @@ export default async function Home({
         id="data"
         className="relative bg-[#151515] py-15 pb-50 md:pb-87.5"
       >
-        <div className="absolute bottom-0 left-0 bg-[#FFFFFF] w-full">
+        <div className="absolute bottom-0 left-0 bg-[#E8F8F3] w-full">
           <BottomAnimation></BottomAnimation>
         </div>
         <div className="relative">
@@ -372,12 +384,12 @@ export default async function Home({
       </section>
 
       {/* Next steps */}
-      <section id="next-steps" className="bg-[#FFFFFF] pb-15">
+      <section id="next-steps" className="bg-[#E8F8F3] pb-15">
         <Container
           size="xl"
           className="flex flex-col items-center gap-16 text-center"
         >
-          <div className="w-full max-w-175 flex flex-col items-center gap-6">
+          <div className="w-full  flex flex-col items-center gap-10">
             <div className="flex flex-col items-center gap-4">
               <p className="text-[#3BBB96]">{data.next_eyebrow}</p>
 
@@ -391,38 +403,75 @@ export default async function Home({
                   }}
                 />
               )}
-            </div>
-            <div className="flex flex-col gap-6 text-left">
-              {isFilled.richText(data.next_text) && (
+
+              {isFilled.richText(data.description) && (
                 <PrismicRichText
-                  field={data.next_text}
+                  field={data.description}
                   components={{
-                    heading3: ({ children }) => (
-                      <h3 className="text-xl font-semibold text-[#151515]">
-                        {children}
-                      </h3>
-                    ),
-                    heading4: ({ children }) => (
-                      <h4 className="text-lg font-semibold text-[#151515]">
-                        {children}
-                      </h4>
-                    ),
                     paragraph: ({ children }) => (
-                      <p className="text-[#505050]">{children}</p>
-                    ),
-                    listItem: ({ children }) => (
-                      <li className="text-[#505050] list-disc list-inside">
-                        {children}
-                      </li>
-                    ),
-                    oListItem: ({ children }) => (
-                      <li className="text-[#505050] list-decimal list-inside mb-4">
-                        {children}
-                      </li>
+                      <p className="text-[#505050] max-w-175">{children}</p>
                     ),
                   }}
                 />
               )}
+            </div>
+
+            <div className="w-full flex flex-col">
+              {data.step.map((item, index) => {
+                const IconComponent = item.icon ? iconsMap[item.icon] : null;
+                return (
+                  <div
+                    key={index}
+                    className="xl:col-span-10 xl:col-start-2 group flex flex-col sm:flex-row lg:items-center gap-6 p-6 sm:p-8 lg:p-12 rounded-xl"
+                    style={{
+                      backgroundColor: index % 2 === 0 ? "#E8F8F3" : "#D4F2E9",
+                    }}
+                  >
+                    {/* Icon */}
+                    <div className="relative w-12 h-12 flex justify-center items-center rounded-full bg-[#3BBB96] text-white font-semibold text-xl flex-shrink-0">
+                      {index + 1}
+                      <div 
+                        className="absolute -bottom-3 -right-3 border rounded-md"
+                        style={{
+                          backgroundColor: index % 2 === 0 ? "#E8F8F3" : "#D4F2E9",
+                          borderColor: index % 2 === 0 ? "#E8F8F3" : "#D4F2E9"
+                        }}
+                      >
+                        {IconComponent && (
+                          <IconComponent className="w-7 h-7 text-[#3BBB96]" />
+                        )}
+                      </div>
+                    </div>
+                    {/* Text */}
+                    <div className="w-full flex flex-col sm:flex-row lg:items-center gap-6 sm:gap-12">
+                        <div className="flex flex-col gap-2 lg:grid lg:grid-cols-5 lg:items-center lg:gap-12 flex-1">
+                          {isFilled.richText(item.title) && (
+                            <PrismicRichText
+                              field={item.title}
+                              components={{
+                                heading3: ({ children }) => (
+                                  <h3 className="text-left text-xl font-semibold text-[#151515] col-span-3">
+                                    {children}
+                                  </h3>
+                                ),
+                              }}
+                            />
+                          )}
+                          {isFilled.richText(item.text) && (
+                            <PrismicRichText
+                              field={item.text}
+                              components={{
+                                paragraph: ({ children }) => (
+                                  <p className="text-left text-[#505050] col-span-2">{children}</p>
+                                ),
+                              }}
+                            />
+                          )}
+                        </div>
+                    </div>
+                  </div>
+                )
+              })}
             </div>
             <div className="flex gap-4">
               {data.buttons.map((link, index) => (

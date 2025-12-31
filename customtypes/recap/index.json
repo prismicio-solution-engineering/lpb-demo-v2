@@ -255,13 +255,56 @@
           "multi": "heading2"
         }
       },
-      "next_text": {
+      "description": {
         "type": "StructuredText",
         "config": {
-          "label": "Next Text",
+          "label": "Description",
           "placeholder": "",
           "allowTargetBlank": true,
-          "multi": "paragraph,heading3,heading4,strong,em,list-item,o-list-item,hyperlink"
+          "multi": "paragraph,strong,em"
+        }
+      },
+      "step": {
+        "type": "Group",
+        "config": {
+          "label": "Step",
+          "repeat": true,
+          "fields": {
+            "icon": {
+              "type": "Select",
+              "config": {
+                "label": "Icon",
+                "placeholder": "",
+                "options": [
+                  "thunder",
+                  "test",
+                  "brand",
+                  "smile",
+                  "checkedCalendar",
+                  "control"
+                ],
+                "default_value": "thunder"
+              }
+            },
+            "title": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Title",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "heading3"
+              }
+            },
+            "text": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Text",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "paragraph,strong,em"
+              }
+            }
+          }
         }
       },
       "buttons": {

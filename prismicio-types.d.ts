@@ -895,6 +895,45 @@ export interface RecapDocumentDataGeneratedPageItem {
 }
 
 /**
+ * Item in *Recap → Step*
+ */
+export interface RecapDocumentDataStepItem {
+  /**
+   * Icon field in *Recap → Step*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: thunder
+   * - **API ID Path**: recap.step[].icon
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  icon: prismic.SelectField<
+    "thunder" | "test" | "brand" | "smile" | "checkedCalendar" | "control",
+    "filled"
+  >;
+
+  /**
+   * Title field in *Recap → Step*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.step[].title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Text field in *Recap → Step*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.step[].text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+}
+
+/**
  * Content for Recap documents
  */
 interface RecapDocumentData {
@@ -1076,15 +1115,26 @@ interface RecapDocumentData {
   next_title: prismic.RichTextField;
 
   /**
-   * Next Text field in *Recap*
+   * Description field in *Recap*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: recap.next_text
+   * - **API ID Path**: recap.description
    * - **Tab**: Next Steps
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
-  next_text: prismic.RichTextField;
+  description: prismic.RichTextField;
+
+  /**
+   * Step field in *Recap*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.step[]
+   * - **Tab**: Next Steps
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  step: prismic.GroupField<Simplify<RecapDocumentDataStepItem>>;
 
   /**
    * Buttons field in *Recap*
@@ -3323,6 +3373,7 @@ declare module "@prismicio/client" {
       RecapDocumentDataSlicesSlice,
       RecapDocumentDataOpportunityItem,
       RecapDocumentDataGeneratedPageItem,
+      RecapDocumentDataStepItem,
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,

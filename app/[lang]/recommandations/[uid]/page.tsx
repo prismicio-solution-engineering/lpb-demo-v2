@@ -22,6 +22,7 @@
   import { notFound } from "next/navigation";
   // header
   import Header from "./Header";
+  import { DotGrid } from "./DotGrid";
 
   export async function generateMetadata({
     params,
@@ -225,7 +226,7 @@
         </section>
 
         {/* Opportunities */}
-        <section id="opportunities" className="scroll-mt-24 bg-[#151515] py-15">
+        <section id="opportunities" className="scroll-mt-24 bg-[#151515] py-15 ">
           <Container size="xl" className="flex flex-col items-start gap-16">
             {isFilled.richText(data.opportunities_title) && (
               <PrismicRichText
@@ -296,92 +297,96 @@
               size="xl"
               className="flex flex-col items-center text-center gap-16"
             >
-              <div className="flex flex-col items-center text-center gap-6 max-w-175">
+              <div className="z-20 flex flex-col items-center text-center gap-6 max-w-175">
                 {isFilled.richText(data.data_title) && (
                   <PrismicRichText
-                    field={data.data_title}
-                    components={{
-                      heading2: ({ children }) => (
-                        <h2 className="text-4xl font-bold text-[#FFFFFF]">
+                  field={data.data_title}
+                  components={{
+                    heading2: ({ children }) => (
+                      <h2 className="text-4xl font-bold text-[#FFFFFF]">
                           {children}
                         </h2>
                       ),
                     }}
-                  />
-                )}
+                    />
+                  )}
 
                 {isFilled.richText(data.data_text) && (
                   <PrismicRichText
-                    field={data.data_text}
-                    components={{
-                      paragraph: ({ children }) => (
-                        <p className="text-[#A4A4A4]">{children}</p>
-                      ),
-                    }}
+                  field={data.data_text}
+                  components={{
+                    paragraph: ({ children }) => (
+                      <p className="text-[#A4A4A4]">{children}</p>
+                    ),
+                  }}
                   />
                 )}
               </div>
-              <div className="w-full border border-solid border-[#ffffff32] rounded-2xl overflow-x-auto">
-                <table className="min-w-250 text-white font-light text-left">
-                  <thead>
-                    <tr>
-                      <th className="p-4 border border-[#ffffff32] rounded-tl-2xl align-top text-left">
-                        Company
-                      </th>
-                      <th className="p-4 border border-[#ffffff32] align-top text-left">
-                        Role
-                      </th>
-                      <th className="p-4 border border-[#ffffff32] align-top text-left">
-                        Challenges
-                      </th>
-                      <th className="p-4 border border-[#ffffff32] align-top text-left">
-                        Pain Point
-                      </th>
-                      <th className="p-4 border border-[#ffffff32] align-top text-left">
-                        Industry Information
-                      </th>
-                      <th className="p-4 border border-[#ffffff32] align-top text-left">
-                        Key Message
-                      </th>
-                      <th className="p-4 border border-[#ffffff32] rounded-tr-2xl align-top text-left">
-                        Page
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {data.generated_page.map((item, index) => (
-                      <tr key={index}>
-                        <th className="p-4 border border-[#ffffff32] align-top text-left">
-                          {item.company_name}
-                        </th>
-                        <td className="p-4 border border-[#ffffff32] text-[#A4A4A4] text-sm align-top text-left">
-                          {item.role}
+              <div className="relative w-full z-10 p-8">
+                <DotGrid></DotGrid>
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/4 w-[700px] h-[700px] bg-[radial-gradient(closest-side,_#8E44EC7e_0%,_transparent_100%)] -z-10 pointer-events-none"></div>
+                <div className="w-full z-10 border border-solid border-[#ffffff32] rounded-2xl overflow-x-auto bg-[#FFFFFF] p-4 shadow-[0px_0px_64px_0px_#8E44EC7E]">
+                  <table className="min-w-250 text-[#505050] text-sm text-left">
+                    <thead>
+                      <tr>
+                        <td className="p-4 rounded-tl-2xl align-top text-left">
+                          Company
                         </td>
-                        <td className="p-4 border border-[#ffffff32] text-[#A4A4A4] text-sm align-top text-left">
-                          {item.challenges}
+                        <td className="p-4 align-top text-left">
+                          Role
                         </td>
-                        <td className="p-4 border border-[#ffffff32] text-[#A4A4A4] text-sm align-top text-left">
-                          {item.pain_point}
+                        <td className="p-4 align-top text-left">
+                          Challenges
                         </td>
-                        <td className="p-4 border border-[#ffffff32] text-[#A4A4A4] text-sm align-top text-left">
-                          {item.industry_information}
+                        <td className="p-4 align-top text-left">
+                          Pain Point
                         </td>
-                        <td className="p-4 border border-[#ffffff32] text-[#A4A4A4] text-sm align-top text-left">
-                          {item.key_message}
+                        <td className="p-4 align-top text-left">
+                          Industry Information
                         </td>
-                        <td className="p-4 border border-[#ffffff32] text-sm align-center text-left">
-                          {isFilled.link(item.page_link) && (
-                            <PrismicNextLink 
-                              field={item.page_link}
-                              target="blank"
-                              className="text-[#FFFFFF] px-4 py-2 rounded-lg border-2 border-[#8E44EC]"
-                            />
-                          )}
+                        <td className="p-4 align-top text-left">
+                          Key Message
+                        </td>
+                        <td className="p-4 rounded-tr-2xl align-top text-left">
+                          Page
                         </td>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody>
+                      {data.generated_page.map((item, index) => (
+                        <tr key={index} className="border-t-[1.5px] border-[#50505032] text-[#151515]">
+                          <td className="px-4 py-8 align-top text-left">
+                            {item.company_name}
+                          </td>
+                          <td className="px-4 py-8 text-sm align-top text-left">
+                            {item.role}
+                          </td>
+                          <td className="px-4 py-8 text-sm align-top text-left">
+                            {item.challenges}
+                          </td>
+                          <td className="px-4 py-8 text-sm align-top text-left">
+                            {item.pain_point}
+                          </td>
+                          <td className="px-4 py-8 text-sm align-top text-left">
+                            {item.industry_information}
+                          </td>
+                          <td className="px-4 py-8 text-sm align-top text-left">
+                            {item.key_message}
+                          </td>
+                          <td className="px-4 py-8 text-sm align-center text-left">
+                            {isFilled.link(item.page_link) && (
+                              <PrismicNextLink 
+                                field={item.page_link}
+                                target="blank"
+                                className="text-[#151515] px-6 py-2 rounded-lg bg-[#E8C7FF] "
+                              />
+                            )}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </Container>
           </div>
@@ -428,7 +433,7 @@
                       key={index}
                       className="xl:col-span-10 xl:col-start-2 group flex flex-col sm:flex-row lg:items-center gap-6 p-6 sm:p-8 lg:p-12 rounded-xl"
                       style={{
-                        backgroundColor: index % 2 === 0 ? "#E8F8F3" : "#D4F2E9",
+                        backgroundColor: index % 2 === 0 ? "#E8F8F3" : "#d4f2e9dd",
                       }}
                     >
                       {/* Icon */}

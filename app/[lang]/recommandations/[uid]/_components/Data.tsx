@@ -72,39 +72,61 @@ export default function Data({data}:{data:Simplify<RecapDocumentData>}) {
                     </thead>
 
                     {/* TBODY : Block sur mobile */}
-                    <tbody className="block md:table-row-group">
-                      {data.generated_page.map((item, index) => (
+                    <tbody className="flex flex-col gap-6 md:table-row-group">
+                      {data.generated_page.map((item, index) => {
+
+                        const hasAllFields = 
+                        isFilled.keyText(item.company) &&
+                        isFilled.keyText(item.role) &&
+                        isFilled.keyText(item.personalization_instructions) &&
+                        isFilled.link(item.page_link);
+
+                        if (!hasAllFields) return null;
+
+                        return (
                         <tr
                           key={index}
                           // TR : Devient une carte sur mobile (block, mb-6, border)
                           // redevient une ligne de tableau sur desktop (md:table-row, md:border-t-[1.5px])
-                          className="block mb-6 rounded-lg border border-[#50505032] p-4 md:p-0 md:table-row md:border-0 md:border-t-[1.5px] md:rounded-none bg-white"
+                          className="block rounded-lg border border-[#50505032] p-4 md:p-0 md:table-row md:border-0 md:border-t-[1.5px] md:rounded-none bg-white"
                         >
                           {/* CELLULE COMPANY */}
-                          <td className="block py-2 px-0 md:px-4 md:py-8 align-top text-left md:table-cell">
-                            {/* Label Mobile : Visible uniquement sur mobile */}
-                            <span className="block font-bold text-xs text-[#505050] mb-1 md:hidden">
-                              Company
-                            </span>
-                            <span className=" md:text-sm md:font-normal">
-                              {item.company}
-                            </span>
-                          </td>
+                            <td className="block py-2 px-0 md:px-4 md:py-8 align-top text-left md:table-cell">
+                              {/* Label Mobile : Visible uniquement sur mobile */}
+                              {isFilled.keyText(item.company) && (
+                                <>
+                                  <span className="block font-bold text-[#505050] mb-1 md:hidden">
+                                    Company
+                                  </span>
+                                  <span className=" md:text-sm md:font-normal">
+                                    {item.company}
+                                  </span>
+                                </>
+                              )}
+                            </td>
 
                           {/* CELLULE ROLE */}
                           <td className="block py-2 px-0 md:px-4 md:py-8 text-sm align-top text-left md:table-cell">
-                            <span className="block font-bold text-xs text-[#505050] mb-1 md:hidden">
-                              Role
-                            </span>
-                            {item.role}
+                            {isFilled.keyText(item.role) && (
+                              <>
+                                <span className="block font-bold text-[#505050] mb-1 md:hidden">
+                                  Role
+                                </span>
+                                {item.role}
+                              </>
+                            )}
                           </td>
 
                           {/* CELLULE INSTRUCTIONS */}
                           <td className="block py-2 px-0 md:px-4 md:py-8 text-sm align-top text-left md:table-cell">
-                            <span className="block font-bold text-xs text-[#505050] mb-1 md:hidden">
-                              Instructions
-                            </span>
-                            {item.personalization_instructions}
+                            {isFilled.keyText(item.personalization_instructions) && (
+                              <>
+                                <span className="block font-bold text-[#505050] mb-1 md:hidden">
+                                  Instructions
+                                </span>
+                                {item.personalization_instructions}
+                              </>
+                            )}
                           </td>
 
                           {/* CELLULE PAGE / LIEN */}
@@ -118,7 +140,7 @@ export default function Data({data}:{data:Simplify<RecapDocumentData>}) {
                             )}
                           </td>
                         </tr>
-                      ))}
+                      )})}
                     </tbody>
                   </table>
                 </div>

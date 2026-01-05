@@ -65,7 +65,7 @@ export function DotGrid() {
 
   return (
     <div ref={containerRef} className="absolute inset-0 w-full h-full -z-10 pointer-events-none rounded-xl overflow-hidden">
-      <div className="absolute inset-0 w-full h-full bg-[radial-gradient(closest-side,_#151515_0%,_transparent_100%)]"></div>
+      <div className="absolute inset-0 w-full h-full bg-[radial-gradient(closest-side,#151515_0%,transparent_100%)]"></div>
       <canvas ref={canvasRef} />
     </div>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+
 import Container from "@/components/Container";
 import Logo from "@/assets/Logo/logo.svg";
 
@@ -18,7 +19,7 @@ export default function Header() {
 
   const navLinks = [
     { id: "hero", label: "Top" },
-    { id: "context", label: "Context" },
+    { id: "understanding", label: "Understanding" },
     { id: "opportunities", label: "Opportunities" },
     { id: "data", label: "Data" },
     { id: "next-steps", label: "Next Steps" },
@@ -72,7 +73,7 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 z-[999] w-full bg-[#FFFFFF] border-b border-[#EEEEEE]">
+    <header className="fixed top-0 left-0 z-999 w-full bg-[#FFFFFF] border-b border-[#EEEEEE]">
       <Container size="xl" className="flex justify-between items-center gap-8 relative">
         {/* Logo */}
         <img src={Logo.src} alt="Logo" className="w-32 h-auto relative z-20" />
@@ -96,7 +97,7 @@ export default function Header() {
               </a>
             ))}
              <div
-              className="absolute bottom-[-1px] h-[3px] bg-[#8E44EC] transition-all duration-500 ease-in-out z-10 pointer-events-none"
+              className="absolute -bottom-px h-0.75 bg-[#8E44EC] transition-all duration-500 ease-in-out z-10 pointer-events-none"
               style={{
                 left: `${barStyle.left}px`,
                 width: `${barStyle.width}px`,

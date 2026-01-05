@@ -39,14 +39,14 @@
       "hero_eyebrow": {
         "type": "Text",
         "config": {
-          "label": "Hero Eyebrow",
+          "label": "Eyebrow",
           "placeholder": ""
         }
       },
       "hero_title": {
         "type": "StructuredText",
         "config": {
-          "label": "Hero Title",
+          "label": "Title",
           "placeholder": "",
           "allowTargetBlank": true,
           "multi": "heading1"
@@ -55,7 +55,7 @@
       "hero_text": {
         "type": "StructuredText",
         "config": {
-          "label": "Hero Text",
+          "label": "Text",
           "placeholder": "",
           "allowTargetBlank": true,
           "multi": "paragraph,strong,em"
@@ -76,23 +76,73 @@
         }
       }
     },
-    "Context": {
-      "context_title": {
+    "Understanding": {
+      "understanding_eyebrow": {
+        "type": "Text",
+        "config": {
+          "label": "Eyebrow",
+          "placeholder": ""
+        }
+      },
+      "understanding_title": {
         "type": "StructuredText",
         "config": {
-          "label": "Context Title",
+          "label": "Title",
           "placeholder": "",
           "allowTargetBlank": true,
           "multi": "heading2"
         }
       },
-      "context_text": {
+      "understanding_text": {
         "type": "StructuredText",
         "config": {
-          "label": "Context Text",
+          "label": "Text",
           "placeholder": "",
           "allowTargetBlank": true,
           "multi": "paragraph,strong,em"
+        }
+      },
+      "key_problem": {
+        "type": "Group",
+        "config": {
+          "label": "Key problem",
+          "repeat": true,
+          "fields": {
+            "icon": {
+              "type": "Select",
+              "config": {
+                "label": "Icon",
+                "placeholder": "",
+                "options": [
+                  "thunder",
+                  "test",
+                  "brand",
+                  "smile",
+                  "checkedCalendar",
+                  "control"
+                ],
+                "default_value": "thunder"
+              }
+            },
+            "title": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Title",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "heading3"
+              }
+            },
+            "text": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Text",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "paragraph,strong,em"
+              }
+            }
+          }
         }
       }
     },
@@ -100,7 +150,7 @@
       "opportunities_title": {
         "type": "StructuredText",
         "config": {
-          "label": "Opportunities Title",
+          "label": "Title",
           "placeholder": "",
           "allowTargetBlank": true,
           "multi": "heading2"
@@ -117,7 +167,8 @@
               "config": {
                 "label": "Icon",
                 "placeholder": "",
-                "options": ["zoom", "reuse", "hammer"]
+                "options": ["zoom", "reuse", "hammer"],
+                "default_value": "zoom"
               }
             },
             "title": {
@@ -146,7 +197,7 @@
       "data_title": {
         "type": "StructuredText",
         "config": {
-          "label": "Data Title",
+          "label": "Title",
           "placeholder": "",
           "allowTargetBlank": true,
           "multi": "heading2"
@@ -155,7 +206,7 @@
       "data_text": {
         "type": "StructuredText",
         "config": {
-          "label": "Data Text",
+          "label": "Text",
           "placeholder": "",
           "allowTargetBlank": true,
           "multi": "paragraph,strong,em"
@@ -167,24 +218,10 @@
           "label": "Generated Page",
           "repeat": true,
           "fields": {
-            "company_name": {
+            "company": {
               "type": "Text",
               "config": {
-                "label": "Company Name",
-                "placeholder": ""
-              }
-            },
-            "first_name": {
-              "type": "Text",
-              "config": {
-                "label": "First name",
-                "placeholder": ""
-              }
-            },
-            "last_name": {
-              "type": "Text",
-              "config": {
-                "label": "Last Name",
+                "label": "Company",
                 "placeholder": ""
               }
             },
@@ -195,31 +232,10 @@
                 "placeholder": ""
               }
             },
-            "challenges": {
+            "personalization_instructions": {
               "type": "Text",
               "config": {
-                "label": "Challenges",
-                "placeholder": ""
-              }
-            },
-            "pain_point": {
-              "type": "Text",
-              "config": {
-                "label": "Pain Point",
-                "placeholder": ""
-              }
-            },
-            "industry_information": {
-              "type": "Text",
-              "config": {
-                "label": "Industry Information",
-                "placeholder": ""
-              }
-            },
-            "key_message": {
-              "type": "Text",
-              "config": {
-                "label": "Key Message",
+                "label": "Personalization Instructions",
                 "placeholder": ""
               }
             },
@@ -242,23 +258,23 @@
       "next_eyebrow": {
         "type": "Text",
         "config": {
-          "label": "Next Eyebrow",
+          "label": "Eyebrow",
           "placeholder": ""
         }
       },
       "next_title": {
         "type": "StructuredText",
         "config": {
-          "label": "Next Title",
+          "label": "Title",
           "placeholder": "",
           "allowTargetBlank": true,
           "multi": "heading2"
         }
       },
-      "description": {
+      "next_text": {
         "type": "StructuredText",
         "config": {
-          "label": "Description",
+          "label": "Text",
           "placeholder": "",
           "allowTargetBlank": true,
           "multi": "paragraph,strong,em"

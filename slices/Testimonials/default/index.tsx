@@ -26,11 +26,35 @@ const Testimonials: FC<TestimonialsProps> = ({ slice, context }) => {
   const { pageData } = context as { pageData: LandingDocumentData };
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerView = 3;
+  const [carouselConfig, setCarouselConfig] = useState({
+    itemsPerView: 1
+  });
+  // const itemsPerView = 3;
+  const { itemsPerView } = carouselConfig;
+
   const totalItems = slice.primary.grp.length;
   const pages = Math.max(1, Math.ceil(totalItems / itemsPerView));
   const maxIndex = Math.max(0, pages - 1);
   const gapWidth = 16 * (itemsPerView - 3);
+
+  useEffect(() => {
+    const handleResize = () => {
+      // Point de rupture à 1024px (lg de Tailwind)
+      if (window.innerWidth >= 1024) {
+        setCarouselConfig({ itemsPerView: 3});
+      } else if (window.innerWidth >= 768 && window.innerWidth < 1024) {
+        setCarouselConfig({ itemsPerView: 2});
+      } else {
+        setCarouselConfig({ itemsPerView: 1});
+      }
+    };
+
+    // Appel initial
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const changeIndex = (newIndex: number) => {
     if (newIndex === currentIndex) return;
@@ -111,7 +135,7 @@ l-16.233-94.629l69.339-67.583C329.501,138.057,330.972,132.096,329.208,126.666z"
             {slice.primary.grp.map((item, index) => (
               <div
                 key={index}
-                className="box-border flex flex-col justify-between gap-4 p-6 rounded-xl shadow-[4px_4px_24px_0px_rgba(175,175,175,0.25)] sm:max-w-[355px]"
+                className="box-border flex flex-col justify-between gap-4 p-6 rounded-xl shadow-[4px_4px_24px_0px_rgba(175,175,175,0.25)]"
                 style={{ flex: `0 0 ${100 / totalItems}%` }}
               >
                 <div className="flex gap-1">

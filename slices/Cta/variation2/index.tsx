@@ -24,7 +24,7 @@ const Cta: FC<CtaProps> = ({ slice, context }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className={`flex justify-center items-center py-[60px]`}
+      className={`relative flex justify-center items-center py-[60px]`}
       style={getFontTextStyles(pageData)}
     >
       <div className="absolute w-full h-full sm:max-h-[400px] overflow-hidden">

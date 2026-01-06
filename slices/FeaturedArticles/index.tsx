@@ -1,24 +1,25 @@
 "use client";
-import { useEffect, useState } from "react";
-import { FC } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import { LandingDocumentDataSlicesSlice } from "@/prismicio-types";
+import { LandingDocumentData } from "@/prismicio-types";
+import { getFontHeadingStyles, getFontTextStyles } from "@/utils/getFontStyles";
 import Container from "@/components/Container";
-import { getFontTextStyles, getFontHeadingStyles } from "@/utils/getFontStyles";
-import { ArticleDocument, LandingDocumentData } from "@/prismicio-types";
-import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
-import { getIconColor, getLightIconColor } from "@/utils/getColors";
 import { getButtonStyles } from "@/utils/getButtonStyles";
+import { PrismicNextImage } from "@prismicio/next";
+import { getIconColor, getLightIconColor } from "@/utils/getColors";
 
 /**
- * Props for `Carousel`.
+ * Props for `FeaturedArticles`.
  */
-export type CarouselProps = SliceComponentProps<Content.CarouselSlice>;
+export type FeaturedArticlesProps =
+  SliceComponentProps<LandingDocumentDataSlicesSlice>;
 
 /**
- * Component for "Carousel" Slices.
+ * Component for "FeaturedArticles" Slices.
  */
-const Carousel: FC<CarouselProps> = ({ slice, context }) => {
+const FeaturedArticles: FC<FeaturedArticlesProps> = ({ slice, context }) => {
   const { pageData, locale } = context as {
     pageData: LandingDocumentData;
     locale?: string;
@@ -53,8 +54,8 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
       setCurrentIndex(maxIndex);
     }
   }, [maxIndex, currentIndex]);
-
-  const formatDate = (isoDate?: string) => {
+  
+  const formatDate = (isoDate?: string | null): string => {
     if (!isoDate) return "";
 
     const [y, m, d] = isoDate.split("-").map(Number);
@@ -63,28 +64,28 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
     const formattedDate = new Intl.DateTimeFormat(locale || "fr-FR", {
       day: "numeric",
       month: "short",
-      year: "numeric",
+      year: "numeric"
     }).format(date);
 
     return formattedDate
       .split(" ")
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
       .join(" ");
   };
 
   const handlePrevious = () => {
-    setCurrentIndex((prev) => Math.max(0, prev - 1));
+    setCurrentIndex(prev => Math.max(0, prev - 1));
   };
 
   const handleNext = () => {
-    setCurrentIndex((prev) => Math.min(maxIndex, prev + 1));
+    setCurrentIndex(prev => Math.min(maxIndex, prev + 1));
   };
 
   const GAP_PX = 16; 
   const gapWidthPx = GAP_PX * Math.max(0, totalItems - 1);
 
   if (slice.variation !== "default") return null;
-
+  
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -96,109 +97,111 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
         className="flex flex-col justify-between gap-10 text-left"
         size="xl"
       >
-        <div className="flex justify-between items-end w-full">
+        <div className="flex flex-col lg:flex-row justify-between gap-8 items-start lg:items-end w-full">
           <div className="flex flex-col gap-5 sm:max-w-[500px]">
             <PrismicRichText
               field={slice.primary.ontitle}
               components={{
-                heading2: ({ children }) => (
-                  <h2
-                    className="font-bold text-xl"
-                    style={getFontHeadingStyles(pageData)}
-                  >
+                paragraph: ({ children }) => (
+                  <p className="text-lg">
                     {children}
-                  </h2>
-                ),
+                  </p>
+                )
               }}
             />
             <PrismicRichText
               field={slice.primary.title}
               components={{
-                heading3: ({ children }) => (
+                heading2: ({ children }) => (
                   <h2
                     className="font-bold text-4xl"
                     style={getFontHeadingStyles(pageData)}
                   >
                     {children}
                   </h2>
-                ),
+                )
               }}
             />
             <PrismicRichText
-              field={slice.primary.txt}
+              field={slice.primary.description}
               components={{
                 paragraph: ({ children }) => (
                   <p className="leading-7">{children}</p>
-                ),
+                )
               }}
             />
           </div>
-          <div
-            className="px-4 py-2 hover:opacity-90 text-white  transition-all duration-200 ease-inout1 cursor-pointer"
+          <div className="px-4 py-2 hover:opacity-90 text-white  transition-all duration-200 ease-inout1 cursor-pointer"
             style={getButtonStyles("Primary", pageData)}
           >
             <span>{slice.primary.btn_txt}</span>
           </div>
         </div>
         <div
-          className="flex gap-4 justify-center transition-transform duration-500 ease-inout2"
+          className="w-full flex gap-4 transition-transform duration-500 ease-inout2"
           style={{
             width: `calc(${(totalItems / itemsPerView) * 100}% + ${gapWidthPx}px)`,
             transform: `translateX(-${(currentIndex * 100) / totalItems}%)`,
           }}
         >
           {/* Carousel */}
-          {slice.primary.grp?.map((item, index) => {
-            // To do => fix type any
-            const data = (item.article as unknown as ArticleDocument)
-              .data as any;
-            return (
+          {slice.primary.grp?.map((item: any, index: number) => (
+
               <div
                 key={index}
                 className="flex flex-col rounded-xl shadow-[4px_4px_24px_0px_rgba(175,175,175,0.25)] overflow-hidden"
                 style={{ 
-                    // Chaque item prend exactement la largeur nécessaire (1/total)
-                    flex: `0 0 calc((100% - ${gapWidthPx}px) / ${totalItems})` 
-                  }}
+                  // Chaque item prend exactement la largeur nécessaire (1/total)
+                  flex: `0 0 calc((100% - ${gapWidthPx}px) / ${totalItems})` 
+                }}
               >
                 <div className="w-full rounded-t-xl">
-                  {data?.img && (
+                  {item?.image && (
                     <PrismicNextImage
-                      field={data.img}
+                      field={item.image}
                       className="w-full h-full aspect-video object-cover"
                     />
                   )}
                 </div>
-                <div className="flex flex-col gap-2 p-4">
-                  <div className="flex justify-between">
-                    <span
-                      className="text-sm"
-                      style={{ color: pageData?.primary_color || "#000000" }}
-                    >
-                      {data?.category?.data?.name}
-                    </span>
-                    <span className="text-sm">{formatDate(data?.date)}</span>
-                  </div>
-                  <h4
-                    className="font-bold text-3xl"
-                    style={getFontHeadingStyles(pageData)}
-                  >
-                    {data?.title[0].text}
-                  </h4>
-                  <div className="text-sm max-h-[100px] overflow-hidden text-ellipsis line-clamp-3">
-                    <PrismicRichText field={data?.desc} />
-                  </div>
-                  <PrismicNextLink
-                    href={"#"}
-                    className="mt-2 text-sm hover:underline"
+                  <div className="flex flex-col gap-2 p-4">
+                    <div className="flex justify-between">
+                      <span
+                        className="text-sm"
+                        style={{ color: pageData?.primary_color || "#000000" }}
+                      >
+                        {item?.category}
+                      </span>
+                      <span
+                        className="text-sm"
+                      >
+                        {formatDate(item?.date)}
+                      </span>
+                    </div>
+                  <PrismicRichText
+                      field={item?.title}
+                      components={{
+                        heading4: ({ children }) => (
+                          <h4
+                            className="font-bold text-xl"
+                            style={getFontHeadingStyles(pageData)}
+                          >
+                            {children}
+                          </h4>
+                        )
+                      }}
+                    />
+                    <div className="text-sm max-h-[100px] overflow-hidden text-ellipsis line-clamp-3">
+                      <PrismicRichText field={item?.description} />
+                    </div>
+
+                    <div className="mt-2 text-sm hover:underline cursor-pointer"
                     style={{ color: pageData?.primary_color || "#000000" }}
-                  >
-                    Read more →
-                  </PrismicNextLink>
-                </div>
+                    >
+                      <span>{item?.btn_txt} →</span>
+                    </div>
+                  </div>
               </div>
-            );
-          })}
+          ))}
         </div>
         {/* Nav carousel */}
         {showNavigation && (
@@ -258,4 +261,4 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
   );
 };
 
-export default Carousel;
+export default FeaturedArticles;

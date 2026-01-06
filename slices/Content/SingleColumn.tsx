@@ -22,7 +22,7 @@ export default function SingleColumn({
     >
       {/* TODO : create Contatiner for 1 and 2 cols like slice deck */}
       <Container
-        // className="flex flex-col md:flex-row justify-center items-center gap-10 text-center"
+        className="flex flex-col gap-8"
         size="xl"
       >
         <RichText field={slice.primary.content} page={pageData} />

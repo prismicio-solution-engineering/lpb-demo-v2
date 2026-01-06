@@ -2284,6 +2284,156 @@ type FaqSliceVariation =
 export type FaqSlice = prismic.SharedSlice<"faq", FaqSliceVariation>;
 
 /**
+ * Item in *FeaturedArticles → Default → Primary → Grp*
+ */
+export interface FeaturedArticlesSliceDefaultPrimaryGrpItem {
+  /**
+   * Image field in *FeaturedArticles → Default → Primary → Grp*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_articles.default.primary.grp[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Category field in *FeaturedArticles → Default → Primary → Grp*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_articles.default.primary.grp[].category
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  category: prismic.KeyTextField;
+
+  /**
+   * Date field in *FeaturedArticles → Default → Primary → Grp*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_articles.default.primary.grp[].date
+   * - **Documentation**: https://prismic.io/docs/fields/date
+   */
+  date: prismic.DateField;
+
+  /**
+   * Title field in *FeaturedArticles → Default → Primary → Grp*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_articles.default.primary.grp[].title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *FeaturedArticles → Default → Primary → Grp*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_articles.default.primary.grp[].description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Button - Text field in *FeaturedArticles → Default → Primary → Grp*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_articles.default.primary.grp[].btn_txt
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  btn_txt: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *FeaturedArticles → Default → Primary*
+ */
+export interface FeaturedArticlesSliceDefaultPrimary {
+  /**
+   * Ontitle field in *FeaturedArticles → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_articles.default.primary.ontitle
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  ontitle: prismic.RichTextField;
+
+  /**
+   * Title field in *FeaturedArticles → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_articles.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *FeaturedArticles → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_articles.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Button - Text field in *FeaturedArticles → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_articles.default.primary.btn_txt
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  btn_txt: prismic.KeyTextField;
+
+  /**
+   * Grp field in *FeaturedArticles → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_articles.default.primary.grp[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  grp: prismic.GroupField<Simplify<FeaturedArticlesSliceDefaultPrimaryGrpItem>>;
+}
+
+/**
+ * Default variation for FeaturedArticles Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FeaturedArticlesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FeaturedArticlesSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *FeaturedArticles*
+ */
+type FeaturedArticlesSliceVariation = FeaturedArticlesSliceDefault;
+
+/**
+ * FeaturedArticles Shared Slice
+ *
+ * - **API ID**: `featured_articles`
+ * - **Description**: FeaturedArticles
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FeaturedArticlesSlice = prismic.SharedSlice<
+  "featured_articles",
+  FeaturedArticlesSliceVariation
+>;
+
+/**
  * Default variation for HeroHome Slice
  *
  * - **API ID**: `default`
@@ -3286,6 +3436,11 @@ declare module "@prismicio/client" {
       FaqSliceDefault,
       FaqSliceVariation1,
       FaqSliceVariation2,
+      FeaturedArticlesSlice,
+      FeaturedArticlesSliceDefaultPrimaryGrpItem,
+      FeaturedArticlesSliceDefaultPrimary,
+      FeaturedArticlesSliceVariation,
+      FeaturedArticlesSliceDefault,
       HeroHomeSlice,
       HeroHomeSliceVariation,
       HeroHomeSliceDefault,

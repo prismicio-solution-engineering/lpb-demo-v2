@@ -2,7 +2,6 @@
 import { FC, useEffect, useRef, useState } from "react";
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
-import { LandingDocumentDataSlicesSlice } from "@/prismicio-types";
 import { LandingDocumentData } from "@/prismicio-types";
 import { getFontHeadingStyles, getFontTextStyles } from "@/utils/getFontStyles";
 import Container from "@/components/Container";
@@ -14,7 +13,7 @@ import { getIconColor, getLightIconColor } from "@/utils/getColors";
  * Props for `FeaturedArticles`.
  */
 export type FeaturedArticlesProps =
-  SliceComponentProps<LandingDocumentDataSlicesSlice>;
+  SliceComponentProps<Content.FeaturedArticlesSlice>;
 
 /**
  * Component for "FeaturedArticles" Slices.

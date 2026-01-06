@@ -2,6 +2,7 @@
 import { FC, useEffect, useRef, useState } from "react";
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import { LandingDocumentDataSlicesSlice } from "@/prismicio-types";
 import { LandingDocumentData } from "@/prismicio-types";
 import { getFontHeadingStyles, getFontTextStyles } from "@/utils/getFontStyles";
 import Container from "@/components/Container";
@@ -13,7 +14,7 @@ import { getIconColor, getLightIconColor } from "@/utils/getColors";
  * Props for `FeaturedArticles`.
  */
 export type FeaturedArticlesProps =
-  SliceComponentProps<Content.FeaturedArticlesSlice>;
+  SliceComponentProps<LandingDocumentDataSlicesSlice>;
 
 /**
  * Component for "FeaturedArticles" Slices.
@@ -144,7 +145,7 @@ const FeaturedArticles: FC<FeaturedArticlesProps> = ({ slice, context }) => {
           }}
         >
           {/* Carousel */}
-          {slice.primary.grp?.map((item, index) => (
+          {slice.primary.grp?.map((item: any, index: number) => (
 
               <div
                 key={index}

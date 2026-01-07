@@ -83,7 +83,7 @@
 
     return (
       <>
-        <Header/>
+        <Header data={data}/>
         <main>
           <Hero data={data} />
           <Understanding data={data}></Understanding>

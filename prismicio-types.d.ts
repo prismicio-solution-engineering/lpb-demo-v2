@@ -1199,7 +1199,22 @@ interface RecapDocumentData {
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/fields/image
    */
-  meta_image: prismic.ImageField<never>;
+  meta_image: prismic.ImageField<never>; /**
+   * Button field in *Recap*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.header_button
+   * - **Tab**: Header
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  header_button: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
 }
 
 /**

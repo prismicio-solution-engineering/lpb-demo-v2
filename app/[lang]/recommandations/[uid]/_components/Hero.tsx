@@ -1,5 +1,5 @@
 import { RecapDocumentData, Simplify } from "@/prismicio-types";
-import { PrismicNextImage } from "@prismicio/next";
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
 import { isFilled } from "@prismicio/client";
 
@@ -8,7 +8,6 @@ import { Animation } from "@/components/Animations/Animation";
 import { TopAnimation } from "@/components/Animations/TopAnimation";
 
 export default function Hero({data}:{data:Simplify<RecapDocumentData>}) {
-
     return (
         <section id="hero" className="scroll-mt-24 relative bg-[#FFFFFF] pt-40 pb-50 md:pb-75">
           <div className="absolute bottom-0 left-0 w-full ">
@@ -74,14 +73,13 @@ export default function Hero({data}:{data:Simplify<RecapDocumentData>}) {
                         Email me
                       </a>
                     )}
-                    {isFilled.contentRelationship(data.contact) && (
-                      <a
-                        href={`${data.contact.data?.calendar}`}
-                        className="text-[#151515] px-4 py-2 rounded-lg border-2 border-[#151515]"
-                      >
-                        Book a call
-                      </a>
-                    )}
+                    <div>
+                      {isFilled.contentRelationship(data.contact) && isFilled.link(data.contact.data?.calendar) && (
+                        <PrismicNextLink field={data.contact.data?.calendar} className="text-[#151515] px-4 py-2 rounded-lg border-2 border-[#151515]">
+                          {data.contact.data?.calendar.text ? data.contact.data?.calendar.text : "Book a call"}
+                        </PrismicNextLink>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>

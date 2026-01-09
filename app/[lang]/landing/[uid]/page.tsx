@@ -10,6 +10,7 @@ import { getLocales } from "@/utils/getLocales";
 import { Header } from "@/components/GlobalNavigation";
 import Layout from "@/components/Layout";
 import { LandingDocument } from "@/prismicio-types";
+import Disclaimer from "@/components/Disclaimer";
 
 export async function generateMetadata({
   params,
@@ -131,6 +132,7 @@ export default async function Landing({
   return (
     <>
       {/* <Header settings={settings} page={header} languages={languages} /> */}
+      <Disclaimer />
       <Layout
         lang={lang}
         languages={languages}

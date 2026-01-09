@@ -27,6 +27,19 @@
         }
       }
     },
+    "Header": {
+      "header_button": {
+        "type": "Link",
+        "config": {
+          "label": "Button",
+          "placeholder": "",
+          "select": null,
+          "allowTargetBlank": true,
+          "allowText": true,
+          "repeat": false
+        }
+      }
+    },
     "Hero": {
       "client_logo": {
         "type": "Image",

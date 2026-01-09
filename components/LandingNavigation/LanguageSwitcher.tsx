@@ -26,8 +26,8 @@ export function LanguageSwitcher({
 
   return (
     //Only added on desktop for now
-    <div className="flex items-center">
-      <div className="hidden lg:ml-8 lg:flex">
+    <div className="hidden lg:flex items-center">
+      <div className="ml-8 flex">
         <a className="text-gray-700 hover:text-gray-800 flex items-center">
           <select
             id="location"

@@ -1,32 +1,46 @@
-  import { Metadata } from "next";
-  import { RecapDocument } from "@/prismicio-types";
-  import { createClient } from "@/prismicio";
-  import { asImageSrc } from "@prismicio/client";
+import { Metadata } from "next";
+import { RecapDocument } from "@/prismicio-types";
+import { createClient } from "@/prismicio";
+import { asImageSrc } from "@prismicio/client";
 
-  import { notFound } from "next/navigation";
+import { notFound } from "next/navigation";
 
-  import Header from "./_components/Header";
-  import Hero from "./_components/Hero";
-  import Understanding from "./_components/Understanding";
-  import Opportunities from "./_components/Opportunities";
-  import Data from "./_components/Data";
-  import NextSteps from "./_components/NextSteps";
+import Header from "./_components/Header";
+import Hero from "./_components/Hero";
+import Understanding from "./_components/Understanding";
+import Opportunities from "./_components/Opportunities";
+import Data from "./_components/Data";
+import NextSteps from "./_components/NextSteps";
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string; uid: string }>;
+}): Promise<Metadata> {
+  const resolvedParams = await params;
+  const { lang, uid } = resolvedParams;
 
-  export async function generateMetadata({
-    params,
-  }: {
-    params: Promise<{ lang: string; uid: string }>;
-  }): Promise<Metadata> {
-    const resolvedParams = await params;
-    const { lang, uid } = resolvedParams;
+  const client = createClient();
 
-    const client = createClient();
-
-    let page;
+  let page;
+  try {
+    page = await client.getByUID("recap", uid, {
+      lang,
+      graphQuery: `
+          {
+            recap {
+              meta_title
+              meta_description
+              meta_image
+            }
+          }
+        `,
+    });
+  } catch (error) {
+    // Try to fall back to the default locale (en-us)
     try {
       page = await client.getByUID("recap", uid, {
-        lang,
+        lang: "en-us",
         graphQuery: `
           {
             recap {
@@ -37,60 +51,59 @@
           }
         `,
       });
-    } catch (error) {
-      // Try to fall back to the default locale (en-us)
-      try {
-        page = await client.getByUID("recap", uid, {
-          lang: "en-us",
-          graphQuery: `
-          {
-            recap {
-              meta_title
-              meta_description
-              meta_image
-            }
-          }
-        `,
-        });
-      } catch (fallbackError) {
-        notFound();
-      }
+    } catch (fallbackError) {
+      notFound();
     }
-
-    return {
-      title: page.data.meta_title,
-      description: page.data.meta_description,
-      openGraph: {
-        images: [{ url: asImageSrc(page.data.meta_image) ?? "" }],
-      },
-    };
   }
 
-  export default async function Home({
-    params,
-  }: {
-    params: Promise<{ lang: string; uid: string }>;
-  }) {
-    const client = createClient();
-    const resolvedParams = await params;
-    const { lang, uid } = resolvedParams;
+  return {
+    title: page.data.meta_title,
+    description: page.data.meta_description,
+    openGraph: {
+      images: [{ url: asImageSrc(page.data.meta_image) ?? "" }],
+    },
+  };
+}
 
-    const [page] = await Promise.all([
-      client.getByUID("recap", uid, { lang: lang }),
-    ]);
-
-    const { data } = page as RecapDocument;
-
-    return (
-      <>
-        <Header data={data}/>
-        <main>
-          <Hero data={data} />
-          <Understanding data={data}></Understanding>
-          <Opportunities data={data}></Opportunities>
-          <Data data={data}></Data>
-          <NextSteps data={data}></NextSteps>
-        </main>
-      </>
-    );
+export default async function Recap({
+  params,
+}: {
+  params: Promise<{ lang: string; uid: string }>;
+}) {
+  
+  const resolvedParams = await params;
+  const { lang, uid } = resolvedParams;
+  
+  const client = createClient();
+  
+  let page;
+  try {
+    page = await client.getByUID("recap", uid, {
+      lang,
+    });
+  } catch (error) {
+    // Try to fall back to the default locale (en-us)
+    try {
+      page = await client.getByUID("recap", uid, {
+        lang: "en-us",
+      });
+    } catch (fallbackError) {
+      notFound();
+    }
   }
+
+  const { data } = page as RecapDocument;
+
+  return (
+    <>
+      <Header data={data} />
+      <main>
+        <Hero data={data} />
+        <Understanding data={data}></Understanding>
+        <Opportunities data={data}></Opportunities>
+        <Data data={data}></Data>
+        <NextSteps data={data}></NextSteps>
+      </main>
+    </>
+  );
+}

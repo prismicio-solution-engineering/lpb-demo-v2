@@ -6,8 +6,6 @@ import { SliceZone } from "@prismicio/react";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import { getLanguages } from "@/utils/getLanguages";
-import { getLocales } from "@/utils/getLocales";
-import { Header } from "@/components/GlobalNavigation";
 import Layout from "@/components/Layout";
 import { LandingDocument } from "@/prismicio-types";
 import Disclaimer from "@/components/Disclaimer";
@@ -70,9 +68,6 @@ export default async function Landing({
 }: {
   params: Promise<{ lang: string; uid: string }>;
 }) {
-  // Fetch all available locales in the repo
-  const locales = await getLocales();
-
   const resolvedParams = await params;
   const { lang, uid } = resolvedParams;
 

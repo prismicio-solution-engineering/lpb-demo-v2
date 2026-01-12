@@ -1,6 +1,4 @@
-import { type Metadata } from "next";
 import { notFound } from "next/navigation";
-import { asImageSrc } from "@prismicio/client";
 import { SliceZone } from "@prismicio/react";
 
 import { createClient } from "@/prismicio";
@@ -8,7 +6,6 @@ import { components } from "@/slices";
 import { getLanguages } from "@/utils/getLanguages";
 import { getLocales } from "@/utils/getLocales";
 import { Header } from "@/components/GlobalNavigation";
-import { getAllLanguages } from "@/utils/getAllLanguages";
 import Container from "@/components/Container";
 
 export default async function Home({
@@ -72,7 +69,7 @@ export default async function Home({
 
       client.getAllByType("landing", { lang }).catch(() => []),
 
-      getAllLanguages(page, client, locales),
+      getLanguages(page, client),
     ]
   );
 

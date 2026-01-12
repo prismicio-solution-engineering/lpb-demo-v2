@@ -5,9 +5,7 @@ import { SliceZone } from "@prismicio/react";
 
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
-import { getLocales } from "@/utils/getLocales";
 import { getLanguages } from "@/utils/getLanguages";
-import { Header } from "@/components/GlobalNavigation";
 
 export async function generateMetadata({
   params,
@@ -67,8 +65,6 @@ export default async function Article({
 }: {
   params: Promise<{ lang: string; uid: string }>;
 }) {
-  const locales = await getLocales();
-
   const resolvedParams = await params;
   const { lang, uid } = resolvedParams;
 

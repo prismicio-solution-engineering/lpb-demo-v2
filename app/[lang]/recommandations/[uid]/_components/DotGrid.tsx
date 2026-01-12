@@ -22,13 +22,13 @@ export function DotGrid() {
     const resizeAndDraw = () => {
       // récupére taille du conteneur parent
       const { width, height } = container.getBoundingClientRect();
-      
+
       // densité de pixels (Retina display)
       const dpr = window.devicePixelRatio || 1;
-      
+
       canvas.width = width * dpr;
       canvas.height = height * dpr;
-      
+
       // ajuste style CSS = taille visuelle
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
@@ -57,14 +57,17 @@ export function DotGrid() {
     const resizeObserver = new ResizeObserver(() => {
       resizeAndDraw();
     });
-    
+
     resizeObserver.observe(container);
 
     return () => resizeObserver.disconnect();
   }, []);
 
   return (
-    <div ref={containerRef} className="absolute inset-0 w-full h-full -z-10 pointer-events-none rounded-xl overflow-hidden">
+    <div
+      ref={containerRef}
+      className="absolute inset-0 w-full h-full -z-10 pointer-events-none rounded-xl overflow-hidden"
+    >
       <div className="absolute inset-0 w-full h-full bg-[radial-gradient(closest-side,#151515_0%,transparent_100%)]"></div>
       <canvas ref={canvasRef} />
     </div>

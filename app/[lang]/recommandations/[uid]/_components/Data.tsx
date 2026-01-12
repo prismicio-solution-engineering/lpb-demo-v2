@@ -10,19 +10,20 @@ import { DotGrid } from "./DotGrid";
 import Container from "@/components/Container";
 import { BottomAnimation } from "@/components/Animations/BottomAnimation";
 
-export default function Data({ data }: { data: Simplify<RecapDocumentData> }) {
+export default function Data({ data }: { data: RecapDocumentData }) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  const scroll = (direction: 'left' | 'right') => {
+  const scroll = (direction: "left" | "right") => {
     if (scrollContainerRef.current) {
-      const scrollAmount = 340; 
+      const scrollAmount = 340;
       const currentScroll = scrollContainerRef.current.scrollLeft;
-      
+
       scrollContainerRef.current.scrollTo({
-        left: direction === 'left' 
-          ? currentScroll - scrollAmount 
-          : currentScroll + scrollAmount,
-        behavior: 'smooth'
+        left:
+          direction === "left"
+            ? currentScroll - scrollAmount
+            : currentScroll + scrollAmount,
+        behavior: "smooth",
       });
     }
   };
@@ -74,25 +75,46 @@ export default function Data({ data }: { data: Simplify<RecapDocumentData> }) {
             <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/4 w-full h-175 bg-[radial-gradient(closest-side,#8E44EC7e_0%,transparent_100%)] -z-10 pointer-events-none"></div>
 
             <div className="relative w-full bg-[#FFFFFF] rounded-2xl p-4 md:p-8 shadow-[0px_0px_64px_0px_#8E44EC7E]">
-              
               {/* NAV */}
               <div className="flex justify-end gap-2 mb-4">
-                <button 
-                  onClick={() => scroll('left')} 
+                <button
+                  onClick={() => scroll("left")}
                   className="p-2 rounded-full hover:bg-gray-100 border border-gray-200 transition active:scale-95 text-[#505050] cursor-pointer"
                 >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="m15 18-6-6 6-6" />
+                  </svg>
                 </button>
-                <button 
-                  onClick={() => scroll('right')} 
+                <button
+                  onClick={() => scroll("right")}
                   className="p-2 rounded-full hover:bg-gray-100 border border-gray-200 transition active:scale-95 text-[#505050] cursor-pointer"
                 >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="m9 18 6-6-6-6" />
+                  </svg>
                 </button>
               </div>
 
               {/* CARDS */}
-              <div 
+              <div
                 ref={scrollContainerRef}
                 className="flex gap-6 overflow-x-auto pb-4 items-stretch snap-x snap-mandatory scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
               >
@@ -108,11 +130,10 @@ export default function Data({ data }: { data: Simplify<RecapDocumentData> }) {
                   return (
                     <div
                       key={index}
-                      className="snap-center shrink-0 w-[80vw] md:w-[320px] lg:w-[350px]"
+                      className="snap-center shrink-0 w-[80vw] md:w-[320px] lg:w-87.5"
                     >
                       <div className="h-full flex flex-col rounded-xl border border-[#50505032] bg-white p-6 hover:border-[#8E44EC] transition-colors duration-300">
-                        <div className="flex-grow flex flex-col gap-5 text-left mb-6">
-                          
+                        <div className="grow flex flex-col gap-5 text-left mb-6">
                           {/* COMPANY */}
                           <div>
                             <span className="block text-xs uppercase tracking-wider text-gray-400 font-bold mb-1">
@@ -142,7 +163,9 @@ export default function Data({ data }: { data: Simplify<RecapDocumentData> }) {
                             <span className="block text-xs uppercase tracking-wider text-gray-400 font-bold mb-1">
                               Personalization Instructions
                             </span>
-                            {isFilled.keyText(item.personalization_instructions) && (
+                            {isFilled.keyText(
+                              item.personalization_instructions
+                            ) && (
                               <p className="text-sm text-[#505050] whitespace-pre-wrap leading-relaxed">
                                 {item.personalization_instructions}
                               </p>
@@ -162,7 +185,6 @@ export default function Data({ data }: { data: Simplify<RecapDocumentData> }) {
                             </PrismicNextLink>
                           )}
                         </div>
-
                       </div>
                     </div>
                   );

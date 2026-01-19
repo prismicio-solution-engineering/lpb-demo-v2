@@ -440,6 +440,156 @@ export type ContactDocument<Lang extends string = string> =
     Lang
   >;
 
+type EcommerceDocumentDataSlicesSlice =
+  | BannerSlice
+  | ProductSelectionSlice
+  | CarouselSlice
+  | IconsSlice;
+
+/**
+ * Content for Ecommerce documents
+ */
+interface EcommerceDocumentData {
+  /**
+   * Slice Zone field in *Ecommerce*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ecommerce.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<EcommerceDocumentDataSlicesSlice>; /**
+   * Meta Title field in *Ecommerce*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: ecommerce.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Ecommerce*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: ecommerce.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Ecommerce*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ecommerce.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>; /**
+   * Logo field in *Ecommerce*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ecommerce.logo
+   * - **Tab**: Header
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  logo: prismic.ImageField<never>;
+
+  /**
+   * Links field in *Ecommerce*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ecommerce.lnks
+   * - **Tab**: Header
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  lnks: prismic.Repeatable<
+    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  >; /**
+   * Primary color field in *Ecommerce*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ecommerce.primary_color
+   * - **Tab**: Design
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  primary_color: prismic.ColorField;
+
+  /**
+   * Secondary color field in *Ecommerce*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: ecommerce.secondary_color
+   * - **Tab**: Design
+   * - **Documentation**: https://prismic.io/docs/fields/color
+   */
+  secondary_color: prismic.ColorField;
+
+  /**
+   * Font - Heading field in *Ecommerce*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Proxima Bold
+   * - **API ID Path**: ecommerce.font_heading
+   * - **Tab**: Design
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  font_heading: prismic.SelectField<"Proxima Bold" | "Arial Bold", "filled">;
+
+  /**
+   * Font - Text field in *Ecommerce*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Inter
+   * - **API ID Path**: ecommerce.font_txt
+   * - **Tab**: Design
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  font_txt: prismic.SelectField<"Inter" | "Helvetica", "filled">;
+
+  /**
+   * Button style field in *Ecommerce*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Square
+   * - **API ID Path**: ecommerce.button_style
+   * - **Tab**: Design
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  button_style: prismic.SelectField<
+    "Square" | "Medium rounded" | "Rounded",
+    "filled"
+  >;
+}
+
+/**
+ * Ecommerce document from Prismic
+ *
+ * - **API ID**: `ecommerce`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type EcommerceDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<EcommerceDocumentData>,
+    "ecommerce",
+    Lang
+  >;
+
 /**
  * Content for Footer documents
  */
@@ -1309,6 +1459,7 @@ export type AllDocumentTypes =
   | AuthorDocument
   | CategoryDocument
   | ContactDocument
+  | EcommerceDocument
   | FooterDocument
   | HeaderDocument
   | HomeDocument
@@ -3806,6 +3957,9 @@ declare module "@prismicio/client" {
       CategoryDocumentData,
       ContactDocument,
       ContactDocumentData,
+      EcommerceDocument,
+      EcommerceDocumentData,
+      EcommerceDocumentDataSlicesSlice,
       FooterDocument,
       FooterDocumentData,
       HeaderDocument,

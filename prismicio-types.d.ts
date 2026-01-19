@@ -597,41 +597,6 @@ type LandingDocumentDataSlicesSlice =
   | CtaSlice;
 
 /**
- * Item in *Landing → Generated Page*
- */
-export interface LandingDocumentDataGeneratedPageItem {
-  /**
-   * Company field in *Landing → Generated Page*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: landing.generated_page[].company
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  company: prismic.KeyTextField;
-
-  /**
-   * Role field in *Landing → Generated Page*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: landing.generated_page[].role
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  role: prismic.KeyTextField;
-
-  /**
-   * Personalization Instructions field in *Landing → Generated Page*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: landing.generated_page[].personalization_instructions
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  personalization_instructions: prismic.KeyTextField;
-}
-
-/**
  * Content for Landing documents
  */
 interface LandingDocumentData {
@@ -774,17 +739,37 @@ interface LandingDocumentData {
     "Square" | "Medium rounded" | "Rounded",
     "filled"
   >; /**
-   * Generated Page field in *Landing*
+   * Company field in *Landing*
    *
-   * - **Field Type**: Group
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: landing.generated_page[]
+   * - **API ID Path**: landing.company
    * - **Tab**: AI Data
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   * - **Documentation**: https://prismic.io/docs/fields/text
    */
-  generated_page: prismic.GroupField<
-    Simplify<LandingDocumentDataGeneratedPageItem>
-  >;
+  company: prismic.KeyTextField;
+
+  /**
+   * Role field in *Landing*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: landing.role
+   * - **Tab**: AI Data
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  role: prismic.KeyTextField;
+
+  /**
+   * Personalization Instructions field in *Landing*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: landing.personalization_instructions
+   * - **Tab**: AI Data
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  personalization_instructions: prismic.KeyTextField;
 }
 
 /**
@@ -3444,7 +3429,6 @@ declare module "@prismicio/client" {
       LandingDocument,
       LandingDocumentData,
       LandingDocumentDataSlicesSlice,
-      LandingDocumentDataGeneratedPageItem,
       RecapDocument,
       RecapDocumentData,
       RecapDocumentDataSlicesSlice,

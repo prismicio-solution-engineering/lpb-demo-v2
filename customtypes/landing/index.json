@@ -149,34 +149,25 @@
       }
     },
     "AI Data": {
-      "generated_page": {
-        "type": "Group",
+      "company": {
+        "type": "Text",
         "config": {
-          "label": "Generated Page",
-          "repeat": true,
-          "fields": {
-            "company": {
-              "type": "Text",
-              "config": {
-                "label": "Company",
-                "placeholder": ""
-              }
-            },
-            "role": {
-              "type": "Text",
-              "config": {
-                "label": "Role",
-                "placeholder": ""
-              }
-            },
-            "personalization_instructions": {
-              "type": "Text",
-              "config": {
-                "label": "Personalization Instructions",
-                "placeholder": ""
-              }
-            }
-          }
+          "label": "Company",
+          "placeholder": ""
+        }
+      },
+      "role": {
+        "type": "Text",
+        "config": {
+          "label": "Role",
+          "placeholder": ""
+        }
+      },
+      "personalization_instructions": {
+        "type": "Text",
+        "config": {
+          "label": "Personalization Instructions",
+          "placeholder": ""
         }
       }
     }

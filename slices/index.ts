@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  banner: dynamic(() => import("./Banner")),
   carousel: dynamic(() => import("./Carousel")),
   content: dynamic(() => import("./Content")),
   cta: dynamic(() => import("./Cta")),
@@ -10,7 +11,9 @@ export const components = {
   featured_articles: dynamic(() => import("./FeaturedArticles")),
   hero_home: dynamic(() => import("./HeroHome")),
   hero_landing: dynamic(() => import("./HeroLanding")),
+  icons: dynamic(() => import("./Icons")),
   media_feature: dynamic(() => import("./Feature")),
   navigation_links: dynamic(() => import("./NavigationLinks")),
+  product_selection: dynamic(() => import("./ProductSelection")),
   testimonials: dynamic(() => import("./Testimonials")),
 };

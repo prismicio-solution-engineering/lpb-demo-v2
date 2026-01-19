@@ -184,6 +184,123 @@
         }
       },
       "items": {}
+    },
+    {
+      "id": "variation3",
+      "name": "Variation 3",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading3"
+          }
+        },
+        "txt": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
+        },
+        "btn_txt": {
+          "type": "Text",
+          "config": {
+            "label": "Button - Text",
+            "placeholder": "View all"
+          }
+        },
+        "grp": {
+          "type": "Group",
+          "config": {
+            "label": "Grp",
+            "repeat": true,
+            "fields": {
+              "article": {
+                "type": "Link",
+                "config": {
+                  "label": "Article",
+                  "select": "document",
+                  "repeat": false,
+                  "customtypes": [
+                    {
+                      "id": "article",
+                      "fields": [
+                        "read_time",
+                        "date",
+                        "img",
+                        "title",
+                        "desc",
+                        {
+                          "id": "author",
+                          "customtypes": [
+                            {
+                              "id": "author",
+                              "fields": [
+                                "img",
+                                "name"
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "id": "category",
+                          "customtypes": [
+                            {
+                              "id": "category",
+                              "fields": [
+                                "name"
+                              ]
+                            }
+                          ]
+                        },
+                        "read_time_txt"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "img": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "desc": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Description",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph"
+                }
+              },
+              "lnk": {
+                "type": "Link",
+                "config": {
+                  "label": "Link",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": false,
+                  "repeat": false
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }

@@ -1,6 +1,88 @@
 [
 	{
 		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"ontitle": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Fallen"
+						}
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "Decide"
+						}
+					}
+				]
+			},
+			"txt": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Nulla officia quis deserunt aliquip occaecat."
+						}
+					}
+				]
+			},
+			"btn_txt": {
+				"__TYPE__": "FieldContent",
+				"value": "lips",
+				"type": "Text"
+			},
+			"grp": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"article",
+								{
+									"key": "553e793c-e993-4da8-8823-ec908c217887",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "DocumentLink",
+										"id": "mock_document_id"
+									}
+								}
+							]
+						]
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": []
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": []
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": []
+					},
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": []
+					}
+				]
+			}
+		},
+		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
 		"variation": "variation1",
 		"primary": {
 			"title": {
@@ -130,26 +212,15 @@
 	},
 	{
 		"__TYPE__": "SharedSliceContent",
-		"variation": "default",
+		"variation": "variation3",
 		"primary": {
-			"ontitle": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "heading2",
-						"content": {
-							"text": "Fallen"
-						}
-					}
-				]
-			},
 			"title": {
 				"__TYPE__": "StructuredTextContent",
 				"value": [
 					{
 						"type": "heading3",
 						"content": {
-							"text": "Decide"
+							"text": "Mysterious"
 						}
 					}
 				]
@@ -160,14 +231,14 @@
 					{
 						"type": "paragraph",
 						"content": {
-							"text": "Nulla officia quis deserunt aliquip occaecat."
+							"text": "Ex consectetur sint culpa qui tempor sit dolore adipisicing officia consectetur et."
 						}
 					}
 				]
 			},
 			"btn_txt": {
 				"__TYPE__": "FieldContent",
-				"value": "lips",
+				"value": "lot",
 				"type": "Text"
 			},
 			"grp": {
@@ -179,39 +250,75 @@
 							[
 								"article",
 								{
-									"key": "553e793c-e993-4da8-8823-ec908c217887",
+									"key": "679adf9f-6357-4a9b-bc5c-653a5f078b88",
 									"__TYPE__": "LinkContent",
 									"value": {
 										"__TYPE__": "DocumentLink",
 										"id": "mock_document_id"
 									}
 								}
+							],
+							[
+								"img",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2",
+										"width": 5616,
+										"height": 3744
+									},
+									"url": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2",
+									"width": 5616,
+									"height": 3744,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"alt": "shop",
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"desc",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Sit eu sit sint aliqua officia irure ex eu eiusmod. Voluptate officia commodo cillum nulla magna nisi ullamco eiusmod cillum magna consectetur consectetur sunt eiusmod fugiat. Dolor incididunt in proident sint dolor cillum nulla esse culpa irure mollit proident."
+											}
+										}
+									]
+								}
+							],
+							[
+								"lnk",
+								{
+									"__TYPE__": "LinkContent",
+									"key": "c0d792af-4b43-40d9-872b-45897ec10233",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://slicemachine.dev"
+									}
+								}
 							]
 						]
-					},
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [],
-						"key": "f221ed2f-7702-4541-9093-a6b7f4403fbd"
-					},
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [],
-						"key": "ffe399ed-eea1-4e82-b493-a57836c138a1"
-					},
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [],
-						"key": "0293294c-0cc1-4208-863c-bc3e8b4f082f"
-					},
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": [],
-						"key": "5ba033cc-4023-4c6d-ab08-76a2a29b4639"
 					}
 				]
 			}
 		},
-		"items": []
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]

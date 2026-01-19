@@ -1317,6 +1317,136 @@ export type AllDocumentTypes =
   | SettingsDocument;
 
 /**
+ * Primary content in *Banner → Default → Primary*
+ */
+export interface BannerSliceDefaultPrimary {
+  /**
+   * Image field in *Banner → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.default.primary.img
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  img: prismic.ImageField<never>;
+
+  /**
+   * Title field in *Banner → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Text field in *Banner → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.default.primary.txt
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  txt: prismic.RichTextField;
+
+  /**
+   * Link field in *Banner → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.default.primary.lnk
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  lnk: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Default variation for Banner Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type BannerSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<BannerSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *Banner → Variation 1 → Primary*
+ */
+export interface BannerSliceVariation1Primary {
+  /**
+   * Image field in *Banner → Variation 1 → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.variation1.primary.img
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  img: prismic.ImageField<never>;
+
+  /**
+   * Title field in *Banner → Variation 1 → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.variation1.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Text field in *Banner → Variation 1 → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.variation1.primary.txt
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  txt: prismic.RichTextField;
+
+  /**
+   * Link field in *Banner → Variation 1 → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.variation1.primary.lnk
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  lnk: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Variation 1 variation for Banner Slice
+ *
+ * - **API ID**: `variation1`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type BannerSliceVariation1 = prismic.SharedSliceVariation<
+  "variation1",
+  Simplify<BannerSliceVariation1Primary>,
+  never
+>;
+
+/**
+ * Slice variation for *Banner*
+ */
+type BannerSliceVariation = BannerSliceDefault | BannerSliceVariation1;
+
+/**
+ * Banner Shared Slice
+ *
+ * - **API ID**: `banner`
+ * - **Description**: Banner
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type BannerSlice = prismic.SharedSlice<"banner", BannerSliceVariation>;
+
+/**
  * Item in *Carousel → Default → Primary → Grp*
  */
 export interface CarouselSliceDefaultPrimaryGrpItem {
@@ -1381,6 +1511,73 @@ export interface CarouselSliceVariation2PrimaryGrpItem {
    * - **Documentation**: https://prismic.io/docs/fields/image
    */
   logo: prismic.ImageField<never>;
+}
+
+/**
+ * Item in *Carousel → Variation 3 → Primary → Grp*
+ */
+export interface CarouselSliceVariation3PrimaryGrpItem {
+  /**
+   * Article field in *Carousel → Variation 3 → Primary → Grp*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel.variation3.primary.grp[].article
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  article: ContentRelationshipFieldWithData<
+    [
+      {
+        id: "article";
+        fields: [
+          "read_time",
+          "date",
+          "img",
+          "title",
+          "desc",
+          {
+            id: "author";
+            customtypes: [{ id: "author"; fields: ["img", "name"] }];
+          },
+          {
+            id: "category";
+            customtypes: [{ id: "category"; fields: ["name"] }];
+          },
+          "read_time_txt",
+        ];
+      },
+    ]
+  >;
+
+  /**
+   * Image field in *Carousel → Variation 3 → Primary → Grp*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel.variation3.primary.grp[].img
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  img: prismic.ImageField<never>;
+
+  /**
+   * Description field in *Carousel → Variation 3 → Primary → Grp*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel.variation3.primary.grp[].desc
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  desc: prismic.RichTextField;
+
+  /**
+   * Link field in *Carousel → Variation 3 → Primary → Grp*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel.variation3.primary.grp[].lnk
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  lnk: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 }
 
 /**
@@ -1538,12 +1735,71 @@ export type CarouselSliceVariation2 = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Carousel → Variation 3 → Primary*
+ */
+export interface CarouselSliceVariation3Primary {
+  /**
+   * Title field in *Carousel → Variation 3 → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel.variation3.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Text field in *Carousel → Variation 3 → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel.variation3.primary.txt
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  txt: prismic.RichTextField;
+
+  /**
+   * Button - Text field in *Carousel → Variation 3 → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: View all
+   * - **API ID Path**: carousel.variation3.primary.btn_txt
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  btn_txt: prismic.KeyTextField;
+
+  /**
+   * Grp field in *Carousel → Variation 3 → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel.variation3.primary.grp[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  grp: prismic.GroupField<Simplify<CarouselSliceVariation3PrimaryGrpItem>>;
+}
+
+/**
+ * Variation 3 variation for Carousel Slice
+ *
+ * - **API ID**: `variation3`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type CarouselSliceVariation3 = prismic.SharedSliceVariation<
+  "variation3",
+  Simplify<CarouselSliceVariation3Primary>,
+  never
+>;
+
+/**
  * Slice variation for *Carousel*
  */
 type CarouselSliceVariation =
   | CarouselSliceDefault
   | CarouselSliceVariation1
-  | CarouselSliceVariation2;
+  | CarouselSliceVariation2
+  | CarouselSliceVariation3;
 
 /**
  * Carousel Shared Slice
@@ -2874,6 +3130,93 @@ export type HeroLandingSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *Icons → Default → Primary → Grp*
+ */
+export interface IconsSliceDefaultPrimaryGrpItem {
+  /**
+   * Image field in *Icons → Default → Primary → Grp*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icons.default.primary.grp[].img
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  img: prismic.ImageField<never>;
+
+  /**
+   * Title field in *Icons → Default → Primary → Grp*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icons.default.primary.grp[].title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *Icons → Default → Primary → Grp*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icons.default.primary.grp[].desc
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  desc: prismic.RichTextField;
+
+  /**
+   * Link field in *Icons → Default → Primary → Grp*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icons.default.primary.grp[].lnk
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  lnk: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Primary content in *Icons → Default → Primary*
+ */
+export interface IconsSliceDefaultPrimary {
+  /**
+   * Grp field in *Icons → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icons.default.primary.grp[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  grp: prismic.GroupField<Simplify<IconsSliceDefaultPrimaryGrpItem>>;
+}
+
+/**
+ * Default variation for Icons Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type IconsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<IconsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Icons*
+ */
+type IconsSliceVariation = IconsSliceDefault;
+
+/**
+ * Icons Shared Slice
+ *
+ * - **API ID**: `icons`
+ * - **Description**: Icons
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type IconsSlice = prismic.SharedSlice<"icons", IconsSliceVariation>;
+
+/**
  * Primary content in *Feature → default → Primary*
  */
 export interface MediaFeatureSliceDefaultPrimary {
@@ -3062,6 +3405,51 @@ type NavigationLinksSliceVariation =
 export type NavigationLinksSlice = prismic.SharedSlice<
   "navigation_links",
   NavigationLinksSliceVariation
+>;
+
+/**
+ * Primary content in *ProductSelection → Default → Primary*
+ */
+export interface ProductSelectionSliceDefaultPrimary {
+  /**
+   * Title field in *ProductSelection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_selection.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+}
+
+/**
+ * Default variation for ProductSelection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ProductSelectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ProductSelectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ProductSelection*
+ */
+type ProductSelectionSliceVariation = ProductSelectionSliceDefault;
+
+/**
+ * ProductSelection Shared Slice
+ *
+ * - **API ID**: `product_selection`
+ * - **Description**: ProductSelection
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ProductSelectionSlice = prismic.SharedSlice<
+  "product_selection",
+  ProductSelectionSliceVariation
 >;
 
 /**
@@ -3439,6 +3827,12 @@ declare module "@prismicio/client" {
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,
+      BannerSlice,
+      BannerSliceDefaultPrimary,
+      BannerSliceVariation1Primary,
+      BannerSliceVariation,
+      BannerSliceDefault,
+      BannerSliceVariation1,
       CarouselSlice,
       CarouselSliceDefaultPrimaryGrpItem,
       CarouselSliceDefaultPrimary,
@@ -3446,10 +3840,13 @@ declare module "@prismicio/client" {
       CarouselSliceVariation1Primary,
       CarouselSliceVariation2PrimaryGrpItem,
       CarouselSliceVariation2Primary,
+      CarouselSliceVariation3PrimaryGrpItem,
+      CarouselSliceVariation3Primary,
       CarouselSliceVariation,
       CarouselSliceDefault,
       CarouselSliceVariation1,
       CarouselSliceVariation2,
+      CarouselSliceVariation3,
       ContentSlice,
       ContentSliceDefaultPrimary,
       ContentSliceTwoColumnsPrimary,
@@ -3502,6 +3899,11 @@ declare module "@prismicio/client" {
       HeroLandingSliceVariation2,
       HeroLandingSliceVariation3,
       HeroLandingSliceVariation4,
+      IconsSlice,
+      IconsSliceDefaultPrimaryGrpItem,
+      IconsSliceDefaultPrimary,
+      IconsSliceVariation,
+      IconsSliceDefault,
       MediaFeatureSlice,
       MediaFeatureSliceDefaultPrimary,
       MediaFeatureSliceVariation,
@@ -3512,6 +3914,10 @@ declare module "@prismicio/client" {
       NavigationLinksSliceVariation,
       NavigationLinksSliceDefault,
       NavigationLinksSliceWithSublinks,
+      ProductSelectionSlice,
+      ProductSelectionSliceDefaultPrimary,
+      ProductSelectionSliceVariation,
+      ProductSelectionSliceDefault,
       TestimonialsSlice,
       TestimonialsSliceDefaultPrimaryGrpItem,
       TestimonialsSliceDefaultPrimary,

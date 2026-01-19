@@ -1,0 +1,28 @@
+{
+  "id": "product_selection",
+  "type": "SharedSlice",
+  "name": "ProductSelection",
+  "description": "ProductSelection",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

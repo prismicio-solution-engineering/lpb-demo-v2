@@ -147,6 +147,38 @@
           "default_value": "Square"
         }
       }
+    },
+    "AI Data": {
+      "generated_page": {
+        "type": "Group",
+        "config": {
+          "label": "Generated Page",
+          "repeat": true,
+          "fields": {
+            "company": {
+              "type": "Text",
+              "config": {
+                "label": "Company",
+                "placeholder": ""
+              }
+            },
+            "role": {
+              "type": "Text",
+              "config": {
+                "label": "Role",
+                "placeholder": ""
+              }
+            },
+            "personalization_instructions": {
+              "type": "Text",
+              "config": {
+                "label": "Personalization Instructions",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

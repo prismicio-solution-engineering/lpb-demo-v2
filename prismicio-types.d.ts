@@ -597,6 +597,41 @@ type LandingDocumentDataSlicesSlice =
   | CtaSlice;
 
 /**
+ * Item in *Landing → Generated Page*
+ */
+export interface LandingDocumentDataGeneratedPageItem {
+  /**
+   * Company field in *Landing → Generated Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: landing.generated_page[].company
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  company: prismic.KeyTextField;
+
+  /**
+   * Role field in *Landing → Generated Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: landing.generated_page[].role
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  role: prismic.KeyTextField;
+
+  /**
+   * Personalization Instructions field in *Landing → Generated Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: landing.generated_page[].personalization_instructions
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  personalization_instructions: prismic.KeyTextField;
+}
+
+/**
  * Content for Landing documents
  */
 interface LandingDocumentData {
@@ -738,6 +773,17 @@ interface LandingDocumentData {
   button_style: prismic.SelectField<
     "Square" | "Medium rounded" | "Rounded",
     "filled"
+  >; /**
+   * Generated Page field in *Landing*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: landing.generated_page[]
+   * - **Tab**: AI Data
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  generated_page: prismic.GroupField<
+    Simplify<LandingDocumentDataGeneratedPageItem>
   >;
 }
 
@@ -949,6 +995,21 @@ interface RecapDocumentData {
    * - **Documentation**: https://prismic.io/docs/slices
    */
   slices: prismic.SliceZone<RecapDocumentDataSlicesSlice>; /**
+   * Button field in *Recap*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.header_button
+   * - **Tab**: Header
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  header_button: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >; /**
    * Client Logo field in *Recap*
    *
    * - **Field Type**: Image
@@ -1199,22 +1260,7 @@ interface RecapDocumentData {
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/fields/image
    */
-  meta_image: prismic.ImageField<never>; /**
-   * Button field in *Recap*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: recap.header_button
-   * - **Tab**: Header
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  header_button: prismic.LinkField<
-    string,
-    string,
-    unknown,
-    prismic.FieldState,
-    never
-  >;
+  meta_image: prismic.ImageField<never>;
 }
 
 /**
@@ -3398,6 +3444,7 @@ declare module "@prismicio/client" {
       LandingDocument,
       LandingDocumentData,
       LandingDocumentDataSlicesSlice,
+      LandingDocumentDataGeneratedPageItem,
       RecapDocument,
       RecapDocumentData,
       RecapDocumentDataSlicesSlice,

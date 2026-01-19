@@ -2,9 +2,7 @@ import { notFound } from "next/navigation";
 import { SliceZone } from "@prismicio/react";
 
 import { createClient } from "@/prismicio";
-import { components } from "@/slices";
 import { getLanguages } from "@/utils/getLanguages";
-import { getLocales } from "@/utils/getLocales";
 import { Header } from "@/components/GlobalNavigation";
 import Container from "@/components/Container";
 
@@ -13,7 +11,6 @@ export default async function Home({
 }: {
   params: Promise<{ lang: string }>;
 }) {
-  const locales = await getLocales();
   const resolvedParams = await params;
   const { lang } = resolvedParams;
 
@@ -44,7 +41,7 @@ export default async function Home({
         .catch(() =>
           client.getSingle("header", {
             lang: "en-us",
-          })
+          }),
         ),
 
       client
@@ -54,7 +51,7 @@ export default async function Home({
         .catch(() =>
           client.getSingle("footer", {
             lang: "en-us",
-          })
+          }),
         ),
 
       client
@@ -64,13 +61,13 @@ export default async function Home({
         .catch(() =>
           client.getSingle("settings", {
             lang: "en-us",
-          })
+          }),
         ),
 
       client.getAllByType("landing", { lang }).catch(() => []),
 
       getLanguages(page, client),
-    ]
+    ],
   );
 
   return (

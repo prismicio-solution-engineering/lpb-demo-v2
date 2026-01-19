@@ -539,24 +539,30 @@ interface EcommerceDocumentData {
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: Proxima Bold
+   * - **Default Value**: Function Book
    * - **API ID Path**: ecommerce.font_heading
    * - **Tab**: Design
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  font_heading: prismic.SelectField<"Proxima Bold" | "Arial Bold", "filled">;
+  font_heading: prismic.SelectField<
+    "Function Book" | "Arial Bold" | "Proxima Bold",
+    "filled"
+  >;
 
   /**
    * Font - Text field in *Ecommerce*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: Inter
+   * - **Default Value**: Function Book
    * - **API ID Path**: ecommerce.font_txt
    * - **Tab**: Design
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  font_txt: prismic.SelectField<"Inter" | "Helvetica", "filled">;
+  font_txt: prismic.SelectField<
+    "Function Book" | "Helvetica" | "Inter",
+    "filled"
+  >;
 
   /**
    * Button style field in *Ecommerce*

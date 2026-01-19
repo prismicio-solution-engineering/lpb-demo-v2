@@ -1,7 +1,7 @@
 import {
   createClient as baseCreateClient,
   type ClientConfig,
-  type Route,
+  type Route
 } from "@prismicio/client";
 import { enableAutoPreviews } from "@prismicio/next";
 import sm from "./slicemachine.config.json";
@@ -27,6 +27,10 @@ const routes: Route[] = [
     path: "/:lang?/landing/:uid"
   },
   {
+    type: "ecommerce",
+    path: "/:lang?/ecommerce/:uid"
+  },
+  {
     type: "article",
     path: "/:lang?/article/:uid"
   },
@@ -44,16 +48,22 @@ const routes: Route[] = [
  */
 export const createClient = (config: ClientConfig = {}) => {
   const client = baseCreateClient(repositoryName, {
-    accessToken: process.env.NEXT_PUBLIC_PRISMIC_ENVIRONMENT === "template-landing-dianka" ? process.env.PRISMIC_PRIVATE_TOKEN_DIANKA
-      : process.env.NEXT_PUBLIC_PRISMIC_ENVIRONMENT === "template-landing-raphael" ? process.env.PRISMIC_PRIVATE_TOKEN_RAPHAEL
-        : process.env.NEXT_PUBLIC_PRISMIC_ENVIRONMENT === "template-landing-staging" ? process.env.PRISMIC_PRIVATE_TOKEN_STAGING
-          : process.env.PRISMIC_PRIVATE_TOKEN,
+    accessToken:
+      process.env.NEXT_PUBLIC_PRISMIC_ENVIRONMENT === "template-landing-dianka"
+        ? process.env.PRISMIC_PRIVATE_TOKEN_DIANKA
+        : process.env.NEXT_PUBLIC_PRISMIC_ENVIRONMENT ===
+            "template-landing-raphael"
+          ? process.env.PRISMIC_PRIVATE_TOKEN_RAPHAEL
+          : process.env.NEXT_PUBLIC_PRISMIC_ENVIRONMENT ===
+              "template-landing-staging"
+            ? process.env.PRISMIC_PRIVATE_TOKEN_STAGING
+            : process.env.PRISMIC_PRIVATE_TOKEN,
     routes,
     fetchOptions:
       process.env.NODE_ENV === "production"
         ? { next: { tags: ["prismic"] }, cache: "force-cache" }
         : { next: { revalidate: 5 } },
-    ...config,
+    ...config
   });
 
   enableAutoPreviews({ client });

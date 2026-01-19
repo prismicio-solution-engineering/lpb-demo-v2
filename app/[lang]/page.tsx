@@ -7,7 +7,7 @@ import { Header } from "@/components/GlobalNavigation";
 import Container from "@/components/Container";
 
 export default async function Home({
-  params,
+  params
 }: {
   params: Promise<{ lang: string }>;
 }) {
@@ -19,13 +19,13 @@ export default async function Home({
   let page;
   try {
     page = await client.getSingle("home", {
-      lang,
+      lang
     });
   } catch (error) {
     // Try to fall back to the default locale (en-us)
     try {
       page = await client.getSingle("home", {
-        lang: "en-us",
+        lang: "en-us"
       });
     } catch (fallbackError) {
       notFound();
@@ -36,38 +36,38 @@ export default async function Home({
     [
       client
         .getSingle("header", {
-          lang,
+          lang
         })
         .catch(() =>
           client.getSingle("header", {
-            lang: "en-us",
-          }),
+            lang: "en-us"
+          })
         ),
 
       client
         .getSingle("footer", {
-          lang,
+          lang
         })
         .catch(() =>
           client.getSingle("footer", {
-            lang: "en-us",
-          }),
+            lang: "en-us"
+          })
         ),
 
       client
         .getSingle("settings", {
-          lang,
+          lang
         })
         .catch(() =>
           client.getSingle("settings", {
-            lang: "en-us",
-          }),
+            lang: "en-us"
+          })
         ),
 
       client.getAllByType("landing", { lang }).catch(() => []),
 
-      getLanguages(page, client),
-    ],
+      getLanguages(page, client)
+    ]
   );
 
   return (

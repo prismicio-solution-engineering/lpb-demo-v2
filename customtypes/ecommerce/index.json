@@ -101,8 +101,8 @@
         "config": {
           "label": "Font - Heading",
           "placeholder": "",
-          "options": ["Proxima Bold", "Arial Bold"],
-          "default_value": "Proxima Bold"
+          "options": ["Function Book", "Arial Bold", "Proxima Bold"],
+          "default_value": "Function Book"
         }
       },
       "font_txt": {
@@ -110,8 +110,8 @@
         "config": {
           "label": "Font - Text",
           "placeholder": "",
-          "options": ["Inter", "Helvetica"],
-          "default_value": "Inter"
+          "options": ["Function Book", "Helvetica", "Inter"],
+          "default_value": "Function Book"
         }
       },
       "button_style": {

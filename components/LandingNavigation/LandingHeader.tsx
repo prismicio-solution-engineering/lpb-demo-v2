@@ -49,7 +49,7 @@ const LandingHeader = (props: PropsLayoutHF) => {
         style={getFontTextStyles(data)}
       >
         <Container
-          className="flex justify-between items-center h-full relative"
+          className="relative flex justify-between items-center h-full"
           size="full"
         >
           {/* ------ Logo ------ */}
@@ -57,10 +57,8 @@ const LandingHeader = (props: PropsLayoutHF) => {
             <PrismicNextImage field={data.logo} className="w-auto h-8" />
           </Link>
 
-
           {/* ------ Desktop Panel ------ */}
-          <div className="hidden w-full lg:flex flex-row justify-between items-center">
-            
+          <div className="hidden lg:flex flex-row justify-between items-center w-full">
             {/* Links */}
             <nav className="flex gap-4">
               {data?.lnks?.map((item, index) => (
@@ -115,36 +113,42 @@ const LandingHeader = (props: PropsLayoutHF) => {
             </div>
           </div>
 
-
           {/* ------ Menu Buttons ------ */}
-          <div 
-            className="w-8 h-8 relative my-5 block lg:hidden cursor-pointer z-20"
+          <div
+            className="lg:hidden block z-20 relative my-5 w-8 h-8 cursor-pointer"
             onClick={toggleMenu} // Ajout de l'événement clic
           >
             {/* Close */}
-            <svg 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              xmlns="http://www.w3.org/2000/svg" 
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
               className={`h-8 w-8 absolute top-0 left-0 transition-all duration-300 ease-in-out ${isMenuOpen ? "opacity-100" : "opacity-0 -"}`}
             >
-                <path d="m7.757 7.757 8.486 8.486M7.757 16.243l8.486-8.486" stroke="currentColor" strokeWidth="1.5"></path>
+              <path
+                d="m7.757 7.757 8.486 8.486M7.757 16.243l8.486-8.486"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              ></path>
             </svg>
 
             {/* Burger */}
-            <svg 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              xmlns="http://www.w3.org/2000/svg" 
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
               className={`h-8 w-8 absolute top-0 left-0 transition-all duration-300 ease-in-out ${isMenuOpen ? "opacity-0 " : "opacity-100"}`}
             >
-              <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="1.5"></path>
+              <path
+                d="M4 7h16M4 12h16M4 17h16"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              ></path>
             </svg>
           </div>
 
-          
           {/* ------ Mobile Panel ------ */}
-          <div 
+          <div
             className={`
               absolute top-0 w-full h-screen mt-18.75 bg-[#FFFFFF] lg:hidden 
               transition-all duration-500 ease-in-out flex flex-col
@@ -152,14 +156,15 @@ const LandingHeader = (props: PropsLayoutHF) => {
             `}
           >
             <div className="flex flex-col">
-
               {/* CTA & Lang */}
-              <div className="max-w-3xl w-full mx-auto flex justify-end p-6">
+              <div className="flex justify-end mx-auto p-6 w-full max-w-3xl">
                 <div className="flex gap-4">
                   <PrismicNextLink
                     field={data.cta}
                     className="flex items-center gap-2 hover:opacity-90 p-3 w-fit text-white transition-opacity duration-300 ease-inout2"
-                    style={getButtonStyles(data.cta, data) as React.CSSProperties}
+                    style={
+                      getButtonStyles(data.cta, data) as React.CSSProperties
+                    }
                   >
                     <span>{data.cta?.text}</span>
                     <svg width="14" height="13" viewBox="0 0 14 13" fill="none">
@@ -176,12 +181,12 @@ const LandingHeader = (props: PropsLayoutHF) => {
               </div>
 
               {/* Links */}
-              <div className="max-w-3xl w-full mx-auto px-8 flex flex-col justify-center items-center">
+              <div className="flex flex-col justify-center items-center mx-auto px-8 w-full max-w-3xl">
                 {data?.lnks?.map((item, index) => (
                   <PrismicNextLink
                     field={item}
                     key={index}
-                    className="w-full py-4 flex justify-between items-center border-b border-[#EEEEEE]"
+                    className="flex justify-between items-center py-4 border-[#EEEEEE] border-b w-full"
                   >
                     <span>{item.text}</span>
                     <svg width="10px" height="10px" viewBox="0 -4.5 20 20">
@@ -207,13 +212,12 @@ const LandingHeader = (props: PropsLayoutHF) => {
 
               {/* Lang */}
               {/* {props.languages.length > 1 && ( */}
-              <div className="w-full mt-10 flex justify-center items-center">
+              <div className="flex justify-center items-center mt-10 w-full">
                 <LanguageSwitcher languages={props.languages} />
               </div>
               {/* )} */}
             </div>
           </div>
-
         </Container>
       </header>
       <div className="h-10" />

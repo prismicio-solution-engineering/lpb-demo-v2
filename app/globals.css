@@ -12,6 +12,12 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: Function-Book;
+  src: url(../assets/fonts/Function-Book.ttf);
+  font-display: swap;
+}
+
 @theme {
   /*----------  PRIMARY  ----------*/
   --color-primary_1: #1d4ed8;
@@ -30,6 +36,7 @@
   /*----------  FONTS ----------*/
   --font-inter: "Inter", sans-serif;
   --font-proxima-bold: "Proxima-Bold", sans-serif;
+  --font-function-book: "Function-Book", sans-serif;
   /*----------  BEZIER CURVES  ----------*/
   --ease-in1: cubic-bezier(0.47, 0, 0.745, 0.715);
   --ease-out1: cubic-bezier(0.39, 0.575, 0.565, 1);

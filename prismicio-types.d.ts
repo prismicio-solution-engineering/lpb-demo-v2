@@ -3565,6 +3565,11 @@ export type NavigationLinksSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *ProductSelection → Default → Primary → Grp*
+ */
+export interface ProductSelectionSliceDefaultPrimaryGrpItem {}
+
+/**
  * Primary content in *ProductSelection → Default → Primary*
  */
 export interface ProductSelectionSliceDefaultPrimary {
@@ -3577,6 +3582,16 @@ export interface ProductSelectionSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   title: prismic.RichTextField;
+
+  /**
+   * Grp field in *ProductSelection → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: product_selection.default.primary.grp[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  grp: prismic.GroupField<Simplify<ProductSelectionSliceDefaultPrimaryGrpItem>>;
 }
 
 /**
@@ -4075,6 +4090,7 @@ declare module "@prismicio/client" {
       NavigationLinksSliceDefault,
       NavigationLinksSliceWithSublinks,
       ProductSelectionSlice,
+      ProductSelectionSliceDefaultPrimaryGrpItem,
       ProductSelectionSliceDefaultPrimary,
       ProductSelectionSliceVariation,
       ProductSelectionSliceDefault,

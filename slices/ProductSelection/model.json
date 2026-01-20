@@ -20,6 +20,23 @@
             "allowTargetBlank": true,
             "multi": "heading2"
           }
+        },
+        "grp": {
+          "type": "Group",
+          "config": {
+            "label": "Grp",
+            "repeat": true,
+            "fields": {
+              "product": {
+                "type": "IntegrationFields",
+                "config": {
+                  "catalog": "template-landing--24s",
+                  "label": "Product",
+                  "placeholder": "Select a product"
+                }
+              }
+            }
+          }
         }
       },
       "items": {}

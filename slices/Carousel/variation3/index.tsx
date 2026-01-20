@@ -4,7 +4,7 @@ import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Container from "@/components/Container";
 import { getFontTextStyles, getFontHeadingStyles } from "@/utils/getFontStyles";
-import { LandingDocumentData } from "@/prismicio-types";
+import { EcommerceDocumentData, LandingDocumentData } from "@/prismicio-types";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 
 /**
@@ -21,7 +21,9 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
   const [transitionDuration, setTransitionDuration] = useState(0);
   if (slice.variation !== "variation3") return null;
 
-  const { pageData } = context as { pageData: LandingDocumentData };
+  const { pageData } = context as {
+    pageData: EcommerceDocumentData | LandingDocumentData;
+  };
   const items = slice.primary.grp || [];
   if (!items.length) return null;
 
@@ -57,7 +59,7 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="flex justify-center bg-gray-100 py-[60px]"
+      className="flex justify-center bg-gray-50 py-[60px]"
       style={
         {
           ...getFontTextStyles(pageData),
@@ -155,7 +157,7 @@ const Carousel: FC<CarouselProps> = ({ slice, context }) => {
             <button
               type="button"
               onClick={handleNext}
-              className="right-3 z-10 absolute flex justify-center items-center bg-white hover:bg-gray-100 p-2 border border-gray-300 cursor-pointer"
+              className="right-1 z-10 absolute flex justify-center items-center bg-white hover:bg-gray-100 p-2 border border-gray-300 cursor-pointer"
             >
               <svg
                 className="rotate-180"

@@ -218,9 +218,9 @@
 				"__TYPE__": "StructuredTextContent",
 				"value": [
 					{
-						"type": "heading3",
+						"type": "heading2",
 						"content": {
-							"text": "Mysterious"
+							"text": "Slept"
 						}
 					}
 				]
@@ -302,10 +302,10 @@
 								"lnk",
 								{
 									"__TYPE__": "LinkContent",
-									"key": "c0d792af-4b43-40d9-872b-45897ec10233",
+									"key": "e37bbf58-9dd9-4926-808d-7dea5d53478a",
 									"value": {
 										"__TYPE__": "ExternalLink",
-										"url": "https://slicemachine.dev"
+										"url": "https://prismic.io"
 									}
 								}
 							]

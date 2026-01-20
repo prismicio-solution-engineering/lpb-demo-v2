@@ -3,7 +3,7 @@ import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import Container from "@/components/Container";
-import { getFontTextStyles } from "@/utils/getFontStyles";
+import { getFontTextStyles, getFontHeadingStyles } from "@/utils/getFontStyles";
 import { EcommerceDocumentData } from "@/prismicio-types";
 
 /**
@@ -42,7 +42,10 @@ const Banner: FC<BannerProps> = ({ slice, context }) => {
               field={slice.primary.title}
               components={{
                 heading2: ({ children }) => (
-                  <h2 className="text-(--primary-color) text-5xl leading-12">
+                  <h2
+                    className="text-(--primary-color) text-5xl leading-12"
+                    style={getFontHeadingStyles(pageData)}
+                  >
                     {children}
                   </h2>
                 )

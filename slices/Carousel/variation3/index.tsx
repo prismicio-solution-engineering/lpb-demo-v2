@@ -1,13 +1,11 @@
 "use client";
-import { useEffect, useState } from "react";
-import { FC } from "react";
+import { useState, FC, CSSProperties } from "react";
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Container from "@/components/Container";
 import { getFontTextStyles, getFontHeadingStyles } from "@/utils/getFontStyles";
 import { LandingDocumentData } from "@/prismicio-types";
-import { PrismicNextImage } from "@prismicio/next";
-import { getIconColor, getLightIconColor } from "@/utils/getColors";
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 
 /**
  * Props for `Carousel`.
@@ -18,152 +16,163 @@ export type CarouselProps = SliceComponentProps<Content.CarouselSlice>;
  * Component for "Carousel" Slices.
  */
 const Carousel: FC<CarouselProps> = ({ slice, context }) => {
+  const visibleCount = 3;
+  const [currentIndex, setCurrentIndex] = useState(visibleCount);
+  const [transitionDuration, setTransitionDuration] = useState(0);
+  if (slice.variation !== "variation3") return null;
+
   const { pageData } = context as { pageData: LandingDocumentData };
+  const items = slice.primary.grp || [];
+  if (!items.length) return null;
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerView = 1;
-
-  const totalItems = slice.primary.grp.length;
-  const maxIndex = Math.max(0, slice.primary.grp.length - itemsPerView);
-
-  useEffect(() => {
-    if (currentIndex > maxIndex) {
-      setCurrentIndex(maxIndex);
-    }
-  }, [maxIndex, currentIndex]);
-
-  const handlePrevious = () => {
-    setCurrentIndex(prev => Math.max(0, prev - 1));
-  };
+  const extendedItems = [
+    ...items.slice(-visibleCount),
+    ...items,
+    ...items.slice(0, visibleCount)
+  ];
 
   const handleNext = () => {
-    setCurrentIndex(prev => Math.min(maxIndex, prev + 1));
+    setTransitionDuration(400);
+    setCurrentIndex(prev => prev + 1);
   };
 
-  const GAP_PX = 16;
-  const gapWidthPx = GAP_PX * Math.max(0, totalItems - 1);
+  const handlePrev = () => {
+    setTransitionDuration(400);
+    setCurrentIndex(prev => prev - 1);
+  };
 
-  if (slice.variation !== "variation3") return null;
+  const handleTransitionEnd = () => {
+    const realLength = items.length;
+
+    if (currentIndex >= visibleCount + realLength) {
+      setTransitionDuration(0);
+      setCurrentIndex(visibleCount);
+    } else if (currentIndex < visibleCount) {
+      setTransitionDuration(0);
+      setCurrentIndex(visibleCount + realLength - 1);
+    }
+  };
 
   return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className={`flex justify-center py-[60px] overflow-hidden`}
-      style={getFontTextStyles(pageData)}
+      className="flex justify-center bg-gray-100 py-[60px]"
+      style={
+        {
+          ...getFontTextStyles(pageData),
+          "--primary-color": pageData.primary_color as string,
+          "--secondary-color": pageData.secondary_color as string
+        } as CSSProperties
+      }
     >
-      <Container
-        className="flex flex-col justify-between gap-10 text-left"
-        size="xl"
-      >
-        <div className="flex lg:flex-row flex-col items-center gap-10">
-          <div className="flex justify-between items-end w-full h-full">
-            <div className="z-10 flex flex-col flex-1 justify-center items-center gap-5 px-4 sm:min-w-[500px] h-full">
-              <PrismicRichText
-                field={slice.primary.title}
-                components={{
-                  heading3: ({ children }) => (
-                    <h2
-                      className="font-bold text-4xl"
-                      style={getFontHeadingStyles(pageData)}
-                    >
-                      {children}
-                    </h2>
-                  )
-                }}
-              />
-              <PrismicRichText
-                field={slice.primary.txt}
-                components={{
-                  paragraph: ({ children }) => (
-                    <p className="leading-7">{children}</p>
-                  )
-                }}
-              />
-            </div>
-          </div>
-          <div className="relative flex flex-col gap-4 [clip-path:inset(0_0_0_0px)]">
-            <div
-              className="flex gap-4 transition-transform duration-500 ease-inout2"
-              style={{
-                width: `calc(${(totalItems / itemsPerView) * 100}% + ${gapWidthPx}px)`,
-                // transform: `translateX(-${currentIndex * (500 + 16)}px)`,
-                transform: `translateX(-${(currentIndex * 100) / totalItems}%)`
-              }}
-            >
-              {/* Carousel */}
-              {slice.primary.grp?.map((item, index) => {
-                return (
-                  <div
-                    key={index}
-                    className="flex flex-col gap-5 cursor-pointer"
-                    style={{
-                      // Chaque item prend sa part exacte
-                      flex: `0 0 calc((100% - ${gapWidthPx}px) / ${totalItems})`
-                    }}
+      <Container>
+        <div className="flex md:flex-row flex-col items-center">
+          <div className="flex flex-col gap-2 bg-white -mr-1 p-14 max-w-[285px]">
+            <PrismicRichText
+              field={slice.primary.title}
+              components={{
+                heading2: ({ children }) => (
+                  <h2
+                    className="text-4xl tracking-widesting-wider text-(--primary-color)"
+                    style={getFontHeadingStyles(pageData)}
                   >
-                    <div className="w-full sm:w-full h-full aspect-square">
-                      {item?.img && (
-                        <PrismicNextImage
-                          field={item.img}
-                          className="w-full h-full object-cover"
-                        />
-                      )}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+                    {children}
+                  </h2>
+                )
+              }}
+            />
+            <PrismicRichText
+              field={slice.primary.txt}
+              components={{
+                paragraph: ({ children }) => (
+                  <p className="text-lg text-(--primary-color)">{children}</p>
+                )
+              }}
+            />
+          </div>
 
-            {/* Nav carousel */}
-            <div className="flex flex-row justify-between items-center">
-              <div className="flex gap-2">
-                {[...Array(slice.primary.grp.length)]?.map((_, i) => (
-                  <div
-                    className={`rounded-full cursor-pointer w-2 h-2`}
-                    style={
-                      i === currentIndex
-                        ? getIconColor(pageData)
-                        : getLightIconColor(pageData)
-                    }
-                    key={i}
-                    onClick={() => setCurrentIndex(i)}
+          <div className="relative flex flex-1 items-center gap-4">
+            <button
+              type="button"
+              onClick={handlePrev}
+              className="-left-3 z-10 absolute flex justify-center items-center bg-white hover:bg-gray-100 p-2 border border-gray-300 cursor-pointer"
+            >
+              <svg width="15px" height="15px" viewBox="-19.04 0 75.803 75.803">
+                <g transform="translate(-624.082 -383.588)">
+                  <path
+                    id="Path_56"
+                    data-name="Path 56"
+                    d="M660.313,383.588a1.5,1.5,0,0,1,1.06,2.561l-33.556,33.56a2.528,2.528,0,0,0,0,3.564l33.556,33.558a1.5,1.5,0,0,1-2.121,2.121L625.7,425.394a5.527,5.527,0,0,1,0-7.807l33.556-33.559A1.5,1.5,0,0,1,660.313,383.588Z"
+                    fill="#000000"
                   />
+                </g>
+              </svg>
+            </button>
+
+            <div className="relative flex-1 overflow-hidden">
+              <div
+                className="flex"
+                onTransitionEnd={handleTransitionEnd}
+                style={{
+                  width: `${(extendedItems.length / visibleCount) * 100}%`,
+                  transform: `translateX(-${(currentIndex * 100) / extendedItems.length}%)`,
+                  transitionDuration: `${transitionDuration}ms`,
+                  transitionProperty: "transform",
+                  transitionTimingFunction: "ease-in-out"
+                }}
+              >
+                {extendedItems.map((item, index) => (
+                  <PrismicNextLink
+                    field={item.lnk}
+                    key={index}
+                    className="flex flex-col gap-2 px-1"
+                    style={{ width: `${100 / extendedItems.length}%` }}
+                  >
+                    {item.img && <PrismicNextImage field={item.img} />}
+                    {item.desc && (
+                      <PrismicRichText
+                        field={item.desc}
+                        components={{
+                          paragraph: ({ children }) => (
+                            <p className="text-lg text-(--primary-color)">
+                              {children}
+                            </p>
+                          )
+                        }}
+                      />
+                    )}
+                    <div className="text-(--primary-color) hover:text-(--secondary-color) underline underline-offset-2">
+                      <span className="tracking-widest">
+                        {slice.primary.btn_txt}
+                      </span>
+                    </div>
+                  </PrismicNextLink>
                 ))}
               </div>
-              <div className="flex gap-4">
-                <button
-                  onClick={handlePrevious}
-                  disabled={currentIndex === 0}
-                  className="group hover:bg-gray-900 disabled:opacity-50 p-1 border border-gray-900 rounded-full rotate-180 transition-all duration-200 ease-in-out cursor-pointer"
-                >
-                  <svg
-                    fill="#000000"
-                    width="25px"
-                    height="25px"
-                    viewBox="0 0 256 256"
-                    className="group-hover:fill-white"
-                  >
-                    <path d="M218.82812,130.82812l-72,72a3.99957,3.99957,0,0,1-5.65625-5.65625L206.34326,132H40a4,4,0,0,1,0-8H206.34326L141.17187,58.82812a3.99957,3.99957,0,0,1,5.65625-5.65625l72,72A3.99854,3.99854,0,0,1,218.82812,130.82812Z" />
-                  </svg>
-                </button>
-                <button
-                  onClick={handleNext}
-                  disabled={currentIndex === maxIndex}
-                  className="group hover:bg-gray-900 disabled:opacity-50 p-1 border border-gray-900 rounded-full transition-all duration-200 ease-in-out cursor-pointer"
-                >
-                  <svg
-                    fill="#000000"
-                    width="25px"
-                    height="25px"
-                    viewBox="0 0 256 256"
-                    className="group-hover:fill-white"
-                  >
-                    <path d="M218.82812,130.82812l-72,72a3.99957,3.99957,0,0,1-5.65625-5.65625L206.34326,132H40a4,4,0,0,1,0-8H206.34326L141.17187,58.82812a3.99957,3.99957,0,0,1,5.65625-5.65625l72,72A3.99854,3.99854,0,0,1,218.82812,130.82812Z" />
-                  </svg>
-                </button>
-              </div>
             </div>
+
+            <button
+              type="button"
+              onClick={handleNext}
+              className="right-3 z-10 absolute flex justify-center items-center bg-white hover:bg-gray-100 p-2 border border-gray-300 cursor-pointer"
+            >
+              <svg
+                className="rotate-180"
+                width="15px"
+                height="15px"
+                viewBox="-19.04 0 75.803 75.803"
+              >
+                <g transform="translate(-624.082 -383.588)">
+                  <path
+                    id="Path_56"
+                    data-name="Path 56"
+                    d="M660.313,383.588a1.5,1.5,0,0,1,1.06,2.561l-33.556,33.56a2.528,2.528,0,0,0,0,3.564l33.556,33.558a1.5,1.5,0,0,1-2.121,2.121L625.7,425.394a5.527,5.527,0,0,1,0-7.807l33.556-33.559A1.5,1.5,0,0,1,660.313,383.588Z"
+                    fill="#000000"
+                  />
+                </g>
+              </svg>
+            </button>
           </div>
         </div>
       </Container>

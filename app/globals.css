@@ -64,3 +64,37 @@ body,
   height: 100%;
   scroll-behavior: smooth;
 }
+
+/* ...existing code... */
+
+@keyframes slide-in-left {
+  from {
+    transform: translateX(40px);
+    opacity: 0.9;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(-40px);
+    opacity: 0.9;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-left {
+  animation: slide-in-left 0.35s ease-out;
+}
+
+.slide-in-right {
+  animation: slide-in-right 0.35s ease-out;
+}
+
+/* ...existing code... */

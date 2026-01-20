@@ -2,7 +2,7 @@
 
 import { FC } from "react";
 import { Content, ImageField } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
+import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { EcommerceDocumentData, LandingDocumentData } from "@/prismicio-types";
 import { useState, CSSProperties } from "react";
 import Container from "@/components/Container";
@@ -80,6 +80,22 @@ const ProductSelection: FC<ProductSelectionProps> = ({ slice, context }) => {
       }
     >
       <Container>
+        <div className="flex items-baseline gap-2 mb-15 ml-10">
+          <PrismicRichText
+            field={slice.primary.title}
+            components={{
+              heading2: ({ children }) => (
+                <h2
+                  className="text-(--primary-color) tracking-wider text-4xl"
+                  style={getFontHeadingStyles(pageData)}
+                >
+                  {children}
+                </h2>
+              )
+            }}
+          />
+          <div className="w-8 h-0.75 bg-(--secondary-color)" />
+        </div>
         <div className="flex md:flex-row flex-col items-center">
           <div className="relative flex flex-1 items-center gap-4">
             <button

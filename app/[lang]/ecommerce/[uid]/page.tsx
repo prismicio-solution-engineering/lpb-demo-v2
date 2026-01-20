@@ -2,7 +2,7 @@ import { type Metadata } from "next";
 import { notFound } from "next/navigation";
 import { asImageSrc } from "@prismicio/client";
 import { SliceZone } from "@prismicio/react";
-
+import Container from "@/components/Container";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import { getLanguages } from "@/utils/getLanguages";
@@ -10,6 +10,7 @@ import Layout from "@/components/Layout";
 import { EcommerceDocument } from "@/prismicio-types";
 import Disclaimer from "@/components/Disclaimer";
 
+import Header from "@/components/EcommerceNavigation/EcommerceHeader";
 export async function generateMetadata({
   params
 }: {
@@ -135,6 +136,8 @@ export default async function Landing({
         currentPage={page.type}
         page={page as EcommerceDocument}
       > */}
+      <Header page={page} />
+
       <SliceZone
         slices={page.data.slices}
         components={components}

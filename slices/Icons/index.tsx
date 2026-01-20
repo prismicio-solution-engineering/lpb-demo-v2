@@ -20,7 +20,7 @@ const Icons: FC<IconsProps> = ({ slice, context }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="py-10"
+      className="pt-30 pb-10"
       style={
         {
           ...getFontTextStyles(pageData),

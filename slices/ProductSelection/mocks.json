@@ -16,12 +16,7 @@
 			},
 			"grp": {
 				"__TYPE__": "GroupContentType",
-				"value": [
-					{
-						"__TYPE__": "GroupItemContent",
-						"value": []
-					}
-				]
+				"value": []
 			}
 		},
 		"items": []

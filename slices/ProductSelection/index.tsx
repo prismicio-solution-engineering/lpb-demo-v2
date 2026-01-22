@@ -41,17 +41,17 @@ const ProductSelection: FC<ProductSelectionProps> = ({ slice, context }) => {
   const extendedItems = [
     ...items.slice(-visibleCount),
     ...items,
-    ...items.slice(0, visibleCount)
+    ...items.slice(0, visibleCount),
   ];
 
   const handleNext = () => {
     setTransitionDuration(400);
-    setCurrentIndex(prev => prev + 1);
+    setCurrentIndex((prev) => prev + 1);
   };
 
   const handlePrev = () => {
     setTransitionDuration(400);
-    setCurrentIndex(prev => prev - 1);
+    setCurrentIndex((prev) => prev - 1);
   };
 
   const handleTransitionEnd = () => {
@@ -75,7 +75,7 @@ const ProductSelection: FC<ProductSelectionProps> = ({ slice, context }) => {
         {
           ...getFontTextStyles(pageData),
           "--primary-color": pageData?.primary_color as string,
-          "--secondary-color": pageData?.secondary_color as string
+          "--secondary-color": pageData?.secondary_color as string,
         } as CSSProperties
       }
     >
@@ -91,7 +91,7 @@ const ProductSelection: FC<ProductSelectionProps> = ({ slice, context }) => {
                 >
                   {children}
                 </h2>
-              )
+              ),
             }}
           />
           <div className="w-8 h-0.75 bg-(--secondary-color)" />
@@ -124,12 +124,13 @@ const ProductSelection: FC<ProductSelectionProps> = ({ slice, context }) => {
                   transform: `translateX(-${(currentIndex * 100) / extendedItems.length}%)`,
                   transitionDuration: `${transitionDuration}ms`,
                   transitionProperty: "transform",
-                  transitionTimingFunction: "ease-in-out"
+                  transitionTimingFunction: "ease-in-out",
                 }}
               >
                 {extendedItems.map((item, index) => {
-                  const product = (item as { product: IntegrationProduct })
-                    .product;
+                  const product = (
+                    item as unknown as { product: IntegrationProduct }
+                  ).product;
 
                   if (!product) return null;
                   return (
@@ -146,7 +147,7 @@ const ProductSelection: FC<ProductSelectionProps> = ({ slice, context }) => {
                                 url: product.image_url,
                                 alt: product?.description || "Product Image",
                                 copyright: null,
-                                dimensions: { width: 1000, height: 1000 }
+                                dimensions: { width: 1000, height: 1000 },
                               } as ImageField
                             }
                             className="w-full h-full object-contain"

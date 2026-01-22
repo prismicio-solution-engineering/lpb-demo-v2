@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { RecapDocumentData, Simplify } from "@/prismicio-types";
+import { RecapDocumentData } from "@/prismicio-types";
 import { PrismicRichText } from "@prismicio/react";
 import { PrismicNextLink } from "@prismicio/next";
 import { isFilled } from "@prismicio/client";
@@ -137,7 +137,7 @@ export default function Data({ data }: { data: RecapDocumentData }) {
                           {/* COMPANY */}
                           <div>
                             <span className="block text-xs uppercase tracking-wider text-gray-400 font-bold mb-1">
-                              Company
+                              {data.agent === "SEO-GEO" ? "Topic" : "Company"}
                             </span>
                             {isFilled.keyText(item.company) && (
                               <h3 className="text-lg font-bold text-[#151515]">
@@ -149,7 +149,7 @@ export default function Data({ data }: { data: RecapDocumentData }) {
                           {/* ROLE */}
                           <div>
                             <span className="block text-xs uppercase tracking-wider text-gray-400 font-bold mb-1">
-                              Role
+                              {data.agent === "SEO-GEO" ? "Details" : "Role"}
                             </span>
                             {isFilled.keyText(item.role) && (
                               <p className="text-[#505050] font-medium">
@@ -161,10 +161,12 @@ export default function Data({ data }: { data: RecapDocumentData }) {
                           {/* INSTRUCTIONS */}
                           <div>
                             <span className="block text-xs uppercase tracking-wider text-gray-400 font-bold mb-1">
-                              Personalization Instructions
+                              {data.agent === "SEO-GEO"
+                                ? "Instructions"
+                                : "Personalization Instructions"}
                             </span>
                             {isFilled.keyText(
-                              item.personalization_instructions
+                              item.personalization_instructions,
                             ) && (
                               <p className="text-sm text-[#505050] whitespace-pre-wrap leading-relaxed">
                                 {item.personalization_instructions}

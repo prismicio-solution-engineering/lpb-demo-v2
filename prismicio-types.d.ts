@@ -1127,6 +1127,18 @@ interface RecapDocumentData {
   title: prismic.KeyTextField;
 
   /**
+   * Agent field in *Recap*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: ABM
+   * - **API ID Path**: recap.agent
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  agent: prismic.SelectField<"ABM" | "SEO-GEO", "filled">;
+
+  /**
    * Slice Zone field in *Recap*
    *
    * - **Field Type**: Slice Zone
@@ -3567,7 +3579,17 @@ export type NavigationLinksSlice = prismic.SharedSlice<
 /**
  * Item in *ProductSelection → Default → Primary → Grp*
  */
-export interface ProductSelectionSliceDefaultPrimaryGrpItem {}
+export interface ProductSelectionSliceDefaultPrimaryGrpItem {
+  /**
+   * Product field in *ProductSelection → Default → Primary → Grp*
+   *
+   * - **Field Type**: Integration Fields (Catalog: `template-landing--24s`)
+   * - **Placeholder**: Select a product
+   * - **API ID Path**: product_selection.default.primary.grp[].product
+   * - **Documentation**: https://prismic.io/docs/fields/integration
+   */
+  product: prismic.IntegrationField;
+}
 
 /**
  * Primary content in *ProductSelection → Default → Primary*

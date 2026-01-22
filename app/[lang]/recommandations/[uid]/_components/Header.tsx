@@ -24,13 +24,24 @@ export default function Header({
   // C'est un objet où la clé est l'ID (ex: "hero") et la valeur est l'élément HTML <a>
   const navRefs = useRef<{ [key: string]: HTMLAnchorElement | null }>({});
 
-  const navLinks = [
+  const AbmNavLinks = [
     { id: "hero", label: "Top" },
     { id: "understanding", label: "Understanding" },
     { id: "opportunities", label: "Opportunities" },
     { id: "pages", label: "ABM Pages" },
     { id: "next-steps", label: "Next Steps" },
   ];
+
+  const seoNavLinks = [
+    { id: "hero", label: "Top" },
+    { id: "understanding", label: "Understanding" },
+    { id: "opportunities", label: "Opportunities" },
+    { id: "pages", label: "AI-Generated Pages" },
+    { id: "next-steps", label: "Next Steps" },
+  ];
+
+  const navLinks = data.agent === "SEO-GEO" ? seoNavLinks : AbmNavLinks;
+
 
   // Observer pour détecter le scroll et changer la section active
   useEffect(() => {

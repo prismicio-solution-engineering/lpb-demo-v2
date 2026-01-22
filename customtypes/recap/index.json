@@ -19,6 +19,15 @@
           "placeholder": ""
         }
       },
+      "agent": {
+        "type": "Select",
+        "config": {
+          "label": "Agent",
+          "placeholder": "",
+          "options": ["ABM", "SEO-GEO"],
+          "default_value": "ABM"
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

@@ -24,8 +24,8 @@ const Icons: FC<IconsProps> = ({ slice, context }) => {
       style={
         {
           ...getFontTextStyles(pageData),
-          "--primary-color": pageData.primary_color as string,
-          "--secondary-color": pageData.secondary_color as string
+          "--primary-color": pageData?.primary_color as string,
+          "--secondary-color": pageData?.secondary_color as string
         } as CSSProperties
       }
     >

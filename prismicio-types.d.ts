@@ -1322,6 +1322,60 @@ interface RecapDocumentData {
   generated_page: prismic.GroupField<
     Simplify<RecapDocumentDataGeneratedPageItem>
   >; /**
+   * Title field in *Recap*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.roi_title
+   * - **Tab**: Roi Calculator
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  roi_title: prismic.RichTextField;
+
+  /**
+   * Text field in *Recap*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.roi_text
+   * - **Tab**: Roi Calculator
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  roi_text: prismic.RichTextField;
+
+  /**
+   * Simple Calculator field in *Recap*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: recap.simple_calculator
+   * - **Tab**: Roi Calculator
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  simple_calculator: prismic.BooleanField;
+
+  /**
+   * Card Title field in *Recap*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.roi_card_title
+   * - **Tab**: Roi Calculator
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  roi_card_title: prismic.RichTextField;
+
+  /**
+   * Card Text field in *Recap*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.roi_card_text
+   * - **Tab**: Roi Calculator
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  roi_card_text: prismic.RichTextField; /**
    * Eyebrow field in *Recap*
    *
    * - **Field Type**: Text

@@ -29,6 +29,7 @@ export default function Header({
     { id: "understanding", label: "Understanding" },
     { id: "opportunities", label: "Opportunities" },
     { id: "pages", label: "ABM Pages" },
+    { id: "roi-calculator", label: "ROI" },
     { id: "next-steps", label: "Next Steps" },
   ];
 
@@ -37,6 +38,7 @@ export default function Header({
     { id: "understanding", label: "Understanding" },
     { id: "opportunities", label: "Opportunities" },
     { id: "pages", label: "AI-Generated Pages" },
+    { id: "roi-calculator", label: "ROI" },
     { id: "next-steps", label: "Next Steps" },
   ];
 

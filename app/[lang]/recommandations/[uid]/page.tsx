@@ -9,6 +9,7 @@ import Header from "./_components/Header";
 import Hero from "./_components/Hero";
 import Understanding from "./_components/Understanding";
 import Opportunities from "./_components/Opportunities";
+import RoiCalculator from "./_components/RoiCalculator";
 import Data from "./_components/Data";
 import NextSteps from "./_components/NextSteps";
 
@@ -102,6 +103,7 @@ export default async function Recap({
         <Understanding data={data}></Understanding>
         <Opportunities data={data}></Opportunities>
         <Data data={data}></Data>
+        <RoiCalculator data={data}></RoiCalculator>
         <NextSteps data={data}></NextSteps>
       </main>
     </>

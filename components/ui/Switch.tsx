@@ -4,15 +4,13 @@ import clsx from "clsx";
 
 import { Switch as SwitchComponent } from "@headlessui/react";
 
-import type { SliceZoneContext } from "@/lib/types";
-
 type SwitchProps = {
   value: boolean | undefined;
   setValue: ((value: boolean) => void) | undefined;
   options?: string[];
   screenReaderLabel?: string;
   trueExplainer?: string;
-  theme: SliceZoneContext["theme"];
+  theme: "light" | "dark";
   size?: "sm" | "lg";
   color?: "purple" | "blue" | "green" | "pink" | "orange";
 };

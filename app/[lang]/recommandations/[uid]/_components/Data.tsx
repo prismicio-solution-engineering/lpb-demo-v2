@@ -28,12 +28,21 @@ export default function Data({ data }: { data: RecapDocumentData }) {
     }
   };
 
+  const validPages = data.generated_page.filter((item) => {
+    return (
+      isFilled.keyText(item.company) &&
+      isFilled.keyText(item.role) &&
+      isFilled.keyText(item.personalization_instructions) &&
+      isFilled.link(item.page_link)
+    );
+  });
+
   return (
     <section
       id="pages"
       className="scroll-mt-24 relative bg-[#151515] py-15 pb-50 md:pb-87.5"
     >
-      <div className="absolute bottom-0 left-0 bg-[#E8F8F3] w-full">
+      <div className="absolute bottom-0 left-0 bg-[#FFFFFF] w-full">
         <BottomAnimation />
       </div>
 
@@ -69,65 +78,58 @@ export default function Data({ data }: { data: RecapDocumentData }) {
             )}
           </div>
 
-          {/* --- CAROUSEL --- */}
-          <div className="relative w-full z-10 p-0 sm:p-8">
-            <DotGrid />
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/4 w-full h-175 bg-[radial-gradient(closest-side,#8E44EC7e_0%,transparent_100%)] -z-10 pointer-events-none"></div>
+          {validPages.length > 0 && (
+            <div className="relative w-full z-10 p-0 sm:p-8">
 
-            <div className="relative w-full bg-[#FFFFFF] rounded-2xl p-4 md:p-8 shadow-[0px_0px_64px_0px_#8E44EC7E]">
-              {/* NAV */}
-              <div className="flex justify-end gap-2 mb-4">
-                <button
-                  onClick={() => scroll("left")}
-                  className="p-2 rounded-full hover:bg-gray-100 border border-gray-200 transition active:scale-95 text-[#505050] cursor-pointer"
-                >
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+              <DotGrid />
+              
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/4 w-full h-175 bg-[radial-gradient(closest-side,#8E44EC7e_0%,transparent_100%)] -z-10 pointer-events-none"></div>
+
+              <div className="relative w-full bg-[#FFFFFF] rounded-2xl p-4 md:p-8 shadow-[0px_0px_64px_0px_#8E44EC7E]">
+                {/* NAV */}
+                <div className="flex justify-end gap-2 mb-4">
+                  <button
+                    onClick={() => scroll("left")}
+                    className="p-2 rounded-full hover:bg-gray-100 border border-gray-200 transition active:scale-95 text-[#505050] cursor-pointer"
                   >
-                    <path d="m15 18-6-6 6-6" />
-                  </svg>
-                </button>
-                <button
-                  onClick={() => scroll("right")}
-                  className="p-2 rounded-full hover:bg-gray-100 border border-gray-200 transition active:scale-95 text-[#505050] cursor-pointer"
-                >
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="m15 18-6-6 6-6" />
+                    </svg>
+                  </button>
+                  <button
+                    onClick={() => scroll("right")}
+                    className="p-2 rounded-full hover:bg-gray-100 border border-gray-200 transition active:scale-95 text-[#505050] cursor-pointer"
                   >
-                    <path d="m9 18 6-6-6-6" />
-                  </svg>
-                </button>
-              </div>
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="m9 18 6-6-6-6" />
+                    </svg>
+                  </button>
+                </div>
 
-              {/* CARDS */}
-              <div
-                ref={scrollContainerRef}
-                className="flex gap-6 overflow-x-auto pb-4 items-stretch snap-x snap-mandatory scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
-              >
-                {data.generated_page.map((item, index) => {
-                  const hasAllFields =
-                    isFilled.keyText(item.company) &&
-                    isFilled.keyText(item.role) &&
-                    isFilled.keyText(item.personalization_instructions) &&
-                    isFilled.link(item.page_link);
-
-                  if (!hasAllFields) return null;
-
-                  return (
+                {/* CARDS */}
+                <div
+                  ref={scrollContainerRef}
+                  className="flex gap-6 overflow-x-auto pb-4 items-stretch snap-x snap-mandatory scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
+                >
+                  {validPages.map((item, index) => (
                     <div
                       key={index}
                       className="snap-center shrink-0 w-[80vw] md:w-[320px] lg:w-87.5"
@@ -139,11 +141,9 @@ export default function Data({ data }: { data: RecapDocumentData }) {
                             <span className="block text-xs uppercase tracking-wider text-gray-400 font-bold mb-1">
                               {data.agent === "SEO-GEO" ? "Topic" : "Company"}
                             </span>
-                            {isFilled.keyText(item.company) && (
-                              <h3 className="text-lg font-bold text-[#151515]">
-                                {item.company}
-                              </h3>
-                            )}
+                            <h3 className="text-lg font-bold text-[#151515]">
+                              {item.company}
+                            </h3>
                           </div>
 
                           {/* ROLE */}
@@ -151,11 +151,9 @@ export default function Data({ data }: { data: RecapDocumentData }) {
                             <span className="block text-xs uppercase tracking-wider text-gray-400 font-bold mb-1">
                               {data.agent === "SEO-GEO" ? "Details" : "Role"}
                             </span>
-                            {isFilled.keyText(item.role) && (
-                              <p className="text-[#505050] font-medium">
-                                {item.role}
-                              </p>
-                            )}
+                            <p className="text-[#505050] font-medium">
+                              {item.role}
+                            </p>
                           </div>
 
                           {/* INSTRUCTIONS */}
@@ -165,35 +163,29 @@ export default function Data({ data }: { data: RecapDocumentData }) {
                                 ? "Instructions"
                                 : "Personalization Instructions"}
                             </span>
-                            {isFilled.keyText(
-                              item.personalization_instructions,
-                            ) && (
-                              <p className="text-sm text-[#505050] whitespace-pre-wrap leading-relaxed">
-                                {item.personalization_instructions}
-                              </p>
-                            )}
+                            <p className="text-sm text-[#505050] whitespace-pre-wrap leading-relaxed">
+                              {item.personalization_instructions}
+                            </p>
                           </div>
                         </div>
 
                         {/* BUTTON */}
                         <div className="mt-auto pt-4 border-t border-gray-100">
-                          {isFilled.link(item.page_link) && (
-                            <PrismicNextLink
-                              field={item.page_link}
-                              target="blank"
-                              className="inline-flex justify-center items-center w-full text-[#151515] px-6 py-3 rounded-lg bg-[#E8C7FF] font-medium hover:bg-[#d9a5ff] transition-colors"
-                            >
-                              View Page
-                            </PrismicNextLink>
-                          )}
+                          <PrismicNextLink
+                            field={item.page_link}
+                            target="blank"
+                            className="inline-flex justify-center items-center w-full text-[#151515] px-6 py-3 rounded-lg bg-[#E8C7FF] font-medium hover:bg-[#d9a5ff] transition-colors"
+                          >
+                            View Page
+                          </PrismicNextLink>
                         </div>
                       </div>
                     </div>
-                  );
-                })}
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
+          )}
         </Container>
       </div>
     </section>

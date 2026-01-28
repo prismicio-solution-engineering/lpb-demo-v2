@@ -62,16 +62,15 @@ export default function Hero({ data }: { data: RecapDocumentData }) {
             <div className="px-8 py-4 rounded-2xl bg-[#F7F7F7]">
               <div className="flex flex-col md:flex-row justify-center items-center gap-6">
                 
-                {/* Plus besoin de isFilled ici, on sait que contactData existe */}
                 <PrismicNextImage
                   field={contact.image}
-                  width={64}
-                  height={64}
+                  width={72}
+                  height={72}
                   className="object-cover aspect-square rounded-full"
                 />
                 
                 <div className="flex flex-col justify-center items-center md:items-start">
-                  <p className="font-semibold">{contact.name}</p>
+                  <p className="text-xl font-semibold">{contact.name}</p>
                   <p>{contact.position}</p>
                 </div>
 

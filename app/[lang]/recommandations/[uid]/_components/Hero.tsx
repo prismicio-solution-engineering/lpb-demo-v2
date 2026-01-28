@@ -8,6 +8,13 @@ import { Animation } from "@/components/Animations/Animation";
 import { TopAnimation } from "@/components/Animations/TopAnimation";
 
 export default function Hero({ data }: { data: RecapDocumentData }) {
+
+  const contactData = data.contact;
+  const contact =
+    isFilled.contentRelationship(contactData) && "data" in contactData
+      ? (contactData as any).data
+      : null;
+
   return (
     <section
       id="hero"
@@ -51,49 +58,48 @@ export default function Hero({ data }: { data: RecapDocumentData }) {
             )}
           </div>
 
-          <div className="px-8 py-4 rounded-2xl bg-[#F7F7F7]">
-            <div className="flex flex-col md:flex-row justify-center items-center gap-6">
-              {isFilled.contentRelationship(data.contact) && (
+          {contact && (
+            <div className="px-8 py-4 rounded-2xl bg-[#F7F7F7]">
+              <div className="flex flex-col md:flex-row justify-center items-center gap-6">
+                
                 <PrismicNextImage
-                  field={data.contact.data?.image}
-                  width={64}
-                  height={64}
+                  field={contact.image}
+                  width={72}
+                  height={72}
                   className="object-cover aspect-square rounded-full"
                 />
-              )}
-              <div className="flex flex-col justify-center items-center md:items-start">
-                {isFilled.contentRelationship(data.contact) && (
-                  <p className="font-semibold">{data.contact.data?.name}</p>
-                )}
-                {isFilled.contentRelationship(data.contact) && (
-                  <p>{data.contact.data?.position}</p>
-                )}
-              </div>
-              <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-                {isFilled.contentRelationship(data.contact) && (
-                  <a
-                    href={`mailto:${data.contact.data?.email}`}
-                    className="text-[#FFFFFF] bg-[#151515] px-4 py-2 rounded-lg border-2 border-[#151515]"
-                  >
-                    Email me
-                  </a>
-                )}
-                <div>
-                  {isFilled.contentRelationship(data.contact) &&
-                    isFilled.link(data.contact.data?.calendar) && (
+                
+                <div className="flex flex-col justify-center items-center md:items-start">
+                  <p className="text-xl font-semibold">{contact.name}</p>
+                  <p>{contact.position}</p>
+                </div>
+
+                <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+                  {contact.email && (
+                    <a
+                      href={`mailto:${contact.email}`}
+                      className="text-[#FFFFFF] bg-[#151515] px-4 py-2 rounded-lg border-2 border-[#151515]"
+                    >
+                      Email me
+                    </a>
+                  )}
+                  
+                  <div>
+                    {isFilled.link(contact.calendar) && (
                       <PrismicNextLink
-                        field={data.contact.data?.calendar}
+                        field={contact.calendar}
                         className="text-[#151515] px-4 py-2 rounded-lg border-2 border-[#151515]"
                       >
-                        {data.contact.data?.calendar.text
-                          ? data.contact.data?.calendar.text
+                        {contact.calendar.text
+                          ? contact.calendar.text
                           : "Book a call"}
                       </PrismicNextLink>
                     )}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          )}
         </Container>
         <Animation></Animation>
       </div>

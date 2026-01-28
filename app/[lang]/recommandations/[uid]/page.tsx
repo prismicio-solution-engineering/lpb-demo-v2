@@ -11,6 +11,7 @@ import Understanding from "./_components/Understanding";
 import Opportunities from "./_components/Opportunities";
 import Data from "./_components/Data";
 import NextSteps from "./_components/NextSteps";
+import Contact from "./_components/Contact";
 
 export async function generateMetadata({
   params,
@@ -103,6 +104,7 @@ export default async function Recap({
         <Opportunities data={data}></Opportunities>
         <Data data={data}></Data>
         <NextSteps data={data}></NextSteps>
+        <Contact data={data}></Contact>
       </main>
     </>
   );

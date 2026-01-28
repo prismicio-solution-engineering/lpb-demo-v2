@@ -358,6 +358,26 @@
         }
       }
     },
+    "Contact": {
+      "contact_title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "heading2"
+        }
+      },
+      "contact_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Text",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em"
+        }
+      }
+    },
     "SEO & Metadata": {
       "meta_title": {
         "config": {

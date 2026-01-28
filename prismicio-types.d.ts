@@ -1413,7 +1413,27 @@ interface RecapDocumentData {
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/fields/image
    */
-  meta_image: prismic.ImageField<never>;
+  meta_image: prismic.ImageField<never>; /**
+   * Title field in *Recap*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.contact_title
+   * - **Tab**: Contact
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  contact_title: prismic.RichTextField;
+
+  /**
+   * Text field in *Recap*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.contact_text
+   * - **Tab**: Contact
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  contact_text: prismic.RichTextField;
 }
 
 /**

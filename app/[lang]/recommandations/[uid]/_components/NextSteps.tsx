@@ -8,7 +8,7 @@ import { iconsMap } from "@/utils/getIconsMap";
 
 export default function NextSteps({ data }: { data: RecapDocumentData }) {
   return (
-    <section id="next-steps" className="scroll-mt-24 bg-[#E8F8F3] pb-15">
+    <section id="next-steps" className="scroll-mt-24 bg-gradient-to-b from-[#E8F8F3] from-85% to-white pb-15">
       <Container
         size="xl"
         className="flex flex-col items-center gap-16 text-center"

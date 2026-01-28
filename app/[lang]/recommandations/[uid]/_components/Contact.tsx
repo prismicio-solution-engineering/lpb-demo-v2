@@ -20,7 +20,7 @@ export default function Contact({ data }: { data: RecapDocumentData }) {
                 size="xl"
                 className="flex flex-col items-center gap-8"
             >
-                <div className='relative w-full px-12 rounded-2xl overflow-hidden bg-quaternary-purple text-gray-15 py-32 xl:px-24 shadow-sm'>
+                <div className='relative w-full px-12 rounded-2xl overflow-hidden bg-[#F5E6FF] text-gray-15 py-32 xl:px-24 shadow-sm'>
                     <div className='relative z-10 flex flex-col gap-10'>
                         <div className='w-full sm:max-w-[60%] md:max-w-[50%] xl:max-w-[512px] flex flex-col items-start gap-4'>
                             {isFilled.richText(data.contact_title) ? (

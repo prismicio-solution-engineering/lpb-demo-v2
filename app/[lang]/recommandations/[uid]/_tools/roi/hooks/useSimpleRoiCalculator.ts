@@ -40,7 +40,11 @@ export interface UseSimpleRoiCalculatorReturn {
   };
 }
 
-export function useSimpleRoiCalculator(): UseSimpleRoiCalculatorReturn {
+interface SimpleRoiInitialData {
+  costPerPage?: number;
+}
+
+export function useSimpleRoiCalculator(initialData?: SimpleRoiInitialData): UseSimpleRoiCalculatorReturn {
   // Currency management
   const {
     currency,
@@ -49,6 +53,11 @@ export function useSimpleRoiCalculator(): UseSimpleRoiCalculatorReturn {
     convertBetweenCurrencies,
     exchangeRate
   } = useCurrency();
+
+  const defaults = {
+    costPerPage: initialData?.costPerPage ?? 48
+  };
+
   const writerHourlyRateManuallySet = useRef(false);
   const previousCurrency = useRef(currency);
   const isInitialMount = useRef(true);
@@ -100,8 +109,8 @@ export function useSimpleRoiCalculator(): UseSimpleRoiCalculatorReturn {
 
   // Get converted automated cost per page
   const automatedCostPerPage = useMemo(
-    () => convertFromUSD(AUTOMATED_COST_PER_PAGE_USD),
-    [convertFromUSD]
+    () => convertFromUSD(defaults.costPerPage),
+    [convertFromUSD, defaults.costPerPage]
   );
 
   // Calculations

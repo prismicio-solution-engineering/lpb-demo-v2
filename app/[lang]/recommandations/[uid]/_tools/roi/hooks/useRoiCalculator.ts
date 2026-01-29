@@ -93,7 +93,11 @@ export interface UseRoiCalculatorReturn {
   };
 }
 
-export function useRoiCalculator(): UseRoiCalculatorReturn {
+interface RoiInitialData {
+  costPerPage?: number;
+}
+
+export function useRoiCalculator(initialData?: RoiInitialData): UseRoiCalculatorReturn {
   // Currency management
   const {
     currency,
@@ -102,6 +106,11 @@ export function useRoiCalculator(): UseRoiCalculatorReturn {
     convertBetweenCurrencies,
     exchangeRate
   } = useCurrency();
+
+  const defaults = {
+    costPerPage: initialData?.costPerPage ?? 48
+  };
+
   const writerHourlyRateManuallySet = useRef(false);
   const acvManuallySet = useRef(false);
   const averageBasketManuallySet = useRef(false);
@@ -207,8 +216,8 @@ export function useRoiCalculator(): UseRoiCalculatorReturn {
 
   // Get converted automated cost per page
   const automatedCostPerPage = useMemo(
-    () => convertFromUSD(AUTOMATED_COST_PER_PAGE_USD),
-    [convertFromUSD]
+    () => convertFromUSD(defaults.costPerPage),
+    [convertFromUSD, defaults.costPerPage]
   );
 
   // B2B State (isB2B = !isB2C)

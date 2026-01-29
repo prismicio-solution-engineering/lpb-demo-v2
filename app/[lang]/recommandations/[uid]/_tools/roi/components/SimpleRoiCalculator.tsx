@@ -12,15 +12,19 @@ interface SimpleRoiCalculatorProps {
   className?: string;
   cardHeading?: RichTextField;
   cardSubheading?: RichTextField;
+  initialData?: {
+    costPerPage?: number;
+  };
 }
 
 export function SimpleRoiCalculator({
   className,
   cardHeading,
   cardSubheading,
+  initialData,
 }: SimpleRoiCalculatorProps) {
   const { state, calculations, currency, exchangeRate, setters } =
-    useSimpleRoiCalculator();
+    useSimpleRoiCalculator(initialData);
 
   return (
     <div className="container mt-12">

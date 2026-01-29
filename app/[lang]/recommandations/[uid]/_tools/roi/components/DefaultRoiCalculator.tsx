@@ -12,16 +12,20 @@ import { Switch } from "@/components/ui/Switch";
 import clsx from "clsx";
 import { isFilled, RichTextField } from "@prismicio/client";
 import { PrismicRichText } from "@prismicio/react";
+import { i } from "motion/react-client";
 
 interface RoiCalculatorProps {
   className?: string;
   cardHeading?: RichTextField;
   cardSubheading?: RichTextField;
+  initialData?: {
+    costPerPage?: number;
+  };
 }
 
-export function DefaultRoiCalculator({ className, cardHeading, cardSubheading }: RoiCalculatorProps) {
+export function DefaultRoiCalculator({ className, cardHeading, cardSubheading, initialData }: RoiCalculatorProps) {
   const { state, calculations, currency, exchangeRate, setters } =
-    useRoiCalculator();
+    useRoiCalculator(initialData);
 
   const handleMetricsChange = (isB2C: boolean) => {
     setters.setIsB2C(isB2C);

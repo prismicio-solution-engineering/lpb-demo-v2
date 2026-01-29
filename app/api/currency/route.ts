@@ -49,6 +49,7 @@ export async function GET(req: NextRequest) {
 
     const data = await cachedFetchRates();
 
+    // fixe le taux EUR à 0.85
     if (data.rates) {
         data.rates["EUR"] = 0.85; 
     }

@@ -277,6 +277,15 @@
       }
     },
     "Roi Calculator": {
+      "roi_calculator": {
+        "type": "Boolean",
+        "config": {
+          "label": "Calculator",
+          "placeholder_false": "hide",
+          "placeholder_true": "show",
+          "default_value": false
+        }
+      },
       "roi_title": {
         "type": "StructuredText",
         "config": {
@@ -295,7 +304,7 @@
           "multi": "paragraph,strong,em"
         }
       },
-      "simple_calculator": {
+      "roi_simple_calculator": {
         "type": "Boolean",
         "config": {
           "label": "Simple Calculator",
@@ -320,6 +329,13 @@
           "placeholder": "",
           "allowTargetBlank": true,
           "multi": "paragraph,em,strong,hyperlink"
+        }
+      },
+      "roi_cost_per_page": {
+        "type": "Number",
+        "config": {
+          "label": "Cost per page (USD)",
+          "placeholder": ""
         }
       }
     },

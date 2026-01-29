@@ -1322,6 +1322,18 @@ interface RecapDocumentData {
   generated_page: prismic.GroupField<
     Simplify<RecapDocumentDataGeneratedPageItem>
   >; /**
+   * Calculator field in *Recap*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: recap.roi_calculator
+   * - **Tab**: Roi Calculator
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  roi_calculator: prismic.BooleanField;
+
+  /**
    * Title field in *Recap*
    *
    * - **Field Type**: Rich Text
@@ -1349,11 +1361,11 @@ interface RecapDocumentData {
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
    * - **Default Value**: true
-   * - **API ID Path**: recap.simple_calculator
+   * - **API ID Path**: recap.roi_simple_calculator
    * - **Tab**: Roi Calculator
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
-  simple_calculator: prismic.BooleanField;
+  roi_simple_calculator: prismic.BooleanField;
 
   /**
    * Card Title field in *Recap*
@@ -1375,7 +1387,18 @@ interface RecapDocumentData {
    * - **Tab**: Roi Calculator
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
-  roi_card_text: prismic.RichTextField; /**
+  roi_card_text: prismic.RichTextField;
+
+  /**
+   * Cost per page (USD) field in *Recap*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.roi_cost_per_page
+   * - **Tab**: Roi Calculator
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  roi_cost_per_page: prismic.NumberField; /**
    * Eyebrow field in *Recap*
    *
    * - **Field Type**: Text
@@ -1437,6 +1460,26 @@ interface RecapDocumentData {
       "Filled" | "Outlined"
     >
   >; /**
+   * Title field in *Recap*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.contact_title
+   * - **Tab**: Contact
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  contact_title: prismic.RichTextField;
+
+  /**
+   * Text field in *Recap*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.contact_text
+   * - **Tab**: Contact
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  contact_text: prismic.RichTextField; /**
    * Meta Title field in *Recap*
    *
    * - **Field Type**: Text
@@ -1467,27 +1510,7 @@ interface RecapDocumentData {
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/fields/image
    */
-  meta_image: prismic.ImageField<never>; /**
-   * Title field in *Recap*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: recap.contact_title
-   * - **Tab**: Contact
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  contact_title: prismic.RichTextField;
-
-  /**
-   * Text field in *Recap*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: recap.contact_text
-   * - **Tab**: Contact
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  contact_text: prismic.RichTextField;
+  meta_image: prismic.ImageField<never>;
 }
 
 /**

@@ -7,6 +7,15 @@ import { isFilled } from "@prismicio/client";
 import { PrismicRichText } from "@prismicio/react";
 
 export default function RoiCalculator({ data }: { data: RecapDocumentData }) {
+  const calculator = data.roi_calculator;
+  if (!calculator || calculator == undefined || calculator == null) {
+    return null;
+  }
+
+  const initialConfig = {
+    costPerPage: data.roi_cost_per_page ?? 48,
+  };
+  console.log("RoiCalculator initialConfig:", initialConfig);
   return (
     <section id="roi-calculator" className="scroll-mt-24 bg-[#FFFFFF] py-15">
       <Container size="xl" className="flex flex-col justify-center items-center gap-6">
@@ -48,15 +57,17 @@ export default function RoiCalculator({ data }: { data: RecapDocumentData }) {
         </div>
 
         {data.agent === "SEO-GEO" ? (
-          data.simple_calculator || data.simple_calculator === null || data.simple_calculator === undefined ? (
+          data.roi_simple_calculator || data.roi_simple_calculator === null || data.roi_simple_calculator === undefined ? (
             <SimpleRoiCalculator
-              cardHeading={data.roi_card_title}
-              cardSubheading={data.roi_card_text}
+            cardHeading={data.roi_card_title}
+            cardSubheading={data.roi_card_text}
+            initialData={initialConfig}
             />
           ) : (
             <DefaultRoiCalculator
-              cardHeading={data.roi_card_title}
-              cardSubheading={data.roi_card_text}
+            cardHeading={data.roi_card_title}
+            cardSubheading={data.roi_card_text}
+            initialData={initialConfig}
             />
           )
         ) : (

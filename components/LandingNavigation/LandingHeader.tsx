@@ -41,6 +41,11 @@ const LandingHeader = (props: PropsLayoutHF) => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // Determine logo dimensions and aspect ratio for styling
+  const { width, height } = data.logo.dimensions || { width: 100, height: 100 };
+  const aspectRatio = width / height;
+  const isWide = aspectRatio > 2;
+
   return (
     <>
       <header
@@ -54,7 +59,7 @@ const LandingHeader = (props: PropsLayoutHF) => {
         >
           {/* ------ Logo ------ */}
           <Link href={"/"} className="flex items-center gap-2">
-            <PrismicNextImage field={data.logo} className="w-auto h-8" />
+            <PrismicNextImage field={data.logo} className={`w-auto object-contain transition-all ${isWide ? 'h-6 lg:h-10 max-w-[200px]' : 'h-6 lg:h-10'}`} />
           </Link>
 
           {/* ------ Desktop Panel ------ */}

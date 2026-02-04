@@ -15,7 +15,7 @@ export default function RoiCalculator({ data }: { data: RecapDocumentData }) {
   const initialConfig = {
     costPerPage: data.roi_cost_per_page ?? 48,
   };
-  console.log("RoiCalculator initialConfig:", initialConfig);
+
   return (
     <section id="roi-calculator" className="scroll-mt-24 bg-[#FFFFFF] py-15">
       <Container size="xl" className="flex flex-col justify-center items-center gap-6">
@@ -44,7 +44,7 @@ export default function RoiCalculator({ data }: { data: RecapDocumentData }) {
               field={data.roi_text}
               components={{
                 paragraph: ({ children }) => (
-                  <p className="text-[#505050]">{children}</p>
+                  <p className="text-center text-[#505050]">{children}</p>
                 ),
               }}
             />

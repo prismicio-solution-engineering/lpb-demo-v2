@@ -55,7 +55,7 @@ export function useSimpleRoiCalculator(initialData?: SimpleRoiInitialData): UseS
   } = useCurrency();
 
   const defaults = {
-    costPerPage: initialData?.costPerPage ?? 48
+    costPerPage: initialData?.costPerPage ?? AUTOMATED_COST_PER_PAGE_USD
   };
 
   const writerHourlyRateManuallySet = useRef(false);

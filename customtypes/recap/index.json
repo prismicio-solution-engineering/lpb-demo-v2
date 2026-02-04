@@ -276,6 +276,69 @@
         }
       }
     },
+    "Roi Calculator": {
+      "roi_calculator": {
+        "type": "Boolean",
+        "config": {
+          "label": "Calculator",
+          "placeholder_false": "hide",
+          "placeholder_true": "show",
+          "default_value": false
+        }
+      },
+      "roi_title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "heading2"
+        }
+      },
+      "roi_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Text",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em"
+        }
+      },
+      "roi_simple_calculator": {
+        "type": "Boolean",
+        "config": {
+          "label": "Simple Calculator",
+          "placeholder_false": "false",
+          "placeholder_true": "true",
+          "default_value": true
+        }
+      },
+      "roi_card_title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Card Title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "heading3"
+        }
+      },
+      "roi_card_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Card Text",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,em,strong,hyperlink"
+        }
+      },
+      "roi_cost_per_page": {
+        "type": "Number",
+        "config": {
+          "label": "Cost per page (USD)",
+          "placeholder": ""
+        }
+      }
+    },
     "Next Steps": {
       "next_eyebrow": {
         "type": "Text",

@@ -56,6 +56,95 @@
   --ease-in6: cubic-bezier(0.95, 0.05, 0.795, 0.035);
   --ease-out6: cubic-bezier(0.19, 1, 0.22, 1);
   --ease-inout6: cubic-bezier(1, 0, 0, 1);
+
+
+  
+  /* --- COULEURS DU ROI CALCULATOR --- */
+
+  /* Primary */
+  --color-primary-orange: #ED6B22;
+  --color-primary-pink: #F97289;
+  --color-primary-green: #3BBB96;
+  --color-primary-purple: #8E44EC;
+  --color-primary-blue: #59B5F8;
+
+  /* Secondary */
+  --color-secondary-orange: #F39A68;
+  --color-secondary-pink: #F7A1B0;
+  --color-secondary-green: #75DCC0;
+  --color-secondary-purple: #B382F2;
+  --color-secondary-blue: #87D9FD;
+
+  /* Tertiary */
+  --color-tertiary-orange: #FCDAC4;
+  --color-tertiary-pink: #FFD6DE;
+  --color-tertiary-green: #D4F2E9;
+  --color-tertiary-purple: #E8C7FF;
+  --color-tertiary-blue: #C3EEFE;
+
+  /* Quaternary */
+  --color-quaternary-orange: #FEF1E9;
+  --color-quaternary-pink: #FFE5EA;
+  --color-quaternary-green: #E8F8F3;
+  --color-quaternary-purple: #F5E6FF;
+  --color-quaternary-blue: #E6F7FE;
+
+  /* Grays (Nécéssaires pour le texte et les bordures) */
+  --color-gray-15: #151515;
+  --color-gray-1f: #1F1F1F;
+  --color-gray-30: #303030;
+  --color-gray-50: #505050;
+  --color-gray-a4: #A4A4A4;
+  --color-gray-ac: #ACACAC;
+  --color-gray-ee: #EEEEEE;
+  --color-gray-f7: #F7F7F7;
+
+  /* --- OMBRES (SHADOWS) --- */
+  --shadow-screenshot-blue: 0 4px 12px rgba(89, 181, 248, 0.24);
+  --shadow-screenshot-purple: 0px 4px 12px 0px rgba(142, 68, 236, 0.24);
+  --shadow-screenshot-green: 0px 4px 12px 0px rgba(59, 187, 150, 0.24);
+  --shadow-screenshot-orange: 0px 4px 12px 0px rgba(237, 107, 34, 0.24);
+  --shadow-screenshot-pink: 0px 4px 12px 0px rgba(249, 114, 137, 0.24);
+
+  /* --- FONTS SIZES ROI CALCULATOR --- */
+  
+  /* xs-flat (12px / 12px) */
+  --text-xs-flat: 0.75rem;
+  --text-xs-flat--line-height: 1;
+
+  /* sm-flat (14px / 14px) */
+  --text-sm-flat: 0.875rem;
+  --text-sm-flat--line-height: 1;
+
+  /* base-flat (16px / 16px) */
+  --text-base-flat: 1rem;
+  --text-base-flat--line-height: 1;
+
+  /* base-tight (16px / 22px) */
+  --text-base-tight: 1rem;
+  --text-base-tight--line-height: 1.375;
+
+  /* md-tight (18px / 24px) */
+  --text-md-tight: 1.125rem;
+  --text-md-tight--line-height: 1.333;
+
+  /* xl-tight (22px / 28px) */
+  --text-xl-tight: 1.375rem;
+  --text-xl-tight--line-height: 1.272;
+
+  /* 2xl-tight (24px / 30px) */
+  --text-2xl-tight: 1.5rem;
+  --text-2xl-tight--line-height: 1.25;
+  
+  /* 3xl-tight (28px / 32px) */
+  --text-3xl-tight: 1.75rem;
+  --text-3xl-tight--line-height: 1.142;
+
+  --text-6xl: 3rem;
+  --text-6xl--line-height: 1.083;
+
+  --text-8xl: 4rem;
+  --text-8xl--line-height: 1.125;
 }
 
 html,

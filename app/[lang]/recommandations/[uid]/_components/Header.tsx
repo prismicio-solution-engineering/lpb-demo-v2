@@ -42,6 +42,11 @@ export default function Header({
     { id: "next-steps", label: "Next Steps" },
   ];
 
+  if (data.roi_calculator == null || data.roi_calculator == undefined || data.roi_calculator == false) {
+    AbmNavLinks.splice(4,1);
+    seoNavLinks.splice(4,1);
+  }
+
   const navLinks = data.agent === "SEO-GEO" ? seoNavLinks : AbmNavLinks;
 
 

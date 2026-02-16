@@ -72,7 +72,7 @@ export default async function Home({
       getLanguages(page, client)
     ]
   );
-  console.log(recapPages);
+  // console.log(recapPages);
   return (
     <>
       <Header settings={settings} page={header} languages={languages} />

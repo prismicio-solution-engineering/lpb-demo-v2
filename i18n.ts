@@ -12,6 +12,7 @@ const LOCALES = {
   "en-us": "en-us",
   "es-es": "es-es",
   "fr-fr": "fr-fr",
+  "pt-br": "pt-br",
 };
 
 const DEFAULT_LOCALE = "en-us";

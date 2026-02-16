@@ -97,7 +97,7 @@ export default async function Landing({
       .catch(() =>
         client.getSingle("header", {
           lang: "en-us",
-        })
+        }),
       ),
 
     client
@@ -107,7 +107,7 @@ export default async function Landing({
       .catch(() =>
         client.getSingle("footer", {
           lang: "en-us",
-        })
+        }),
       ),
 
     client
@@ -117,13 +117,13 @@ export default async function Landing({
       .catch(() =>
         client.getSingle("settings", {
           lang: "en-us",
-        })
+        }),
       ),
 
     // Fetch available languages for the page and all exisitng locales in the project
     getLanguages(page, client),
   ]);
-
+  // console.log("uid", page.uid);
   return (
     <>
       {/* <Header settings={settings} page={header} languages={languages} /> */}
@@ -154,6 +154,12 @@ export async function generateStaticParams() {
   const pages = await client.getAllByType("landing", { lang: "*" });
 
   return pages?.map((page) => {
+    if (!page.uid) {
+      console.warn("Found a landing page without a uid:", page, page.uid);
+      return null;
+    }
+    // console.log("uid", page.uid);
+
     return { uid: page.uid, lang: page.lang };
   });
 }

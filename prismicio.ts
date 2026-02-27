@@ -37,6 +37,14 @@ const routes: Route[] = [
   {
     type: "recap",
     path: "/:lang?/recommandations/:uid"
+  },
+  {
+    type: "seo_geo_recap",
+    path: "/:lang?/seo-geo-recommendations/:uid"
+  },
+  {
+    type: "abm_recap",
+    path: "/:lang?/abm-recommendations/:uid"
   }
 ];
 

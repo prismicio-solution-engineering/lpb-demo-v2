@@ -1,0 +1,111 @@
+import { Metadata } from "next";
+import { AbmRecapDocument } from "@/prismicio-types";
+import { createClient } from "@/prismicio";
+import { asImageSrc } from "@prismicio/client";
+
+import { notFound } from "next/navigation";
+
+import Header from "./_components/Header";
+import Hero from "./_components/Hero";
+import NextSteps from "./_components/NextSteps";
+import Contact from "./_components/Contact";
+import Understanding from "./_components/Understanding";
+import Opportunities from "./_components/Opportunities";
+import AbmPages from "./_components/AbmPages";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string; uid: string }>;
+}): Promise<Metadata> {
+  const resolvedParams = await params;
+  const { lang, uid } = resolvedParams;
+
+  const client = createClient();
+
+  let page;
+  try {
+    page = await client.getByUID("abm_recap", uid, {
+      lang,
+      graphQuery: `
+          {
+            abm_recap {
+              meta_title
+              meta_description
+              meta_image
+            }
+          }
+        `,
+    });
+  } catch (error) {
+    // Try to fall back to the default locale (en-us)
+    try {
+      page = await client.getByUID("abm_recap", uid, {
+        lang: "en-us",
+        graphQuery: `
+          {
+            abm_recap {
+              meta_title
+              meta_description
+              meta_image
+            }
+          }
+        `,
+      });
+    } catch (fallbackError) {
+      notFound();
+    }
+  }
+
+  return {
+    title: page.data.meta_title,
+    description: page.data.meta_description,
+    openGraph: {
+      images: [{ url: asImageSrc(page.data.meta_image) ?? "" }],
+    },
+  };
+}
+
+export default async function SeoGeoRecap({
+  params,
+}: {
+  params: Promise<{ lang: string; uid: string }>;
+}) {
+  
+  const resolvedParams = await params;
+  const { lang, uid } = resolvedParams;
+  
+  const client = createClient();
+  
+  let page;
+  try {
+    page = await client.getByUID("abm_recap", uid, {
+      lang,
+    });
+  } catch (error) {
+    // Try to fall back to the default locale (en-us)
+    try {
+      page = await client.getByUID("abm_recap", uid, {
+        lang: "en-us",
+      });
+    } catch (fallbackError) {
+      notFound();
+    }
+  }
+
+  const { data } = page as AbmRecapDocument;
+
+  return (
+    <>
+      <Header data={data} />
+      <main>
+        <Hero data={data} />
+        <Understanding data={data}></Understanding>
+        <Opportunities data={data}></Opportunities>
+        <AbmPages data={data}></AbmPages>
+        <NextSteps data={data}></NextSteps>
+        <Contact data={data}></Contact>
+      </main>
+    </>
+  );
+}

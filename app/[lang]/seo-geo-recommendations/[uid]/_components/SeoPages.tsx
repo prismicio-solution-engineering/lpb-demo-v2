@@ -147,13 +147,13 @@ export default function SeoPages({ data }: { data: SeoGeoRecapDocumentData }) {
                   >
 
                     {/* Header */}
-                    <div className="w-full flex flex-col items-start">
+                    <div className="w-full flex flex-col items-start min-w-0">
                       {isFilled.keyText(item.eyebrow) && (
-                        <span className="text-sm font-semibold text-[#A4A4A4]">
+                        <span className="w-full text-sm text-left font-semibold text-[#A4A4A4] uppercase truncate">
                           {item.eyebrow}
                         </span>
                       )}
-                      <h3 className="text-xl font-bold text-left text-[#FFFFFF]">
+                      <h3 className="text-xl font-bold text-left text-[#FFFFFF] line-clamp-2">
                         {item.title}
                       </h3>
                     </div>
@@ -163,10 +163,8 @@ export default function SeoPages({ data }: { data: SeoGeoRecapDocumentData }) {
                       
                       {/* Mention rate */}
                       <div className="w-fit flex flex-col items-start">
-                        <div className="flex gap-2 items-center">
-                          <svg xmlns="http://www.w3.org/2000/svg" height="13px" viewBox="0 -960 960 960" width="13px" fill="#A4A4A4">
-                            <path d="M480-80q-24 0-46-9t-39-26q-29-29-50-38t-63-9q-50 0-85-35t-35-85q0-42-9-63t-38-50q-17-17-26-39t-9-46q0-24 9-46t26-39q29-29 38-50t9-63q0-50 35-85t85-35q42 0-63-9t50-38q17-17 39-26t46-9q24 0 46 9t39 26q29 29 50 38t63 9q50 0 85 35t35 85q0 42 9 63t38 50q17 17 26 39t9 46q0 24-9 46t-26 39q-29 29-38 50t-9 63q0 50-35 85t-85 35q-42 0-63 9t-50 38q-17 17-39 26t-46 9Zm100-240q25 0 42.5-17.5T640-380q0-25-17.5-42.5T580-440q-25 0-42.5 17.5T520-380q0 25 17.5 42.5T580-320Zm-230-30q12 12 28 12t28-12l204-203q12-12 12-28.5T610-610q-12-12-28.5-12T553-610L350-406q-12 12-12 28t12 28Zm72.5-187.5Q440-555 440-580t-17.5-42.5Q405-640 380-640t-42.5 17.5Q320-605 320-580t17.5 42.5Q355-520 380-520t42.5-17.5Z" />
-                          </svg>
+                        <div className="flex gap-1 items-center">
+                          <svg xmlns="http://www.w3.org/2000/svg" height="13px" viewBox="0 -960 960 960" width="13px" fill="#A4A4A4"><path d="M300-520q-58 0-99-41t-41-99q0-58 41-99t99-41q58 0 99 41t41 99q0 58-41 99t-99 41Zm0-80q25 0 42.5-17.5T360-660q0-25-17.5-42.5T300-720q-25 0-42.5 17.5T240-660q0 25 17.5 42.5T300-600Zm360 440q-58 0-99-41t-41-99q0-58 41-99t99-41q58 0 99 41t41 99q0 58-41 99t-99 41Zm42.5-97.5Q720-275 720-300t-17.5-42.5Q685-360 660-360t-42.5 17.5Q600-325 600-300t17.5 42.5Q635-240 660-240t42.5-17.5ZM177-216q0-17 11-28l528-528q11-11 28-11t28 11q11 11 11 28t-11 28L244-188q-11 11-28 11t-28-11q-11-11-11-28Z"/></svg>
                           <span className="text-[12px] font-semibold uppercase text-[#A4A4A4]">
                             Mention rate
                           </span>
@@ -179,7 +177,7 @@ export default function SeoPages({ data }: { data: SeoGeoRecapDocumentData }) {
                       {/* Average position */}
                       {isFilled.number(item.average_position) && (
                         <div className="w-fit flex flex-col items-start gap-1">
-                          <div className="flex gap-2 items-center">
+                          <div className="flex gap-1 items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" height="13px" viewBox="0 -960 960 960" width="13px" fill="#A4A4A4">
                               <path d="M120-120q-17 0-28.5-11.5T80-160v-400q0-17 11.5-28.5T120-600h140q17 0 28.5 11.5T300-560v400q0 17-11.5 28.5T260-120H120Zm290 0q-17 0-28.5-11.5T370-160v-640q0-17 11.5-28.5T410-840h140q17 0 28.5 11.5T590-800v640q0 17-11.5 28.5T550-120H410Zm290 0q-17 0-28.5-11.5T660-160v-320q0-17 11.5-28.5T700-520h140q17 0 28.5 11.5T880-480v320q0 17-11.5 28.5T840-120H700Z" />
                             </svg>
@@ -196,7 +194,7 @@ export default function SeoPages({ data }: { data: SeoGeoRecapDocumentData }) {
                       {/* Ranking */}
                       {isFilled.number(item.rank_position) && (
                         <div className="w-fit flex flex-col items-start gap-1">
-                          <div className="flex gap-2 items-center">
+                          <div className="flex gap-1 items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" height="13px" viewBox="0 -960 960 960" width="13px" fill="#A4A4A4">
                               <path d="M536.5-543.5Q560-567 560-600t-23.5-56.5Q513-680 480-680t-56.5 23.5Q400-633 400-600t23.5 56.5Q447-520 480-520t56.5-23.5ZM280-528v-152h-80v40q0 38 22 68.5t58 43.5Zm400 0q36-13 58-43.5t22-68.5v-40h-80v152ZM440-200v-124q-49-11-87.5-41.5T296-442q-75-9-125.5-65.5T120-640v-40q0-33 23.5-56.5T200-760h80q0-33 23.5-56.5T360-840h240q33 0 56.5 23.5T680-760h80q33 0 56.5 23.5T840-680v40q0 76-50.5 132.5T664-442q-18 46-56.5 76.5T520-324v124h120q17 0 28.5 11.5T680-160q0 17-11.5 28.5T640-120H320q-17 0-28.5-11.5T280-160q0-17 11.5-28.5T320-200h120Z" />
                             </svg>
@@ -257,17 +255,18 @@ export default function SeoPages({ data }: { data: SeoGeoRecapDocumentData }) {
                       {/* Improvements */}
                       {(isFilled.richText(item.upgrades) || isFilled.keyText(item.impact_projection)) && (
                         <div className="w-full flex flex-col sm:flex-row gap-4 p-4 border-2 border-[#3bbb9780] rounded-lg">
+                          {/* Upgrades */}
                           {isFilled.richText(item.upgrades) && (
-                            <div className="w-full flex flex-col justify-between items-start">
+                            <div className="w-full flex flex-col justify-between items-start min-w-0">
                               <PrismicRichText
                                 field={item.upgrades}
                                 components={{
                                   paragraph: ({ children }) => (
-                                    <div className="w-fit flex items-center gap-2">
-                                      <svg xmlns="http://www.w3.org/2000/svg" height="13px" viewBox="0 -960 960 960" width="13px" fill="#3BBB96">
+                                    <div className="w-full flex items-center gap-2">
+                                      <svg className="shrink-0" xmlns="http://www.w3.org/2000/svg" height="13px" viewBox="0 -960 960 960" width="13px" fill="#3BBB96">
                                         <path d="m424-408-86-86q-11-11-28-11t-28 11q-11 11-11 28t11 28l114 114q12 12 28 12t28-12l226-226q11-11 11-28t-11-28q-11-11-28-11t-28 11L424-408Zm56 328q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z" />
                                       </svg>
-                                      <p className="text-[12px] font-medium text-[#FFFFFF]">
+                                      <p className="text-[12px] text-left font-medium text-[#FFFFFF] truncate flex-1">
                                         {children}
                                       </p>
                                     </div>
@@ -276,17 +275,19 @@ export default function SeoPages({ data }: { data: SeoGeoRecapDocumentData }) {
                               />
                             </div>
                           )}
+
+                          {/* Impact projection */}
                           {isFilled.keyText(item.impact_projection) && (
-                            <div className="w-full flex flex-col justify-center items-start">
+                            <div className="w-full flex flex-col justify-center items-start min-w-0">
                               <div className="w-full flex items-center gap-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#3BBB96">
+                                <svg className="shrink-0" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#3BBB96">
                                   <path d="M108-255q-12-12-11.5-28.5T108-311l211-214q23-23 57-23t57 23l103 104 208-206h-64q-17 0-28.5-11.5T640-667q0-17 11.5-28.5T680-707h160q17 0 28.5 11.5T880-667v160q0 17-11.5 28.5T840-467q-17 0-28.5-11.5T800-507v-64L593-364q-23 23-57 23t-57-23L376-467 164-255q-11 11-28 11t-28-11Z" />
                                 </svg>
                                 <span className="text-[10px] font-semibold uppercase text-[#A4A4A4]">
                                   Impact projection
                                 </span>
                               </div>
-                              <p className="text-[12px] text-left text-[#FFFFFF]">
+                              <p className="text-[12px] text-left text-[#FFFFFF] w-full line-clamp-2">
                                 {item.impact_projection}
                               </p>
                             </div>
@@ -295,10 +296,10 @@ export default function SeoPages({ data }: { data: SeoGeoRecapDocumentData }) {
                       )}
 
                       {/* Link to page */}
-                      <div className="w-fit py-2 flex border-b-2 border-[#FFFFFF]">
+                      <div className="w-fit max-w-full py-2 border-b-2 border-[#FFFFFF]">
                         <PrismicNextLink
                           field={item.page_link}
-                          className="text-md font-semibold text-[#FFFFFF]"
+                          className="block text-md text-left font-semibold text-[#FFFFFF] truncate"
                         >
                           View page
                         </PrismicNextLink>

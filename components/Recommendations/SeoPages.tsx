@@ -8,8 +8,6 @@ import { isFilled } from "@prismicio/client";
 
 import Container from "@/components/Container";
 import { BottomAnimation } from "@/components/Animations/BottomAnimation";
-// Import conservé si tu l'utilises ailleurs, sinon tu peux le retirer
-import { col, div } from "motion/react-client";
 
 import AiLogo from "@/assets/AI/prismic-ai.svg";
 import { DotGrid } from "./DotGrid";

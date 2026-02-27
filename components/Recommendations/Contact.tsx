@@ -1,12 +1,12 @@
 import Container from '@/components/Container';
-import { AbmRecapDocumentData } from '@/prismicio-types';
+import { AbmRecapDocumentData, SeoGeoRecapDocumentData } from '@/prismicio-types';
 import { isFilled } from '@prismicio/client';
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next';
 import { PrismicRichText } from '@prismicio/react';
 
 import footerCtaIllustration from '@/assets/Illustrations/footer-cta.svg';
 
-export default function Contact({ data }: { data: AbmRecapDocumentData }) {
+export default function Contact({ data }: { data: AbmRecapDocumentData | SeoGeoRecapDocumentData }) {
 
     const contactData = data.contact;
       const contact =

@@ -1,4 +1,4 @@
-import { SeoGeoRecapDocumentData } from "@/prismicio-types";
+import { AbmRecapDocumentData, SeoGeoRecapDocumentData } from "@/prismicio-types";
 import { PrismicRichText } from "@prismicio/react";
 import { PrismicNextLink } from "@prismicio/next";
 import { isFilled } from "@prismicio/client";
@@ -6,7 +6,7 @@ import { isFilled } from "@prismicio/client";
 import Container from "@/components/Container";
 import { iconsMap } from "@/utils/getIconsMap";
 
-export default function NextSteps({ data }: { data: SeoGeoRecapDocumentData }) {
+export default function NextSteps({ data }: { data: AbmRecapDocumentData | SeoGeoRecapDocumentData }) {
   return (
     <section id="next-steps" className="scroll-mt-24 py-15" style={{ background: "linear-gradient(to bottom, white 0%, #E8F8F3 15%, #E8F8F3 85%, white 100%)"}}>
       <Container

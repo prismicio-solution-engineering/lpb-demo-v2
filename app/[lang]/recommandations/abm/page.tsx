@@ -1,7 +1,7 @@
 import { createClient } from "@/prismicio";
 import { PrismicNextLink } from "@prismicio/next";
 
-export default async function SeoGeoRecommendations({
+export default async function AbmRecommendation({
   params,
 }: {
   params: Promise<{ lang: string }>;
@@ -11,12 +11,12 @@ export default async function SeoGeoRecommendations({
   const { lang } = resolvedParams;
 
   const [pages] = await Promise.all([
-    client.getAllByType("seo_geo_recap", { lang: lang }),
+    client.getAllByType("abm_recap", { lang: lang }),
   ]);
 
   return (
     <>
-      <h1>SEO & GEO Recommendations</h1>
+      <h1>ABM Recommendations</h1>
 
       <ul>
         {pages.map((page) => (

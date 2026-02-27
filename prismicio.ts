@@ -40,11 +40,11 @@ const routes: Route[] = [
   },
   {
     type: "seo_geo_recap",
-    path: "/:lang?/seo-geo-recommendations/:uid"
+    path: "/:lang?/recommandations/seo-geo/:uid"
   },
   {
     type: "abm_recap",
-    path: "/:lang?/abm-recommendations/:uid"
+    path: "/:lang?/recommandations/abm/:uid"
   }
 ];
 

@@ -1,21 +1,26 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { SeoGeoRecapDocumentData, Simplify } from "@/prismicio-types";
+import { AbmRecapDocumentData, SeoGeoRecapDocumentData, Simplify } from "@/prismicio-types";
 import { PrismicNextLink } from "@prismicio/next";
 import { isFilled } from "@prismicio/client";
 
 import Container from "@/components/Container";
 import Logo from "@/assets/Logo/logo.svg";
-import { header } from "motion/react-client";
+
+export type NavLink = {
+  id: string;
+  label: string;
+};
 
 export default function Header({
   data,
+  navLinks,
 }: {
-  data: Simplify<SeoGeoRecapDocumentData>;
+  data: Simplify<AbmRecapDocumentData | SeoGeoRecapDocumentData>;
+  navLinks: NavLink[];
 }) {
   const [activeSection, setActiveSection] = useState("hero");
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Stocke la position et la largeur de la barre violette
@@ -24,16 +29,6 @@ export default function Header({
   // C'est un objet où la clé est l'ID (ex: "hero") et la valeur est l'élément HTML <a>
   const navRefs = useRef<{ [key: string]: HTMLAnchorElement | null }>({});
 
-  const navLinks = [
-    { id: "hero", label: "Top" },
-    { id: "pages", label: "SEO Pages" },
-    { id: "roi-calculator", label: "ROI" },
-    { id: "next-steps", label: "Next Steps" },
-  ];
-
-  if (data.roi_calculator == null || data.roi_calculator == undefined || data.roi_calculator == false) {
-    navLinks.splice(2,1);
-  }
 
   // Observer pour détecter le scroll et changer la section active
   useEffect(() => {

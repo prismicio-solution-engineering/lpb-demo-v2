@@ -1,4 +1,4 @@
-import { AbmRecapDocumentData } from "@/prismicio-types";
+import { AbmRecapDocumentData, SeoGeoRecapDocumentData } from "@/prismicio-types";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
 import { isFilled } from "@prismicio/client";
@@ -7,7 +7,7 @@ import Container from "@/components/Container";
 import { Animation } from "@/components/Animations/Animation";
 import { TopAnimation } from "@/components/Animations/TopAnimation";
 
-export default function Hero({ data }: { data: AbmRecapDocumentData }) {
+export default function Hero({ data }: { data: AbmRecapDocumentData | SeoGeoRecapDocumentData }) {
 
   const contactData = data.contact;
   const contact =

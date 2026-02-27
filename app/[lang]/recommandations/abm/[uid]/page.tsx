@@ -1,16 +1,17 @@
 import { Metadata } from "next";
-import { SeoGeoRecapDocument } from "@/prismicio-types";
+import { AbmRecapDocument } from "@/prismicio-types";
 import { createClient } from "@/prismicio";
 import { asImageSrc } from "@prismicio/client";
 
 import { notFound } from "next/navigation";
 
-import Header from "./_components/Header";
-import Hero from "./_components/Hero";
-import RoiCalculator from "./_components/RoiCalculator";
-import NextSteps from "./_components/NextSteps";
-import Contact from "./_components/Contact";
-import SeoPages from "./_components/SeoPages";
+import Header from "@/components/Recommendations/Header";
+import Hero from "@/components/Recommendations/Hero";
+import NextSteps from "@/components/Recommendations/NextSteps";
+import Contact from "@/components/Recommendations/Contact";
+import Understanding from "@/components/Recommendations/Understanding";
+import Opportunities from "@/components/Recommendations/Opportunities";
+import AbmPages from "@/components/Recommendations/AbmPages";
 
 export async function generateMetadata({
   params,
@@ -24,11 +25,11 @@ export async function generateMetadata({
 
   let page;
   try {
-    page = await client.getByUID("seo_geo_recap", uid, {
+    page = await client.getByUID("abm_recap", uid, {
       lang,
       graphQuery: `
           {
-            seo_geo_recap {
+            abm_recap {
               meta_title
               meta_description
               meta_image
@@ -39,11 +40,11 @@ export async function generateMetadata({
   } catch (error) {
     // Try to fall back to the default locale (en-us)
     try {
-      page = await client.getByUID("seo_geo_recap", uid, {
+      page = await client.getByUID("abm_recap", uid, {
         lang: "en-us",
         graphQuery: `
           {
-            seo_geo_recap {
+            abm_recap {
               meta_title
               meta_description
               meta_image
@@ -65,7 +66,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function SeoGeoRecap({
+export default async function AbmRecap({
   params,
 }: {
   params: Promise<{ lang: string; uid: string }>;
@@ -78,13 +79,13 @@ export default async function SeoGeoRecap({
   
   let page;
   try {
-    page = await client.getByUID("seo_geo_recap", uid, {
+    page = await client.getByUID("abm_recap", uid, {
       lang,
     });
   } catch (error) {
     // Try to fall back to the default locale (en-us)
     try {
-      page = await client.getByUID("seo_geo_recap", uid, {
+      page = await client.getByUID("abm_recap", uid, {
         lang: "en-us",
       });
     } catch (fallbackError) {
@@ -92,15 +93,24 @@ export default async function SeoGeoRecap({
     }
   }
 
-  const { data } = page as SeoGeoRecapDocument;
+  const { data } = page as AbmRecapDocument;
+
+  const abmNavLinks = [
+    { id: "hero", label: "Top" },
+    { id: "understanding", label: "Understanding" },
+    { id: "opportunities", label: "Opportunities" },
+    { id: "pages", label: "ABM Pages" },
+    { id: "next-steps", label: "Next Steps" },
+  ];
 
   return (
     <>
-      <Header data={data} />
+      <Header data={data} navLinks={abmNavLinks} />
       <main>
-        <Hero data={data}></Hero>
-        <SeoPages data={data}></SeoPages>
-        <RoiCalculator data={data}></RoiCalculator>
+        <Hero data={data} />
+        <Understanding data={data}></Understanding>
+        <Opportunities data={data}></Opportunities>
+        <AbmPages data={data}></AbmPages>
         <NextSteps data={data}></NextSteps>
         <Contact data={data}></Contact>
       </main>

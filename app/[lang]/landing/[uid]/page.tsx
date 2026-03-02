@@ -9,6 +9,7 @@ import { getLanguages } from "@/utils/getLanguages";
 import Layout from "@/components/Layout";
 import { LandingDocument } from "@/prismicio-types";
 import Disclaimer from "@/components/Disclaimer";
+import QueryParamsNote from "@/components/QueryParamsNote";
 
 export async function generateMetadata({
   params,
@@ -65,10 +66,17 @@ export async function generateMetadata({
 
 export default async function Landing({
   params,
+  searchParams,
 }: {
   params: Promise<{ lang: string; uid: string }>;
+  searchParams: Promise<{
+    company?: string;
+    role?: string;
+    instructions?: string;
+  }>;
 }) {
   const resolvedParams = await params;
+  const resolvedSearchParams = await searchParams;
   const { lang, uid } = resolvedParams;
 
   const client = createClient();
@@ -127,7 +135,10 @@ export default async function Landing({
   return (
     <>
       {/* <Header settings={settings} page={header} languages={languages} /> */}
-      <Disclaimer />
+      <div className="fixed right-4 bottom-4 z-[1200] max-w-[95vw] flex flex-col items-end gap-1.5">
+        <QueryParamsNote query={resolvedSearchParams} embedded />
+        <Disclaimer embedded />
+      </div>
       <Layout
         lang={lang}
         languages={languages}
@@ -141,6 +152,7 @@ export default async function Landing({
           context={{
             pageData: page.data,
             locale: page?.lang,
+            query: resolvedSearchParams,
           }}
         />
       </Layout>

@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { AbmRecapDocumentData } from "@/prismicio-types";
 import { PrismicRichText } from "@prismicio/react";
 import { PrismicNextLink } from "@prismicio/next";
-import { isFilled } from "@prismicio/client";
+import { asLink, isFilled } from "@prismicio/client";
 
 import { DotGrid } from "./DotGrid";
 import Container from "@/components/Container";
@@ -170,7 +170,28 @@ export default function AbmPages({ data }: { data: AbmRecapDocumentData }) {
                         {/* BUTTON */}
                         <div className="mt-auto pt-4 border-t border-gray-100">
                           <PrismicNextLink
-                            field={item.page_link}
+                            href={(() => {
+                              const baseHref = asLink(item.page_link);
+                              if (!baseHref) {
+                                return "#";
+                              }
+
+                              const url = new URL(baseHref, window.location.origin);
+                              if (item.company) {
+                                url.searchParams.set("company", item.company);
+                              }
+                              if (item.role) {
+                                url.searchParams.set("role", item.role);
+                              }
+                              if (item.personalization_instructions) {
+                                url.searchParams.set(
+                                  "instructions",
+                                  item.personalization_instructions,
+                                );
+                              }
+
+                              return `${url.pathname}${url.search}${url.hash}`;
+                            })()}
                             target="blank"
                             className="inline-flex justify-center items-center w-full text-[#151515] px-6 py-3 rounded-lg bg-[#E8C7FF] font-medium hover:bg-[#d9a5ff] transition-colors"
                           >

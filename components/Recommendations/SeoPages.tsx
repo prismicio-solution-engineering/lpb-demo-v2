@@ -130,7 +130,7 @@
                   <div className="flex justify-end gap-2 mb-4 pr-4 sm:pr-0">
                     <button
                       onClick={() => scroll("left")}
-                      className="p-2 rounded-full hover:bg-[#2A2A2A] border border-[#333333] transition active:scale-95 text-[#A4A4A4] cursor-pointer"
+                      className="p-2 rounded-full hover:bg-[#2A2A2A] border border-[#3BBB96] transition active:scale-95 text-[#FFFFFF] cursor-pointer"
                     >
                       <svg
                         width="24"
@@ -147,7 +147,7 @@
                     </button>
                     <button
                       onClick={() => scroll("right")}
-                      className="p-2 rounded-full hover:bg-[#2A2A2A] border border-[#333333] transition active:scale-95 text-[#A4A4A4] cursor-pointer"
+                      className="p-2 rounded-full hover:bg-[#2A2A2A] border border-[#3BBB96] transition active:scale-95 text-[#FFFFFF] cursor-pointer"
                     >
                       <svg
                         width="24"
@@ -176,7 +176,7 @@
                             key={index}
                             className={`
                               snap-center shrink-0 w-[85vw] md:w-[420px] lg:w-[480px]
-                              cursor-pointer transition-all duration-500 ease-out
+                              transition-all duration-500 ease-out
                               p-8 flex flex-col items-start justify-between gap-4 bg-[#1F1F1F] rounded-2xl
                               border border-[#333333] hover:border-[#3BBB96] shadow-[0_10px_40px_rgba(0,0,0,0.6)]
                               origin-bottom lg:origin-left
@@ -332,14 +332,38 @@
                                 </div>
                               )}
 
-                              {/* Link to page */}
-                              <div className="w-fit max-w-full py-2 border-b-2 border-[#FFFFFF]">
-                                <PrismicNextLink
-                                  field={item.page_link}
-                                  className="block text-md text-left font-semibold text-[#FFFFFF] truncate"
-                                >
-                                  View page
-                                </PrismicNextLink>
+                              {/* Links */}
+                              <div className="w-full flex flex-row justify-between flex-wrap items-end gap-4 ">
+                                {/* Link to page */}
+                                <div className="w-fit max-w-full py-2 border-b-2 border-[#FFFFFF]">
+                                  <PrismicNextLink
+                                    field={item.page_link}
+                                    className="block text-md text-left font-semibold text-[#FFFFFF] truncate"
+                                  >
+                                    {item.page_link.text ? (
+                                      <span>{item.page_link.text}</span>
+                                    ) : (
+                                      <span>View page</span>
+                                    )}
+                                  </PrismicNextLink>
+                                </div>
+
+                                {/* Analysis link */}
+                                {isFilled.link(item.analysis_link) && (
+                                  <div className="w-fit h-fit max-w-full px-2.75 py-1.5 flex justify-items-center gap-2 bg-[#50505080] rounded-lg">
+                                    <PrismicNextLink
+                                      field={item.analysis_link}
+                                      className="block text-xs uppercase text-left font-semibold text-[#A4A4A4] truncate"
+                                    >
+                                      {item.analysis_link.text ? (
+                                        <span>{item.analysis_link.text}</span>
+                                      ) : (
+                                        <span>See analysis</span>
+                                      )}
+                                    </PrismicNextLink>
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="16px" viewBox="0 -960 960 960" width="16px" fill="#A4A4A4"><path d="M680-624 244-188q-11 11-28 11t-28-11q-11-11-11-28t11-28l436-436H400q-17 0-28.5-11.5T360-720q0-17 11.5-28.5T400-760h320q17 0 28.5 11.5T760-720v320q0 17-11.5 28.5T720-360q-17 0-28.5-11.5T680-400v-224Z"/></svg>
+                                  </div>
+                                )}
                               </div>
                             </div>
                           </div>

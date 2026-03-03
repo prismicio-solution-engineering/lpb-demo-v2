@@ -182,6 +182,17 @@
                 "allowText": true,
                 "repeat": false
               }
+            },
+            "analysis_link": {
+              "type": "Link",
+              "config": {
+                "label": "Analysis link",
+                "placeholder": "",
+                "select": null,
+                "allowTargetBlank": true,
+                "allowText": true,
+                "repeat": false
+              }
             }
           }
         }

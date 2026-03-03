@@ -2124,6 +2124,22 @@ export interface SeoGeoRecapDocumentDataGeneratedPageItem {
     prismic.FieldState,
     never
   >;
+
+  /**
+   * Analysis link field in *SEO & GEO Recap → Generated Page*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: seo_geo_recap.generated_page[].analysis_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  analysis_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
 }
 
 /**

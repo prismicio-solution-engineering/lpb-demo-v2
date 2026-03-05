@@ -41,6 +41,20 @@
           ]
         }
       },
+      "form": {
+        "type": "Link",
+        "config": {
+          "label": "Form",
+          "select": "document",
+          "repeat": false,
+          "customtypes": [
+            {
+              "id": "hubspot_form",
+              "fields": ["hubspot_portal_id", "hubspot_form_id"]
+            }
+          ]
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

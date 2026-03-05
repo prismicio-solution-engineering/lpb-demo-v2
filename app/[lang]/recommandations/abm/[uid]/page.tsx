@@ -5,6 +5,9 @@ import { asImageSrc } from "@prismicio/client";
 
 import { notFound } from "next/navigation";
 
+import { hubspotFormFetchLinks, extractHubspotData } from "@/lib/hubspot";
+
+
 import Header from "@/components/Recommendations/Header";
 import Hero from "@/components/Recommendations/Hero";
 import NextSteps from "@/components/Recommendations/NextSteps";
@@ -81,12 +84,14 @@ export default async function AbmRecap({
   try {
     page = await client.getByUID("abm_recap", uid, {
       lang,
+      fetchLinks: hubspotFormFetchLinks
     });
   } catch (error) {
     // Try to fall back to the default locale (en-us)
     try {
       page = await client.getByUID("abm_recap", uid, {
         lang: "en-us",
+        fetchLinks: hubspotFormFetchLinks
       });
     } catch (fallbackError) {
       notFound();
@@ -94,6 +99,8 @@ export default async function AbmRecap({
   }
 
   const { data } = page as AbmRecapDocument;
+
+  const formProps = extractHubspotData(data);
 
   const abmNavLinks = [
     { id: "hero", label: "Top" },
@@ -112,7 +119,7 @@ export default async function AbmRecap({
         <Opportunities data={data}></Opportunities>
         <AbmPages data={data}></AbmPages>
         <NextSteps data={data}></NextSteps>
-        <Contact data={data}></Contact>
+        <Contact data={data} formProps={formProps}></Contact>
       </main>
     </>
   );

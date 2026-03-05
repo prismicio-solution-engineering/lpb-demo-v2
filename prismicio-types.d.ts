@@ -342,6 +342,19 @@ interface AbmRecapDocumentData {
   >;
 
   /**
+   * Form field in *ABM Recap*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: abm_recap.form
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  form: ContentRelationshipFieldWithData<
+    [{ id: "hubspot_form"; fields: ["hubspot_portal_id", "hubspot_form_id"] }]
+  >;
+
+  /**
    * Slice Zone field in *ABM Recap*
    *
    * - **Field Type**: Slice Zone
@@ -1237,6 +1250,49 @@ interface HomeDocumentData {
  */
 export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<HomeDocumentData>, "home", Lang>;
+
+/**
+ * Content for Hubspot Form documents
+ */
+interface HubspotFormDocumentData {
+  /**
+   * Hubspot Portal ID field in *Hubspot Form*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hubspot_form.hubspot_portal_id
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  hubspot_portal_id: prismic.KeyTextField;
+
+  /**
+   * Hubspot Form ID field in *Hubspot Form*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hubspot_form.hubspot_form_id
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  hubspot_form_id: prismic.KeyTextField;
+}
+
+/**
+ * Hubspot Form document from Prismic
+ *
+ * - **API ID**: `hubspot_form`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type HubspotFormDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<HubspotFormDocumentData>,
+    "hubspot_form",
+    Lang
+  >;
 
 type LandingDocumentDataSlicesSlice =
   | BannerSlice
@@ -2226,6 +2282,19 @@ interface SeoGeoRecapDocumentData {
   >;
 
   /**
+   * Form field in *SEO & GEO Recap*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: seo_geo_recap.form
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  form: ContentRelationshipFieldWithData<
+    [{ id: "hubspot_form"; fields: ["hubspot_portal_id", "hubspot_form_id"] }]
+  >;
+
+  /**
    * Slice Zone field in *SEO & GEO Recap*
    *
    * - **Field Type**: Slice Zone
@@ -2575,6 +2644,7 @@ export type AllDocumentTypes =
   | FooterDocument
   | HeaderDocument
   | HomeDocument
+  | HubspotFormDocument
   | LandingDocument
   | RecapDocument
   | SeoGeoRecapDocument
@@ -5113,6 +5183,8 @@ declare module "@prismicio/client" {
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
+      HubspotFormDocument,
+      HubspotFormDocumentData,
       LandingDocument,
       LandingDocumentData,
       LandingDocumentDataSlicesSlice,

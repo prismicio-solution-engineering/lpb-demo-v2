@@ -5,6 +5,8 @@ import { asImageSrc } from "@prismicio/client";
 
 import { notFound } from "next/navigation";
 
+import { hubspotFormFetchLinks, extractHubspotData } from "@/lib/hubspot";
+
 import Header from "@/components/Recommendations/Header";
 import Hero from "@/components/Recommendations/Hero";
 import RoiCalculator from "@/components/Recommendations/RoiCalculator";
@@ -80,12 +82,14 @@ export default async function SeoGeoRecap({
   try {
     page = await client.getByUID("seo_geo_recap", uid, {
       lang,
+      fetchLinks: hubspotFormFetchLinks,
     });
   } catch (error) {
     // Try to fall back to the default locale (en-us)
     try {
       page = await client.getByUID("seo_geo_recap", uid, {
         lang: "en-us",
+        fetchLinks: hubspotFormFetchLinks,
       });
     } catch (fallbackError) {
       notFound();
@@ -93,6 +97,8 @@ export default async function SeoGeoRecap({
   }
 
   const { data } = page as SeoGeoRecapDocument;
+
+  const formProps = extractHubspotData(data);
 
   const seoNavLinks = [
     { id: "hero", label: "Top" },
@@ -111,7 +117,7 @@ export default async function SeoGeoRecap({
         <SeoPages data={data}></SeoPages>
         <RoiCalculator data={data}></RoiCalculator>
         <NextSteps data={data}></NextSteps>
-        <Contact data={data}></Contact>
+        <Contact data={data} formProps={formProps}></Contact>
       </main>
     </>
   );

@@ -4,9 +4,16 @@ import { isFilled } from '@prismicio/client';
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next';
 import { PrismicRichText } from '@prismicio/react';
 
+import HubspotModal from "@/components/Recommendations/HubspotModal";
+
 import footerCtaIllustration from '@/assets/Illustrations/footer-cta.svg';
 
-export default function Contact({ data }: { data: AbmRecapDocumentData | SeoGeoRecapDocumentData }) {
+type ContactProps = {
+    data: AbmRecapDocumentData | SeoGeoRecapDocumentData;
+    formProps: { portalId: string; formId: string; title: string } | null;
+};
+
+export default function Contact({ data, formProps }: ContactProps) {
 
     const contactData = data.contact;
       const contact =
@@ -16,6 +23,18 @@ export default function Contact({ data }: { data: AbmRecapDocumentData | SeoGeoR
 
     return (
         <section id="contact" className="scroll-mt-24 bg-[#FFFFFF] py-15">
+
+            {formProps && (
+                <div className="flex justify-center mb-8">
+                    <HubspotModal 
+                        portalId={formProps.portalId} 
+                        formId={formProps.formId} 
+                        title={formProps.title}
+                        buttonText="Talk to sales"
+                    />
+                </div>
+            )}
+
             <Container
                 size="xl"
                 className="flex flex-col items-center gap-8"

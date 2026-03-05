@@ -6,6 +6,8 @@ import { asImageSrc } from "@prismicio/client";
 import { notFound } from "next/navigation";
 
 import { hubspotFormFetchLinks, extractHubspotData } from "@/lib/hubspot";
+import { getHubSpotFormSchema } from '@/actions/hubspot';
+
 
 import Header from "@/components/Recommendations/Header";
 import Hero from "@/components/Recommendations/Hero";
@@ -13,6 +15,7 @@ import RoiCalculator from "@/components/Recommendations/RoiCalculator";
 import NextSteps from "@/components/Recommendations/NextSteps";
 import Contact from "@/components/Recommendations/Contact";
 import SeoPages from "@/components/Recommendations/SeoPages";
+import { form } from "motion/react-client";
 
 export async function generateMetadata({
   params,
@@ -98,7 +101,14 @@ export default async function SeoGeoRecap({
 
   const { data } = page as SeoGeoRecapDocument;
 
-  const formProps = extractHubspotData(data);
+  let formProps = extractHubspotData(data);
+  if (formProps && formProps.formId) {
+    const schema = await getHubSpotFormSchema(formProps.formId);
+    formProps = {
+      ...formProps,
+      schema: schema 
+    };
+  }
 
   const seoNavLinks = [
     { id: "hero", label: "Top" },

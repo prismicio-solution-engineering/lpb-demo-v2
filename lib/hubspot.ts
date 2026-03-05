@@ -1,15 +1,18 @@
-// lib/hubspot.ts
 import { isFilled } from '@prismicio/client';
 
-// 1. La constante à importer dans tes pages Prismic (SEO, ABM, etc.)
+// Constant to import in seo/geo & abm pages
 export const hubspotFormFetchLinks = [
   "hubspot_form.hubspot_portal_id",
-  "hubspot_form.hubspot_form_id",
-  "hubspot_form.form_title"
+  "hubspot_form.hubspot_form_id"
 ];
 
-// 2. Une petite fonction "Helper" pour extraire proprement les données
-export function extractHubspotData(pageData: any) {
+export type HubspotDataProps = {
+  portalId: string;
+  formId: string;
+  schema?: any;
+};
+
+export function extractHubspotData(pageData: any): HubspotDataProps | null {
   const formDoc = 'form' in pageData ? pageData.form : null;
   const formData = isFilled.contentRelationship(formDoc) && "data" in formDoc ? (formDoc as any).data : null;
 
@@ -20,6 +23,5 @@ export function extractHubspotData(pageData: any) {
   return {
     portalId: formData.hubspot_portal_id,
     formId: formData.hubspot_form_id,
-    title: formData.form_title || "Request a demo", // (À adapter si c'est du RichText : asText(formData.form_title))
   };
 }

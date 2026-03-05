@@ -10,7 +10,11 @@ import footerCtaIllustration from '@/assets/Illustrations/footer-cta.svg';
 
 type ContactProps = {
     data: AbmRecapDocumentData | SeoGeoRecapDocumentData;
-    formProps: { portalId: string; formId: string; title: string } | null;
+    formProps: { 
+        portalId: string; 
+        formId: string; 
+        schema?: any;
+    } | null;
 };
 
 export default function Contact({ data, formProps }: ContactProps) {
@@ -20,16 +24,16 @@ export default function Contact({ data, formProps }: ContactProps) {
         isFilled.contentRelationship(contactData) && "data" in contactData
           ? (contactData as any).data
           : null;
-
+    console.log(contactData)
     return (
         <section id="contact" className="scroll-mt-24 bg-[#FFFFFF] py-15">
 
-            {formProps && (
+            {formProps && formProps.schema && (
                 <div className="flex justify-center mb-8">
                     <HubspotModal 
                         portalId={formProps.portalId} 
                         formId={formProps.formId} 
-                        title={formProps.title}
+                        schema={formProps.schema}
                         buttonText="Talk to sales"
                     />
                 </div>

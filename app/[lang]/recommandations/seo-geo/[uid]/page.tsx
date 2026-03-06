@@ -13,9 +13,8 @@ import Header from "@/components/Recommendations/Header";
 import Hero from "@/components/Recommendations/Hero";
 import RoiCalculator from "@/components/Recommendations/RoiCalculator";
 import NextSteps from "@/components/Recommendations/NextSteps";
-import Contact from "@/components/Recommendations/Contact";
+import Contact, { contactFetchLinks } from "@/components/Recommendations/Contact";
 import SeoPages from "@/components/Recommendations/SeoPages";
-import { form } from "motion/react-client";
 
 export async function generateMetadata({
   params,
@@ -85,14 +84,14 @@ export default async function SeoGeoRecap({
   try {
     page = await client.getByUID("seo_geo_recap", uid, {
       lang,
-      fetchLinks: hubspotFormFetchLinks,
+      fetchLinks: [...hubspotFormFetchLinks, ...contactFetchLinks],
     });
   } catch (error) {
     // Try to fall back to the default locale (en-us)
     try {
       page = await client.getByUID("seo_geo_recap", uid, {
         lang: "en-us",
-        fetchLinks: hubspotFormFetchLinks,
+        fetchLinks: [...hubspotFormFetchLinks, ...contactFetchLinks],
       });
     } catch (fallbackError) {
       notFound();
@@ -121,7 +120,7 @@ export default async function SeoGeoRecap({
 
   return (
     <>
-      <Header data={data} navLinks={seoNavLinks} />
+      <Header data={data} navLinks={seoNavLinks} formProps={formProps} />
       <main>
         <Hero data={data}></Hero>
         <SeoPages data={data}></SeoPages>

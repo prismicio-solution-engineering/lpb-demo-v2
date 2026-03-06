@@ -7,6 +7,15 @@ import { PrismicRichText } from '@prismicio/react';
 import HubspotModal from "@/components/Recommendations/HubspotModal";
 
 import footerCtaIllustration from '@/assets/Illustrations/footer-cta.svg';
+import { p } from 'motion/react-client';
+
+export const contactFetchLinks = [
+  "contact.name",
+  "contact.position",
+  "contact.image",
+  "contact.email",
+  "contact.calendar"
+];
 
 type ContactProps = {
     data: AbmRecapDocumentData | SeoGeoRecapDocumentData;
@@ -28,23 +37,12 @@ export default function Contact({ data, formProps }: ContactProps) {
     return (
         <section id="contact" className="scroll-mt-24 bg-[#FFFFFF] py-15">
 
-            {formProps && formProps.schema && (
-                <div className="flex justify-center mb-8">
-                    <HubspotModal 
-                        portalId={formProps.portalId} 
-                        formId={formProps.formId} 
-                        schema={formProps.schema}
-                        buttonText="Talk to sales"
-                    />
-                </div>
-            )}
-
             <Container
                 size="xl"
                 className="flex flex-col items-center gap-8"
             >
                 <div className='relative w-full px-12 rounded-2xl overflow-hidden bg-[#F5E6FF] text-gray-15 py-32 xl:px-24 shadow-sm'>
-                    <div className='relative z-10 flex flex-col gap-10'>
+                    <div className='relative flex flex-col items-start gap-8'>
                         <div className='w-full max-w-[90%] sm:max-w-[60%] md:max-w-[50%] xl:max-w-[412px] flex flex-col items-start gap-4'>
                             {isFilled.richText(data.contact_title) ? (
                                 <PrismicRichText
@@ -71,11 +69,24 @@ export default function Contact({ data, formProps }: ContactProps) {
                             ) : (
                                 <p className="text-[#505050] max-w-175">The best time to build your marketing site with Prismic is now.</p>
                             )}
+
+                            {/* Form */}
+                            {formProps && formProps.schema && (
+                                <div className="flex justify-center mt-4">
+                                    <HubspotModal 
+                                        portalId={formProps.portalId} 
+                                        formId={formProps.formId} 
+                                        schema={formProps.schema}
+                                        buttonText="Request a demo"
+                                    />
+                                </div>
+                            )}
                         </div>
 
                         {contact && (
-                            <div className="w-full sm:w-fit flex flex-col justify-center tems-start gap-4 md:gap-4 ">
-                                <div className='flex flex-row justify-start items-start gap-4'>
+                            <div className="w-full p-4 rounded-2xl sm:w-fit flex flex-col justify-center tems-start gap-4 md:gap-4 border-2 border-[#E8C7FF] bg-[#E8C7FF80]">
+
+                                <div className='flex flex-row justify-start items-start flex-wrap gap-4'>
                                     <div className="relative">
                                         <PrismicNextImage
                                             field={contact.image}

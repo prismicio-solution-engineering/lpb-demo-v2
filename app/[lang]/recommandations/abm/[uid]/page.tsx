@@ -11,7 +11,7 @@ import { hubspotFormFetchLinks, extractHubspotData } from "@/lib/hubspot";
 import Header from "@/components/Recommendations/Header";
 import Hero from "@/components/Recommendations/Hero";
 import NextSteps from "@/components/Recommendations/NextSteps";
-import Contact from "@/components/Recommendations/Contact";
+import Contact, { contactFetchLinks } from "@/components/Recommendations/Contact";
 import Understanding from "@/components/Recommendations/Understanding";
 import Opportunities from "@/components/Recommendations/Opportunities";
 import AbmPages from "@/components/Recommendations/AbmPages";
@@ -79,19 +79,19 @@ export default async function AbmRecap({
   const { lang, uid } = resolvedParams;
   
   const client = createClient();
-  
+
   let page;
   try {
     page = await client.getByUID("abm_recap", uid, {
       lang,
-      fetchLinks: hubspotFormFetchLinks
+      fetchLinks: [...hubspotFormFetchLinks, ...contactFetchLinks],
     });
   } catch (error) {
     // Try to fall back to the default locale (en-us)
     try {
       page = await client.getByUID("abm_recap", uid, {
         lang: "en-us",
-        fetchLinks: hubspotFormFetchLinks
+        fetchLinks: [...hubspotFormFetchLinks, ...contactFetchLinks],
       });
     } catch (fallbackError) {
       notFound();
@@ -112,7 +112,7 @@ export default async function AbmRecap({
 
   return (
     <>
-      <Header data={data} navLinks={abmNavLinks} />
+      <Header data={data} navLinks={abmNavLinks} formProps={formProps} />
       <main>
         <Hero data={data} />
         <Understanding data={data}></Understanding>

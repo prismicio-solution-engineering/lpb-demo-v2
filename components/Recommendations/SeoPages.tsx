@@ -55,11 +55,22 @@
 
     const validPages = data.generated_page.filter((item) => {
       return (
-        isFilled.keyText(item.title) &&
-        isFilled.number(item.mention_rate) &&
-        isFilled.link(item.page_link)
+        isFilled.keyText(item.eyebrow) ||
+        isFilled.keyText(item.title) ||
+        isFilled.number(item.mention_rate) ||
+        isFilled.number(item.average_position) ||
+        isFilled.number(item.rank_position) ||
+        isFilled.keyText(item.solution_name) ||
+        isFilled.richText(item.upgrades) ||
+        isFilled.keyText(item.impact_projection) ||
+        isFilled.link(item.page_link) ||
+        isFilled.link(item.analysis_link)
       );
     });
+
+    if (validPages.length === 0) {
+      return null;
+    }
 
     const colorClasses = {
       good: "text-[#3BBB96]",
@@ -199,17 +210,19 @@
                             <div className="w-full py-4 flex flex-col gap-4 sm:gap-0 sm:flex-row sm:justify-between sm:items-end">
                                 
                               {/* Mention rate */}
-                              <div className="w-fit flex flex-col items-start">
-                                <div className="flex gap-1 items-center">
-                                  <svg xmlns="http://www.w3.org/2000/svg" height="13px" viewBox="0 -960 960 960" width="13px" fill="#A4A4A4"><path d="M300-520q-58 0-99-41t-41-99q0-58 41-99t99-41q58 0 99 41t41 99q0 58-41 99t-99 41Zm0-80q25 0 42.5-17.5T360-660q0-25-17.5-42.5T300-720q-25 0-42.5 17.5T240-660q0 25 17.5 42.5T300-600Zm360 440q-58 0-99-41t-41-99q0-58 41-99t99-41q58 0 99 41t41 99q0 58-41 99t-99 41Zm42.5-97.5Q720-275 720-300t-17.5-42.5Q685-360 660-360t-42.5 17.5Q600-325 600-300t17.5 42.5Q635-240 660-240t42.5-17.5ZM177-216q0-17 11-28l528-528q11-11 28-11t28 11q11 11 11 28t-11 28L244-188q-11 11-28 11t-28-11q-11-11-11-28Z"/></svg>
-                                  <span className="text-[12px] font-semibold uppercase text-[#A4A4A4]">
-                                    Mention rate
+                              {isFilled.number(item.mention_rate) && (
+                                <div className="w-fit flex flex-col items-start">
+                                  <div className="flex gap-1 items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="13px" viewBox="0 -960 960 960" width="13px" fill="#A4A4A4"><path d="M300-520q-58 0-99-41t-41-99q0-58 41-99t99-41q58 0 99 41t41 99q0 58-41 99t-99 41Zm0-80q25 0 42.5-17.5T360-660q0-25-17.5-42.5T300-720q-25 0-42.5 17.5T240-660q0 25 17.5 42.5T300-600Zm360 440q-58 0-99-41t-41-99q0-58 41-99t99-41q58 0 99 41t41 99q0 58-41 99t-99 41Zm42.5-97.5Q720-275 720-300t-17.5-42.5Q685-360 660-360t-42.5 17.5Q600-325 600-300t17.5 42.5Q635-240 660-240t42.5-17.5ZM177-216q0-17 11-28l528-528q11-11 28-11t28 11q11 11 11 28t-11 28L244-188q-11 11-28 11t-28-11q-11-11-11-28Z"/></svg>
+                                    <span className="text-[12px] font-semibold uppercase text-[#A4A4A4]">
+                                      Mention rate
+                                    </span>
+                                  </div>
+                                  <span className={`text-[80px] font-bold ${getColorClass(Number(item.mention_rate))} leading-none`}>
+                                    {getSafeMentionRate(Number(item.mention_rate))}%
                                   </span>
                                 </div>
-                                <span className={`text-[80px] font-bold ${getColorClass(Number(item.mention_rate))} leading-none`}>
-                                  {getSafeMentionRate(Number(item.mention_rate))}%
-                                </span>
-                              </div>
+                              )}
 
                               {/* Average position */}
                               {isFilled.number(item.average_position) && (
@@ -249,7 +262,7 @@
                             {/* Solution */}
                             <div className="w-full flex flex-col items-start gap-4 mt-auto">
                               {/* Solution name */}
-                              {isFilled.keyText(item.solution_name) ? (
+                              {isFilled.keyText(item.solution_name) && (
                                 <div className="w-fit px-3 py-1.5 flex justify-start items-center gap-2 bg-[#3bbb9740] rounded-lg">
                                   <div
                                     className="relative z-20 w-[20px] h-[20px] bg-[#3BBB96]"
@@ -268,27 +281,8 @@
                                     {item.solution_name}
                                   </span>
                                 </div>
-                              ) : (
-                                <div className="w-fit px-3 py-1.5 flex justify-start items-center gap-2 bg-[#3bbb9740] rounded-lg">
-                                  <div
-                                    className="relative z-20 w-[20px] h-[20px] bg-[#3BBB96]"
-                                    style={{
-                                      maskImage: `url(${AiLogo.src})`,
-                                      maskSize: "contain",
-                                      maskRepeat: "no-repeat",
-                                      maskPosition: "center",
-                                      WebkitMaskImage: `url(${AiLogo.src})`,
-                                      WebkitMaskSize: "contain",
-                                      WebkitMaskRepeat: "no-repeat",
-                                      WebkitMaskPosition: "center",
-                                    }}
-                                  />
-                                  <span className="text-[12px] font-bold text-left text-[#3BBB96] uppercase">
-                                    AI solution
-                                  </span>
-                                </div>
                               )}
-
+                              
                               {/* Improvements */}
                               {(isFilled.richText(item.upgrades) || isFilled.keyText(item.impact_projection)) && (
                                 <div className="w-full flex flex-col sm:flex-row gap-4 p-4 border-2 border-[#3bbb9780] rounded-lg">
@@ -335,18 +329,20 @@
                               {/* Links */}
                               <div className="w-full flex flex-row justify-between flex-wrap items-end gap-4 ">
                                 {/* Link to page */}
-                                <div className="w-fit max-w-full py-2 border-b-2 border-[#FFFFFF]">
-                                  <PrismicNextLink
-                                    field={item.page_link}
-                                    className="block text-md text-left font-semibold text-[#FFFFFF] truncate"
-                                  >
-                                    {item.page_link.text ? (
-                                      <span>{item.page_link.text}</span>
-                                    ) : (
-                                      <span>View page</span>
-                                    )}
-                                  </PrismicNextLink>
-                                </div>
+                                {isFilled.link(item.page_link) && (
+                                  <div className="w-fit max-w-full py-2 border-b-2 border-[#FFFFFF]">
+                                    <PrismicNextLink
+                                      field={item.page_link}
+                                      className="block text-md text-left font-semibold text-[#FFFFFF] truncate"
+                                    >
+                                      {item.page_link.text ? (
+                                        <span>{item.page_link.text}</span>
+                                      ) : (
+                                        <span>View page</span>
+                                      )}
+                                    </PrismicNextLink>
+                                  </div>
+                                )}
 
                                 {/* Analysis link */}
                                 {isFilled.link(item.analysis_link) && (

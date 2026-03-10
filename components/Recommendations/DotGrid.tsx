@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-export function DotGrid() {
+export function DotGrid({ isCenterDark = false }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -68,7 +68,11 @@ export function DotGrid() {
       ref={containerRef}
       className="absolute inset-0 w-full h-full -z-10 pointer-events-none rounded-xl overflow-hidden"
     >
-      <div className="absolute inset-0 w-full h-full bg-[radial-gradient(closest-side,#151515_0%,transparent_100%)]"></div>
+      {isCenterDark ? (
+        <div className="absolute inset-0 w-full h-full bg-[radial-gradient(closest-side,#151515_0%,transparent_100%)]"></div>
+      ) : (
+        <div className="absolute inset-0 w-full h-full bg-[radial-gradient(closest-side,transparent_0%,#151515_100%)]"></div>
+      )}
       <canvas ref={canvasRef} />
     </div>
   );

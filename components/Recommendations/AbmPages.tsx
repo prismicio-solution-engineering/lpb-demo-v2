@@ -81,7 +81,7 @@ export default function AbmPages({ data }: { data: AbmRecapDocumentData }) {
           {validPages.length > 0 && (
             <div className="relative w-full z-10 p-0 sm:p-8">
 
-              <DotGrid />
+              <DotGrid isCenterDark={true} />
               
               <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/4 w-full h-175 bg-[radial-gradient(closest-side,#8E44EC7e_0%,transparent_100%)] -z-10 pointer-events-none"></div>
 

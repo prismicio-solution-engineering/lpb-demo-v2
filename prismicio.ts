@@ -36,15 +36,15 @@ const routes: Route[] = [
   },
   {
     type: "recap",
-    path: "/:lang?/recommandations/:uid"
+    path: "/:lang?/recommendations/:uid"
   },
   {
     type: "seo_geo_recap",
-    path: "/:lang?/recommandations/seo-geo/:uid"
+    path: "/:lang?/recommendations/seo-geo/:uid"
   },
   {
     type: "abm_recap",
-    path: "/:lang?/recommandations/abm/:uid"
+    path: "/:lang?/recommendations/abm/:uid"
   }
 ];
 

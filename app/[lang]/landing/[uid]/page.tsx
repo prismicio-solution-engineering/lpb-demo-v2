@@ -72,6 +72,8 @@ export default async function Landing({
   searchParams: Promise<{
     company?: string;
     role?: string;
+    topic?: string;
+    details?: string;
     instructions?: string;
   }>;
 }) {

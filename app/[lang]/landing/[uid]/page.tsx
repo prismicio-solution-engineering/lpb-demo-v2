@@ -8,7 +8,6 @@ import { components } from "@/slices";
 import { getLanguages } from "@/utils/getLanguages";
 import Layout from "@/components/Layout";
 import { LandingDocument } from "@/prismicio-types";
-import Disclaimer from "@/components/Disclaimer";
 import QueryParamsNote from "@/components/QueryParamsNote";
 
 export async function generateMetadata({
@@ -139,7 +138,6 @@ export default async function Landing({
       {/* <Header settings={settings} page={header} languages={languages} /> */}
       <div className="fixed right-4 bottom-4 z-[1200] max-w-[95vw] flex flex-col items-end gap-1.5">
         <QueryParamsNote query={resolvedSearchParams} embedded />
-        <Disclaimer embedded />
       </div>
       <Layout
         lang={lang}

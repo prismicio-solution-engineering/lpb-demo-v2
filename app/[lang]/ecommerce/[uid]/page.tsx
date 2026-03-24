@@ -8,7 +8,6 @@ import { components } from "@/slices";
 import { getLanguages } from "@/utils/getLanguages";
 import Layout from "@/components/Layout";
 import { EcommerceDocument } from "@/prismicio-types";
-import Disclaimer from "@/components/Disclaimer";
 
 import Header from "@/components/EcommerceNavigation/EcommerceHeader";
 export async function generateMetadata({
@@ -128,7 +127,6 @@ export default async function Landing({
   return (
     <>
       {/* <Header settings={settings} page={header} languages={languages} /> */}
-      <Disclaimer />
       {/* <Layout
         lang={lang}
         languages={languages}

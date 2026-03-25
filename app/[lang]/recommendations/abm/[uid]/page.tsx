@@ -2,25 +2,22 @@ import { Metadata } from "next";
 import { AbmRecapDocument } from "@/prismicio-types";
 import { createClient } from "@/prismicio";
 import { asImageSrc } from "@prismicio/client";
-
 import { notFound } from "next/navigation";
+import { SliceZone } from "@prismicio/react";
+import { components } from "@/slices";
 
-import Header from "@/components/Recommendations/Header";
-import Hero from "@/components/Recommendations/Hero";
-import NextSteps from "@/components/Recommendations/NextSteps";
-import Contact from "@/components/Recommendations/Contact";
-import Understanding from "@/components/Recommendations/Understanding";
-import Opportunities from "@/components/Recommendations/Opportunities";
-import AbmPages from "@/components/Recommendations/AbmPages";
+import Header, { NavLink } from "@/components/Recommendations/Header";
+import { BottomAnimation } from "@/components/Animations/BottomAnimation";
+import { TopAnimation } from "@/components/Animations/TopAnimation";
+
+type Params = { lang: string; uid: string };
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ lang: string; uid: string }>;
+  params: Promise<Params>;
 }): Promise<Metadata> {
-  const resolvedParams = await params;
-  const { lang, uid } = resolvedParams;
-
+  const { lang, uid } = await params;
   const client = createClient();
 
   let page;
@@ -69,14 +66,11 @@ export async function generateMetadata({
 export default async function AbmRecap({
   params,
 }: {
-  params: Promise<{ lang: string; uid: string }>;
+  params: Promise<Params>;
 }) {
-  
-  const resolvedParams = await params;
-  const { lang, uid } = resolvedParams;
-  
+  const { lang, uid } = await params;
   const client = createClient();
-  
+
   let page;
   try {
     page = await client.getByUID("abm_recap", uid, {
@@ -95,25 +89,76 @@ export default async function AbmRecap({
 
   const { data } = page as AbmRecapDocument;
 
-  const abmNavLinks = [
-    { id: "hero", label: "Top" },
-    { id: "understanding", label: "Understanding" },
-    { id: "opportunities", label: "Opportunities" },
-    { id: "pages", label: "ABM Pages" },
-    { id: "next-steps", label: "Next Steps" },
-  ];
+  // Dynamic header links
+  const sliceToNavMap: Record<string, { id: string; label: string }> = {
+    hero_recommendation: { id: "hero", label: "Top" },
+    understanding: { id: "understanding", label: "Understanding" },
+    opportunities: { id: "opportunities", label: "Opportunities" },
+    abm_pages: { id: "pages", label: "ABM Pages" },
+    next_steps: { id: "next-steps", label: "Next Steps" },
+    contact: { id: "contact", label: "Contact" }
+  };
+
+  const dynamicNavLinks = data.slices
+    .map((slice) => sliceToNavMap[slice.slice_type])
+    .filter(Boolean) //Delete slices with no navigation link
+    // Optional : Avoid duplicates if a slice appears twice
+    .filter((value, index, self) => 
+      index === self.findIndex((t) => t?.id === value?.id)
+    ) as NavLink[];
+
+  // Slices color for transition
+  const getBgColor = (sliceType: string) => {
+    const blackSlices = ["understanding", "opportunities", "abm_pages"];
+    return blackSlices.includes(sliceType) ? "black" : "white";
+  };
 
   return (
     <>
-      <Header data={data} navLinks={abmNavLinks} />
+      <Header data={data} navLinks={dynamicNavLinks} />
+      
       <main>
-        <Hero data={data} />
-        <Understanding data={data}></Understanding>
-        <Opportunities data={data}></Opportunities>
-        <AbmPages data={data}></AbmPages>
-        <NextSteps data={data}></NextSteps>
-        <Contact data={data}></Contact>
+        {data.slices.map((slice, index) => {
+          const currentBg = getBgColor(slice.slice_type);
+          const nextSlice = data.slices[index + 1];
+          const nextBg = nextSlice ? getBgColor(nextSlice.slice_type) : null;
+
+          return (
+            <div key={slice.id || index}>
+              <SliceZone 
+                slices={[slice]} 
+                components={components} 
+                context={{ pageData: data }} 
+              />
+
+              {/* --- TRANSITION LOGIC --- */}
+              {/* WHITE to BLACK */}
+              {currentBg === "white" && nextBg === "black" && (
+                <div className="w-full bg-[#151515]">
+                  <TopAnimation />
+                </div>
+              )}
+
+              {/* BLACK to WHITE */}
+              {currentBg === "black" && nextBg === "white" && (
+                <div className="w-full bg-[#FFFFFF]">
+                  <BottomAnimation />
+                </div>
+              )}
+            </div>
+          );
+        })}
       </main>
     </>
   );
+}
+
+export async function generateStaticParams() {
+  const client = createClient();
+  const pages = await client.getAllByType("abm_recap", { lang: "*" });
+
+  return pages.map((page) => ({
+    uid: page.uid,
+    lang: page.lang,
+  }));
 }

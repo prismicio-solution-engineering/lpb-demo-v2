@@ -1,25 +1,44 @@
-import { AbmRecapDocumentData, SeoGeoRecapDocumentData } from "@/prismicio-types";
-import { PrismicRichText } from "@prismicio/react";
+"use client"
+
+import { FC } from "react";
+import { Content, isFilled } from "@prismicio/client";
+import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { PrismicNextLink } from "@prismicio/next";
-import { isFilled } from "@prismicio/client";
 
 import Container from "@/components/Container";
 import { iconsMap } from "@/utils/getIconsMap";
 
-export default function NextSteps({ data }: { data: AbmRecapDocumentData | SeoGeoRecapDocumentData }) {
-  return (
-    <section id="next-steps" className="scroll-mt-24 py-15" style={{ background: "linear-gradient(to bottom, white 0%, #E8F8F3 15%, #E8F8F3 85%, white 100%)"}}>
-      <Container
-        size="xl"
-        className="flex flex-col items-center gap-16 text-center"
-      >
-        <div className="w-full  flex flex-col items-center gap-10">
-          <div className="flex flex-col items-center gap-4">
-            <p className="text-[#3BBB96]">{data.next_eyebrow}</p>
+export type NextStepsProps = SliceComponentProps<Content.NextStepsSlice>;
 
-            {isFilled.richText(data.next_title) && (
+const NextStepsDefault: FC<NextStepsProps> = ({ slice }) => {
+
+  if (slice.variation !== "default") return null;
+
+  return (
+    <section 
+      id="next-steps" 
+      className="scroll-mt-24 py-15" 
+      style={{ background: "linear-gradient(to bottom, white 0%, #E8F8F3 15%, #E8F8F3 85%, white 100%)"}}
+    >
+      <Container size="xl" className="flex flex-col items-center gap-16 text-center">
+        <div className="w-full flex flex-col items-center gap-10">
+          
+          {/* --- HEADER --- */}
+          <div className="flex flex-col items-center gap-4">
+            {isFilled.richText(slice.primary.eyebrow) && (
               <PrismicRichText
-                field={data.next_title}
+                field={slice.primary.eyebrow}
+                components={{
+                  paragraph: ({ children }) => (
+                    <p className="text-[#3BBB96] max-w-175">{children}</p>
+                  ),
+                }}
+              />
+            )}
+
+            {isFilled.richText(slice.primary.title) && (
+              <PrismicRichText
+                field={slice.primary.title}
                 components={{
                   heading2: ({ children }) => (
                     <h2 className="text-4xl font-bold">{children}</h2>
@@ -28,9 +47,9 @@ export default function NextSteps({ data }: { data: AbmRecapDocumentData | SeoGe
               />
             )}
 
-            {isFilled.richText(data.next_text) && (
+            {isFilled.richText(slice.primary.text) && (
               <PrismicRichText
-                field={data.next_text}
+                field={slice.primary.text}
                 components={{
                   paragraph: ({ children }) => (
                     <p className="text-[#505050] max-w-175">{children}</p>
@@ -40,9 +59,11 @@ export default function NextSteps({ data }: { data: AbmRecapDocumentData | SeoGe
             )}
           </div>
 
+          {/* --- STEPS (Repeatable Zone) --- */}
           <div className="w-full flex flex-col">
-            {data.step.map((item, index) => {
-              const IconComponent = item.icon ? iconsMap[item.icon] : null;
+            {slice.primary.step.map((item, index) => {
+              const IconComponent = item.icon ? iconsMap[item.icon as keyof typeof iconsMap] : null;
+              
               return (
                 <div
                   key={index}
@@ -51,13 +72,13 @@ export default function NextSteps({ data }: { data: AbmRecapDocumentData | SeoGe
                     backgroundColor: index % 2 === 0 ? "#E8F8F3" : "#d4f2e9dd",
                   }}
                 >
+                  {/* Step Number & Icon */}
                   <div className="relative w-12 h-12 flex justify-center items-center rounded-full bg-[#3BBB96] text-white font-semibold text-xl shrink-0">
                     {index + 1}
                     <div
                       className="absolute -bottom-3 -right-3 border rounded-md"
                       style={{
-                        backgroundColor:
-                          index % 2 === 0 ? "#E8F8F3" : "#D4F2E9",
+                        backgroundColor: index % 2 === 0 ? "#E8F8F3" : "#D4F2E9",
                         borderColor: index % 2 === 0 ? "#E8F8F3" : "#D4F2E9",
                       }}
                     >
@@ -67,6 +88,7 @@ export default function NextSteps({ data }: { data: AbmRecapDocumentData | SeoGe
                     </div>
                   </div>
 
+                  {/* Step Content */}
                   <div className="w-full flex flex-col sm:flex-row lg:items-center gap-6 sm:gap-12">
                     <div className="flex flex-col gap-2 lg:grid lg:grid-cols-5 lg:items-center lg:gap-12 flex-1">
                       {isFilled.richText(item.title) && (
@@ -99,10 +121,12 @@ export default function NextSteps({ data }: { data: AbmRecapDocumentData | SeoGe
               );
             })}
           </div>
+
+          {/* --- BUTTONS (Group Field in Primary) --- */}
           <div className="flex gap-4">
-            {data.buttons.map((link, index) => (
+            {slice.primary.buttons.map((link) => (
               <PrismicNextLink
-                key={index}
+                key={link.key}
                 field={link}
                 className={`${link.variant === "Filled" ? "bg-[#151515] text-[#FFFFFF]" : "text-[#151515]"} px-4 py-2 rounded-lg border-2 border-[#151515]`}
               />
@@ -112,4 +136,6 @@ export default function NextSteps({ data }: { data: AbmRecapDocumentData | SeoGe
       </Container>
     </section>
   );
-}
+};
+
+export default NextStepsDefault;

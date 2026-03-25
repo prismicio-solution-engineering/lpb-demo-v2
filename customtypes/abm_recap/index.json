@@ -19,33 +19,30 @@
           "placeholder": ""
         }
       },
-      "client_logo": {
-        "type": "Image",
-        "config": {
-          "label": "Client Logo",
-          "constraint": {},
-          "thumbnails": []
-        }
-      },
-      "contact": {
-        "type": "Link",
-        "config": {
-          "label": "Contact",
-          "select": "document",
-          "repeat": false,
-          "customtypes": [
-            {
-              "id": "contact",
-              "fields": ["image", "name", "position", "email", "calendar"]
-            }
-          ]
-        }
-      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {}
+          "choices": {
+            "abm_pages": {
+              "type": "SharedSlice"
+            },
+            "opportunities": {
+              "type": "SharedSlice"
+            },
+            "understanding": {
+              "type": "SharedSlice"
+            },
+            "hero_recommendation": {
+              "type": "SharedSlice"
+            },
+            "next_steps": {
+              "type": "SharedSlice"
+            },
+            "contact": {
+              "type": "SharedSlice"
+            }
+          }
         }
       }
     },
@@ -59,313 +56,6 @@
           "allowTargetBlank": true,
           "allowText": true,
           "repeat": false
-        }
-      }
-    },
-    "Hero": {
-      "hero_eyebrow": {
-        "type": "Text",
-        "config": {
-          "label": "Eyebrow",
-          "placeholder": ""
-        }
-      },
-      "hero_title": {
-        "type": "StructuredText",
-        "config": {
-          "label": "Title",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "heading1"
-        }
-      },
-      "hero_text": {
-        "type": "StructuredText",
-        "config": {
-          "label": "Text",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "paragraph,strong,em"
-        }
-      }
-    },
-    "Understanding": {
-      "understanding_eyebrow": {
-        "type": "Text",
-        "config": {
-          "label": "Eyebrow",
-          "placeholder": ""
-        }
-      },
-      "understanding_title": {
-        "type": "StructuredText",
-        "config": {
-          "label": "Title",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "heading2"
-        }
-      },
-      "understanding_text": {
-        "type": "StructuredText",
-        "config": {
-          "label": "Text",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "paragraph,strong,em"
-        }
-      },
-      "key_problem": {
-        "type": "Group",
-        "config": {
-          "label": "Key problem",
-          "repeat": true,
-          "fields": {
-            "icon": {
-              "type": "Select",
-              "config": {
-                "label": "Icon",
-                "placeholder": "",
-                "options": [
-                  "thunder",
-                  "test",
-                  "brand",
-                  "smile",
-                  "checkedCalendar",
-                  "control"
-                ],
-                "default_value": "thunder"
-              }
-            },
-            "title": {
-              "type": "StructuredText",
-              "config": {
-                "label": "Title",
-                "placeholder": "",
-                "allowTargetBlank": true,
-                "multi": "heading3"
-              }
-            },
-            "text": {
-              "type": "StructuredText",
-              "config": {
-                "label": "Text",
-                "placeholder": "",
-                "allowTargetBlank": true,
-                "multi": "paragraph,strong,em"
-              }
-            }
-          }
-        }
-      }
-    },
-    "Opportunities": {
-      "opportunities_title": {
-        "type": "StructuredText",
-        "config": {
-          "label": "Title",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "heading2"
-        }
-      },
-      "opportunity": {
-        "type": "Group",
-        "config": {
-          "label": "Opportunity",
-          "repeat": true,
-          "fields": {
-            "icon": {
-              "type": "Select",
-              "config": {
-                "label": "Icon",
-                "placeholder": "",
-                "options": ["zoom", "reuse", "hammer"],
-                "default_value": "zoom"
-              }
-            },
-            "title": {
-              "type": "StructuredText",
-              "config": {
-                "label": "Title",
-                "placeholder": "",
-                "allowTargetBlank": true,
-                "multi": "heading3"
-              }
-            },
-            "text": {
-              "type": "StructuredText",
-              "config": {
-                "label": "Text",
-                "placeholder": "",
-                "allowTargetBlank": true,
-                "multi": "paragraph,strong,em"
-              }
-            }
-          }
-        }
-      }
-    },
-    "Pages": {
-      "pages_title": {
-        "type": "StructuredText",
-        "config": {
-          "label": "Title",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "heading2"
-        }
-      },
-      "pages_text": {
-        "type": "StructuredText",
-        "config": {
-          "label": "Text",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "paragraph,strong,em"
-        }
-      },
-      "generated_page": {
-        "type": "Group",
-        "config": {
-          "label": "Generated Page",
-          "repeat": true,
-          "fields": {
-            "company": {
-              "type": "Text",
-              "config": {
-                "label": "Company",
-                "placeholder": ""
-              }
-            },
-            "role": {
-              "type": "Text",
-              "config": {
-                "label": "Role",
-                "placeholder": ""
-              }
-            },
-            "personalization_instructions": {
-              "type": "Text",
-              "config": {
-                "label": "Personalization Instructions",
-                "placeholder": ""
-              }
-            },
-            "page_link": {
-              "type": "Link",
-              "config": {
-                "label": "Page Link",
-                "placeholder": "",
-                "select": null,
-                "allowTargetBlank": true,
-                "allowText": true,
-                "repeat": false
-              }
-            }
-          }
-        }
-      }
-    },
-    "Next Steps": {
-      "next_eyebrow": {
-        "type": "Text",
-        "config": {
-          "label": "Eyebrow",
-          "placeholder": ""
-        }
-      },
-      "next_title": {
-        "type": "StructuredText",
-        "config": {
-          "label": "Title",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "heading2"
-        }
-      },
-      "next_text": {
-        "type": "StructuredText",
-        "config": {
-          "label": "Text",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "paragraph,strong,em"
-        }
-      },
-      "step": {
-        "type": "Group",
-        "config": {
-          "label": "Step",
-          "repeat": true,
-          "fields": {
-            "icon": {
-              "type": "Select",
-              "config": {
-                "label": "Icon",
-                "placeholder": "",
-                "options": [
-                  "thunder",
-                  "test",
-                  "brand",
-                  "smile",
-                  "checkedCalendar",
-                  "control"
-                ],
-                "default_value": "thunder"
-              }
-            },
-            "title": {
-              "type": "StructuredText",
-              "config": {
-                "label": "Title",
-                "placeholder": "",
-                "allowTargetBlank": true,
-                "multi": "heading3"
-              }
-            },
-            "text": {
-              "type": "StructuredText",
-              "config": {
-                "label": "Text",
-                "placeholder": "",
-                "allowTargetBlank": true,
-                "multi": "paragraph,strong,em"
-              }
-            }
-          }
-        }
-      },
-      "buttons": {
-        "type": "Link",
-        "config": {
-          "label": "Buttons",
-          "placeholder": "",
-          "select": null,
-          "allowTargetBlank": true,
-          "allowText": true,
-          "repeat": true,
-          "variants": ["Filled", "Outlined"]
-        }
-      }
-    },
-    "Contact": {
-      "contact_title": {
-        "type": "StructuredText",
-        "config": {
-          "label": "Title",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "heading2"
-        }
-      },
-      "contact_text": {
-        "type": "StructuredText",
-        "config": {
-          "label": "Text",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "paragraph,strong,em"
         }
       }
     },

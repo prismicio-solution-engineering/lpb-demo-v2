@@ -1,0 +1,196 @@
+{
+  "id": "seo_pages",
+  "type": "SharedSlice",
+  "name": "SeoPages",
+  "description": "SeoPages",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2"
+          }
+        },
+        "text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong"
+          }
+        },
+        "generated_page": {
+          "type": "Group",
+          "config": {
+            "label": "Generated Page",
+            "repeat": true,
+            "fields": {
+              "topic": {
+                "type": "Text",
+                "config": {
+                  "label": "Topic",
+                  "placeholder": ""
+                }
+              },
+              "details": {
+                "type": "Text",
+                "config": {
+                  "label": "Details",
+                  "placeholder": ""
+                }
+              },
+              "instructions": {
+                "type": "Text",
+                "config": {
+                  "label": "Instructions",
+                  "placeholder": ""
+                }
+              },
+              "page_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Page Link",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": false
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "seoGeoAudit",
+      "name": "Seo Geo Audit",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2"
+          }
+        },
+        "text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong"
+          }
+        },
+        "generated_page": {
+          "type": "Group",
+          "config": {
+            "label": "Generated Page",
+            "repeat": true,
+            "fields": {
+              "eyebrow": {
+                "type": "Text",
+                "config": {
+                  "label": "Eyebrow",
+                  "placeholder": ""
+                }
+              },
+              "topic": {
+                "type": "Text",
+                "config": {
+                  "label": "Topic",
+                  "placeholder": ""
+                }
+              },
+              "mention_rate": {
+                "type": "Number",
+                "config": {
+                  "label": "Mention rate",
+                  "placeholder": ""
+                }
+              },
+              "average_position": {
+                "type": "Number",
+                "config": {
+                  "label": "Average position",
+                  "placeholder": ""
+                }
+              },
+              "rank_position": {
+                "type": "Number",
+                "config": {
+                  "label": "Rank position",
+                  "placeholder": ""
+                }
+              },
+              "solution_name": {
+                "type": "Text",
+                "config": {
+                  "label": "Solution name",
+                  "placeholder": ""
+                }
+              },
+              "upgrades": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Upgrades",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "list-item"
+                }
+              },
+              "impact_projection": {
+                "type": "Text",
+                "config": {
+                  "label": "Impact projection",
+                  "placeholder": ""
+                }
+              },
+              "page_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Page Link",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": false
+                }
+              },
+              "analysis_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Analysis link",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": false
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

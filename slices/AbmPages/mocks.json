@@ -1,0 +1,77 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Flame"
+						}
+					}
+				]
+			},
+			"text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Deserunt ea magna enim aute elit sint est qui ullamco do ex adipisicing."
+						}
+					}
+				]
+			},
+			"generated_page": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"company",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "earlier",
+									"type": "Text"
+								}
+							],
+							[
+								"role",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "they",
+									"type": "Text"
+								}
+							],
+							[
+								"personalization_instructions",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "force",
+									"type": "Text"
+								}
+							],
+							[
+								"page_link",
+								{
+									"key": "39186253-e953-4f1c-a454-ae1677b4254c",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://prismic.io",
+										"text": "crack"
+									}
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

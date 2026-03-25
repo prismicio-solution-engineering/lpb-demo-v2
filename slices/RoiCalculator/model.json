@@ -1,0 +1,116 @@
+{
+  "id": "roi_calculator",
+  "type": "SharedSlice",
+  "name": "RoiCalculator",
+  "description": "RoiCalculator",
+  "variations": [
+    {
+      "id": "simpleCalculator",
+      "name": "Simple Calculator",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2"
+          }
+        },
+        "text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong"
+          }
+        },
+        "card_title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Card Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading3"
+          }
+        },
+        "card_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Card Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong"
+          }
+        },
+        "cost_per_page": {
+          "type": "Number",
+          "config": {
+            "label": "Cost per page (USD)",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "complexCalculator",
+      "name": "Complex Calculator",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2"
+          }
+        },
+        "text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong"
+          }
+        },
+        "card_title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Card Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading3"
+          }
+        },
+        "card_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Card Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong"
+          }
+        },
+        "cost_per_page": {
+          "type": "Number",
+          "config": {
+            "label": "Cost per page (USD)",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

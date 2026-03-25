@@ -130,172 +130,13 @@ interface _404DocumentData {
 export type _404Document<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<_404DocumentData>, "404", Lang>;
 
-type AbmRecapDocumentDataSlicesSlice = never;
-
-/**
- * Item in *ABM Recap → Key problem*
- */
-export interface AbmRecapDocumentDataKeyProblemItem {
-  /**
-   * Icon field in *ABM Recap → Key problem*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: thunder
-   * - **API ID Path**: abm_recap.key_problem[].icon
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  icon: prismic.SelectField<
-    "thunder" | "test" | "brand" | "smile" | "checkedCalendar" | "control",
-    "filled"
-  >;
-
-  /**
-   * Title field in *ABM Recap → Key problem*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: abm_recap.key_problem[].title
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * Text field in *ABM Recap → Key problem*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: abm_recap.key_problem[].text
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  text: prismic.RichTextField;
-}
-
-/**
- * Item in *ABM Recap → Opportunity*
- */
-export interface AbmRecapDocumentDataOpportunityItem {
-  /**
-   * Icon field in *ABM Recap → Opportunity*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: zoom
-   * - **API ID Path**: abm_recap.opportunity[].icon
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  icon: prismic.SelectField<"zoom" | "reuse" | "hammer", "filled">;
-
-  /**
-   * Title field in *ABM Recap → Opportunity*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: abm_recap.opportunity[].title
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * Text field in *ABM Recap → Opportunity*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: abm_recap.opportunity[].text
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  text: prismic.RichTextField;
-}
-
-/**
- * Item in *ABM Recap → Generated Page*
- */
-export interface AbmRecapDocumentDataGeneratedPageItem {
-  /**
-   * Company field in *ABM Recap → Generated Page*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: abm_recap.generated_page[].company
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  company: prismic.KeyTextField;
-
-  /**
-   * Role field in *ABM Recap → Generated Page*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: abm_recap.generated_page[].role
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  role: prismic.KeyTextField;
-
-  /**
-   * Personalization Instructions field in *ABM Recap → Generated Page*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: abm_recap.generated_page[].personalization_instructions
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  personalization_instructions: prismic.KeyTextField;
-
-  /**
-   * Page Link field in *ABM Recap → Generated Page*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: abm_recap.generated_page[].page_link
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  page_link: prismic.LinkField<
-    string,
-    string,
-    unknown,
-    prismic.FieldState,
-    never
-  >;
-}
-
-/**
- * Item in *ABM Recap → Step*
- */
-export interface AbmRecapDocumentDataStepItem {
-  /**
-   * Icon field in *ABM Recap → Step*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: thunder
-   * - **API ID Path**: abm_recap.step[].icon
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  icon: prismic.SelectField<
-    "thunder" | "test" | "brand" | "smile" | "checkedCalendar" | "control",
-    "filled"
-  >;
-
-  /**
-   * Title field in *ABM Recap → Step*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: abm_recap.step[].title
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * Text field in *ABM Recap → Step*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: abm_recap.step[].text
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  text: prismic.RichTextField;
-}
+type AbmRecapDocumentDataSlicesSlice =
+  | AbmPagesSlice
+  | OpportunitiesSlice
+  | UnderstandingSlice
+  | HeroRecommendationSlice
+  | NextStepsSlice
+  | ContactSlice;
 
 /**
  * Content for ABM Recap documents
@@ -311,35 +152,6 @@ interface AbmRecapDocumentData {
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   title: prismic.KeyTextField;
-
-  /**
-   * Client Logo field in *ABM Recap*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: abm_recap.client_logo
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/image
-   */
-  client_logo: prismic.ImageField<never>;
-
-  /**
-   * Contact field in *ABM Recap*
-   *
-   * - **Field Type**: Content Relationship
-   * - **Placeholder**: *None*
-   * - **API ID Path**: abm_recap.contact
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
-   */
-  contact: ContentRelationshipFieldWithData<
-    [
-      {
-        id: "contact";
-        fields: ["image", "name", "position", "email", "calendar"];
-      },
-    ]
-  >;
 
   /**
    * Slice Zone field in *ABM Recap*
@@ -366,217 +178,6 @@ interface AbmRecapDocumentData {
     prismic.FieldState,
     never
   >; /**
-   * Eyebrow field in *ABM Recap*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: abm_recap.hero_eyebrow
-   * - **Tab**: Hero
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  hero_eyebrow: prismic.KeyTextField;
-
-  /**
-   * Title field in *ABM Recap*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: abm_recap.hero_title
-   * - **Tab**: Hero
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  hero_title: prismic.RichTextField;
-
-  /**
-   * Text field in *ABM Recap*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: abm_recap.hero_text
-   * - **Tab**: Hero
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  hero_text: prismic.RichTextField; /**
-   * Eyebrow field in *ABM Recap*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: abm_recap.understanding_eyebrow
-   * - **Tab**: Understanding
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  understanding_eyebrow: prismic.KeyTextField;
-
-  /**
-   * Title field in *ABM Recap*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: abm_recap.understanding_title
-   * - **Tab**: Understanding
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  understanding_title: prismic.RichTextField;
-
-  /**
-   * Text field in *ABM Recap*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: abm_recap.understanding_text
-   * - **Tab**: Understanding
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  understanding_text: prismic.RichTextField;
-
-  /**
-   * Key problem field in *ABM Recap*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: abm_recap.key_problem[]
-   * - **Tab**: Understanding
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  key_problem: prismic.GroupField<
-    Simplify<AbmRecapDocumentDataKeyProblemItem>
-  >; /**
-   * Title field in *ABM Recap*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: abm_recap.opportunities_title
-   * - **Tab**: Opportunities
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  opportunities_title: prismic.RichTextField;
-
-  /**
-   * Opportunity field in *ABM Recap*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: abm_recap.opportunity[]
-   * - **Tab**: Opportunities
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  opportunity: prismic.GroupField<
-    Simplify<AbmRecapDocumentDataOpportunityItem>
-  >; /**
-   * Title field in *ABM Recap*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: abm_recap.pages_title
-   * - **Tab**: Pages
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  pages_title: prismic.RichTextField;
-
-  /**
-   * Text field in *ABM Recap*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: abm_recap.pages_text
-   * - **Tab**: Pages
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  pages_text: prismic.RichTextField;
-
-  /**
-   * Generated Page field in *ABM Recap*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: abm_recap.generated_page[]
-   * - **Tab**: Pages
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  generated_page: prismic.GroupField<
-    Simplify<AbmRecapDocumentDataGeneratedPageItem>
-  >; /**
-   * Eyebrow field in *ABM Recap*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: abm_recap.next_eyebrow
-   * - **Tab**: Next Steps
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  next_eyebrow: prismic.KeyTextField;
-
-  /**
-   * Title field in *ABM Recap*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: abm_recap.next_title
-   * - **Tab**: Next Steps
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  next_title: prismic.RichTextField;
-
-  /**
-   * Text field in *ABM Recap*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: abm_recap.next_text
-   * - **Tab**: Next Steps
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  next_text: prismic.RichTextField;
-
-  /**
-   * Step field in *ABM Recap*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: abm_recap.step[]
-   * - **Tab**: Next Steps
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  step: prismic.GroupField<Simplify<AbmRecapDocumentDataStepItem>>;
-
-  /**
-   * Buttons field in *ABM Recap*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: abm_recap.buttons
-   * - **Tab**: Next Steps
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  buttons: prismic.Repeatable<
-    prismic.LinkField<
-      string,
-      string,
-      unknown,
-      prismic.FieldState,
-      "Filled" | "Outlined"
-    >
-  >; /**
-   * Title field in *ABM Recap*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: abm_recap.contact_title
-   * - **Tab**: Contact
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  contact_title: prismic.RichTextField;
-
-  /**
-   * Text field in *ABM Recap*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: abm_recap.contact_text
-   * - **Tab**: Contact
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  contact_text: prismic.RichTextField; /**
    * Meta Title field in *ABM Recap*
    *
    * - **Field Type**: Text
@@ -2023,163 +1624,12 @@ interface RecapDocumentData {
 export type RecapDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<RecapDocumentData>, "recap", Lang>;
 
-type SeoGeoRecapDocumentDataSlicesSlice = never;
-
-/**
- * Item in *SEO & GEO Recap → Generated Page*
- */
-export interface SeoGeoRecapDocumentDataGeneratedPageItem {
-  /**
-   * Eyebrow field in *SEO & GEO Recap → Generated Page*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: seo_geo_recap.generated_page[].eyebrow
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  eyebrow: prismic.KeyTextField;
-
-  /**
-   * Title field in *SEO & GEO Recap → Generated Page*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: seo_geo_recap.generated_page[].title
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  title: prismic.KeyTextField;
-
-  /**
-   * Mention rate field in *SEO & GEO Recap → Generated Page*
-   *
-   * - **Field Type**: Number
-   * - **Placeholder**: *None*
-   * - **API ID Path**: seo_geo_recap.generated_page[].mention_rate
-   * - **Documentation**: https://prismic.io/docs/fields/number
-   */
-  mention_rate: prismic.NumberField;
-
-  /**
-   * Average position field in *SEO & GEO Recap → Generated Page*
-   *
-   * - **Field Type**: Number
-   * - **Placeholder**: *None*
-   * - **API ID Path**: seo_geo_recap.generated_page[].average_position
-   * - **Documentation**: https://prismic.io/docs/fields/number
-   */
-  average_position: prismic.NumberField;
-
-  /**
-   * Rank position field in *SEO & GEO Recap → Generated Page*
-   *
-   * - **Field Type**: Number
-   * - **Placeholder**: *None*
-   * - **API ID Path**: seo_geo_recap.generated_page[].rank_position
-   * - **Documentation**: https://prismic.io/docs/fields/number
-   */
-  rank_position: prismic.NumberField;
-
-  /**
-   * Solution name field in *SEO & GEO Recap → Generated Page*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: seo_geo_recap.generated_page[].solution_name
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  solution_name: prismic.KeyTextField;
-
-  /**
-   * Upgrades field in *SEO & GEO Recap → Generated Page*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: seo_geo_recap.generated_page[].upgrades
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  upgrades: prismic.RichTextField;
-
-  /**
-   * Impact projection field in *SEO & GEO Recap → Generated Page*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: seo_geo_recap.generated_page[].impact_projection
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  impact_projection: prismic.KeyTextField;
-
-  /**
-   * Page link field in *SEO & GEO Recap → Generated Page*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: seo_geo_recap.generated_page[].page_link
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  page_link: prismic.LinkField<
-    string,
-    string,
-    unknown,
-    prismic.FieldState,
-    never
-  >;
-
-  /**
-   * Analysis link field in *SEO & GEO Recap → Generated Page*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: seo_geo_recap.generated_page[].analysis_link
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  analysis_link: prismic.LinkField<
-    string,
-    string,
-    unknown,
-    prismic.FieldState,
-    never
-  >;
-}
-
-/**
- * Item in *SEO & GEO Recap → Step*
- */
-export interface SeoGeoRecapDocumentDataStepItem {
-  /**
-   * Icon field in *SEO & GEO Recap → Step*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: thunder
-   * - **API ID Path**: seo_geo_recap.step[].icon
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  icon: prismic.SelectField<
-    "thunder" | "test" | "brand" | "smile" | "checkedCalendar" | "control",
-    "filled"
-  >;
-
-  /**
-   * Title field in *SEO & GEO Recap → Step*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: seo_geo_recap.step[].title
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * Text field in *SEO & GEO Recap → Step*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: seo_geo_recap.step[].text
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  text: prismic.RichTextField;
-}
+type SeoGeoRecapDocumentDataSlicesSlice =
+  | ContactSlice
+  | NextStepsSlice
+  | RoiCalculatorSlice
+  | SeoPagesSlice
+  | HeroRecommendationSlice;
 
 /**
  * Content for SEO & GEO Recap documents
@@ -2195,35 +1645,6 @@ interface SeoGeoRecapDocumentData {
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   title: prismic.KeyTextField;
-
-  /**
-   * Client Logo field in *SEO & GEO Recap*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: seo_geo_recap.client_logo
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/image
-   */
-  client_logo: prismic.ImageField<never>;
-
-  /**
-   * Contact field in *SEO & GEO Recap*
-   *
-   * - **Field Type**: Content Relationship
-   * - **Placeholder**: *None*
-   * - **API ID Path**: seo_geo_recap.contact
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
-   */
-  contact: ContentRelationshipFieldWithData<
-    [
-      {
-        id: "contact";
-        fields: ["image", "name", "position", "email", "calendar"];
-      },
-    ]
-  >;
 
   /**
    * Slice Zone field in *SEO & GEO Recap*
@@ -2250,228 +1671,6 @@ interface SeoGeoRecapDocumentData {
     prismic.FieldState,
     never
   >; /**
-   * Eyebrow field in *SEO & GEO Recap*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: seo_geo_recap.hero_eyebrow
-   * - **Tab**: Hero
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  hero_eyebrow: prismic.KeyTextField;
-
-  /**
-   * Title field in *SEO & GEO Recap*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: seo_geo_recap.hero_title
-   * - **Tab**: Hero
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  hero_title: prismic.RichTextField;
-
-  /**
-   * Text field in *SEO & GEO Recap*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: seo_geo_recap.hero_text
-   * - **Tab**: Hero
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  hero_text: prismic.RichTextField; /**
-   * Title field in *SEO & GEO Recap*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: seo_geo_recap.pages_title
-   * - **Tab**: Pages
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  pages_title: prismic.RichTextField;
-
-  /**
-   * Text field in *SEO & GEO Recap*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: seo_geo_recap.pages_text
-   * - **Tab**: Pages
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  pages_text: prismic.RichTextField;
-
-  /**
-   * Generated Page field in *SEO & GEO Recap*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: seo_geo_recap.generated_page[]
-   * - **Tab**: Pages
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  generated_page: prismic.GroupField<
-    Simplify<SeoGeoRecapDocumentDataGeneratedPageItem>
-  >; /**
-   * Calculator field in *SEO & GEO Recap*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: seo_geo_recap.roi_calculator
-   * - **Tab**: Roi Calculator
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  roi_calculator: prismic.BooleanField;
-
-  /**
-   * Title field in *SEO & GEO Recap*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: seo_geo_recap.roi_title
-   * - **Tab**: Roi Calculator
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  roi_title: prismic.RichTextField;
-
-  /**
-   * Text field in *SEO & GEO Recap*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: seo_geo_recap.roi_text
-   * - **Tab**: Roi Calculator
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  roi_text: prismic.RichTextField;
-
-  /**
-   * Simple Calculator field in *SEO & GEO Recap*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: true
-   * - **API ID Path**: seo_geo_recap.roi_simple_calculator
-   * - **Tab**: Roi Calculator
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  roi_simple_calculator: prismic.BooleanField;
-
-  /**
-   * Card Title field in *SEO & GEO Recap*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: seo_geo_recap.roi_card_title
-   * - **Tab**: Roi Calculator
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  roi_card_title: prismic.RichTextField;
-
-  /**
-   * Card Text field in *SEO & GEO Recap*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: seo_geo_recap.roi_card_text
-   * - **Tab**: Roi Calculator
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  roi_card_text: prismic.RichTextField;
-
-  /**
-   * Cost per page (USD) field in *SEO & GEO Recap*
-   *
-   * - **Field Type**: Number
-   * - **Placeholder**: *None*
-   * - **API ID Path**: seo_geo_recap.roi_cost_per_page
-   * - **Tab**: Roi Calculator
-   * - **Documentation**: https://prismic.io/docs/fields/number
-   */
-  roi_cost_per_page: prismic.NumberField; /**
-   * Eyebrow field in *SEO & GEO Recap*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: seo_geo_recap.next_eyebrow
-   * - **Tab**: Next Steps
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  next_eyebrow: prismic.KeyTextField;
-
-  /**
-   * Title field in *SEO & GEO Recap*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: seo_geo_recap.next_title
-   * - **Tab**: Next Steps
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  next_title: prismic.RichTextField;
-
-  /**
-   * Text field in *SEO & GEO Recap*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: seo_geo_recap.next_text
-   * - **Tab**: Next Steps
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  next_text: prismic.RichTextField;
-
-  /**
-   * Step field in *SEO & GEO Recap*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: seo_geo_recap.step[]
-   * - **Tab**: Next Steps
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  step: prismic.GroupField<Simplify<SeoGeoRecapDocumentDataStepItem>>;
-
-  /**
-   * Buttons field in *SEO & GEO Recap*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: seo_geo_recap.buttons
-   * - **Tab**: Next Steps
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  buttons: prismic.Repeatable<
-    prismic.LinkField<
-      string,
-      string,
-      unknown,
-      prismic.FieldState,
-      "Filled" | "Outlined"
-    >
-  >; /**
-   * Title field in *SEO & GEO Recap*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: seo_geo_recap.contact_title
-   * - **Tab**: Contact
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  contact_title: prismic.RichTextField;
-
-  /**
-   * Text field in *SEO & GEO Recap*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: seo_geo_recap.contact_text
-   * - **Tab**: Contact
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  contact_text: prismic.RichTextField; /**
    * Meta Title field in *SEO & GEO Recap*
    *
    * - **Field Type**: Text
@@ -2579,6 +1778,124 @@ export type AllDocumentTypes =
   | RecapDocument
   | SeoGeoRecapDocument
   | SettingsDocument;
+
+/**
+ * Item in *AbmPages → Default → Primary → Generated Page*
+ */
+export interface AbmPagesSliceDefaultPrimaryGeneratedPageItem {
+  /**
+   * Company field in *AbmPages → Default → Primary → Generated Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: abm_pages.default.primary.generated_page[].company
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  company: prismic.KeyTextField;
+
+  /**
+   * Role field in *AbmPages → Default → Primary → Generated Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: abm_pages.default.primary.generated_page[].role
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  role: prismic.KeyTextField;
+
+  /**
+   * Personalization Instructions field in *AbmPages → Default → Primary → Generated Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: abm_pages.default.primary.generated_page[].personalization_instructions
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  personalization_instructions: prismic.KeyTextField;
+
+  /**
+   * Page Link field in *AbmPages → Default → Primary → Generated Page*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: abm_pages.default.primary.generated_page[].page_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  page_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Primary content in *AbmPages → Default → Primary*
+ */
+export interface AbmPagesSliceDefaultPrimary {
+  /**
+   * Title field in *AbmPages → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: abm_pages.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Text field in *AbmPages → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: abm_pages.default.primary.text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Generated Page field in *AbmPages → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: abm_pages.default.primary.generated_page[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  generated_page: prismic.GroupField<
+    Simplify<AbmPagesSliceDefaultPrimaryGeneratedPageItem>
+  >;
+}
+
+/**
+ * Default variation for AbmPages Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type AbmPagesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<AbmPagesSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *AbmPages*
+ */
+type AbmPagesSliceVariation = AbmPagesSliceDefault;
+
+/**
+ * AbmPages Shared Slice
+ *
+ * - **API ID**: `abm_pages`
+ * - **Description**: AbmPages
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type AbmPagesSlice = prismic.SharedSlice<
+  "abm_pages",
+  AbmPagesSliceVariation
+>;
 
 /**
  * Primary content in *Banner → Default → Primary*
@@ -3075,6 +2392,78 @@ type CarouselSliceVariation =
 export type CarouselSlice = prismic.SharedSlice<
   "carousel",
   CarouselSliceVariation
+>;
+
+/**
+ * Primary content in *Contact → Default → Primary*
+ */
+export interface ContactSliceDefaultPrimary {
+  /**
+   * Title field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Text field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Contact field in *Contact → Default → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.default.primary.contact
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  contact: ContentRelationshipFieldWithData<
+    [
+      {
+        id: "contact";
+        fields: ["image", "name", "position", "email", "calendar"];
+      },
+    ]
+  >;
+}
+
+/**
+ * Default variation for Contact Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ContactSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ContactSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Contact*
+ */
+type ContactSliceVariation = ContactSliceDefault;
+
+/**
+ * Contact Shared Slice
+ *
+ * - **API ID**: `contact`
+ * - **Description**: Contact
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ContactSlice = prismic.SharedSlice<
+  "contact",
+  ContactSliceVariation
 >;
 
 /**
@@ -4394,6 +3783,98 @@ export type HeroLandingSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *HeroRecommendation → Default → Primary*
+ */
+export interface HeroRecommendationSliceDefaultPrimary {
+  /**
+   * Client Logo field in *HeroRecommendation → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_recommendation.default.primary.client_logo
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  client_logo: prismic.ImageField<never>;
+
+  /**
+   * Eyebrow field in *HeroRecommendation → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_recommendation.default.primary.eyebrow
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  eyebrow: prismic.RichTextField;
+
+  /**
+   * Title field in *HeroRecommendation → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_recommendation.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Text field in *HeroRecommendation → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_recommendation.default.primary.text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Contact field in *HeroRecommendation → Default → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_recommendation.default.primary.contact
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  contact: ContentRelationshipFieldWithData<
+    [
+      {
+        id: "contact";
+        fields: ["image", "name", "position", "email", "calendar"];
+      },
+    ]
+  >;
+}
+
+/**
+ * Default variation for HeroRecommendation Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type HeroRecommendationSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HeroRecommendationSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *HeroRecommendation*
+ */
+type HeroRecommendationSliceVariation = HeroRecommendationSliceDefault;
+
+/**
+ * HeroRecommendation Shared Slice
+ *
+ * - **API ID**: `hero_recommendation`
+ * - **Description**: HeroRecommendation
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type HeroRecommendationSlice = prismic.SharedSlice<
+  "hero_recommendation",
+  HeroRecommendationSliceVariation
+>;
+
+/**
  * Item in *Icons → Default → Primary → Grp*
  */
 export interface IconsSliceDefaultPrimaryGrpItem {
@@ -4672,6 +4153,231 @@ export type NavigationLinksSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *NextSteps → Default → Primary → Step*
+ */
+export interface NextStepsSliceDefaultPrimaryStepItem {
+  /**
+   * Icon field in *NextSteps → Default → Primary → Step*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: thunder
+   * - **API ID Path**: next_steps.default.primary.step[].icon
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  icon: prismic.SelectField<
+    "thunder" | "test" | "brand" | "smile" | "checkedCalendar" | "control",
+    "filled"
+  >;
+
+  /**
+   * Title field in *NextSteps → Default → Primary → Step*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: next_steps.default.primary.step[].title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Text field in *NextSteps → Default → Primary → Step*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: next_steps.default.primary.step[].text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *NextSteps → Default → Primary*
+ */
+export interface NextStepsSliceDefaultPrimary {
+  /**
+   * Eyebrow field in *NextSteps → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: next_steps.default.primary.eyebrow
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  eyebrow: prismic.RichTextField;
+
+  /**
+   * Title field in *NextSteps → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: next_steps.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Text field in *NextSteps → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: next_steps.default.primary.text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Step field in *NextSteps → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: next_steps.default.primary.step[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  step: prismic.GroupField<Simplify<NextStepsSliceDefaultPrimaryStepItem>>;
+
+  /**
+   * Buttons field in *NextSteps → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: next_steps.default.primary.buttons
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  buttons: prismic.Repeatable<
+    prismic.LinkField<
+      string,
+      string,
+      unknown,
+      prismic.FieldState,
+      "Filled" | "Outlined"
+    >
+  >;
+}
+
+/**
+ * Default variation for NextSteps Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type NextStepsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<NextStepsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *NextSteps*
+ */
+type NextStepsSliceVariation = NextStepsSliceDefault;
+
+/**
+ * NextSteps Shared Slice
+ *
+ * - **API ID**: `next_steps`
+ * - **Description**: NextSteps
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type NextStepsSlice = prismic.SharedSlice<
+  "next_steps",
+  NextStepsSliceVariation
+>;
+
+/**
+ * Item in *Opportunities → Default → Primary → Opportunity*
+ */
+export interface OpportunitiesSliceDefaultPrimaryOpportunityItem {
+  /**
+   * Icon field in *Opportunities → Default → Primary → Opportunity*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: zoom
+   * - **API ID Path**: opportunities.default.primary.opportunity[].icon
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  icon: prismic.SelectField<"zoom" | "hammer" | "reuse", "filled">;
+
+  /**
+   * Title field in *Opportunities → Default → Primary → Opportunity*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: opportunities.default.primary.opportunity[].title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Text field in *Opportunities → Default → Primary → Opportunity*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: opportunities.default.primary.opportunity[].text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Opportunities → Default → Primary*
+ */
+export interface OpportunitiesSliceDefaultPrimary {
+  /**
+   * Title field in *Opportunities → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: opportunities.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Opportunity field in *Opportunities → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: opportunities.default.primary.opportunity[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  opportunity: prismic.GroupField<
+    Simplify<OpportunitiesSliceDefaultPrimaryOpportunityItem>
+  >;
+}
+
+/**
+ * Default variation for Opportunities Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type OpportunitiesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<OpportunitiesSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Opportunities*
+ */
+type OpportunitiesSliceVariation = OpportunitiesSliceDefault;
+
+/**
+ * Opportunities Shared Slice
+ *
+ * - **API ID**: `opportunities`
+ * - **Description**: Opportunities
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type OpportunitiesSlice = prismic.SharedSlice<
+  "opportunities",
+  OpportunitiesSliceVariation
+>;
+
+/**
  * Item in *ProductSelection → Default → Primary → Grp*
  */
 export interface ProductSelectionSliceDefaultPrimaryGrpItem {
@@ -4739,6 +4445,446 @@ type ProductSelectionSliceVariation = ProductSelectionSliceDefault;
 export type ProductSelectionSlice = prismic.SharedSlice<
   "product_selection",
   ProductSelectionSliceVariation
+>;
+
+/**
+ * Primary content in *RoiCalculator → Simple Calculator → Primary*
+ */
+export interface RoiCalculatorSliceSimpleCalculatorPrimary {
+  /**
+   * Title field in *RoiCalculator → Simple Calculator → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roi_calculator.simpleCalculator.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Text field in *RoiCalculator → Simple Calculator → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roi_calculator.simpleCalculator.primary.text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Card Title field in *RoiCalculator → Simple Calculator → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roi_calculator.simpleCalculator.primary.card_title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  card_title: prismic.RichTextField;
+
+  /**
+   * Card Text field in *RoiCalculator → Simple Calculator → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roi_calculator.simpleCalculator.primary.card_text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  card_text: prismic.RichTextField;
+
+  /**
+   * Cost per page (USD) field in *RoiCalculator → Simple Calculator → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roi_calculator.simpleCalculator.primary.cost_per_page
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  cost_per_page: prismic.NumberField;
+}
+
+/**
+ * Simple Calculator variation for RoiCalculator Slice
+ *
+ * - **API ID**: `simpleCalculator`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type RoiCalculatorSliceSimpleCalculator = prismic.SharedSliceVariation<
+  "simpleCalculator",
+  Simplify<RoiCalculatorSliceSimpleCalculatorPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *RoiCalculator → Complex Calculator → Primary*
+ */
+export interface RoiCalculatorSliceComplexCalculatorPrimary {
+  /**
+   * Title field in *RoiCalculator → Complex Calculator → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roi_calculator.complexCalculator.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Text field in *RoiCalculator → Complex Calculator → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roi_calculator.complexCalculator.primary.text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Card Title field in *RoiCalculator → Complex Calculator → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roi_calculator.complexCalculator.primary.card_title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  card_title: prismic.RichTextField;
+
+  /**
+   * Card Text field in *RoiCalculator → Complex Calculator → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roi_calculator.complexCalculator.primary.card_text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  card_text: prismic.RichTextField;
+
+  /**
+   * Cost per page (USD) field in *RoiCalculator → Complex Calculator → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: roi_calculator.complexCalculator.primary.cost_per_page
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  cost_per_page: prismic.NumberField;
+}
+
+/**
+ * Complex Calculator variation for RoiCalculator Slice
+ *
+ * - **API ID**: `complexCalculator`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type RoiCalculatorSliceComplexCalculator = prismic.SharedSliceVariation<
+  "complexCalculator",
+  Simplify<RoiCalculatorSliceComplexCalculatorPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *RoiCalculator*
+ */
+type RoiCalculatorSliceVariation =
+  | RoiCalculatorSliceSimpleCalculator
+  | RoiCalculatorSliceComplexCalculator;
+
+/**
+ * RoiCalculator Shared Slice
+ *
+ * - **API ID**: `roi_calculator`
+ * - **Description**: RoiCalculator
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type RoiCalculatorSlice = prismic.SharedSlice<
+  "roi_calculator",
+  RoiCalculatorSliceVariation
+>;
+
+/**
+ * Item in *SeoPages → Default → Primary → Generated Page*
+ */
+export interface SeoPagesSliceDefaultPrimaryGeneratedPageItem {
+  /**
+   * Topic field in *SeoPages → Default → Primary → Generated Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: seo_pages.default.primary.generated_page[].topic
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  topic: prismic.KeyTextField;
+
+  /**
+   * Details field in *SeoPages → Default → Primary → Generated Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: seo_pages.default.primary.generated_page[].details
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  details: prismic.KeyTextField;
+
+  /**
+   * Instructions field in *SeoPages → Default → Primary → Generated Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: seo_pages.default.primary.generated_page[].instructions
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  instructions: prismic.KeyTextField;
+
+  /**
+   * Page Link field in *SeoPages → Default → Primary → Generated Page*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: seo_pages.default.primary.generated_page[].page_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  page_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Item in *SeoPages → Seo Geo Audit → Primary → Generated Page*
+ */
+export interface SeoPagesSliceSeoGeoAuditPrimaryGeneratedPageItem {
+  /**
+   * Eyebrow field in *SeoPages → Seo Geo Audit → Primary → Generated Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: seo_pages.seoGeoAudit.primary.generated_page[].eyebrow
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  eyebrow: prismic.KeyTextField;
+
+  /**
+   * Topic field in *SeoPages → Seo Geo Audit → Primary → Generated Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: seo_pages.seoGeoAudit.primary.generated_page[].topic
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  topic: prismic.KeyTextField;
+
+  /**
+   * Mention rate field in *SeoPages → Seo Geo Audit → Primary → Generated Page*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: seo_pages.seoGeoAudit.primary.generated_page[].mention_rate
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  mention_rate: prismic.NumberField;
+
+  /**
+   * Average position field in *SeoPages → Seo Geo Audit → Primary → Generated Page*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: seo_pages.seoGeoAudit.primary.generated_page[].average_position
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  average_position: prismic.NumberField;
+
+  /**
+   * Rank position field in *SeoPages → Seo Geo Audit → Primary → Generated Page*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: seo_pages.seoGeoAudit.primary.generated_page[].rank_position
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  rank_position: prismic.NumberField;
+
+  /**
+   * Solution name field in *SeoPages → Seo Geo Audit → Primary → Generated Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: seo_pages.seoGeoAudit.primary.generated_page[].solution_name
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  solution_name: prismic.KeyTextField;
+
+  /**
+   * Upgrades field in *SeoPages → Seo Geo Audit → Primary → Generated Page*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: seo_pages.seoGeoAudit.primary.generated_page[].upgrades
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  upgrades: prismic.RichTextField;
+
+  /**
+   * Impact projection field in *SeoPages → Seo Geo Audit → Primary → Generated Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: seo_pages.seoGeoAudit.primary.generated_page[].impact_projection
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  impact_projection: prismic.KeyTextField;
+
+  /**
+   * Page Link field in *SeoPages → Seo Geo Audit → Primary → Generated Page*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: seo_pages.seoGeoAudit.primary.generated_page[].page_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  page_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Analysis link field in *SeoPages → Seo Geo Audit → Primary → Generated Page*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: seo_pages.seoGeoAudit.primary.generated_page[].analysis_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  analysis_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Primary content in *SeoPages → Default → Primary*
+ */
+export interface SeoPagesSliceDefaultPrimary {
+  /**
+   * Title field in *SeoPages → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: seo_pages.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Text field in *SeoPages → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: seo_pages.default.primary.text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Generated Page field in *SeoPages → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: seo_pages.default.primary.generated_page[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  generated_page: prismic.GroupField<
+    Simplify<SeoPagesSliceDefaultPrimaryGeneratedPageItem>
+  >;
+}
+
+/**
+ * Default variation for SeoPages Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type SeoPagesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SeoPagesSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *SeoPages → Seo Geo Audit → Primary*
+ */
+export interface SeoPagesSliceSeoGeoAuditPrimary {
+  /**
+   * Title field in *SeoPages → Seo Geo Audit → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: seo_pages.seoGeoAudit.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Text field in *SeoPages → Seo Geo Audit → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: seo_pages.seoGeoAudit.primary.text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Generated Page field in *SeoPages → Seo Geo Audit → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: seo_pages.seoGeoAudit.primary.generated_page[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  generated_page: prismic.GroupField<
+    Simplify<SeoPagesSliceSeoGeoAuditPrimaryGeneratedPageItem>
+  >;
+}
+
+/**
+ * Seo Geo Audit variation for SeoPages Slice
+ *
+ * - **API ID**: `seoGeoAudit`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type SeoPagesSliceSeoGeoAudit = prismic.SharedSliceVariation<
+  "seoGeoAudit",
+  Simplify<SeoPagesSliceSeoGeoAuditPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *SeoPages*
+ */
+type SeoPagesSliceVariation = SeoPagesSliceDefault | SeoPagesSliceSeoGeoAudit;
+
+/**
+ * SeoPages Shared Slice
+ *
+ * - **API ID**: `seo_pages`
+ * - **Description**: SeoPages
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type SeoPagesSlice = prismic.SharedSlice<
+  "seo_pages",
+  SeoPagesSliceVariation
 >;
 
 /**
@@ -5062,6 +5208,122 @@ export type TestimonialsSlice = prismic.SharedSlice<
   TestimonialsSliceVariation
 >;
 
+/**
+ * Item in *Understanding → Default → Primary → Key problem*
+ */
+export interface UnderstandingSliceDefaultPrimaryKeyProblemItem {
+  /**
+   * Icon field in *Understanding → Default → Primary → Key problem*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: thunder
+   * - **API ID Path**: understanding.default.primary.key_problem[].icon
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  icon: prismic.SelectField<
+    "thunder" | "test" | "brand" | "smile" | "checkedCalendar" | "control",
+    "filled"
+  >;
+
+  /**
+   * Title field in *Understanding → Default → Primary → Key problem*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: understanding.default.primary.key_problem[].title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Text field in *Understanding → Default → Primary → Key problem*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: understanding.default.primary.key_problem[].text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Understanding → Default → Primary*
+ */
+export interface UnderstandingSliceDefaultPrimary {
+  /**
+   * Eyebrow field in *Understanding → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: understanding.default.primary.eyebrow
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  eyebrow: prismic.RichTextField;
+
+  /**
+   * Title field in *Understanding → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: understanding.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Text field in *Understanding → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: understanding.default.primary.text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Key problem field in *Understanding → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: understanding.default.primary.key_problem[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  key_problem: prismic.GroupField<
+    Simplify<UnderstandingSliceDefaultPrimaryKeyProblemItem>
+  >;
+}
+
+/**
+ * Default variation for Understanding Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type UnderstandingSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<UnderstandingSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Understanding*
+ */
+type UnderstandingSliceVariation = UnderstandingSliceDefault;
+
+/**
+ * Understanding Shared Slice
+ *
+ * - **API ID**: `understanding`
+ * - **Description**: Understanding
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type UnderstandingSlice = prismic.SharedSlice<
+  "understanding",
+  UnderstandingSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -5089,10 +5351,6 @@ declare module "@prismicio/client" {
       AbmRecapDocument,
       AbmRecapDocumentData,
       AbmRecapDocumentDataSlicesSlice,
-      AbmRecapDocumentDataKeyProblemItem,
-      AbmRecapDocumentDataOpportunityItem,
-      AbmRecapDocumentDataGeneratedPageItem,
-      AbmRecapDocumentDataStepItem,
       ArticleDocument,
       ArticleDocumentData,
       ArticleDocumentDataSlicesSlice,
@@ -5126,11 +5384,14 @@ declare module "@prismicio/client" {
       SeoGeoRecapDocument,
       SeoGeoRecapDocumentData,
       SeoGeoRecapDocumentDataSlicesSlice,
-      SeoGeoRecapDocumentDataGeneratedPageItem,
-      SeoGeoRecapDocumentDataStepItem,
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,
+      AbmPagesSlice,
+      AbmPagesSliceDefaultPrimaryGeneratedPageItem,
+      AbmPagesSliceDefaultPrimary,
+      AbmPagesSliceVariation,
+      AbmPagesSliceDefault,
       BannerSlice,
       BannerSliceDefaultPrimary,
       BannerSliceVariation1Primary,
@@ -5151,6 +5412,10 @@ declare module "@prismicio/client" {
       CarouselSliceVariation1,
       CarouselSliceVariation2,
       CarouselSliceVariation3,
+      ContactSlice,
+      ContactSliceDefaultPrimary,
+      ContactSliceVariation,
+      ContactSliceDefault,
       ContentSlice,
       ContentSliceDefaultPrimary,
       ContentSliceTwoColumnsPrimary,
@@ -5203,6 +5468,10 @@ declare module "@prismicio/client" {
       HeroLandingSliceVariation2,
       HeroLandingSliceVariation3,
       HeroLandingSliceVariation4,
+      HeroRecommendationSlice,
+      HeroRecommendationSliceDefaultPrimary,
+      HeroRecommendationSliceVariation,
+      HeroRecommendationSliceDefault,
       IconsSlice,
       IconsSliceDefaultPrimaryGrpItem,
       IconsSliceDefaultPrimary,
@@ -5218,11 +5487,35 @@ declare module "@prismicio/client" {
       NavigationLinksSliceVariation,
       NavigationLinksSliceDefault,
       NavigationLinksSliceWithSublinks,
+      NextStepsSlice,
+      NextStepsSliceDefaultPrimaryStepItem,
+      NextStepsSliceDefaultPrimary,
+      NextStepsSliceVariation,
+      NextStepsSliceDefault,
+      OpportunitiesSlice,
+      OpportunitiesSliceDefaultPrimaryOpportunityItem,
+      OpportunitiesSliceDefaultPrimary,
+      OpportunitiesSliceVariation,
+      OpportunitiesSliceDefault,
       ProductSelectionSlice,
       ProductSelectionSliceDefaultPrimaryGrpItem,
       ProductSelectionSliceDefaultPrimary,
       ProductSelectionSliceVariation,
       ProductSelectionSliceDefault,
+      RoiCalculatorSlice,
+      RoiCalculatorSliceSimpleCalculatorPrimary,
+      RoiCalculatorSliceComplexCalculatorPrimary,
+      RoiCalculatorSliceVariation,
+      RoiCalculatorSliceSimpleCalculator,
+      RoiCalculatorSliceComplexCalculator,
+      SeoPagesSlice,
+      SeoPagesSliceDefaultPrimaryGeneratedPageItem,
+      SeoPagesSliceDefaultPrimary,
+      SeoPagesSliceSeoGeoAuditPrimaryGeneratedPageItem,
+      SeoPagesSliceSeoGeoAuditPrimary,
+      SeoPagesSliceVariation,
+      SeoPagesSliceDefault,
+      SeoPagesSliceSeoGeoAudit,
       TestimonialsSlice,
       TestimonialsSliceDefaultPrimaryGrpItem,
       TestimonialsSliceDefaultPrimary,
@@ -5234,6 +5527,11 @@ declare module "@prismicio/client" {
       TestimonialsSliceDefault,
       TestimonialsSliceVariation1,
       TestimonialsSliceVariation2,
+      UnderstandingSlice,
+      UnderstandingSliceDefaultPrimaryKeyProblemItem,
+      UnderstandingSliceDefaultPrimary,
+      UnderstandingSliceVariation,
+      UnderstandingSliceDefault,
     };
   }
 }

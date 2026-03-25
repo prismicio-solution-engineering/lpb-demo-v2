@@ -34,7 +34,7 @@ export default function Header({
   useEffect(() => {
     const handleIntersect = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && entry.intersectionRatio > 0.1) {
           setActiveSection(entry.target.id);
         }
       });
@@ -51,7 +51,7 @@ export default function Header({
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [navLinks]);
 
   // Calculer la position de la barre violette
   // Se déclenche à chaque fois que 'activeSection' change

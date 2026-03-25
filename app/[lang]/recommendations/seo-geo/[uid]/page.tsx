@@ -2,24 +2,22 @@ import { Metadata } from "next";
 import { SeoGeoRecapDocument } from "@/prismicio-types";
 import { createClient } from "@/prismicio";
 import { asImageSrc } from "@prismicio/client";
-
 import { notFound } from "next/navigation";
+import { SliceZone } from "@prismicio/react";
+import { components } from "@/slices";
 
-import Header from "@/components/Recommendations/Header";
-import Hero from "@/components/Recommendations/Hero";
-import RoiCalculator from "@/components/Recommendations/RoiCalculator";
-import NextSteps from "@/components/Recommendations/NextSteps";
-import Contact from "@/components/Recommendations/Contact";
-import SeoPages from "@/components/Recommendations/SeoPages";
+import Header, { NavLink } from "@/components/Recommendations/Header";
+import { TopAnimation } from "@/components/Animations/TopAnimation";
+import { BottomAnimation } from "@/components/Animations/BottomAnimation";
+
+type Params = { lang: string; uid: string };
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ lang: string; uid: string }>;
+  params: Promise<Params>;
 }): Promise<Metadata> {
-  const resolvedParams = await params;
-  const { lang, uid } = resolvedParams;
-
+  const { lang, uid } = await params;
   const client = createClient();
 
   let page;
@@ -68,14 +66,11 @@ export async function generateMetadata({
 export default async function SeoGeoRecap({
   params,
 }: {
-  params: Promise<{ lang: string; uid: string }>;
+  params: Promise<Params>;
 }) {
-  
-  const resolvedParams = await params;
-  const { lang, uid } = resolvedParams;
-  
+  const { lang, uid } = await params;
   const client = createClient();
-  
+
   let page;
   try {
     page = await client.getByUID("seo_geo_recap", uid, {
@@ -92,27 +87,77 @@ export default async function SeoGeoRecap({
     }
   }
 
-  const { data } = page as SeoGeoRecapDocument;
+  const { data } = page as unknown as SeoGeoRecapDocument;
 
-  const seoNavLinks = [
-    { id: "hero", label: "Top" },
-    { id: "pages", label: "SEO Pages" },
-  ];
-  if (data.roi_calculator) {
-    seoNavLinks.push({ id: "roi-calculator", label: "ROI" });
-  }
-  seoNavLinks.push({ id: "next-steps", label: "Next Steps" });
+
+  // Dynamic header links
+  const sliceToNavMap: Record<string, { id: string; label: string }> = {
+    hero_recommendation: { id: "hero", label: "Top" },
+    seo_pages: { id: "pages", label: "SEO Pages" },
+    roi_calculator: { id: "roi-calculator", label: "ROI" },
+    next_steps: { id: "next-steps", label: "Next Steps" },
+    contact: { id: "contact", label: "Contact" }
+  };
+
+  const dynamicNavLinks = data.slices
+    .map((slice) => sliceToNavMap[slice.slice_type])
+    .filter(Boolean) //Delete slices with no navigation link
+    // Optional : Avoid duplicates if a slice appears twice
+    .filter((value, index, self) => 
+      index === self.findIndex((t) => t?.id === value?.id)
+    ) as NavLink[];
+
+  // Slices color for transition
+  const getBgColor = (sliceType: string) => {
+    const blackSlices = ["understanding", "opportunities", "seo_pages"];
+    return blackSlices.includes(sliceType) ? "black" : "white";
+  };
 
   return (
     <>
-      <Header data={data} navLinks={seoNavLinks} />
+      <Header data={data} navLinks={dynamicNavLinks} />
+      
       <main>
-        <Hero data={data}></Hero>
-        <SeoPages data={data}></SeoPages>
-        <RoiCalculator data={data}></RoiCalculator>
-        <NextSteps data={data}></NextSteps>
-        <Contact data={data}></Contact>
+        {data.slices.map((slice, index) => {
+          const currentBg = getBgColor(slice.slice_type);
+          const nextSlice = data.slices[index + 1];
+          const nextBg = nextSlice ? getBgColor(nextSlice.slice_type) : null;
+
+          return (
+            <div key={slice.id || index}>
+              <SliceZone 
+                slices={[slice]} 
+                components={components} 
+                context={{ pageData: data }} 
+              />
+
+              {/* --- TRANSITION LOGIC --- */}
+              {/* WHITE to BLACK */}
+              {currentBg === "white" && nextBg === "black" && (
+                <div className="w-full bg-[#151515]">
+                  <TopAnimation />
+                </div>
+              )}
+              {/* BLACK to WHITE */}
+              {currentBg === "black" && nextBg === "white" && (
+                <div className="w-full bg-[#FFFFFF]">
+                  <BottomAnimation />
+                </div>
+              )}
+            </div>
+          );
+        })}
       </main>
     </>
   );
+}
+
+export async function generateStaticParams() {
+  const client = createClient();
+  const pages = await client.getAllByType("seo_geo_recap", { lang: "*" });
+
+  return pages.map((page) => ({
+    uid: page.uid,
+    lang: page.lang,
+  }));
 }

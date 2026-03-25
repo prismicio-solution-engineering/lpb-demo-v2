@@ -56,7 +56,10 @@
                     "brand",
                     "smile",
                     "checkedCalendar",
-                    "control"
+                    "control",
+                    "zoom",
+                    "reuse",
+                    "hammer"
                   ],
                   "default_value": "thunder"
                 }

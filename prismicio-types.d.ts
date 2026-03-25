@@ -840,6 +840,7 @@ export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<HomeDocumentData>, "home", Lang>;
 
 type LandingDocumentDataSlicesSlice =
+  | BenefitsSlice
   | BannerSlice
   | ProductSelectionSlice
   | FeaturedArticlesSlice
@@ -2026,6 +2027,118 @@ type BannerSliceVariation = BannerSliceDefault | BannerSliceVariation1;
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type BannerSlice = prismic.SharedSlice<"banner", BannerSliceVariation>;
+
+/**
+ * Item in *Benefits → Default → Primary → Items*
+ */
+export interface BenefitsSliceDefaultPrimaryItemsItem {
+  /**
+   * Title field in *Benefits → Default → Primary → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: benefits.default.primary.items[].title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Text field in *Benefits → Default → Primary → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: benefits.default.primary.items[].text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Icon field in *Benefits → Default → Primary → Items*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: thunder
+   * - **API ID Path**: benefits.default.primary.items[].icon
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  icon: prismic.SelectField<
+    | "thunder"
+    | "test"
+    | "brand"
+    | "smile"
+    | "checkedCalendar"
+    | "control"
+    | "zoom"
+    | "reuse"
+    | "hammer",
+    "filled"
+  >;
+}
+
+/**
+ * Primary content in *Benefits → Default → Primary*
+ */
+export interface BenefitsSliceDefaultPrimary {
+  /**
+   * Title field in *Benefits → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: benefits.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Text field in *Benefits → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: benefits.default.primary.text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Items field in *Benefits → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: benefits.default.primary.items[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  items: prismic.GroupField<Simplify<BenefitsSliceDefaultPrimaryItemsItem>>;
+}
+
+/**
+ * Default variation for Benefits Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type BenefitsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<BenefitsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Benefits*
+ */
+type BenefitsSliceVariation = BenefitsSliceDefault;
+
+/**
+ * Benefits Shared Slice
+ *
+ * - **API ID**: `benefits`
+ * - **Description**: Benefits
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type BenefitsSlice = prismic.SharedSlice<
+  "benefits",
+  BenefitsSliceVariation
+>;
 
 /**
  * Item in *Carousel → Default → Primary → Grp*
@@ -4166,7 +4279,15 @@ export interface NextStepsSliceDefaultPrimaryStepItem {
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   icon: prismic.SelectField<
-    "thunder" | "test" | "brand" | "smile" | "checkedCalendar" | "control",
+    | "thunder"
+    | "test"
+    | "brand"
+    | "smile"
+    | "checkedCalendar"
+    | "control"
+    | "zoom"
+    | "reuse"
+    | "hammer",
     "filled"
   >;
 
@@ -4297,7 +4418,18 @@ export interface OpportunitiesSliceDefaultPrimaryOpportunityItem {
    * - **API ID Path**: opportunities.default.primary.opportunity[].icon
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  icon: prismic.SelectField<"zoom" | "hammer" | "reuse", "filled">;
+  icon: prismic.SelectField<
+    | "zoom"
+    | "hammer"
+    | "reuse"
+    | "thunder"
+    | "test"
+    | "brand"
+    | "smile"
+    | "checkedCalendar"
+    | "control",
+    "filled"
+  >;
 
   /**
    * Title field in *Opportunities → Default → Primary → Opportunity*
@@ -5222,7 +5354,15 @@ export interface UnderstandingSliceDefaultPrimaryKeyProblemItem {
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   icon: prismic.SelectField<
-    "thunder" | "test" | "brand" | "smile" | "checkedCalendar" | "control",
+    | "thunder"
+    | "test"
+    | "brand"
+    | "smile"
+    | "checkedCalendar"
+    | "control"
+    | "zoom"
+    | "reuse"
+    | "hammer",
     "filled"
   >;
 
@@ -5398,6 +5538,11 @@ declare module "@prismicio/client" {
       BannerSliceVariation,
       BannerSliceDefault,
       BannerSliceVariation1,
+      BenefitsSlice,
+      BenefitsSliceDefaultPrimaryItemsItem,
+      BenefitsSliceDefaultPrimary,
+      BenefitsSliceVariation,
+      BenefitsSliceDefault,
       CarouselSlice,
       CarouselSliceDefaultPrimaryGrpItem,
       CarouselSliceDefaultPrimary,

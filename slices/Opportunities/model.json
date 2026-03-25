@@ -35,7 +35,13 @@
                   "options": [
                     "zoom",
                     "hammer",
-                    "reuse"
+                    "reuse",
+                    "thunder",
+                    "test",
+                    "brand",
+                    "smile",
+                    "checkedCalendar",
+                    "control"
                   ],
                   "default_value": "zoom"
                 }

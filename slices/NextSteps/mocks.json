@@ -46,7 +46,7 @@
 								"icon",
 								{
 									"__TYPE__": "FieldContent",
-									"value": "brand",
+									"value": "checkedCalendar",
 									"type": "Select"
 								}
 							],

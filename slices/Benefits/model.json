@@ -1,8 +1,8 @@
 {
-  "id": "next_steps",
+  "id": "benefits",
   "type": "SharedSlice",
-  "name": "NextSteps",
-  "description": "NextSteps",
+  "name": "Benefits",
+  "description": "Benefits",
   "variations": [
     {
       "id": "default",
@@ -12,15 +12,6 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "eyebrow": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Eyebrow",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph"
-          }
-        },
         "title": {
           "type": "StructuredText",
           "config": {
@@ -39,12 +30,30 @@
             "multi": "paragraph,strong"
           }
         },
-        "step": {
+        "items": {
           "type": "Group",
           "config": {
-            "label": "Step",
+            "label": "Items",
             "repeat": true,
             "fields": {
+              "title": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Title",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "heading3"
+                }
+              },
+              "text": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Text",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph"
+                }
+              },
               "icon": {
                 "type": "Select",
                 "config": {
@@ -63,41 +72,8 @@
                   ],
                   "default_value": "thunder"
                 }
-              },
-              "title": {
-                "type": "StructuredText",
-                "config": {
-                  "label": "Title",
-                  "placeholder": "",
-                  "allowTargetBlank": true,
-                  "multi": "heading3"
-                }
-              },
-              "text": {
-                "type": "StructuredText",
-                "config": {
-                  "label": "Text",
-                  "placeholder": "",
-                  "allowTargetBlank": true,
-                  "multi": "paragraph"
-                }
               }
             }
-          }
-        },
-        "buttons": {
-          "type": "Link",
-          "config": {
-            "label": "Buttons",
-            "placeholder": "",
-            "select": null,
-            "allowTargetBlank": true,
-            "allowText": true,
-            "repeat": true,
-            "variants": [
-              "Filled",
-              "Outlined"
-            ]
           }
         }
       },

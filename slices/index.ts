@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 export const components = {
   abm_pages: dynamic(() => import("./AbmPages")),
   banner: dynamic(() => import("./Banner")),
+  benefits: dynamic(() => import("./Benefits")),
   carousel: dynamic(() => import("./Carousel")),
   contact: dynamic(() => import("./Contact")),
   content: dynamic(() => import("./Content")),

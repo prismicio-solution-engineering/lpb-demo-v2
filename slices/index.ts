@@ -3,17 +3,25 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  abm_pages: dynamic(() => import("./AbmPages")),
   banner: dynamic(() => import("./Banner")),
   carousel: dynamic(() => import("./Carousel")),
+  contact: dynamic(() => import("./Contact")),
   content: dynamic(() => import("./Content")),
   cta: dynamic(() => import("./Cta")),
   faq: dynamic(() => import("./Faq")),
   featured_articles: dynamic(() => import("./FeaturedArticles")),
   hero_home: dynamic(() => import("./HeroHome")),
   hero_landing: dynamic(() => import("./HeroLanding")),
+  hero_recommendation: dynamic(() => import("./HeroRecommendation")),
   icons: dynamic(() => import("./Icons")),
   media_feature: dynamic(() => import("./Feature")),
   navigation_links: dynamic(() => import("./NavigationLinks")),
+  next_steps: dynamic(() => import("./NextSteps")),
+  opportunities: dynamic(() => import("./Opportunities")),
   product_selection: dynamic(() => import("./ProductSelection")),
+  roi_calculator: dynamic(() => import("./RoiCalculator")),
+  seo_pages: dynamic(() => import("./SeoPages")),
   testimonials: dynamic(() => import("./Testimonials")),
+  understanding: dynamic(() => import("./Understanding")),
 };

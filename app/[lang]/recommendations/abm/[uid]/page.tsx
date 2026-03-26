@@ -96,7 +96,8 @@ export default async function AbmRecap({
     opportunities: { id: "opportunities", label: "Opportunities" },
     abm_pages: { id: "pages", label: "ABM Pages" },
     next_steps: { id: "next-steps", label: "Next Steps" },
-    contact: { id: "contact", label: "Contact" }
+    contact: { id: "contact", label: "Contact" },
+    embed_section: { id: "embed", label: "Video" }
   };
 
   const dynamicNavLinks = data.slices

@@ -96,7 +96,8 @@ export default async function SeoGeoRecap({
     seo_pages: { id: "pages", label: "SEO Pages" },
     roi_calculator: { id: "roi-calculator", label: "ROI" },
     next_steps: { id: "next-steps", label: "Next Steps" },
-    contact: { id: "contact", label: "Contact" }
+    contact: { id: "contact", label: "Contact" },
+    embed_section: { id: "embed", label: "Video" }
   };
 
   const dynamicNavLinks = data.slices

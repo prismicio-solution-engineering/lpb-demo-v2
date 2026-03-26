@@ -131,6 +131,7 @@ export type _404Document<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<_404DocumentData>, "404", Lang>;
 
 type AbmRecapDocumentDataSlicesSlice =
+  | EmbedSectionSlice
   | AbmPagesSlice
   | OpportunitiesSlice
   | UnderstandingSlice
@@ -1648,6 +1649,7 @@ export type RecapDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<RecapDocumentData>, "recap", Lang>;
 
 type SeoGeoRecapDocumentDataSlicesSlice =
+  | EmbedSectionSlice
   | ContactSlice
   | NextStepsSlice
   | RoiCalculatorSlice
@@ -3059,6 +3061,81 @@ type CtaSliceVariation =
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type CtaSlice = prismic.SharedSlice<"cta", CtaSliceVariation>;
+
+/**
+ * Primary content in *EmbedSection → Default → Primary*
+ */
+export interface EmbedSectionSliceDefaultPrimary {
+  /**
+   * Eyebrow field in *EmbedSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: embed_section.default.primary.eyebrow
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  eyebrow: prismic.RichTextField;
+
+  /**
+   * Title field in *EmbedSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: embed_section.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Text field in *EmbedSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: embed_section.default.primary.text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Embed field in *EmbedSection → Default → Primary*
+   *
+   * - **Field Type**: Embed
+   * - **Placeholder**: *None*
+   * - **API ID Path**: embed_section.default.primary.embed
+   * - **Documentation**: https://prismic.io/docs/fields/embed
+   */
+  embed: prismic.EmbedField;
+}
+
+/**
+ * Default variation for EmbedSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type EmbedSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<EmbedSectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *EmbedSection*
+ */
+type EmbedSectionSliceVariation = EmbedSectionSliceDefault;
+
+/**
+ * EmbedSection Shared Slice
+ *
+ * - **API ID**: `embed_section`
+ * - **Description**: EmbedSection
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type EmbedSectionSlice = prismic.SharedSlice<
+  "embed_section",
+  EmbedSectionSliceVariation
+>;
 
 /**
  * Item in *Faq → Default → Primary → Grp*
@@ -5615,6 +5692,10 @@ declare module "@prismicio/client" {
       CtaSliceDefault,
       CtaSliceVariation1,
       CtaSliceVariation2,
+      EmbedSectionSlice,
+      EmbedSectionSliceDefaultPrimary,
+      EmbedSectionSliceVariation,
+      EmbedSectionSliceDefault,
       FaqSlice,
       FaqSliceDefaultPrimaryGrpItem,
       FaqSliceDefaultPrimary,

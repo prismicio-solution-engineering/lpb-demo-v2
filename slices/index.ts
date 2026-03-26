@@ -10,6 +10,7 @@ export const components = {
   contact: dynamic(() => import("./Contact")),
   content: dynamic(() => import("./Content")),
   cta: dynamic(() => import("./Cta")),
+  embed_section: dynamic(() => import("./EmbedSection")),
   faq: dynamic(() => import("./Faq")),
   featured_articles: dynamic(() => import("./FeaturedArticles")),
   hero_home: dynamic(() => import("./HeroHome")),

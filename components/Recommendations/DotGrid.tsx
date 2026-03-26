@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-export function DotGrid({ isCenterDark = false }) {
+export function DotGrid({ dotColor = "#e5e5e534"}) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -16,7 +16,6 @@ export function DotGrid({ isCenterDark = false }) {
 
     const gap = 20;
     const dotRadius = 3;
-    const dotColor = "#e5e5e534";
 
     // redimensionnement et dessin
     const resizeAndDraw = () => {
@@ -66,14 +65,9 @@ export function DotGrid({ isCenterDark = false }) {
   return (
     <div
       ref={containerRef}
-      className="absolute inset-0 w-full h-full -z-10 pointer-events-none rounded-xl overflow-hidden"
+      className="absolute inset-0 w-full h-full pointer-events-none"
     >
-      {isCenterDark ? (
-        <div className="absolute inset-0 w-full h-full bg-[radial-gradient(closest-side,#151515_0%,transparent_100%)]"></div>
-      ) : (
-        <div className="absolute inset-0 w-full h-full bg-[radial-gradient(closest-side,transparent_0%,#151515_100%)]"></div>
-      )}
-      <canvas ref={canvasRef} />
+      <canvas ref={canvasRef} className="block w-full h-full" />
     </div>
   );
 }

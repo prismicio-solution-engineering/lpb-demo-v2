@@ -47,6 +47,14 @@
       }
     },
     "Header": {
+      "header_button_icon": {
+        "type": "Select",
+        "config": {
+          "label": "Button Icon",
+          "placeholder": "",
+          "options": ["calendar", "quote"]
+        }
+      },
       "header_button": {
         "type": "Link",
         "config": {

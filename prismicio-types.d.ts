@@ -163,6 +163,17 @@ interface AbmRecapDocumentData {
    * - **Documentation**: https://prismic.io/docs/slices
    */
   slices: prismic.SliceZone<AbmRecapDocumentDataSlicesSlice>; /**
+   * Button Icon field in *ABM Recap*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: abm_recap.header_button_icon
+   * - **Tab**: Header
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  header_button_icon: prismic.SelectField<"calendar" | "quote">;
+
+  /**
    * Button field in *ABM Recap*
    *
    * - **Field Type**: Link
@@ -1248,6 +1259,17 @@ interface RecapDocumentData {
    * - **Documentation**: https://prismic.io/docs/slices
    */
   slices: prismic.SliceZone<RecapDocumentDataSlicesSlice>; /**
+   * Button Icon field in *Recap*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.header_button_icon
+   * - **Tab**: Header
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  header_button_icon: prismic.SelectField<"calendar" | "quote">;
+
+  /**
    * Button field in *Recap*
    *
    * - **Field Type**: Link
@@ -1657,6 +1679,17 @@ interface SeoGeoRecapDocumentData {
    * - **Documentation**: https://prismic.io/docs/slices
    */
   slices: prismic.SliceZone<SeoGeoRecapDocumentDataSlicesSlice>; /**
+   * Button Icon field in *SEO & GEO Recap*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: seo_geo_recap.header_button_icon
+   * - **Tab**: Header
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  header_button_icon: prismic.SelectField<"calendar" | "quote">;
+
+  /**
    * Button field in *SEO & GEO Recap*
    *
    * - **Field Type**: Link

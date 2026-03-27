@@ -1689,6 +1689,8 @@ export type RecapDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<RecapDocumentData>, "recap", Lang>;
 
 type SeoGeoRecapDocumentDataSlicesSlice =
+  | OpportunitiesSlice
+  | UnderstandingSlice
   | EmbedSectionSlice
   | ContactSlice
   | NextStepsSlice

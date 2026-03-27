@@ -28,7 +28,7 @@ const Opportunities: FC<OpportunitiesProps> = ({ slice }) => {
                 />
                 )}
         
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {slice.primary.opportunity.map((item, index) => {
                     // get the correct icon component
                     const IconComponent = item.icon ? iconsMap[item.icon] : null;

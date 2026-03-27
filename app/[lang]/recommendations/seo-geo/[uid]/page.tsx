@@ -96,11 +96,13 @@ export default async function SeoGeoRecap({
   // Dynamic header links
   const sliceToNavMap: Record<string, { id: string; label: string }> = {
     hero_recommendation: { id: "hero", label: "Top" },
+    // understanding: { id: "understanding", label: "Understanding" },
+    // opportunities: { id: "opportunities", label: "Opportunities" },
     seo_pages: { id: "pages", label: "SEO Pages" },
     roi_calculator: { id: "roi-calculator", label: "ROI" },
     next_steps: { id: "next-steps", label: "Next Steps" },
-    contact: { id: "contact", label: "Contact" },
-    embed_section: { id: "embed", label: "Video" }
+    // contact: { id: "contact", label: "Contact" },
+    // embed_section: { id: "embed", label: "Video" }
   };
 
   const dynamicNavLinks = data.slices

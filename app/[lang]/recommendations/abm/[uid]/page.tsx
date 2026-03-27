@@ -92,13 +92,13 @@ export default async function AbmRecap({
   // Dynamic header links
   const sliceToNavMap: Record<string, { id: string; label: string }> = {
     hero_recommendation: { id: "hero", label: "Top" },
-    understanding: { id: "understanding", label: "Understanding" },
-    opportunities: { id: "opportunities", label: "Opportunities" },
+    // understanding: { id: "understanding", label: "Understanding" },
+    // opportunities: { id: "opportunities", label: "Opportunities" },
     abm_pages: { id: "pages", label: "ABM Pages" },
     next_steps: { id: "next-steps", label: "Next Steps" },
-    contact: { id: "contact", label: "Contact" },
-    embed_section: { id: "embed", label: "Video" },
-    abm_roi_calculator: { id: "roi-calculator", label: "ROI"}
+    // contact: { id: "contact", label: "Contact" },
+    // embed_section: { id: "embed", label: "Video" },
+    abm_roi_calculator: { id: "roi-calculator", label: "ROI"},
   };
 
   const dynamicNavLinks = data.slices

@@ -1,30 +1,26 @@
 "use client";
 
-import { useSimpleRoiCalculator } from "../hooks/useSimpleRoiCalculator";
-import { SimpleRoiForm } from "./SimpleRoiForm";
+import { useAbmSimpleRoiCalculator } from "../hooks/useAbmSimpleRoiCalculator";
+import { SimpleAbmRoiForm } from "./SimpleAbmRoiForm";
 import { CurrencySelector } from "./CurrencySelector";
-import { SimpleSavingsDisplay } from "./SimpleSavingsDisplay";
+import { SimpleAbmSavingsDisplay } from "./SimpleAbmSavingsDisplay";
 import clsx from "clsx";
 import { isFilled, RichTextField } from "@prismicio/client";
 import { PrismicRichText } from "@prismicio/react";
 
-interface SimpleRoiCalculatorProps {
+interface SimpleAbmRoiCalculatorProps {
   className?: string;
   cardHeading?: RichTextField;
   cardSubheading?: RichTextField;
-  initialData?: {
-    costPerPage?: number;
-  };
 }
 
-export function SimpleRoiCalculator({
+export function SimpleAbmRoiCalculator({
   className,
   cardHeading,
-  cardSubheading,
-  initialData,
-}: SimpleRoiCalculatorProps) {
+  cardSubheading
+}: SimpleAbmRoiCalculatorProps) {
   const { state, calculations, currency, exchangeRate, setters } =
-    useSimpleRoiCalculator(initialData);
+    useAbmSimpleRoiCalculator();
 
   return (
     <div className="container mt-12">
@@ -37,7 +33,6 @@ export function SimpleRoiCalculator({
         <div className="relative px-6 lg:px-0 lg:pb-12">
           <div className="flex flex-col gap-2">
             <div className="flex items-top justify-between">
-
               {isFilled.richText(cardHeading) ? (
                 <PrismicRichText 
                   field={cardHeading}
@@ -51,18 +46,15 @@ export function SimpleRoiCalculator({
                 />
               ) : (
                 <h3 className="text-[#151515] text-2xl-tight lg:text-3xl-tight font-medium mt-1 wrap-balance">
-                  For website content
+                  Account based page variations
                 </h3>
               )}
-              
               <CurrencySelector
                 currency={currency}
                 onCurrencyChange={setters.setCurrency}
                 hasBg={false}
               />
             </div>
-
-
             {isFilled.richText(cardSubheading) ? (
               <PrismicRichText 
                 field={cardSubheading}
@@ -76,25 +68,28 @@ export function SimpleRoiCalculator({
               />
             ) : (
               <p className="mt-2 max-w-lg text-[#505050]">
-                Based on your volume estimates.
+                Simply add the number for your accounts and how many decision
+                makers you are planning to reach. We do the rest.
               </p>
             )}
           </div>
-          
-          <SimpleRoiForm
-            numberOfNewPages={state.numberOfNewPages}
+          <SimpleAbmRoiForm
+            accountsTarget={state.accountsTarget}
+            decisionMakersPerAccount={state.decisionMakersPerAccount}
             writerHoursPerPage={state.writerHoursPerPage}
             writerHourlyRate={state.writerHourlyRate}
             currency={currency}
             exchangeRate={exchangeRate}
-            onNumberOfNewPagesChange={setters.setNumberOfNewPages}
+            onAccountsTargetChange={setters.setAccountsTarget}
+            onDecisionMakersChange={setters.setDecisionMakersPerAccount}
             onWriterHoursPerPageChange={setters.setWriterHoursPerPage}
             onWriterHourlyRateChange={setters.setWriterHourlyRate}
           />
         </div>
-        <SimpleSavingsDisplay
+        <SimpleAbmSavingsDisplay
           savingsPerPage={calculations.savingsPerPage}
           totalSavings={calculations.totalSavings}
+          totalPages={calculations.pages}
           currency={currency}
         />
       </div>

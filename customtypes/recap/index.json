@@ -345,6 +345,35 @@
           "label": "Cost per page (USD)",
           "placeholder": ""
         }
+      },
+      "roi_cta_title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "CTA Title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "heading3"
+        }
+      },
+      "roi_cta_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "CTA Text",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong"
+        }
+      },
+      "roi_cta_link": {
+        "type": "Link",
+        "config": {
+          "label": "CTA Link",
+          "placeholder": "",
+          "select": null,
+          "allowTargetBlank": true,
+          "allowText": true,
+          "repeat": false
+        }
       }
     },
     "Next Steps": {

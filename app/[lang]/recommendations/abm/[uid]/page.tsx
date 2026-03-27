@@ -97,7 +97,8 @@ export default async function AbmRecap({
     abm_pages: { id: "pages", label: "ABM Pages" },
     next_steps: { id: "next-steps", label: "Next Steps" },
     contact: { id: "contact", label: "Contact" },
-    embed_section: { id: "embed", label: "Video" }
+    embed_section: { id: "embed", label: "Video" },
+    abm_roi_calculator: { id: "roi-calculator", label: "ROI"}
   };
 
   const dynamicNavLinks = data.slices

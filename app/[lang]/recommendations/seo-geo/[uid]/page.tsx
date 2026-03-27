@@ -9,6 +9,9 @@ import { components } from "@/slices";
 import Header, { NavLink } from "@/components/Recommendations/Header";
 import { TopAnimation } from "@/components/Animations/TopAnimation";
 import { BottomAnimation } from "@/components/Animations/BottomAnimation";
+import { AbmRoiCalculator } from "@/tools/roi/components/AbmRoiCalculator";
+import { SimpleAbmRoiCalculator } from "@/tools/roi/components/SimpleAbmRoiCalculator";
+import Container from "@/components/Container";
 
 type Params = { lang: string; uid: string };
 

@@ -37,18 +37,33 @@ export function DefaultRoiCalculator({ className, cardHeading, cardSubheading, i
         <div className="flex flex-row justify-between items-start">
           <div className="max-w-xs flex flex-col gap-2">
             {isFilled.richText(cardHeading) ? (
-              <div className="text-[#151515] text-2xl-tight lg:text-3xl-tight 2xl:text-4xl font-medium mt-1 wrap-balance">
-                <PrismicRichText field={cardHeading} />
-              </div>
+              <PrismicRichText 
+                field={cardHeading}
+                components={{
+                  heading3: ({ children }) => (
+                    <h3 className="text-[#151515] text-2xl-tight lg:text-3xl-tight font-medium mt-1 wrap-balance">
+                      {children}
+                    </h3>
+                  ),
+                }}
+              />
             ) : (
-              <h3 className="text-[#151515] text-2xl-tight lg:text-3xl-tight 2xl:text-4xl font-medium mt-1 wrap-balance">
+              <h3 className="text-[#151515] text-2xl-tight lg:text-3xl-tight font-medium mt-1 wrap-balance">
                 For website content
               </h3>
             )}
+            
             {isFilled.richText(cardSubheading) ? (
-              <div className="mt-2 max-w-lg text-[#505050]">
-                <PrismicRichText field={cardSubheading} />
-              </div>
+              <PrismicRichText 
+                field={cardSubheading}
+                components={{
+                  paragraph: ({ children }) => (
+                    <p className="mt-2 max-w-lg text-[#505050]">
+                      {children}
+                    </p>
+                  ),
+                }}
+              />
             ) : (
               <p className="mt-2 max-w-lg text-[#505050]">
                 Insert your estimation for new pages for your growth period.

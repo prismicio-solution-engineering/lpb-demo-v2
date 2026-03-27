@@ -24,6 +24,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "abm_roi_calculator": {
+              "type": "SharedSlice"
+            },
             "embed_section": {
               "type": "SharedSlice"
             },

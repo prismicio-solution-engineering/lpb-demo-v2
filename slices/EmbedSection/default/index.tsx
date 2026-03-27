@@ -1,3 +1,5 @@
+"use client";
+
 import { FC } from "react";
 import { Content, isFilled } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";

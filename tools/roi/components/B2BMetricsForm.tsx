@@ -84,7 +84,7 @@ export function B2BMetricsForm({
         <div className="flex flex-col gap-3">
           <Label
             htmlFor="b2b-baseline-organic-traffic"
-            className="flex-1 !mb-0 flex items-center gap-2"
+            className="flex-1 !mb-0 flex items-center gap-2 font-semibold"
           >
             Organic traffic: average views per page
             <Tooltip>
@@ -119,7 +119,7 @@ export function B2BMetricsForm({
         <div className="flex flex-col gap-3">
           <Label
             htmlFor="b2b-projected-additional-traffic-per-page"
-            className="flex-1 !mb-0 flex items-center gap-2"
+            className="flex-1 !mb-0 flex items-center gap-2 font-semibold"
           >
             Projected traffic: above average views
             <Tooltip>
@@ -142,7 +142,7 @@ export function B2BMetricsForm({
         <div className="flex flex-col gap-3">
           <Label
             htmlFor="b2b-website-conversion-rate"
-            className="flex-1 !mb-0 flex items-center gap-2"
+            className="flex-1 !mb-0 flex items-center gap-2 font-semibold"
           >
             Average web-conversion rate
             <Tooltip>
@@ -165,7 +165,7 @@ export function B2BMetricsForm({
         <div className="flex flex-col gap-3">
           <Label
             htmlFor="lead-to-sql-rate"
-            className="flex-1 !mb-0 flex items-center gap-2"
+            className="flex-1 !mb-0 flex items-center gap-2 font-semibold"
           >
             Lead-to-SQL rate
             <Tooltip>
@@ -186,7 +186,7 @@ export function B2BMetricsForm({
         <div className="flex flex-col gap-3">
           <Label
             htmlFor="b2b-estimated-sql-per-month"
-            className="flex-1 !mb-0 flex items-center gap-2"
+            className="flex-1 !mb-0 flex items-center gap-2 font-semibold"
           >
             SQL-to-Conversion rate
             <Tooltip>
@@ -205,7 +205,7 @@ export function B2BMetricsForm({
           />
         </div>
         <div className="flex flex-col gap-3">
-          <Label htmlFor="acv" className="flex-1 !mb-0 flex items-center gap-2">
+          <Label htmlFor="acv" className="flex-1 !mb-0 flex items-center gap-2 font-semibold">
             ACV
             <Tooltip>
               <TooltipTrigger>

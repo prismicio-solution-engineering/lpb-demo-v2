@@ -1,9 +1,9 @@
 "use client";
 
 import { useCallback, useMemo } from "react";
-import { Input } from "@/components/ui/Input";
 import { Label } from "@/components/ui/Label";
 import { Slider } from "@/components/ui/Slider";
+import { Input } from "@/components/ui/Input";
 import { useNumberInput } from "../hooks/useNumberInput";
 import { formatCurrency, convertAndRoundCurrency } from "../utils/format";
 import {
@@ -13,37 +13,41 @@ import {
 } from "@/components/ui/Tooltip";
 import { InfoIcon } from "lucide-react";
 
-interface ContentProductionFormProps {
-  numberOfNewPages: number;
+interface SimpleAbmRoiFormProps {
+  accountsTarget: number;
+  decisionMakersPerAccount: number;
   writerHoursPerPage: number;
   writerHourlyRate: number;
-  estimatedTimeSavings: number;
   currency: string;
   exchangeRate: number;
-  onNumberOfNewPagesChange: (value: number) => void;
+  onAccountsTargetChange: (value: number) => void;
+  onDecisionMakersChange: (value: number) => void;
   onWriterHoursPerPageChange: (value: number) => void;
   onWriterHourlyRateChange: (value: number) => void;
-  onEstimatedTimeSavingsChange: (value: number) => void;
 }
 
 const WRITER_HOURLY_RATE_MIN_USD = 30;
 const WRITER_HOURLY_RATE_MAX_USD = 200;
 
-export function ContentProductionForm({
-  numberOfNewPages,
+export function SimpleAbmRoiForm({
+  accountsTarget,
+  decisionMakersPerAccount,
   writerHoursPerPage,
   writerHourlyRate,
-  estimatedTimeSavings,
   currency,
   exchangeRate,
-  onNumberOfNewPagesChange,
+  onAccountsTargetChange,
+  onDecisionMakersChange,
   onWriterHoursPerPageChange,
-  onWriterHourlyRateChange,
-  onEstimatedTimeSavingsChange
-}: ContentProductionFormProps) {
-  const [numberOfNewPagesInput, handleNumberOfNewPagesChange] = useNumberInput(
-    numberOfNewPages,
-    onNumberOfNewPagesChange
+  onWriterHourlyRateChange
+}: SimpleAbmRoiFormProps) {
+  const [accountsInput, handleAccountsChange] = useNumberInput(
+    accountsTarget,
+    onAccountsTargetChange
+  );
+  const [dmInput, handleDmChange] = useNumberInput(
+    decisionMakersPerAccount,
+    onDecisionMakersChange
   );
 
   const formatCurrencyValue = useCallback(
@@ -63,97 +67,105 @@ export function ContentProductionForm({
 
   return (
     <div>
-      <div className="flex flex-col gap-4 mt-12">
+      <div className="flex flex-col gap-4 mt-6">
         <div className="flex flex-col gap-3">
           <Label
-            htmlFor="number-of-new-pages"
-            className="flex-1 !mb-0 flex items-center gap-2 font-semibold"
+            htmlFor="simple-abm-dm"
+            className="flex-1 !mb-0 flex items-center gap-2 font-medium"
           >
-            Estimated volume in pages
+            Number of decision makers
             <Tooltip>
               <TooltipTrigger>
                 <InfoIcon className="w-4 h-4" />
               </TooltipTrigger>
               <TooltipContent>
-                <p>We assume that you have an overall cost associated per page produced. The main cost we focus on is the actual production of the content. You simply add how many new pages you think you will launch.</p>
+                Most of the time you are dealing with more than one decision maker. Since each might have different metrics to look out for, we recommend one page version per decision maker.
               </TooltipContent>
             </Tooltip>
           </Label>
           <Input
             type="number"
             min={1}
-            placeholder="Enter number of new pages"
-            id="number-of-new-pages"
-            value={numberOfNewPagesInput}
-            onChange={(e) => handleNumberOfNewPagesChange(e.target.value)}
+            id="simple-abm-dm"
+            value={dmInput}
+            onChange={(e) => handleDmChange(e.target.value)}
           />
         </div>
-        <div className="flex flex-col gap-2 bg-gray-f7 rounded-lg py-4">
+        <div className="flex flex-col gap-3">
+          <Label
+            htmlFor="simple-abm-accounts"
+            className="flex-1 !mb-0 flex items-center gap-2 font-medium"
+          >
+            Number of accounts
+            <Tooltip>
+              <TooltipTrigger>
+                <InfoIcon className="w-4 h-4" />
+              </TooltipTrigger>
+              <TooltipContent>
+                Please insert the total number of accounts you are planning to reach. In case you do not have the same amount of decision makers per account, you can use 1 account only and sum up the total of decision makers.
+              </TooltipContent>
+            </Tooltip>
+          </Label>
+          <Input
+            type="number"
+            min={1}
+            id="simple-abm-accounts"
+            value={accountsInput}
+            onChange={(e) => handleAccountsChange(e.target.value)}
+          />
+        </div>
+        <div className="flex flex-col gap-2 bg-gray-F7 rounded-lg py-4">
           <div className="flex flex-col gap-3 px-4">
-            <Label
-              htmlFor="number-of-new-pages"
-              className="flex-1 !mb-0 flex items-center gap-2 font-semibold"
-            >
+            <Label className="flex-1 !mb-0 flex items-center gap-2 font-medium">
               Total hours spent per page
               <Tooltip>
                 <TooltipTrigger>
                   <InfoIcon className="w-4 h-4" />
                 </TooltipTrigger>
                 <TooltipContent>
-                  This can include SEO research, competitor research and the actual writing of the content. It should be the total number of hours spent by your writer to have the approved version ready for publication.
+                  This should be the total number of hours spent by your writer or sales person to have the approved version ready for publication, including account based research and data compilation.
                 </TooltipContent>
               </Tooltip>
             </Label>
             <Slider
-              id="writer-hours-per-page"
               min={2.5}
               max={10}
               value={[writerHoursPerPage]}
               onValueChange={(values) => onWriterHoursPerPageChange(values[0])}
               theme="light"
               background={false}
-              numberWidth="w-10"
+              numberWidth="w-12"
               numberSuffix="h"
-              trackBg="bg-gray-ee"
+              trackBg="bg-quaternary-purple"
               rangeBg="bg-gradient-to-r from-tertiary-purple to-primary-purple"
               step={0.5}
             />
           </div>
-          <div className="flex flex-col gap-3 mt-2 pt-4 border-t border-gray-ee px-4">
-            <Label
-              htmlFor="writer-hourly-rate"
-              className="flex-1 !mb-0 flex items-center gap-2 font-semibold"
-            >
-              Hourly cost for the researcher or writer
+          <div className="flex flex-col gap-3 mt-2 pt-4 border-t border-gray-EE px-4">
+            <Label className="flex-1 !mb-0 flex items-center gap-2 font-medium">
+              Hourly cost for the writer
               <Tooltip>
                 <TooltipTrigger>
                   <InfoIcon className="w-4 h-4" />
                 </TooltipTrigger>
-                <TooltipContent>This can include SEO research, competitor research and the actual writing of the content. It should be the total number of hours spent by your writer to have the approved version ready for publication.</TooltipContent>
+                <TooltipContent>
+                  If you have more than one person contributing use the sum of the hourly fees of all of them. Otherwise simply put the hourly fee of the copywriter.
+                </TooltipContent>
               </Tooltip>
             </Label>
             <Slider
-              id="writer-hourly-rate"
               min={writerHourlyRateMin}
               max={writerHourlyRateMax}
               value={[writerHourlyRate]}
               onValueChange={(values) => onWriterHourlyRateChange(values[0])}
               theme="light"
               background={false}
-              numberWidth="w-10"
+              numberWidth="w-12"
               formatValue={formatCurrencyValue}
               step={5}
               rangeBg="bg-gradient-to-r from-tertiary-purple to-primary-purple"
-              trackBg="bg-gray-ee"
+              trackBg="bg-quaternary-purple"
             />
-          </div>
-          <div className="flex justify-between items-center gap-2 mt-2 pt-4 border-t border-gray-ee px-4">
-            <span className="font-semibold leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-              Total per page:
-            </span>
-            <span className="block leading-none font-medium h-4">
-              {formatCurrency(writerHourlyRate * writerHoursPerPage, currency)}
-            </span>
           </div>
         </div>
       </div>

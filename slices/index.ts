@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 
 export const components = {
   abm_pages: dynamic(() => import("./AbmPages")),
+  abm_roi_calculator: dynamic(() => import("./AbmRoiCalculator")),
   banner: dynamic(() => import("./Banner")),
   benefits: dynamic(() => import("./Benefits")),
   carousel: dynamic(() => import("./Carousel")),

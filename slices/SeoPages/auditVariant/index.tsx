@@ -11,7 +11,7 @@ import AiLogo from "@/assets/AI/prismic-ai.svg";
 
 // Helpers Audit
 function getSafeMentionRate(value: number) { return Math.max(0, Math.min(100, Math.round(value))); }
-function getSafeAveragePosition(value: number) { return Math.max(1, Math.min(100, value)).toFixed(2); }
+function getSafeAveragePosition(value: number) { return value.toFixed(2); }
 function getSafeRankPosition(value: number) { return Math.max(1, Math.min(999, Math.round(value))); }
 
 const colorClasses = { good: "text-[#3BBB96]", average: "text-[#ED6B22]", poor: "text-[#F97289]" };

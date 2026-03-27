@@ -73,7 +73,7 @@ export function B2CMetricsForm({
         <div className="flex flex-col gap-3">
           <Label
             htmlFor="b2c-baseline-organic-traffic"
-            className="flex-1 !mb-0 flex items-center gap-2"
+            className="flex-1 !mb-0 flex items-center gap-2 font-semibold"
           >
             Organic traffic: average views per page
             <Tooltip>
@@ -108,7 +108,7 @@ export function B2CMetricsForm({
         <div className="flex flex-col gap-3">
           <Label
             htmlFor="b2c-projected-additional-traffic-per-page"
-            className="flex-1 !mb-0 flex items-center gap-2"
+            className="flex-1 !mb-0 flex items-center gap-2 font-semibold"
           >
             Projected traffic: above average views
             <Tooltip>
@@ -131,7 +131,7 @@ export function B2CMetricsForm({
         <div className="flex flex-col gap-3">
           <Label
             htmlFor="b2c-website-conversion-rate"
-            className="flex-1 !mb-0 flex items-center gap-2"
+            className="flex-1 !mb-0 flex items-center gap-2 font-semibold"
           >
             Average web-conversion rate
             <Tooltip>
@@ -154,7 +154,7 @@ export function B2CMetricsForm({
         <div className="flex flex-col gap-3">
           <Label
             htmlFor="average-basket"
-            className="flex-1 !mb-0 flex items-center gap-2"
+            className="flex-1 !mb-0 flex items-center gap-2 font-semibold"
           >
             Average client purchase value
             <Tooltip>

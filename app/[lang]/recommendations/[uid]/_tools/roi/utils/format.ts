@@ -9,6 +9,26 @@
  * @param options - Optional Intl.NumberFormat options
  * @returns Formatted currency string (e.g., "$1,000" or "€1,000")
  */
+const currencyLocaleMap: Record<string, string> = {
+  USD: "en-US",
+  EUR: "de-DE"
+};
+
+function currencyLocale(currency: string): string {
+  return currencyLocaleMap[currency] || "en-US";
+}
+
+/**
+ * Narrow symbol for inline input adornments (matches {@link formatCurrency} locales).
+ */
+export function getCurrencySymbol(currency: string = "USD"): string {
+  const parts = new Intl.NumberFormat(currencyLocale(currency), {
+    style: "currency",
+    currency
+  }).formatToParts(0);
+  return parts.find((p) => p.type === "currency")?.value ?? currency;
+}
+
 export function formatCurrency(
   value: number,
   currency: string = "USD",
@@ -17,13 +37,7 @@ export function formatCurrency(
     maximumFractionDigits?: number;
   }
 ): string {
-  // Determine locale based on currency for better formatting
-  const localeMap: Record<string, string> = {
-    USD: "en-US",
-    EUR: "de-DE"
-  };
-
-  const locale = localeMap[currency] || "en-US";
+  const locale = currencyLocale(currency);
 
   return value.toLocaleString(locale, {
     style: "currency",

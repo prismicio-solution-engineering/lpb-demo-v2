@@ -131,6 +131,7 @@ export type _404Document<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<_404DocumentData>, "404", Lang>;
 
 type AbmRecapDocumentDataSlicesSlice =
+  | AbmRoiCalculatorSlice
   | EmbedSectionSlice
   | AbmPagesSlice
   | OpportunitiesSlice
@@ -1521,7 +1522,46 @@ interface RecapDocumentData {
    * - **Tab**: Roi Calculator
    * - **Documentation**: https://prismic.io/docs/fields/number
    */
-  roi_cost_per_page: prismic.NumberField; /**
+  roi_cost_per_page: prismic.NumberField;
+
+  /**
+   * CTA Title field in *Recap*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.roi_cta_title
+   * - **Tab**: Roi Calculator
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  roi_cta_title: prismic.RichTextField;
+
+  /**
+   * CTA Text field in *Recap*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.roi_cta_text
+   * - **Tab**: Roi Calculator
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  roi_cta_text: prismic.RichTextField;
+
+  /**
+   * CTA Link field in *Recap*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recap.roi_cta_link
+   * - **Tab**: Roi Calculator
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  roi_cta_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >; /**
    * Eyebrow field in *Recap*
    *
    * - **Field Type**: Text
@@ -1931,6 +1971,179 @@ type AbmPagesSliceVariation = AbmPagesSliceDefault;
 export type AbmPagesSlice = prismic.SharedSlice<
   "abm_pages",
   AbmPagesSliceVariation
+>;
+
+/**
+ * Primary content in *AbmRoiCalculator → Simple Calculator → Primary*
+ */
+export interface AbmRoiCalculatorSliceSimpleCalculatorPrimary {
+  /**
+   * Title field in *AbmRoiCalculator → Simple Calculator → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: abm_roi_calculator.simpleCalculator.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Text field in *AbmRoiCalculator → Simple Calculator → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: abm_roi_calculator.simpleCalculator.primary.text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Card Title field in *AbmRoiCalculator → Simple Calculator → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: abm_roi_calculator.simpleCalculator.primary.card_title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  card_title: prismic.RichTextField;
+
+  /**
+   * Card Text field in *AbmRoiCalculator → Simple Calculator → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: abm_roi_calculator.simpleCalculator.primary.card_text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  card_text: prismic.RichTextField;
+}
+
+/**
+ * Simple Calculator variation for AbmRoiCalculator Slice
+ *
+ * - **API ID**: `simpleCalculator`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type AbmRoiCalculatorSliceSimpleCalculator =
+  prismic.SharedSliceVariation<
+    "simpleCalculator",
+    Simplify<AbmRoiCalculatorSliceSimpleCalculatorPrimary>,
+    never
+  >;
+
+/**
+ * Primary content in *AbmRoiCalculator → Complex Calculator → Primary*
+ */
+export interface AbmRoiCalculatorSliceComplexCalculatorPrimary {
+  /**
+   * Title field in *AbmRoiCalculator → Complex Calculator → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: abm_roi_calculator.complexCalculator.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Text field in *AbmRoiCalculator → Complex Calculator → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: abm_roi_calculator.complexCalculator.primary.text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Card Title field in *AbmRoiCalculator → Complex Calculator → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: abm_roi_calculator.complexCalculator.primary.card_title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  card_title: prismic.RichTextField;
+
+  /**
+   * Card Text field in *AbmRoiCalculator → Complex Calculator → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: abm_roi_calculator.complexCalculator.primary.card_text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  card_text: prismic.RichTextField;
+
+  /**
+   * CTA Title field in *AbmRoiCalculator → Complex Calculator → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: abm_roi_calculator.complexCalculator.primary.cta_title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  cta_title: prismic.RichTextField;
+
+  /**
+   * CTA Text field in *AbmRoiCalculator → Complex Calculator → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: abm_roi_calculator.complexCalculator.primary.cta_text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  cta_text: prismic.RichTextField;
+
+  /**
+   * CTA Link field in *AbmRoiCalculator → Complex Calculator → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: abm_roi_calculator.complexCalculator.primary.cta_link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  cta_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Complex Calculator variation for AbmRoiCalculator Slice
+ *
+ * - **API ID**: `complexCalculator`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type AbmRoiCalculatorSliceComplexCalculator =
+  prismic.SharedSliceVariation<
+    "complexCalculator",
+    Simplify<AbmRoiCalculatorSliceComplexCalculatorPrimary>,
+    never
+  >;
+
+/**
+ * Slice variation for *AbmRoiCalculator*
+ */
+type AbmRoiCalculatorSliceVariation =
+  | AbmRoiCalculatorSliceSimpleCalculator
+  | AbmRoiCalculatorSliceComplexCalculator;
+
+/**
+ * AbmRoiCalculator Shared Slice
+ *
+ * - **API ID**: `abm_roi_calculator`
+ * - **Description**: AbmRoiCalculator
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type AbmRoiCalculatorSlice = prismic.SharedSlice<
+  "abm_roi_calculator",
+  AbmRoiCalculatorSliceVariation
 >;
 
 /**
@@ -5642,6 +5855,12 @@ declare module "@prismicio/client" {
       AbmPagesSliceDefaultPrimary,
       AbmPagesSliceVariation,
       AbmPagesSliceDefault,
+      AbmRoiCalculatorSlice,
+      AbmRoiCalculatorSliceSimpleCalculatorPrimary,
+      AbmRoiCalculatorSliceComplexCalculatorPrimary,
+      AbmRoiCalculatorSliceVariation,
+      AbmRoiCalculatorSliceSimpleCalculator,
+      AbmRoiCalculatorSliceComplexCalculator,
       BannerSlice,
       BannerSliceDefaultPrimary,
       BannerSliceVariation1Primary,

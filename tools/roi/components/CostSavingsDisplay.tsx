@@ -158,14 +158,19 @@ export function CostSavingsDisplay({
             </RadialBarChart>
           </ChartContainer>
         </div>
-        <div className="flex flex-col gap-0 justify-center items-center -mt-[100px] md:-mt-[80px] lg:-mt-[100px]">
-          <div className="font-bold text-base md:text-sm lg:text-base">
+        <div 
+          className="flex flex-col gap-0 justify-center items-center relative z-10"
+          style={{
+            marginTop: -(chartContainerWidth * 0.25) 
+          }}
+        >
+          <div className="font-semibold text-base md:text-sm lg:text-base">
             Total savings
           </div>
           <div className="text-4xl sm:text-5xl md:text-3xl lg:text-6xl tracking-tighter font-black text-primary-green">
             {animatedSavings}
           </div>
-          <div className="font-bold text-base md:text-sm lg:text-base pt-2 mt-2 border-t border-primary-green border-dashed">
+          <div className="font-semibold text-base md:text-sm lg:text-base pt-2 mt-2 border-t border-primary-green border-dashed">
             Per page
           </div>
           <div className="text-primary-green font-black text-2xl">{animatedSavingsPerPage}</div>

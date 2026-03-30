@@ -12,7 +12,7 @@ import AiLogo from "@/assets/AI/prismic-ai.svg";
 // Helpers Audit
 function getSafeMentionRate(value: number) { return Math.max(0, Math.min(100, Math.round(value))); }
 function getSafeAveragePosition(value: number) { return value.toFixed(2); }
-function getSafeRankPosition(value: number) { return Math.max(1, Math.min(999, Math.round(value))); }
+function getSafeRankPosition(value: number) { return value === 0 ? "N/A" : Math.max(1, Math.min(999, Math.round(value))); }
 
 const colorClasses = { good: "text-[#3BBB96]", average: "text-[#ED6B22]", poor: "text-[#F97289]" };
 function getColorClass(value: number) {
@@ -130,7 +130,7 @@ const SeoPagesAuditVariant: FC<SeoPagesAuditProps> = ({ slice }) => {
                                     {/* Header Item */}
                                     <div className="w-full flex flex-col items-start min-w-0">
                                     {isFilled.keyText(item.eyebrow) && <span className="w-full text-sm text-left font-semibold text-[#A4A4A4] uppercase truncate">{item.eyebrow}</span>}
-                                    <h3 className="text-xl font-bold text-left text-[#FFFFFF] line-clamp-2">{item.topic}</h3>
+                                    <h3 className="text-xl font-bold text-left text-[#FFFFFF] line-clamp-4">{item.topic}</h3>
                                     </div>
             
                                     {/* Metrics */}

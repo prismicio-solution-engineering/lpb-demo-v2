@@ -178,7 +178,10 @@ export default function Data({ data }: { data: RecapDocumentData }) {
                                 return "#";
                               }
 
-                              const url = new URL(baseHref, window.location.origin);
+                              const isAbsoluteUrl = /^[a-zA-Z][a-zA-Z\d+\-.]*:/.test(baseHref);
+                              const url = isAbsoluteUrl
+                                ? new URL(baseHref)
+                                : new URL(baseHref, "https://placeholder.local");
 
                               if (data.agent === "ABM") {
                                 if (item.company) {
@@ -208,7 +211,9 @@ export default function Data({ data }: { data: RecapDocumentData }) {
                                 }
                               }
 
-                              return `${url.pathname}${url.search}${url.hash}`;
+                              return isAbsoluteUrl
+                                ? url.toString()
+                                : `${url.pathname}${url.search}${url.hash}`;
                             })()}
                             target="blank"
                             className="inline-flex justify-center items-center w-full text-[#151515] px-6 py-3 rounded-lg bg-[#E8C7FF] font-medium hover:bg-[#d9a5ff] transition-colors"

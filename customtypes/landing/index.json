@@ -15,15 +15,6 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "benefits": {
-              "type": "SharedSlice"
-            },
-            "banner": {
-              "type": "SharedSlice"
-            },
-            "product_selection": {
-              "type": "SharedSlice"
-            },
             "featured_articles": {
               "type": "SharedSlice"
             },

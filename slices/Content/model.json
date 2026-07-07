@@ -90,8 +90,8 @@
           "config": {
             "label": "Image",
             "constraint": {
-              "width": null,
-              "height": null
+              "width": 1000,
+              "height": 1000
             },
             "thumbnails": []
           }
@@ -164,8 +164,8 @@
                 "config": {
                   "label": "Image",
                   "constraint": {
-                    "width": null,
-                    "height": null
+                    "width": 1000,
+                    "height": 1000
                   },
                   "thumbnails": []
                 }

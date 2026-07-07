@@ -9,6 +9,10 @@
       "path": "/404"
     },
     {
+      "type": "abm_recap",
+      "path": "/abm-recap/:uid"
+    },
+    {
       "type": "article",
       "path": "/article/:uid"
     },
@@ -27,6 +31,10 @@
     {
       "type": "recap",
       "path": "/recap/:uid"
+    },
+    {
+      "type": "seo_geo_recap",
+      "path": "/seo-geo-recap/:uid"
     }
   ]
 }

@@ -1,0 +1,57 @@
+{
+  "id": "contact",
+  "type": "SharedSlice",
+  "name": "Contact",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/contact/default/9858272fbe6d094fadd2701eaaca2e525ca1482e.png?auto=compress%2Cformat",
+      "docURL": "...",
+      "version": "initial",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "multi": "heading2",
+            "allowTargetBlank": true
+          }
+        },
+        "text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "",
+            "multi": "paragraph,strong",
+            "allowTargetBlank": true
+          }
+        },
+        "contact": {
+          "type": "Link",
+          "config": {
+            "label": "Contact",
+            "select": "document",
+            "customtypes": [
+              {
+                "id": "contact",
+                "fields": [
+                  "image",
+                  "name",
+                  "position",
+                  "email",
+                  "calendar"
+                ]
+              }
+            ],
+            "repeat": false
+          }
+        }
+      },
+      "items": {}
+    }
+  ],
+  "description": "Contact"
+}

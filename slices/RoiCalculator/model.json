@@ -1,0 +1,116 @@
+{
+  "id": "roi_calculator",
+  "type": "SharedSlice",
+  "name": "RoiCalculator",
+  "variations": [
+    {
+      "id": "simpleCalculator",
+      "name": "Simple Calculator",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/roi_calculator/simpleCalculator/7820135f84dc7201194d54eb274beb8e73f7e357.png?auto=compress%2Cformat",
+      "docURL": "...",
+      "version": "initial",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "multi": "heading2",
+            "allowTargetBlank": true
+          }
+        },
+        "text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "",
+            "multi": "paragraph,strong",
+            "allowTargetBlank": true
+          }
+        },
+        "card_title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Card Title",
+            "placeholder": "",
+            "multi": "heading3",
+            "allowTargetBlank": true
+          }
+        },
+        "card_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Card Text",
+            "placeholder": "",
+            "multi": "paragraph,strong",
+            "allowTargetBlank": true
+          }
+        },
+        "cost_per_page": {
+          "type": "Number",
+          "config": {
+            "label": "Cost per page (USD)",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "complexCalculator",
+      "name": "Complex Calculator",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/roi_calculator/complexCalculator/ad4d7cb61287eecd8e4889c1186dbe493a2780ca.png?auto=compress%2Cformat",
+      "docURL": "...",
+      "version": "initial",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "multi": "heading2",
+            "allowTargetBlank": true
+          }
+        },
+        "text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "",
+            "multi": "paragraph,strong",
+            "allowTargetBlank": true
+          }
+        },
+        "card_title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Card Title",
+            "placeholder": "",
+            "multi": "heading3",
+            "allowTargetBlank": true
+          }
+        },
+        "card_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Card Text",
+            "placeholder": "",
+            "multi": "paragraph,strong",
+            "allowTargetBlank": true
+          }
+        },
+        "cost_per_page": {
+          "type": "Number",
+          "config": {
+            "label": "Cost per page (USD)",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ],
+  "description": "RoiCalculator"
+}

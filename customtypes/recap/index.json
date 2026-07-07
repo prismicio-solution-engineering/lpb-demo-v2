@@ -17,6 +17,18 @@
           "placeholder": ""
         }
       },
+      "agent": {
+        "type": "Select",
+        "config": {
+          "label": "Agent",
+          "placeholder": "",
+          "default_value": "ABM",
+          "options": [
+            "ABM",
+            "SEO-GEO"
+          ]
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
@@ -26,6 +38,17 @@
       }
     },
     "Header": {
+      "header_button_icon": {
+        "type": "Select",
+        "config": {
+          "label": "Button Icon",
+          "placeholder": "",
+          "options": [
+            "calendar",
+            "quote"
+          ]
+        }
+      },
       "header_button": {
         "type": "Link",
         "config": {
@@ -275,6 +298,98 @@
         }
       }
     },
+    "Roi Calculator": {
+      "roi_calculator": {
+        "type": "Boolean",
+        "config": {
+          "label": "Calculator",
+          "default_value": false,
+          "placeholder_true": "show",
+          "placeholder_false": "hide"
+        }
+      },
+      "roi_title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Title",
+          "placeholder": "",
+          "multi": "heading2",
+          "allowTargetBlank": true
+        }
+      },
+      "roi_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Text",
+          "placeholder": "",
+          "multi": "paragraph,strong,em",
+          "allowTargetBlank": true
+        }
+      },
+      "roi_simple_calculator": {
+        "type": "Boolean",
+        "config": {
+          "label": "Simple Calculator",
+          "default_value": true,
+          "placeholder_true": "true",
+          "placeholder_false": "false"
+        }
+      },
+      "roi_card_title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Card Title",
+          "placeholder": "",
+          "multi": "heading3",
+          "allowTargetBlank": true
+        }
+      },
+      "roi_card_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Card Text",
+          "placeholder": "",
+          "multi": "paragraph,em,strong,hyperlink",
+          "allowTargetBlank": true
+        }
+      },
+      "roi_cost_per_page": {
+        "type": "Number",
+        "config": {
+          "label": "Cost per page (USD)",
+          "placeholder": ""
+        }
+      },
+      "roi_cta_title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "CTA Title",
+          "placeholder": "",
+          "multi": "heading3",
+          "allowTargetBlank": true
+        }
+      },
+      "roi_cta_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "CTA Text",
+          "placeholder": "",
+          "multi": "paragraph,strong",
+          "allowTargetBlank": true
+        }
+      },
+      "roi_cta_link": {
+        "type": "Link",
+        "config": {
+          "label": "CTA Link",
+          "placeholder": "",
+          "select": null,
+          "allowTargetBlank": true,
+          "allowText": true,
+          "repeat": false
+        }
+      }
+    },
     "Next Steps": {
       "next_eyebrow": {
         "type": "Text",
@@ -357,6 +472,26 @@
             "Filled",
             "Outlined"
           ]
+        }
+      }
+    },
+    "Contact": {
+      "contact_title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Title",
+          "placeholder": "",
+          "multi": "heading2",
+          "allowTargetBlank": true
+        }
+      },
+      "contact_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Text",
+          "placeholder": "",
+          "multi": "paragraph,strong,em",
+          "allowTargetBlank": true
         }
       }
     },

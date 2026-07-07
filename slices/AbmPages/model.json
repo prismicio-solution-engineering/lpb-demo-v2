@@ -1,0 +1,78 @@
+{
+  "id": "abm_pages",
+  "type": "SharedSlice",
+  "name": "AbmPages",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/abm_pages/default/e3402d2785f8654633e757979976d0d9e886e10a.png?auto=compress%2Cformat",
+      "docURL": "...",
+      "version": "initial",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "multi": "heading2",
+            "allowTargetBlank": true
+          }
+        },
+        "text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "",
+            "multi": "paragraph,strong",
+            "allowTargetBlank": true
+          }
+        },
+        "generated_page": {
+          "type": "Group",
+          "config": {
+            "label": "Generated Page",
+            "repeat": true,
+            "fields": {
+              "company": {
+                "type": "Text",
+                "config": {
+                  "label": "Company",
+                  "placeholder": ""
+                }
+              },
+              "role": {
+                "type": "Text",
+                "config": {
+                  "label": "Role",
+                  "placeholder": ""
+                }
+              },
+              "personalization_instructions": {
+                "type": "Text",
+                "config": {
+                  "label": "Personalization Instructions",
+                  "placeholder": ""
+                }
+              },
+              "page_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Page Link",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": false
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ],
+  "description": "AbmPages"
+}

@@ -1,0 +1,92 @@
+{
+  "id": "understanding",
+  "type": "SharedSlice",
+  "name": "Understanding",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/understanding/default/a98ee9cd8814621faf29b43df93ae7b1b6f943bc.png?auto=compress%2Cformat",
+      "docURL": "...",
+      "version": "initial",
+      "primary": {
+        "eyebrow": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Eyebrow",
+            "placeholder": "",
+            "multi": "paragraph",
+            "allowTargetBlank": true
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "multi": "heading2",
+            "allowTargetBlank": true
+          }
+        },
+        "text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "",
+            "multi": "paragraph,strong,em",
+            "allowTargetBlank": true
+          }
+        },
+        "key_problem": {
+          "type": "Group",
+          "config": {
+            "label": "Key problem",
+            "repeat": true,
+            "fields": {
+              "icon": {
+                "type": "Select",
+                "config": {
+                  "label": "Icon",
+                  "placeholder": "",
+                  "default_value": "thunder",
+                  "options": [
+                    "thunder",
+                    "test",
+                    "brand",
+                    "smile",
+                    "checkedCalendar",
+                    "control",
+                    "zoom",
+                    "reuse",
+                    "hammer"
+                  ]
+                }
+              },
+              "title": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Title",
+                  "placeholder": "",
+                  "multi": "heading3",
+                  "allowTargetBlank": true
+                }
+              },
+              "text": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Text",
+                  "placeholder": "",
+                  "multi": "paragraph",
+                  "allowTargetBlank": true
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ],
+  "description": "Understanding"
+}

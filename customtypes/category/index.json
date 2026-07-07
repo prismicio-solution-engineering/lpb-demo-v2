@@ -1,5 +1,7 @@
 {
   "id": "category",
+  "label": "Category",
+  "repeatable": true,
   "json": {
     "Main": {
       "uid": {
@@ -17,8 +19,6 @@
       }
     }
   },
-  "label": "Category",
-  "repeatable": true,
   "status": true,
   "format": "custom"
 }

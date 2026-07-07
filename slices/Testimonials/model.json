@@ -2,23 +2,22 @@
   "id": "testimonials",
   "type": "SharedSlice",
   "name": "Testimonials",
-  "description": "Testimonials",
   "variations": [
     {
       "id": "default",
       "name": "Default",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/testimonials/default/98dee6109b199fa7f559c839b28ac4e3a08ef1ec.png?auto=compress%2Cformat",
       "docURL": "...",
       "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
       "primary": {
         "title": {
           "type": "StructuredText",
           "config": {
             "label": "Title",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading2"
+            "multi": "heading2",
+            "allowTargetBlank": true
           }
         },
         "txt": {
@@ -26,8 +25,8 @@
           "config": {
             "label": "Text",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong"
+            "multi": "paragraph,strong",
+            "allowTargetBlank": true
           }
         },
         "grp": {
@@ -41,11 +40,11 @@
                 "config": {
                   "label": "Rate",
                   "placeholder": "",
+                  "default_value": "5",
                   "options": [
                     "5",
                     "4"
-                  ],
-                  "default_value": "5"
+                  ]
                 }
               },
               "quote": {
@@ -53,8 +52,8 @@
                 "config": {
                   "label": "Quote",
                   "placeholder": "",
-                  "allowTargetBlank": true,
-                  "multi": "paragraph"
+                  "multi": "paragraph",
+                  "allowTargetBlank": true
                 }
               },
               "img": {
@@ -70,8 +69,8 @@
                 "config": {
                   "label": "Author",
                   "placeholder": "",
-                  "allowTargetBlank": true,
-                  "multi": "paragraph"
+                  "multi": "paragraph",
+                  "allowTargetBlank": true
                 }
               },
               "company": {
@@ -79,8 +78,8 @@
                 "config": {
                   "label": "Company",
                   "placeholder": "Position, Company name",
-                  "allowTargetBlank": true,
-                  "multi": "paragraph"
+                  "multi": "paragraph",
+                  "allowTargetBlank": true
                 }
               }
             }
@@ -92,18 +91,18 @@
     {
       "id": "variation1",
       "name": "Variation 1",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/testimonials/variation1/7dc6fafa004952ab511cea74dea867fe83b2a786.png?auto=compress%2Cformat",
       "docURL": "...",
       "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
       "primary": {
         "title": {
           "type": "StructuredText",
           "config": {
             "label": "Title",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading2"
+            "multi": "heading2",
+            "allowTargetBlank": true
           }
         },
         "txt": {
@@ -111,8 +110,8 @@
           "config": {
             "label": "Text",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong"
+            "multi": "paragraph,strong",
+            "allowTargetBlank": true
           }
         },
         "grp": {
@@ -126,11 +125,11 @@
                 "config": {
                   "label": "Rate",
                   "placeholder": "",
+                  "default_value": "5",
                   "options": [
                     "5",
                     "4"
-                  ],
-                  "default_value": "5"
+                  ]
                 }
               },
               "quote": {
@@ -138,8 +137,8 @@
                 "config": {
                   "label": "Quote",
                   "placeholder": "",
-                  "allowTargetBlank": true,
-                  "multi": "paragraph"
+                  "multi": "paragraph",
+                  "allowTargetBlank": true
                 }
               },
               "img": {
@@ -155,8 +154,8 @@
                 "config": {
                   "label": "Author",
                   "placeholder": "",
-                  "allowTargetBlank": true,
-                  "multi": "paragraph"
+                  "multi": "paragraph",
+                  "allowTargetBlank": true
                 }
               },
               "company": {
@@ -164,8 +163,8 @@
                 "config": {
                   "label": "Company",
                   "placeholder": "Position, Company name",
-                  "allowTargetBlank": true,
-                  "multi": "paragraph"
+                  "multi": "paragraph",
+                  "allowTargetBlank": true
                 }
               },
               "logo": {
@@ -185,10 +184,10 @@
     {
       "id": "variation2",
       "name": "Variation 2",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/testimonials/variation2/d3b7cf95a7d1af55bd84e4cdd030b4ac0d385afa.png?auto=compress%2Cformat",
       "docURL": "...",
       "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
       "primary": {
         "grp": {
           "type": "Group",
@@ -209,8 +208,8 @@
                 "config": {
                   "label": "Quote",
                   "placeholder": "",
-                  "allowTargetBlank": true,
-                  "multi": "paragraph"
+                  "multi": "paragraph",
+                  "allowTargetBlank": true
                 }
               },
               "img": {
@@ -226,8 +225,8 @@
                 "config": {
                   "label": "Author",
                   "placeholder": "",
-                  "allowTargetBlank": true,
-                  "multi": "paragraph"
+                  "multi": "paragraph",
+                  "allowTargetBlank": true
                 }
               },
               "company": {
@@ -235,8 +234,8 @@
                 "config": {
                   "label": "Company",
                   "placeholder": "Position, Company name",
-                  "allowTargetBlank": true,
-                  "multi": "paragraph"
+                  "multi": "paragraph",
+                  "allowTargetBlank": true
                 }
               }
             }
@@ -245,5 +244,6 @@
       },
       "items": {}
     }
-  ]
+  ],
+  "description": "Testimonials"
 }

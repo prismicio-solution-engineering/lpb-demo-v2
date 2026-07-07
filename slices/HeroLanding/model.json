@@ -2,23 +2,22 @@
   "id": "hero_landing",
   "type": "SharedSlice",
   "name": "HeroLanding",
-  "description": "HeroLanding",
   "variations": [
     {
       "id": "default",
       "name": "Default",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/hero_landing/default/12e62865175e6b61a9d582343744994af57e6bde.png?auto=compress%2Cformat",
       "docURL": "...",
       "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
       "primary": {
         "title": {
           "type": "StructuredText",
           "config": {
             "label": "Title",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading1"
+            "multi": "heading1",
+            "allowTargetBlank": true
           }
         },
         "txt": {
@@ -26,8 +25,8 @@
           "config": {
             "label": "Text",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong"
+            "multi": "paragraph,strong",
+            "allowTargetBlank": true
           }
         },
         "btns": {
@@ -59,18 +58,18 @@
     {
       "id": "variation1",
       "name": "Variation 1",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/hero_landing/variation1/8a00c2319bf9fbe2746728fa1beceb6707bc57d0.png?auto=compress%2Cformat",
       "docURL": "...",
       "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
       "primary": {
         "title": {
           "type": "StructuredText",
           "config": {
             "label": "Title",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading1"
+            "multi": "heading1",
+            "allowTargetBlank": true
           }
         },
         "txt": {
@@ -78,8 +77,8 @@
           "config": {
             "label": "Text",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong"
+            "multi": "paragraph,strong",
+            "allowTargetBlank": true
           }
         },
         "btns": {
@@ -110,18 +109,18 @@
     {
       "id": "variation2",
       "name": "Variation 2",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/hero_landing/variation2/123e256de239a30e683bfe7c4f54de5292ff4ab3.png?auto=compress%2Cformat",
       "docURL": "...",
       "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
       "primary": {
         "title": {
           "type": "StructuredText",
           "config": {
             "label": "Title",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading1"
+            "multi": "heading1",
+            "allowTargetBlank": true
           }
         },
         "txt": {
@@ -129,8 +128,8 @@
           "config": {
             "label": "Text",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong"
+            "multi": "paragraph,strong",
+            "allowTargetBlank": true
           }
         },
         "input_placeholder": {
@@ -160,8 +159,8 @@
           "config": {
             "label": "Legals description",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,hyperlink,em,strong"
+            "multi": "paragraph,hyperlink,em,strong",
+            "allowTargetBlank": true
           }
         }
       },
@@ -170,18 +169,18 @@
     {
       "id": "variation3",
       "name": "Variation 3",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/hero_landing/variation3/c42d1daef9bf8e9abbb7d3d25814d0fffab4a349.png?auto=compress%2Cformat",
       "docURL": "...",
       "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
       "primary": {
         "title": {
           "type": "StructuredText",
           "config": {
             "label": "Title",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading1"
+            "multi": "heading1",
+            "allowTargetBlank": true
           }
         },
         "txt": {
@@ -189,8 +188,8 @@
           "config": {
             "label": "Text",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong"
+            "multi": "paragraph,strong",
+            "allowTargetBlank": true
           }
         },
         "btns": {
@@ -222,18 +221,18 @@
     {
       "id": "variation4",
       "name": "Variation 4",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/hero_landing/variation4/85b0d6f9761355e528694e7b801a43066cd8e395.png?auto=compress%2Cformat",
       "docURL": "...",
       "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
       "primary": {
         "title": {
           "type": "StructuredText",
           "config": {
             "label": "Title",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading1"
+            "multi": "heading1",
+            "allowTargetBlank": true
           }
         },
         "txt": {
@@ -241,8 +240,8 @@
           "config": {
             "label": "Text",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong"
+            "multi": "paragraph,strong",
+            "allowTargetBlank": true
           }
         },
         "btns": {
@@ -271,5 +270,6 @@
       },
       "items": {}
     }
-  ]
+  ],
+  "description": "HeroLanding"
 }

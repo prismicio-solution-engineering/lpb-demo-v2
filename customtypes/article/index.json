@@ -1,5 +1,7 @@
 {
   "id": "article",
+  "label": "Article",
+  "repeatable": true,
   "json": {
     "Main": {
       "uid": {
@@ -13,13 +15,15 @@
         "config": {
           "label": "Category",
           "select": "document",
-          "repeat": false,
           "customtypes": [
             {
               "id": "category",
-              "fields": ["name"]
+              "fields": [
+                "name"
+              ]
             }
-          ]
+          ],
+          "repeat": false
         }
       },
       "author": {
@@ -27,13 +31,16 @@
         "config": {
           "label": "Author",
           "select": "document",
-          "repeat": false,
           "customtypes": [
             {
               "id": "author",
-              "fields": ["img", "name"]
+              "fields": [
+                "img",
+                "name"
+              ]
             }
-          ]
+          ],
+          "repeat": false
         }
       },
       "read_time": {
@@ -70,8 +77,8 @@
         "config": {
           "label": "Title",
           "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "heading1"
+          "multi": "heading1",
+          "allowTargetBlank": true
         }
       },
       "desc": {
@@ -79,8 +86,8 @@
         "config": {
           "label": "Description",
           "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "paragraph"
+          "multi": "paragraph",
+          "allowTargetBlank": true
         }
       },
       "slices": {
@@ -93,34 +100,32 @@
     },
     "SEO & Metadata": {
       "meta_title": {
+        "type": "Text",
         "config": {
           "label": "Meta Title",
           "placeholder": "A title of the page used for social media and search engines"
-        },
-        "type": "Text"
+        }
       },
       "meta_description": {
+        "type": "Text",
         "config": {
           "label": "Meta Description",
           "placeholder": "A brief summary of the page"
-        },
-        "type": "Text"
+        }
       },
       "meta_image": {
+        "type": "Image",
         "config": {
-          "constraint": {
-            "height": 1260,
-            "width": 2400
-          },
           "label": "Meta Image",
+          "constraint": {
+            "width": 2400,
+            "height": 1260
+          },
           "thumbnails": []
-        },
-        "type": "Image"
+        }
       }
     }
   },
-  "label": "Article",
-  "repeatable": true,
   "status": true,
   "format": "page"
 }

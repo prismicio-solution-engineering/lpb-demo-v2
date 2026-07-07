@@ -2,23 +2,22 @@
   "id": "product_selection",
   "type": "SharedSlice",
   "name": "ProductSelection",
-  "description": "ProductSelection",
   "variations": [
     {
       "id": "default",
       "name": "Default",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/product_selection/default/b68f5f01d771e058a660f464f0a746c302f926b9.png?auto=compress%2Cformat",
       "docURL": "...",
       "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
       "primary": {
         "title": {
           "type": "StructuredText",
           "config": {
             "label": "Title",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading2"
+            "multi": "heading2",
+            "allowTargetBlank": true
           }
         },
         "grp": {
@@ -30,9 +29,9 @@
               "product": {
                 "type": "IntegrationFields",
                 "config": {
-                  "catalog": "template-landing--24s",
                   "label": "Product",
-                  "placeholder": "Select a product"
+                  "placeholder": "Select a product",
+                  "catalog": "template-landing--24s"
                 }
               }
             }
@@ -41,5 +40,6 @@
       },
       "items": {}
     }
-  ]
+  ],
+  "description": "ProductSelection"
 }

@@ -2,23 +2,22 @@
   "id": "faq",
   "type": "SharedSlice",
   "name": "Faq",
-  "description": "Faq",
   "variations": [
     {
       "id": "default",
       "name": "Default",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/faq/default/79c40b03fe596e68793064e1a53d55804a42e9d0.png?auto=compress%2Cformat",
       "docURL": "...",
       "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
       "primary": {
         "title": {
           "type": "StructuredText",
           "config": {
             "label": "Title",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading2"
+            "multi": "heading2",
+            "allowTargetBlank": true
           }
         },
         "txt": {
@@ -26,8 +25,8 @@
           "config": {
             "label": "Text",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph"
+            "multi": "paragraph",
+            "allowTargetBlank": true
           }
         },
         "btn": {
@@ -56,8 +55,8 @@
                 "config": {
                   "label": "Question",
                   "placeholder": "",
-                  "allowTargetBlank": true,
-                  "multi": "heading3"
+                  "multi": "heading3",
+                  "allowTargetBlank": true
                 }
               },
               "answer": {
@@ -65,8 +64,8 @@
                 "config": {
                   "label": "Answer",
                   "placeholder": "",
-                  "allowTargetBlank": true,
-                  "multi": "paragraph"
+                  "multi": "paragraph",
+                  "allowTargetBlank": true
                 }
               }
             }
@@ -78,18 +77,18 @@
     {
       "id": "variation1",
       "name": "Variation 1",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/faq/variation1/6afafd4a81656a170743ecc0c078e2baaa799387.png?auto=compress%2Cformat",
       "docURL": "...",
       "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
       "primary": {
         "title": {
           "type": "StructuredText",
           "config": {
             "label": "Title",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading2"
+            "multi": "heading2",
+            "allowTargetBlank": true
           }
         },
         "txt": {
@@ -97,8 +96,8 @@
           "config": {
             "label": "Text",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph"
+            "multi": "paragraph",
+            "allowTargetBlank": true
           }
         },
         "grp": {
@@ -112,8 +111,8 @@
                 "config": {
                   "label": "Question",
                   "placeholder": "",
-                  "allowTargetBlank": true,
-                  "multi": "heading3"
+                  "multi": "heading3",
+                  "allowTargetBlank": true
                 }
               },
               "answer": {
@@ -121,8 +120,8 @@
                 "config": {
                   "label": "Answer",
                   "placeholder": "",
-                  "allowTargetBlank": true,
-                  "multi": "paragraph,strong,hyperlink"
+                  "multi": "paragraph,strong,hyperlink",
+                  "allowTargetBlank": true
                 }
               }
             }
@@ -133,8 +132,8 @@
           "config": {
             "label": "Title - Foot",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading4"
+            "multi": "heading4",
+            "allowTargetBlank": true
           }
         },
         "txt_foot": {
@@ -142,8 +141,8 @@
           "config": {
             "label": "Text - Foot",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph"
+            "multi": "paragraph",
+            "allowTargetBlank": true
           }
         },
         "btn": {
@@ -167,18 +166,18 @@
     {
       "id": "variation2",
       "name": "Variation 2",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/faq/variation2/d9d0446d0d161f8f22ea6e4c8caa70987b8c14b8.png?auto=compress%2Cformat",
       "docURL": "...",
       "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
       "primary": {
         "title": {
           "type": "StructuredText",
           "config": {
             "label": "Title",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading2"
+            "multi": "heading2",
+            "allowTargetBlank": true
           }
         },
         "txt": {
@@ -186,8 +185,8 @@
           "config": {
             "label": "Text",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph"
+            "multi": "paragraph",
+            "allowTargetBlank": true
           }
         },
         "grp": {
@@ -201,8 +200,8 @@
                 "config": {
                   "label": "Question",
                   "placeholder": "",
-                  "allowTargetBlank": true,
-                  "multi": "heading3"
+                  "multi": "heading3",
+                  "allowTargetBlank": true
                 }
               },
               "answer": {
@@ -210,8 +209,8 @@
                 "config": {
                   "label": "Answer",
                   "placeholder": "",
-                  "allowTargetBlank": true,
-                  "multi": "paragraph,strong,hyperlink"
+                  "multi": "paragraph,strong,hyperlink",
+                  "allowTargetBlank": true
                 }
               }
             }
@@ -222,8 +221,8 @@
           "config": {
             "label": "Title - foot",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading4"
+            "multi": "heading4",
+            "allowTargetBlank": true
           }
         },
         "txt_foot": {
@@ -231,8 +230,8 @@
           "config": {
             "label": "Text - Foot",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph"
+            "multi": "paragraph",
+            "allowTargetBlank": true
           }
         },
         "btn": {
@@ -253,5 +252,6 @@
       },
       "items": {}
     }
-  ]
+  ],
+  "description": "Faq"
 }

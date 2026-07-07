@@ -1,9 +1,7 @@
 {
-  "format": "page",
   "id": "recap",
   "label": "Recap",
   "repeatable": true,
-  "status": true,
   "json": {
     "Main": {
       "uid": {
@@ -24,8 +22,11 @@
         "config": {
           "label": "Agent",
           "placeholder": "",
-          "options": ["ABM", "SEO-GEO"],
-          "default_value": "ABM"
+          "default_value": "ABM",
+          "options": [
+            "ABM",
+            "SEO-GEO"
+          ]
         }
       },
       "slices": {
@@ -42,7 +43,10 @@
         "config": {
           "label": "Button Icon",
           "placeholder": "",
-          "options": ["calendar", "quote"]
+          "options": [
+            "calendar",
+            "quote"
+          ]
         }
       },
       "header_button": {
@@ -78,8 +82,8 @@
         "config": {
           "label": "Title",
           "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "heading1"
+          "multi": "heading1",
+          "allowTargetBlank": true
         }
       },
       "hero_text": {
@@ -87,8 +91,8 @@
         "config": {
           "label": "Text",
           "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "paragraph,strong,em"
+          "multi": "paragraph,strong,em",
+          "allowTargetBlank": true
         }
       },
       "contact": {
@@ -96,13 +100,19 @@
         "config": {
           "label": "Contact",
           "select": "document",
-          "repeat": false,
           "customtypes": [
             {
               "id": "contact",
-              "fields": ["image", "name", "position", "email", "calendar"]
+              "fields": [
+                "image",
+                "name",
+                "position",
+                "email",
+                "calendar"
+              ]
             }
-          ]
+          ],
+          "repeat": false
         }
       }
     },
@@ -119,8 +129,8 @@
         "config": {
           "label": "Title",
           "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "heading2"
+          "multi": "heading2",
+          "allowTargetBlank": true
         }
       },
       "understanding_text": {
@@ -128,8 +138,8 @@
         "config": {
           "label": "Text",
           "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "paragraph,strong,em"
+          "multi": "paragraph,strong,em",
+          "allowTargetBlank": true
         }
       },
       "key_problem": {
@@ -143,6 +153,7 @@
               "config": {
                 "label": "Icon",
                 "placeholder": "",
+                "default_value": "thunder",
                 "options": [
                   "thunder",
                   "test",
@@ -150,8 +161,7 @@
                   "smile",
                   "checkedCalendar",
                   "control"
-                ],
-                "default_value": "thunder"
+                ]
               }
             },
             "title": {
@@ -159,8 +169,8 @@
               "config": {
                 "label": "Title",
                 "placeholder": "",
-                "allowTargetBlank": true,
-                "multi": "heading3"
+                "multi": "heading3",
+                "allowTargetBlank": true
               }
             },
             "text": {
@@ -168,8 +178,8 @@
               "config": {
                 "label": "Text",
                 "placeholder": "",
-                "allowTargetBlank": true,
-                "multi": "paragraph,strong,em"
+                "multi": "paragraph,strong,em",
+                "allowTargetBlank": true
               }
             }
           }
@@ -182,8 +192,8 @@
         "config": {
           "label": "Title",
           "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "heading2"
+          "multi": "heading2",
+          "allowTargetBlank": true
         }
       },
       "opportunity": {
@@ -197,8 +207,12 @@
               "config": {
                 "label": "Icon",
                 "placeholder": "",
-                "options": ["zoom", "reuse", "hammer"],
-                "default_value": "zoom"
+                "default_value": "zoom",
+                "options": [
+                  "zoom",
+                  "reuse",
+                  "hammer"
+                ]
               }
             },
             "title": {
@@ -206,8 +220,8 @@
               "config": {
                 "label": "Title",
                 "placeholder": "",
-                "allowTargetBlank": true,
-                "multi": "heading3"
+                "multi": "heading3",
+                "allowTargetBlank": true
               }
             },
             "text": {
@@ -215,8 +229,8 @@
               "config": {
                 "label": "Text",
                 "placeholder": "",
-                "allowTargetBlank": true,
-                "multi": "paragraph,strong,em"
+                "multi": "paragraph,strong,em",
+                "allowTargetBlank": true
               }
             }
           }
@@ -229,8 +243,8 @@
         "config": {
           "label": "Title",
           "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "heading2"
+          "multi": "heading2",
+          "allowTargetBlank": true
         }
       },
       "data_text": {
@@ -238,8 +252,8 @@
         "config": {
           "label": "Text",
           "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "paragraph,strong,em"
+          "multi": "paragraph,strong,em",
+          "allowTargetBlank": true
         }
       },
       "generated_page": {
@@ -289,9 +303,9 @@
         "type": "Boolean",
         "config": {
           "label": "Calculator",
-          "placeholder_false": "hide",
+          "default_value": false,
           "placeholder_true": "show",
-          "default_value": false
+          "placeholder_false": "hide"
         }
       },
       "roi_title": {
@@ -299,8 +313,8 @@
         "config": {
           "label": "Title",
           "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "heading2"
+          "multi": "heading2",
+          "allowTargetBlank": true
         }
       },
       "roi_text": {
@@ -308,17 +322,17 @@
         "config": {
           "label": "Text",
           "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "paragraph,strong,em"
+          "multi": "paragraph,strong,em",
+          "allowTargetBlank": true
         }
       },
       "roi_simple_calculator": {
         "type": "Boolean",
         "config": {
           "label": "Simple Calculator",
-          "placeholder_false": "false",
+          "default_value": true,
           "placeholder_true": "true",
-          "default_value": true
+          "placeholder_false": "false"
         }
       },
       "roi_card_title": {
@@ -326,8 +340,8 @@
         "config": {
           "label": "Card Title",
           "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "heading3"
+          "multi": "heading3",
+          "allowTargetBlank": true
         }
       },
       "roi_card_text": {
@@ -335,8 +349,8 @@
         "config": {
           "label": "Card Text",
           "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "paragraph,em,strong,hyperlink"
+          "multi": "paragraph,em,strong,hyperlink",
+          "allowTargetBlank": true
         }
       },
       "roi_cost_per_page": {
@@ -351,8 +365,8 @@
         "config": {
           "label": "CTA Title",
           "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "heading3"
+          "multi": "heading3",
+          "allowTargetBlank": true
         }
       },
       "roi_cta_text": {
@@ -360,8 +374,8 @@
         "config": {
           "label": "CTA Text",
           "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "paragraph,strong"
+          "multi": "paragraph,strong",
+          "allowTargetBlank": true
         }
       },
       "roi_cta_link": {
@@ -389,8 +403,8 @@
         "config": {
           "label": "Title",
           "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "heading2"
+          "multi": "heading2",
+          "allowTargetBlank": true
         }
       },
       "next_text": {
@@ -398,8 +412,8 @@
         "config": {
           "label": "Text",
           "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "paragraph,strong,em"
+          "multi": "paragraph,strong,em",
+          "allowTargetBlank": true
         }
       },
       "step": {
@@ -413,6 +427,7 @@
               "config": {
                 "label": "Icon",
                 "placeholder": "",
+                "default_value": "thunder",
                 "options": [
                   "thunder",
                   "test",
@@ -420,8 +435,7 @@
                   "smile",
                   "checkedCalendar",
                   "control"
-                ],
-                "default_value": "thunder"
+                ]
               }
             },
             "title": {
@@ -429,8 +443,8 @@
               "config": {
                 "label": "Title",
                 "placeholder": "",
-                "allowTargetBlank": true,
-                "multi": "heading3"
+                "multi": "heading3",
+                "allowTargetBlank": true
               }
             },
             "text": {
@@ -438,8 +452,8 @@
               "config": {
                 "label": "Text",
                 "placeholder": "",
-                "allowTargetBlank": true,
-                "multi": "paragraph,strong,em"
+                "multi": "paragraph,strong,em",
+                "allowTargetBlank": true
               }
             }
           }
@@ -454,7 +468,10 @@
           "allowTargetBlank": true,
           "allowText": true,
           "repeat": true,
-          "variants": ["Filled", "Outlined"]
+          "variants": [
+            "Filled",
+            "Outlined"
+          ]
         }
       }
     },
@@ -464,8 +481,8 @@
         "config": {
           "label": "Title",
           "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "heading2"
+          "multi": "heading2",
+          "allowTargetBlank": true
         }
       },
       "contact_text": {
@@ -473,37 +490,39 @@
         "config": {
           "label": "Text",
           "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "paragraph,strong,em"
+          "multi": "paragraph,strong,em",
+          "allowTargetBlank": true
         }
       }
     },
     "SEO & Metadata": {
       "meta_title": {
+        "type": "Text",
         "config": {
           "label": "Meta Title",
           "placeholder": "A title of the page used for social media and search engines"
-        },
-        "type": "Text"
+        }
       },
       "meta_description": {
+        "type": "Text",
         "config": {
           "label": "Meta Description",
           "placeholder": "A brief summary of the page"
-        },
-        "type": "Text"
+        }
       },
       "meta_image": {
+        "type": "Image",
         "config": {
-          "constraint": {
-            "height": 1260,
-            "width": 2400
-          },
           "label": "Meta Image",
+          "constraint": {
+            "width": 2400,
+            "height": 1260
+          },
           "thumbnails": []
-        },
-        "type": "Image"
+        }
       }
     }
-  }
+  },
+  "status": true,
+  "format": "page"
 }

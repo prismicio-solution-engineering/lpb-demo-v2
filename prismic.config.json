@@ -1,0 +1,40 @@
+{
+  "repositoryName": "template-landing",
+  "libraries": [
+    "./slices"
+  ],
+  "routes": [
+    {
+      "type": "404",
+      "path": "/404"
+    },
+    {
+      "type": "abm_recap",
+      "path": "/abm-recap/:uid"
+    },
+    {
+      "type": "article",
+      "path": "/article/:uid"
+    },
+    {
+      "type": "ecommerce",
+      "path": "/ecommerce/:uid"
+    },
+    {
+      "type": "home",
+      "path": "/home"
+    },
+    {
+      "type": "landing",
+      "path": "/landing/:uid"
+    },
+    {
+      "type": "recap",
+      "path": "/recap/:uid"
+    },
+    {
+      "type": "seo_geo_recap",
+      "path": "/seo-geo-recap/:uid"
+    }
+  ]
+}

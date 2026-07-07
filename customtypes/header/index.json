@@ -1,5 +1,7 @@
 {
   "id": "header",
+  "label": "Header",
+  "repeatable": false,
   "json": {
     "Main": {
       "ctas": {
@@ -11,7 +13,11 @@
           "allowTargetBlank": true,
           "allowText": true,
           "repeat": true,
-          "variants": ["Primary", "Secondary", "Link"]
+          "variants": [
+            "Primary",
+            "Secondary",
+            "Link"
+          ]
         }
       },
       "slices": {
@@ -27,8 +33,6 @@
       }
     }
   },
-  "label": "Header",
-  "repeatable": false,
   "status": true,
   "format": "custom"
 }

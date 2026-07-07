@@ -2,23 +2,22 @@
   "id": "next_steps",
   "type": "SharedSlice",
   "name": "NextSteps",
-  "description": "NextSteps",
   "variations": [
     {
       "id": "default",
       "name": "Default",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/next_steps/default/8c78dc2653e7923bc913b07df24cfc12052afc1a.png?auto=compress%2Cformat",
       "docURL": "...",
       "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
       "primary": {
         "eyebrow": {
           "type": "StructuredText",
           "config": {
             "label": "Eyebrow",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph"
+            "multi": "paragraph",
+            "allowTargetBlank": true
           }
         },
         "title": {
@@ -26,8 +25,8 @@
           "config": {
             "label": "Title",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading2"
+            "multi": "heading2",
+            "allowTargetBlank": true
           }
         },
         "text": {
@@ -35,8 +34,8 @@
           "config": {
             "label": "Text",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong"
+            "multi": "paragraph,strong",
+            "allowTargetBlank": true
           }
         },
         "step": {
@@ -50,6 +49,7 @@
                 "config": {
                   "label": "Icon",
                   "placeholder": "",
+                  "default_value": "thunder",
                   "options": [
                     "thunder",
                     "test",
@@ -60,8 +60,7 @@
                     "zoom",
                     "reuse",
                     "hammer"
-                  ],
-                  "default_value": "thunder"
+                  ]
                 }
               },
               "title": {
@@ -69,8 +68,8 @@
                 "config": {
                   "label": "Title",
                   "placeholder": "",
-                  "allowTargetBlank": true,
-                  "multi": "heading3"
+                  "multi": "heading3",
+                  "allowTargetBlank": true
                 }
               },
               "text": {
@@ -78,8 +77,8 @@
                 "config": {
                   "label": "Text",
                   "placeholder": "",
-                  "allowTargetBlank": true,
-                  "multi": "paragraph"
+                  "multi": "paragraph",
+                  "allowTargetBlank": true
                 }
               }
             }
@@ -103,5 +102,6 @@
       },
       "items": {}
     }
-  ]
+  ],
+  "description": "NextSteps"
 }

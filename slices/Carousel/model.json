@@ -2,23 +2,22 @@
   "id": "carousel",
   "type": "SharedSlice",
   "name": "Carousel",
-  "description": "Carousel",
   "variations": [
     {
       "id": "default",
       "name": "Default",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/carousel/default/291b0fa11933c410f74db75844d6d8e915308c10.png?auto=compress%2Cformat",
       "docURL": "...",
       "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
       "primary": {
         "ontitle": {
           "type": "StructuredText",
           "config": {
             "label": "Ontitle",
             "placeholder": "Blog",
-            "allowTargetBlank": true,
-            "multi": "heading2"
+            "multi": "heading2",
+            "allowTargetBlank": true
           }
         },
         "title": {
@@ -26,8 +25,8 @@
           "config": {
             "label": "Title",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading3"
+            "multi": "heading3",
+            "allowTargetBlank": true
           }
         },
         "txt": {
@@ -35,8 +34,8 @@
           "config": {
             "label": "Text",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph"
+            "multi": "paragraph",
+            "allowTargetBlank": true
           }
         },
         "btn_txt": {
@@ -57,7 +56,6 @@
                 "config": {
                   "label": "Article",
                   "select": "document",
-                  "repeat": false,
                   "customtypes": [
                     {
                       "id": "article",
@@ -93,7 +91,8 @@
                         "read_time_txt"
                       ]
                     }
-                  ]
+                  ],
+                  "repeat": false
                 }
               }
             }
@@ -105,18 +104,18 @@
     {
       "id": "variation1",
       "name": "Variation 1",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/carousel/variation1/8d6f6e05d81be4258da6dfa591278277299a7fe6.png?auto=compress%2Cformat",
       "docURL": "...",
       "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
       "primary": {
         "title": {
           "type": "StructuredText",
           "config": {
             "label": "Title",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading3"
+            "multi": "heading3",
+            "allowTargetBlank": true
           }
         },
         "txt": {
@@ -124,8 +123,8 @@
           "config": {
             "label": "Text",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph"
+            "multi": "paragraph",
+            "allowTargetBlank": true
           }
         },
         "grp": {
@@ -151,18 +150,18 @@
     {
       "id": "variation2",
       "name": "Variation 2",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/carousel/variation2/064df34794ce25dcca680956dc1d9a32c3d5e71d.png?auto=compress%2Cformat",
       "docURL": "...",
       "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
       "primary": {
         "title": {
           "type": "StructuredText",
           "config": {
             "label": "Title",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading2"
+            "multi": "heading2",
+            "allowTargetBlank": true
           }
         },
         "grp": {
@@ -188,18 +187,18 @@
     {
       "id": "variation3",
       "name": "Variation 3",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/carousel/variation3/c02eb467c7f363c298e25f9bcf9eee3a57d96a3d.png?auto=compress%2Cformat",
       "docURL": "...",
       "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
       "primary": {
         "title": {
           "type": "StructuredText",
           "config": {
             "label": "Title",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading2"
+            "multi": "heading2",
+            "allowTargetBlank": true
           }
         },
         "txt": {
@@ -207,8 +206,8 @@
           "config": {
             "label": "Text",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph"
+            "multi": "paragraph",
+            "allowTargetBlank": true
           }
         },
         "btn_txt": {
@@ -229,7 +228,6 @@
                 "config": {
                   "label": "Article",
                   "select": "document",
-                  "repeat": false,
                   "customtypes": [
                     {
                       "id": "article",
@@ -265,7 +263,8 @@
                         "read_time_txt"
                       ]
                     }
-                  ]
+                  ],
+                  "repeat": false
                 }
               },
               "img": {
@@ -281,8 +280,8 @@
                 "config": {
                   "label": "Description",
                   "placeholder": "",
-                  "allowTargetBlank": true,
-                  "multi": "paragraph"
+                  "multi": "paragraph",
+                  "allowTargetBlank": true
                 }
               },
               "lnk": {
@@ -302,5 +301,6 @@
       },
       "items": {}
     }
-  ]
+  ],
+  "description": "Carousel"
 }

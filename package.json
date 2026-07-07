@@ -13,9 +13,9 @@
     "@formatjs/intl-localematcher": "0.6.2",
     "@headlessui/react": "2.2.9",
     "@prismicio/api-renderer": "7.1.1",
-    "@prismicio/client": "7.21.0",
-    "@prismicio/next": "2.0.2",
-    "@prismicio/react": "3.2.2",
+    "@prismicio/client": "^7.21.8",
+    "@prismicio/next": "^2.3.0",
+    "@prismicio/react": "^3.4.1",
     "@radix-ui/react-icons": "1.3.2",
     "@radix-ui/react-label": "2.1.8",
     "@radix-ui/react-select": "2.2.6",
@@ -35,7 +35,6 @@
     "recharts": "3.7.0"
   },
   "devDependencies": {
-    "@slicemachine/adapter-next": "0.3.94",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -43,7 +42,6 @@
     "baseline-browser-mapping": "2.9.19",
     "eslint": "^9",
     "eslint-config-next": "16.0.4",
-    "slice-machine-ui": "2.21.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

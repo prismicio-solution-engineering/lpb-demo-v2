@@ -2,27 +2,26 @@
   "id": "content",
   "type": "SharedSlice",
   "name": "Content",
-  "description": "Content",
   "variations": [
     {
       "id": "default",
       "name": "Default",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/content/default/47a79e4b5a30391ad15dda942558a0d8dfa9a010.png?auto=compress%2Cformat",
       "docURL": "...",
       "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
       "primary": {
         "content": {
           "type": "StructuredText",
           "config": {
             "label": "Content",
             "placeholder": "",
-            "allowTargetBlank": true,
             "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
             "labels": [
               "highlight",
               "inline code"
-            ]
+            ],
+            "allowTargetBlank": true
           }
         }
       },
@@ -31,22 +30,22 @@
     {
       "id": "twoColumns",
       "name": "Two columns",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/content/twoColumns/3393dca37369a3b36f91e510968a7b53de832438.png?auto=compress%2Cformat",
       "docURL": "...",
       "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
       "primary": {
         "content_left_column": {
           "type": "StructuredText",
           "config": {
             "label": "Content left column",
             "placeholder": "",
-            "allowTargetBlank": true,
             "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
             "labels": [
               "highlight",
               "inline code"
-            ]
+            ],
+            "allowTargetBlank": true
           }
         },
         "content_right_column": {
@@ -54,12 +53,12 @@
           "config": {
             "label": "Content right column",
             "placeholder": "",
-            "allowTargetBlank": true,
             "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
             "labels": [
               "highlight",
               "inline code"
-            ]
+            ],
+            "allowTargetBlank": true
           }
         }
       },
@@ -68,22 +67,22 @@
     {
       "id": "twoColumnsImage",
       "name": "Two columns image",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/content/twoColumnsImage/e25279de9652ecfe144f96034025c4a354603829.png?auto=compress%2Cformat",
       "docURL": "...",
       "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
       "primary": {
         "content": {
           "type": "StructuredText",
           "config": {
             "label": "Content",
             "placeholder": "",
-            "allowTargetBlank": true,
             "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
             "labels": [
               "highlight",
               "inline code"
-            ]
+            ],
+            "allowTargetBlank": true
           }
         },
         "image": {
@@ -101,9 +100,9 @@
           "type": "Boolean",
           "config": {
             "label": "Image side",
-            "placeholder_false": "left",
+            "default_value": true,
             "placeholder_true": "right",
-            "default_value": true
+            "placeholder_false": "left"
           }
         }
       },
@@ -112,22 +111,22 @@
     {
       "id": "quote",
       "name": "Quote",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/content/quote/ef5e996dd87384ce2dfac2f90da40f0656fc935e.png?auto=compress%2Cformat",
       "docURL": "...",
       "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
       "primary": {
         "content": {
           "type": "StructuredText",
           "config": {
             "label": "Content",
             "placeholder": "",
-            "allowTargetBlank": true,
+            "single": "strong,paragraph,hyperlink",
             "labels": [
               "highlight",
               "inline code"
             ],
-            "single": "strong,paragraph,hyperlink"
+            "allowTargetBlank": true
           }
         }
       },
@@ -136,22 +135,22 @@
     {
       "id": "twoColumnsImages",
       "name": "Two columns images",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/content/twoColumnsImages/9403e465f5b8eee7f2be60baa83390461214d5fe.png?auto=compress%2Cformat",
       "docURL": "...",
       "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
       "primary": {
         "content": {
           "type": "StructuredText",
           "config": {
             "label": "Content",
             "placeholder": "",
-            "allowTargetBlank": true,
             "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
             "labels": [
               "highlight",
               "inline code"
-            ]
+            ],
+            "allowTargetBlank": true
           }
         },
         "images": {
@@ -178,13 +177,14 @@
           "type": "Boolean",
           "config": {
             "label": "Images side",
-            "placeholder_false": "left",
+            "default_value": true,
             "placeholder_true": "right",
-            "default_value": true
+            "placeholder_false": "left"
           }
         }
       },
       "items": {}
     }
-  ]
+  ],
+  "description": "Content"
 }

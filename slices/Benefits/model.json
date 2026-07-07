@@ -2,23 +2,22 @@
   "id": "benefits",
   "type": "SharedSlice",
   "name": "Benefits",
-  "description": "Benefits",
   "variations": [
     {
       "id": "default",
       "name": "Default",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/benefits/default/1166dbbfb7fcccf3755384aca2656ef8d3dc22f2.png?auto=compress%2Cformat",
       "docURL": "...",
       "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
       "primary": {
         "title": {
           "type": "StructuredText",
           "config": {
             "label": "Title",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading2"
+            "multi": "heading2",
+            "allowTargetBlank": true
           }
         },
         "text": {
@@ -26,8 +25,8 @@
           "config": {
             "label": "Text",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong"
+            "multi": "paragraph,strong",
+            "allowTargetBlank": true
           }
         },
         "items": {
@@ -41,8 +40,8 @@
                 "config": {
                   "label": "Title",
                   "placeholder": "",
-                  "allowTargetBlank": true,
-                  "multi": "heading3"
+                  "multi": "heading3",
+                  "allowTargetBlank": true
                 }
               },
               "text": {
@@ -50,8 +49,8 @@
                 "config": {
                   "label": "Text",
                   "placeholder": "",
-                  "allowTargetBlank": true,
-                  "multi": "paragraph"
+                  "multi": "paragraph",
+                  "allowTargetBlank": true
                 }
               },
               "icon": {
@@ -59,6 +58,7 @@
                 "config": {
                   "label": "Icon",
                   "placeholder": "",
+                  "default_value": "thunder",
                   "options": [
                     "thunder",
                     "test",
@@ -69,8 +69,7 @@
                     "zoom",
                     "reuse",
                     "hammer"
-                  ],
-                  "default_value": "thunder"
+                  ]
                 }
               }
             }
@@ -79,5 +78,6 @@
       },
       "items": {}
     }
-  ]
+  ],
+  "description": "Benefits"
 }

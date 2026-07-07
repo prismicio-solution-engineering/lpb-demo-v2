@@ -2,23 +2,22 @@
   "id": "abm_roi_calculator",
   "type": "SharedSlice",
   "name": "AbmRoiCalculator",
-  "description": "AbmRoiCalculator",
   "variations": [
     {
       "id": "simpleCalculator",
       "name": "Simple Calculator",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/abm_roi_calculator/simpleCalculator/081f04d766496af886fc09434635bc018bfb78c2.png?auto=compress%2Cformat",
       "docURL": "...",
       "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
       "primary": {
         "title": {
           "type": "StructuredText",
           "config": {
             "label": "Title",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading2"
+            "multi": "heading2",
+            "allowTargetBlank": true
           }
         },
         "text": {
@@ -26,8 +25,8 @@
           "config": {
             "label": "Text",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong"
+            "multi": "paragraph,strong",
+            "allowTargetBlank": true
           }
         },
         "card_title": {
@@ -35,8 +34,8 @@
           "config": {
             "label": "Card Title",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading3"
+            "multi": "heading3",
+            "allowTargetBlank": true
           }
         },
         "card_text": {
@@ -44,8 +43,8 @@
           "config": {
             "label": "Card Text",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong"
+            "multi": "paragraph,strong",
+            "allowTargetBlank": true
           }
         }
       },
@@ -54,18 +53,18 @@
     {
       "id": "complexCalculator",
       "name": "Complex Calculator",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/abm_roi_calculator/complexCalculator/727ff66bff29a1f7fd8213f037f8218b0610f0d2.png?auto=compress%2Cformat",
       "docURL": "...",
       "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
       "primary": {
         "title": {
           "type": "StructuredText",
           "config": {
             "label": "Title",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading2"
+            "multi": "heading2",
+            "allowTargetBlank": true
           }
         },
         "text": {
@@ -73,8 +72,8 @@
           "config": {
             "label": "Text",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong"
+            "multi": "paragraph,strong",
+            "allowTargetBlank": true
           }
         },
         "card_title": {
@@ -82,8 +81,8 @@
           "config": {
             "label": "Card Title",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading3"
+            "multi": "heading3",
+            "allowTargetBlank": true
           }
         },
         "card_text": {
@@ -91,8 +90,8 @@
           "config": {
             "label": "Card Text",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong"
+            "multi": "paragraph,strong",
+            "allowTargetBlank": true
           }
         },
         "cta_title": {
@@ -100,8 +99,8 @@
           "config": {
             "label": "CTA Title",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading3"
+            "multi": "heading3",
+            "allowTargetBlank": true
           }
         },
         "cta_text": {
@@ -109,8 +108,8 @@
           "config": {
             "label": "CTA Text",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong"
+            "multi": "paragraph,strong",
+            "allowTargetBlank": true
           }
         },
         "cta_link": {
@@ -127,5 +126,6 @@
       },
       "items": {}
     }
-  ]
+  ],
+  "description": "AbmRoiCalculator"
 }

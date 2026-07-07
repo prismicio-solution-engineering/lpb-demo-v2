@@ -1,9 +1,7 @@
 {
-  "format": "page",
   "id": "ecommerce",
   "label": "Ecommerce",
   "repeatable": true,
-  "status": true,
   "json": {
     "Main": {
       "uid": {
@@ -35,29 +33,29 @@
     },
     "SEO & Metadata": {
       "meta_title": {
+        "type": "Text",
         "config": {
           "label": "Meta Title",
           "placeholder": "A title of the page used for social media and search engines"
-        },
-        "type": "Text"
+        }
       },
       "meta_description": {
+        "type": "Text",
         "config": {
           "label": "Meta Description",
           "placeholder": "A brief summary of the page"
-        },
-        "type": "Text"
+        }
       },
       "meta_image": {
+        "type": "Image",
         "config": {
-          "constraint": {
-            "height": 1260,
-            "width": 2400
-          },
           "label": "Meta Image",
+          "constraint": {
+            "width": 2400,
+            "height": 1260
+          },
           "thumbnails": []
-        },
-        "type": "Image"
+        }
       }
     },
     "Header": {
@@ -101,8 +99,12 @@
         "config": {
           "label": "Font - Heading",
           "placeholder": "",
-          "options": ["Function Book", "Arial Bold", "Proxima Bold"],
-          "default_value": "Function Book"
+          "default_value": "Function Book",
+          "options": [
+            "Function Book",
+            "Arial Bold",
+            "Proxima Bold"
+          ]
         }
       },
       "font_txt": {
@@ -110,8 +112,12 @@
         "config": {
           "label": "Font - Text",
           "placeholder": "",
-          "options": ["Function Book", "Helvetica", "Inter"],
-          "default_value": "Function Book"
+          "default_value": "Function Book",
+          "options": [
+            "Function Book",
+            "Helvetica",
+            "Inter"
+          ]
         }
       },
       "button_style": {
@@ -119,10 +125,16 @@
         "config": {
           "label": "Button style",
           "placeholder": "",
-          "options": ["Square", "Medium rounded", "Rounded"],
-          "default_value": "Square"
+          "default_value": "Square",
+          "options": [
+            "Square",
+            "Medium rounded",
+            "Rounded"
+          ]
         }
       }
     }
-  }
+  },
+  "status": true,
+  "format": "page"
 }

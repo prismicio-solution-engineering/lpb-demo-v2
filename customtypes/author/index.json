@@ -1,5 +1,7 @@
 {
   "id": "author",
+  "label": "Author",
+  "repeatable": true,
   "json": {
     "Main": {
       "uid": {
@@ -25,8 +27,6 @@
       }
     }
   },
-  "label": "Author",
-  "repeatable": true,
   "status": true,
   "format": "custom"
 }

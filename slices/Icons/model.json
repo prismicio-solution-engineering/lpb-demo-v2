@@ -2,15 +2,14 @@
   "id": "icons",
   "type": "SharedSlice",
   "name": "Icons",
-  "description": "Icons",
   "variations": [
     {
       "id": "default",
       "name": "Default",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/icons/default/159cdc2cbecde2e90945b04fa93f33fd2e47cfe6.png?auto=compress%2Cformat",
       "docURL": "...",
       "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
       "primary": {
         "grp": {
           "type": "Group",
@@ -31,8 +30,8 @@
                 "config": {
                   "label": "Title",
                   "placeholder": "",
-                  "allowTargetBlank": true,
-                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+                  "allowTargetBlank": true
                 }
               },
               "desc": {
@@ -40,8 +39,8 @@
                 "config": {
                   "label": "Description",
                   "placeholder": "",
-                  "allowTargetBlank": true,
-                  "multi": "paragraph"
+                  "multi": "paragraph",
+                  "allowTargetBlank": true
                 }
               },
               "lnk": {
@@ -61,5 +60,6 @@
       },
       "items": {}
     }
-  ]
+  ],
+  "description": "Icons"
 }

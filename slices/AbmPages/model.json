@@ -2,23 +2,22 @@
   "id": "abm_pages",
   "type": "SharedSlice",
   "name": "AbmPages",
-  "description": "AbmPages",
   "variations": [
     {
       "id": "default",
       "name": "Default",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/abm_pages/default/e3402d2785f8654633e757979976d0d9e886e10a.png?auto=compress%2Cformat",
       "docURL": "...",
       "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
       "primary": {
         "title": {
           "type": "StructuredText",
           "config": {
             "label": "Title",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading2"
+            "multi": "heading2",
+            "allowTargetBlank": true
           }
         },
         "text": {
@@ -26,8 +25,8 @@
           "config": {
             "label": "Text",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong"
+            "multi": "paragraph,strong",
+            "allowTargetBlank": true
           }
         },
         "generated_page": {
@@ -74,5 +73,6 @@
       },
       "items": {}
     }
-  ]
+  ],
+  "description": "AbmPages"
 }

@@ -1,9 +1,7 @@
 {
-  "format": "custom",
   "id": "contact",
   "label": "Contact",
   "repeatable": true,
-  "status": true,
   "json": {
     "Main": {
       "uid": {
@@ -53,5 +51,7 @@
         }
       }
     }
-  }
+  },
+  "status": true,
+  "format": "custom"
 }

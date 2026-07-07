@@ -1,5 +1,7 @@
 {
   "id": "footer",
+  "label": "Footer",
+  "repeatable": false,
   "json": {
     "Main": {
       "txt": {
@@ -11,8 +13,6 @@
       }
     }
   },
-  "label": "Footer",
-  "repeatable": false,
   "status": true,
   "format": "custom"
 }

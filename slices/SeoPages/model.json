@@ -2,23 +2,22 @@
   "id": "seo_pages",
   "type": "SharedSlice",
   "name": "SeoPages",
-  "description": "SeoPages",
   "variations": [
     {
       "id": "default",
       "name": "Default",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/seo_pages/default/e3402d2785f8654633e757979976d0d9e886e10a.png?auto=compress%2Cformat",
       "docURL": "...",
       "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
       "primary": {
         "title": {
           "type": "StructuredText",
           "config": {
             "label": "Title",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading2"
+            "multi": "heading2",
+            "allowTargetBlank": true
           }
         },
         "text": {
@@ -26,8 +25,8 @@
           "config": {
             "label": "Text",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong"
+            "multi": "paragraph,strong",
+            "allowTargetBlank": true
           }
         },
         "generated_page": {
@@ -77,18 +76,18 @@
     {
       "id": "seoGeoAudit",
       "name": "Seo Geo Audit",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/seo_pages/seoGeoAudit/53a427742b98da1807125a4be26e0012ee9f8583.png?auto=compress%2Cformat",
       "docURL": "...",
       "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
       "primary": {
         "title": {
           "type": "StructuredText",
           "config": {
             "label": "Title",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading2"
+            "multi": "heading2",
+            "allowTargetBlank": true
           }
         },
         "text": {
@@ -96,8 +95,8 @@
           "config": {
             "label": "Text",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong"
+            "multi": "paragraph,strong",
+            "allowTargetBlank": true
           }
         },
         "generated_page": {
@@ -153,8 +152,8 @@
                 "config": {
                   "label": "Upgrades",
                   "placeholder": "",
-                  "allowTargetBlank": true,
-                  "multi": "list-item"
+                  "multi": "list-item",
+                  "allowTargetBlank": true
                 }
               },
               "impact_projection": {
@@ -192,5 +191,6 @@
       },
       "items": {}
     }
-  ]
+  ],
+  "description": "SeoPages"
 }

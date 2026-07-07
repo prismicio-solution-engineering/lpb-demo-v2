@@ -2,23 +2,22 @@
   "id": "embed_section",
   "type": "SharedSlice",
   "name": "EmbedSection",
-  "description": "EmbedSection",
   "variations": [
     {
       "id": "default",
       "name": "Default",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/embed_section/default/23d617fecb9b913201936d1dbf4e1a804464a06c.png?auto=compress%2Cformat",
       "docURL": "...",
       "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
       "primary": {
         "eyebrow": {
           "type": "StructuredText",
           "config": {
             "label": "Eyebrow",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph"
+            "multi": "paragraph",
+            "allowTargetBlank": true
           }
         },
         "title": {
@@ -26,8 +25,8 @@
           "config": {
             "label": "Title",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading2"
+            "multi": "heading2",
+            "allowTargetBlank": true
           }
         },
         "text": {
@@ -35,8 +34,8 @@
           "config": {
             "label": "Text",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong"
+            "multi": "paragraph,strong",
+            "allowTargetBlank": true
           }
         },
         "embed": {
@@ -49,5 +48,6 @@
       },
       "items": {}
     }
-  ]
+  ],
+  "description": "EmbedSection"
 }

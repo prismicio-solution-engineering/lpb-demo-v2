@@ -2,15 +2,14 @@
   "id": "banner",
   "type": "SharedSlice",
   "name": "Banner",
-  "description": "Banner",
   "variations": [
     {
       "id": "default",
       "name": "Default",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/banner/default/3853edfd36f67f156579a53d9c3520f0e0689487.png?auto=compress%2Cformat",
       "docURL": "...",
       "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
       "primary": {
         "img": {
           "type": "Image",
@@ -25,8 +24,8 @@
           "config": {
             "label": "Title",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading2"
+            "multi": "heading2",
+            "allowTargetBlank": true
           }
         },
         "txt": {
@@ -34,8 +33,8 @@
           "config": {
             "label": "Text",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph"
+            "multi": "paragraph",
+            "allowTargetBlank": true
           }
         },
         "lnk": {
@@ -55,10 +54,10 @@
     {
       "id": "variation1",
       "name": "Variation 1",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/banner/variation1/6660d2e89bc63309b4adf68b61bc77c1cce30989.png?auto=compress%2Cformat",
       "docURL": "...",
       "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
       "primary": {
         "img": {
           "type": "Image",
@@ -73,8 +72,8 @@
           "config": {
             "label": "Title",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading2"
+            "multi": "heading2",
+            "allowTargetBlank": true
           }
         },
         "txt": {
@@ -82,8 +81,8 @@
           "config": {
             "label": "Text",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph"
+            "multi": "paragraph",
+            "allowTargetBlank": true
           }
         },
         "lnk": {
@@ -100,5 +99,6 @@
       },
       "items": {}
     }
-  ]
+  ],
+  "description": "Banner"
 }

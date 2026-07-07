@@ -2,15 +2,14 @@
   "id": "hero_recommendation",
   "type": "SharedSlice",
   "name": "HeroRecommendation",
-  "description": "HeroRecommendation",
   "variations": [
     {
       "id": "default",
       "name": "Default",
+      "description": "Default",
+      "imageUrl": "https://images.prismic.io/template-landing/shared-slices/hero_recommendation/default/dd192b6ca680e645557f12efeaac2a6a950c1682.png?auto=compress%2Cformat",
       "docURL": "...",
       "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
       "primary": {
         "client_logo": {
           "type": "Image",
@@ -25,8 +24,8 @@
           "config": {
             "label": "Eyebrow",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph"
+            "multi": "paragraph",
+            "allowTargetBlank": true
           }
         },
         "title": {
@@ -34,8 +33,8 @@
           "config": {
             "label": "Title",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading1"
+            "multi": "heading1",
+            "allowTargetBlank": true
           }
         },
         "text": {
@@ -43,8 +42,8 @@
           "config": {
             "label": "Text",
             "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph"
+            "multi": "paragraph",
+            "allowTargetBlank": true
           }
         },
         "contact": {
@@ -52,7 +51,6 @@
           "config": {
             "label": "Contact",
             "select": "document",
-            "repeat": false,
             "customtypes": [
               {
                 "id": "contact",
@@ -64,11 +62,13 @@
                   "calendar"
                 ]
               }
-            ]
+            ],
+            "repeat": false
           }
         }
       },
       "items": {}
     }
-  ]
+  ],
+  "description": "HeroRecommendation"
 }

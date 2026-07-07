@@ -1,9 +1,7 @@
 {
-  "format": "custom",
   "id": "settings",
   "label": "Settings",
   "repeatable": false,
-  "status": true,
   "json": {
     "Company": {
       "company_name": {
@@ -22,5 +20,7 @@
         }
       }
     }
-  }
+  },
+  "status": true,
+  "format": "custom"
 }

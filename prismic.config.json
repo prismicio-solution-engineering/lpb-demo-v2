@@ -27,10 +27,6 @@
     {
       "type": "recap",
       "path": "/recap/:uid"
-    },
-    {
-      "type": "test",
-      "path": "/test"
     }
   ]
 }

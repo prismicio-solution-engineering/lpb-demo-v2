@@ -1301,67 +1301,7 @@ interface SettingsDocumentData {
  */
 export type SettingsDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<Simplify<SettingsDocumentData>, "settings", Lang>;
 
-type TestDocumentDataSlicesSlice = HeroLandingSlice
-
-/**
- * Content for test documents
- */
-interface TestDocumentData {
-	/**
-	 * Slice Zone field in *test*
-	 *
-	 * - **Field Type**: Slice Zone
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: test.slices[]
-	 * - **Tab**: Main
-	 * - **Documentation**: https://prismic.io/docs/slices
-	 */
-	slices: prismic.SliceZone<TestDocumentDataSlicesSlice>;/**
-	 * Meta Title field in *test*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: A title of the page used for social media and search engines
-	 * - **API ID Path**: test.meta_title
-	 * - **Tab**: SEO & Metadata
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	meta_title: prismic.KeyTextField;
-	
-	/**
-	 * Meta Description field in *test*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: A brief summary of the page
-	 * - **API ID Path**: test.meta_description
-	 * - **Tab**: SEO & Metadata
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	meta_description: prismic.KeyTextField;
-	
-	/**
-	 * Meta Image field in *test*
-	 *
-	 * - **Field Type**: Image
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: test.meta_image
-	 * - **Tab**: SEO & Metadata
-	 * - **Documentation**: https://prismic.io/docs/fields/image
-	 */
-	meta_image: prismic.ImageField<never>;
-}
-
-/**
- * test document from Prismic
- *
- * - **API ID**: `test`
- * - **Repeatable**: `false`
- * - **Documentation**: https://prismic.io/docs/content-modeling
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type TestDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<Simplify<TestDocumentData>, "test", Lang>;
-
-export type AllDocumentTypes = _404Document | ArticleDocument | AuthorDocument | CategoryDocument | ContactDocument | EcommerceDocument | FooterDocument | HeaderDocument | HomeDocument | LandingDocument | RecapDocument | SettingsDocument | TestDocument;
+export type AllDocumentTypes = _404Document | ArticleDocument | AuthorDocument | CategoryDocument | ContactDocument | EcommerceDocument | FooterDocument | HeaderDocument | HomeDocument | LandingDocument | RecapDocument | SettingsDocument;
 
 /**
  * Primary content in *Banner → Default → Primary*
@@ -3593,9 +3533,6 @@ declare module "@prismicio/client" {
 			RecapDocumentDataStepItem,
 			SettingsDocument,
 			SettingsDocumentData,
-			TestDocument,
-			TestDocumentData,
-			TestDocumentDataSlicesSlice,
 			AllDocumentTypes,
 			BannerSlice,
 			BannerSliceDefaultPrimary,

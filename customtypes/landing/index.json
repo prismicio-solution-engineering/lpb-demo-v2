@@ -17,6 +17,15 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "benefits": {
+              "type": "SharedSlice"
+            },
+            "banner": {
+              "type": "SharedSlice"
+            },
+            "product_selection": {
+              "type": "SharedSlice"
+            },
             "featured_articles": {
               "type": "SharedSlice"
             },
@@ -101,7 +110,10 @@
           "allowTargetBlank": true,
           "allowText": true,
           "repeat": false,
-          "variants": ["Primary", "Secondary"]
+          "variants": [
+            "Primary",
+            "Secondary"
+          ]
         }
       }
     },
@@ -125,7 +137,10 @@
         "config": {
           "label": "Font - Heading",
           "placeholder": "",
-          "options": ["Proxima Bold", "Arial Bold"],
+          "options": [
+            "Proxima Bold",
+            "Arial Bold"
+          ],
           "default_value": "Proxima Bold"
         }
       },
@@ -134,7 +149,10 @@
         "config": {
           "label": "Font - Text",
           "placeholder": "",
-          "options": ["Inter", "Helvetica"],
+          "options": [
+            "Inter",
+            "Helvetica"
+          ],
           "default_value": "Inter"
         }
       },
@@ -143,8 +161,35 @@
         "config": {
           "label": "Button style",
           "placeholder": "",
-          "options": ["Square", "Medium rounded", "Rounded"],
+          "options": [
+            "Square",
+            "Medium rounded",
+            "Rounded"
+          ],
           "default_value": "Square"
+        }
+      }
+    },
+    "AI Data": {
+      "company": {
+        "type": "Text",
+        "config": {
+          "label": "Company",
+          "placeholder": ""
+        }
+      },
+      "role": {
+        "type": "Text",
+        "config": {
+          "label": "Role",
+          "placeholder": ""
+        }
+      },
+      "personalization_instructions": {
+        "type": "Text",
+        "config": {
+          "label": "Personalization Instructions",
+          "placeholder": ""
         }
       }
     }

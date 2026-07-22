@@ -5,7 +5,7 @@ import {
   ApiDocument,
   Extensions,
   LinkResolver,
-  RenderContext,
+  RenderContext
 } from "@prismicio/api-renderer/lib/models";
 import { SharedSliceRenderer } from "@prismicio/api-renderer";
 
@@ -26,16 +26,16 @@ export function SliceLibrary({ libraries }: { libraries: SliceLibrary[] }) {
     <div>
       {/* Static sidebar for desktop */}
       <SliceLibraryNav libraries={libraries} />
-      <div className="flex flex-1 flex-col md:pl-64 bg-gray-50">
-        <div className="sticky top-0 z-10 flex h-16 shrink-0 bg-white shadow">
-          <div className="m-auto max-w-7xl px-4 sm:px-6 md:px-8">
-            <h1 className="text-2xl font-semibold text-gray-900">
+      <div className="flex flex-col flex-1 bg-gray-50 md:pl-64">
+        <div className="top-0 z-10 sticky flex bg-white shadow h-16 shrink-0">
+          <div className="m-auto px-4 sm:px-6 md:px-8 max-w-7xl">
+            <h1 className="font-semibold text-gray-900 text-2xl">
               Explore your Slice Libraries
             </h1>
           </div>
         </div>
         <main>
-          <div className="mx-auto max-w-7xl px-4">
+          <div className="mx-auto px-4 max-w-7xl">
             <SliceList libraries={libraries} />
           </div>
         </main>
@@ -47,14 +47,14 @@ export function SliceLibrary({ libraries }: { libraries: SliceLibrary[] }) {
 function SliceList({ libraries }: { libraries: SliceLibrary[] }) {
   const renderer = SharedSliceRenderer(renderContext);
 
-  return libraries.map((library) =>
+  return libraries.map(library =>
     library.slices.map(({ model, mocks }) =>
-      model.variations.map((variation) => {
+      model.variations.map(variation => {
         const id = model.id;
         const key = `${library.name}-${id}-${variation.id}`;
 
         let variationFragment: ReactNode = (
-          <div className="flex flex-wrap bg-gray-100 h-64 p-1.5 rounded-md border border-gray-200 justify-center content-center text-xl uppercase bold text-gray-500">
+          <div className="flex flex-wrap justify-center content-center bg-gray-100 p-1.5 border border-gray-200 rounded-md h-64 text-gray-500 text-xl uppercase bold">
             Mock missing for this variation
           </div>
         );
@@ -67,24 +67,35 @@ function SliceList({ libraries }: { libraries: SliceLibrary[] }) {
             {
               id,
               slice_type: id,
-              ...renderedMock,
-            },
+              ...renderedMock
+            }
           ] as SliceZoneLike;
 
+          const mockPageData = {
+            primary_color: "#000000",
+            secondary_color: "#FFFFFF",
+            font_txt: "Inter",
+            font_heading: "Inter"
+          };
+
           variationFragment = (
-            <div className="isolate bg-white p-1.5 rounded-md border border-gray-200">
-              <SliceZone slices={mockApi} components={__allComponents} />
+            <div className="isolate bg-white p-1.5 border border-gray-200 rounded-md">
+              <SliceZone
+                slices={mockApi}
+                components={__allComponents}
+                context={{ pageData: mockPageData }}
+              />
             </div>
           );
         }
 
         return (
           <div className="py-20" id={key} key={key}>
-            <div className="border-b border-gray-200 pb-5 mb-5">
-              <h3 className="text-lg font-medium leading-6 text-gray-900">
+            <div className="mb-5 pb-5 border-gray-200 border-b">
+              <h3 className="font-medium text-gray-900 text-lg leading-6">
                 {model.name}
               </h3>
-              <p className="mt-2 max-w-4xl text-sm text-gray-500">
+              <p className="mt-2 max-w-4xl text-gray-500 text-sm">
                 {variation.name}
               </p>
             </div>
@@ -113,16 +124,16 @@ const renderContext: RenderContext = {
     },
     enforceCDN(url: string) {
       return url;
-    },
+    }
   },
   emptyStringInsteadOfNull: false,
   Extension: {
     DocEncoder: {
       // @ts-expect-error
-      encodeDocId: Extensions.encodeDocId,
+      encodeDocId: Extensions.encodeDocId
     },
     // @ts-expect-error
-    encoders: Extensions.IDEncoders,
+    encoders: Extensions.IDEncoders
   },
   LinkResolver: {
     buildUrl(_params: {
@@ -131,6 +142,6 @@ const renderContext: RenderContext = {
       doc?: ApiDocument;
     }): string | undefined | null {
       return "/";
-    },
-  },
+    }
+  }
 };

@@ -53,7 +53,7 @@ const FeaturedArticles: FC<FeaturedArticlesProps> = ({ slice, context }) => {
       setCurrentIndex(maxIndex);
     }
   }, [maxIndex, currentIndex]);
-  
+
   const formatDate = (isoDate?: string | null): string => {
     if (!isoDate) return "";
 
@@ -80,11 +80,11 @@ const FeaturedArticles: FC<FeaturedArticlesProps> = ({ slice, context }) => {
     setCurrentIndex(prev => Math.min(maxIndex, prev + 1));
   };
 
-  const GAP_PX = 16; 
+  const GAP_PX = 16;
   const gapWidthPx = GAP_PX * Math.max(0, totalItems - 1);
 
   if (slice.variation !== "default") return null;
-  
+
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -144,62 +144,62 @@ const FeaturedArticles: FC<FeaturedArticlesProps> = ({ slice, context }) => {
           }}
         >
           {/* Carousel */}
-          {slice.primary.grp?.map((item, index) => (
+          {slice.primary.grp?.map((item: any, index: number) => (
 
-              <div
-                key={index}
-                className="flex flex-col rounded-xl shadow-[4px_4px_24px_0px_rgba(175,175,175,0.25)] overflow-hidden"
-                style={{ 
-                  // Chaque item prend exactement la largeur nécessaire (1/total)
-                  flex: `0 0 calc((100% - ${gapWidthPx}px) / ${totalItems})` 
-                }}
-              >
-                <div className="w-full rounded-t-xl">
-                  {item?.image && (
-                    <PrismicNextImage
-                      field={item.image}
-                      className="w-full h-full aspect-video object-cover"
-                    />
-                  )}
-                </div>
-                  <div className="flex flex-col gap-2 p-4">
-                    <div className="flex justify-between">
-                      <span
-                        className="text-sm"
-                        style={{ color: pageData?.primary_color || "#000000" }}
-                      >
-                        {item?.category}
-                      </span>
-                      <span
-                        className="text-sm"
-                      >
-                        {formatDate(item?.date)}
-                      </span>
-                    </div>
-                  <PrismicRichText
-                      field={item?.title}
-                      components={{
-                        heading4: ({ children }) => (
-                          <h4
-                            className="font-bold text-xl"
-                            style={getFontHeadingStyles(pageData)}
-                          >
-                            {children}
-                          </h4>
-                        )
-                      }}
-                    />
-                    <div className="text-sm max-h-[100px] overflow-hidden text-ellipsis line-clamp-3">
-                      <PrismicRichText field={item?.description} />
-                    </div>
-
-                    <div className="mt-2 text-sm hover:underline cursor-pointer"
-                    style={{ color: pageData?.primary_color || "#000000" }}
-                    >
-                      <span>{item?.btn_txt} →</span>
-                    </div>
-                  </div>
+            <div
+              key={index}
+              className="flex flex-col rounded-xl shadow-[4px_4px_24px_0px_rgba(175,175,175,0.25)] overflow-hidden"
+              style={{
+                // Chaque item prend exactement la largeur nécessaire (1/total)
+                flex: `0 0 calc((100% - ${gapWidthPx}px) / ${totalItems})`
+              }}
+            >
+              <div className="w-full rounded-t-xl">
+                {item?.image && (
+                  <PrismicNextImage
+                    field={item.image}
+                    className="w-full h-full aspect-video object-cover"
+                  />
+                )}
               </div>
+              <div className="flex flex-col gap-2 p-4">
+                <div className="flex justify-between">
+                  <span
+                    className="text-sm"
+                    style={{ color: pageData?.primary_color || "#000000" }}
+                  >
+                    {item?.category}
+                  </span>
+                  <span
+                    className="text-sm"
+                  >
+                    {formatDate(item?.date)}
+                  </span>
+                </div>
+                <PrismicRichText
+                  field={item?.title}
+                  components={{
+                    heading4: ({ children }) => (
+                      <h4
+                        className="font-bold text-xl"
+                        style={getFontHeadingStyles(pageData)}
+                      >
+                        {children}
+                      </h4>
+                    )
+                  }}
+                />
+                <div className="text-sm max-h-[100px] overflow-hidden text-ellipsis line-clamp-3">
+                  <PrismicRichText field={item?.description} />
+                </div>
+
+                <div className="mt-2 text-sm hover:underline cursor-pointer"
+                  style={{ color: pageData?.primary_color || "#000000" }}
+                >
+                  <span>{item?.btn_txt} →</span>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
         {/* Nav carousel */}

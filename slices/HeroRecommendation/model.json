@@ -1,0 +1,74 @@
+{
+  "id": "hero_recommendation",
+  "type": "SharedSlice",
+  "name": "HeroRecommendation",
+  "description": "HeroRecommendation",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "client_logo": {
+          "type": "Image",
+          "config": {
+            "label": "Client Logo",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "eyebrow": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Eyebrow",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading1"
+          }
+        },
+        "text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
+        },
+        "contact": {
+          "type": "Link",
+          "config": {
+            "label": "Contact",
+            "select": "document",
+            "repeat": false,
+            "customtypes": [
+              {
+                "id": "contact",
+                "fields": [
+                  "image",
+                  "name",
+                  "position",
+                  "email",
+                  "calendar"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

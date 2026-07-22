@@ -1,0 +1,104 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"eyebrow": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Qui cupidatat voluptate ad irure laborum ut eiusmod labore minim minim fugiat amet. Dolore pariatur nisi laboris sit elit et eu ut aute aliquip quis aliquip aliquip reprehenderit."
+						}
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Valley"
+						}
+					}
+				]
+			},
+			"text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Enim laboris magna proident deserunt est cupidatat ut in est. Dolor laboris sint ad."
+						}
+					}
+				]
+			},
+			"step": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"icon",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "checkedCalendar",
+									"type": "Select"
+								}
+							],
+							[
+								"title",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "heading3",
+											"content": {
+												"text": "Route"
+											}
+										}
+									]
+								}
+							],
+							[
+								"text",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Officia non minim culpa. Et reprehenderit sunt amet ullamco. Aliqua elit reprehenderit id sint adipisicing sit adipisicing quis."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			},
+			"buttons": {
+				"__TYPE__": "RepeatableContent",
+				"type": "Link",
+				"value": [
+					{
+						"key": "ab52846a-ac34-41fe-9ab6-5b1abf98556a",
+						"__TYPE__": "LinkContent",
+						"value": {
+							"__TYPE__": "ExternalLink",
+							"url": "http://twitter.com",
+							"text": "each",
+							"variant": "Filled"
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

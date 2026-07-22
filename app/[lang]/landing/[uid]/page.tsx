@@ -6,10 +6,9 @@ import { SliceZone } from "@prismicio/react";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import { getLanguages } from "@/utils/getLanguages";
-import { getLocales } from "@/utils/getLocales";
-import { Header } from "@/components/GlobalNavigation";
 import Layout from "@/components/Layout";
 import { LandingDocument } from "@/prismicio-types";
+import QueryParamsNote from "@/components/QueryParamsNote";
 
 export async function generateMetadata({
   params,
@@ -66,13 +65,19 @@ export async function generateMetadata({
 
 export default async function Landing({
   params,
+  searchParams,
 }: {
   params: Promise<{ lang: string; uid: string }>;
+  searchParams: Promise<{
+    company?: string;
+    role?: string;
+    topic?: string;
+    details?: string;
+    instructions?: string;
+  }>;
 }) {
-  // Fetch all available locales in the repo
-  const locales = await getLocales();
-
   const resolvedParams = await params;
+  const resolvedSearchParams = await searchParams;
   const { lang, uid } = resolvedParams;
 
   const client = createClient();
@@ -101,7 +106,7 @@ export default async function Landing({
       .catch(() =>
         client.getSingle("header", {
           lang: "en-us",
-        })
+        }),
       ),
 
     client
@@ -111,7 +116,7 @@ export default async function Landing({
       .catch(() =>
         client.getSingle("footer", {
           lang: "en-us",
-        })
+        }),
       ),
 
     client
@@ -121,16 +126,19 @@ export default async function Landing({
       .catch(() =>
         client.getSingle("settings", {
           lang: "en-us",
-        })
+        }),
       ),
 
     // Fetch available languages for the page and all exisitng locales in the project
     getLanguages(page, client),
   ]);
-
+  // console.log("uid", page.uid);
   return (
     <>
       {/* <Header settings={settings} page={header} languages={languages} /> */}
+      <div className="fixed right-4 bottom-4 z-[1200] max-w-[95vw] flex flex-col items-end gap-1.5">
+        <QueryParamsNote query={resolvedSearchParams} embedded />
+      </div>
       <Layout
         lang={lang}
         languages={languages}
@@ -144,6 +152,7 @@ export default async function Landing({
           context={{
             pageData: page.data,
             locale: page?.lang,
+            query: resolvedSearchParams,
           }}
         />
       </Layout>
@@ -157,6 +166,12 @@ export async function generateStaticParams() {
   const pages = await client.getAllByType("landing", { lang: "*" });
 
   return pages?.map((page) => {
+    if (!page.uid) {
+      console.warn("Found a landing page without a uid:", page, page.uid);
+      return null;
+    }
+    // console.log("uid", page.uid);
+
     return { uid: page.uid, lang: page.lang };
   });
 }

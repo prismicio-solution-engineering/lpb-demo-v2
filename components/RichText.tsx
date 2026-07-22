@@ -36,20 +36,17 @@ export function RichText({
     ),
     heading2: ({ children }) => (
       <h2
-        className={clsx(`text-4xl font-bold`, classNames)}
+        className={clsx(`text-4xl leading-[1.2] font-bold`, classNames)}
         style={page && getFontHeadingStyles(page)}
       >
         {children}
       </h2>
     ),
     heading3: (
-      { children } // Done
+      { children }, // Done
     ) => (
       <h3
-        className={clsx(
-          "text-xl font-bold leading-[1.2] md:text-5xl  lg:text-6xl font-headings",
-          classNames
-        )}
+        className={clsx("text-3xl font-bold", classNames)}
         style={page && getFontHeadingStyles(page)}
       >
         {children}
@@ -57,17 +54,33 @@ export function RichText({
     ),
     heading4: ({ children }) => (
       <h4
-        className={clsx(`font-bold text-2xl`, classNames)}
+        className={clsx(`font-bold leading-[1.2] text-2xl`, classNames)}
         style={page && getFontHeadingStyles(page)}
       >
         {children}
       </h4>
     ),
+    heading5: ({ children }) => (
+      <h5
+        className={clsx(`font-semibold text-2xl`, classNames)}
+        style={page && getFontHeadingStyles(page)}
+      >
+        {children}
+      </h5>
+    ),
+    heading6: ({ children }) => (
+      <h6
+        className={clsx(`font-semibold text-xl`, classNames)}
+        style={page && getFontHeadingStyles(page)}
+      >
+        {children}
+      </h6>
+    ),
     preformatted: ({ children }) => (
       <pre
         className={clsx(
           "font-mono mt-3 mb-7 p-4 text-lg text-gray-200 bg-gray-700 border-gray-900 rounded-lg shadow-lg whitespace-break-spaces",
-          classNames
+          classNames,
         )}
       >
         <code>{children}</code>
@@ -75,7 +88,7 @@ export function RichText({
     ),
     paragraph: ({ children }) => (
       <p
-        className={clsx("text-gray-700 text-lg leading-7", classNames)}
+        className={clsx("text-gray-700 text-lg", classNames)}
         style={page && getFontTextStyles(page)}
       >
         {children}
@@ -84,8 +97,8 @@ export function RichText({
     list: ({ children }) => (
       <ul
         className={clsx(
-          `ml-4 my-2 wrap-break-words text-2xl font-normal marker:${textColor}`,
-          classNames
+          `ml-4 my-2 wrap-break-words text-lg font-normal marker:${textColor}`,
+          classNames,
         )}
         style={page && getFontTextStyles(page)}
       >
@@ -95,8 +108,8 @@ export function RichText({
     oList: ({ children }) => (
       <ol
         className={clsx(
-          `ml-4 my-2 wrap-break-words text-2xl font-normal marker:${textColor}`,
-          classNames
+          `ml-4 my-2 wrap-break-words text-lgfont-normal marker:${textColor}`,
+          classNames,
         )}
         style={page && getFontTextStyles(page)}
       >
@@ -107,7 +120,7 @@ export function RichText({
       <li
         className={clsx(
           "list-disc ml-5 pl-2 last:mb-0 list-outside",
-          classNames
+          classNames,
         )}
         style={page && getFontTextStyles(page)}
       >
@@ -118,7 +131,7 @@ export function RichText({
       <li
         className={clsx(
           "list-decimal ml-5 pl-2 last:mb-0 list-outside",
-          classNames
+          classNames,
         )}
       >
         {children}
@@ -128,8 +141,8 @@ export function RichText({
       <PrismicNextLink
         field={node.data}
         className={clsx(
-          `text-2xl underline underline-offset-8 hover:underline-offset-4 transition-all duration-300 ease-in-out wrap-break-words`,
-          classNames
+          `underline underline-offset-8 hover:underline-offset-4 transition-all duration-300 ease-in-out wrap-break-words`,
+          classNames,
         )}
         style={page && getFontTextStyles(page)}
       >

@@ -1,6 +1,7 @@
 import CarouselDefault from "./default";
 import CarouselVariant1 from "./variation1";
 import CarouselVariant2 from "./variation2";
+import CarouselVariant3 from "./variation3";
 
 import type { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
@@ -13,6 +14,8 @@ const Carousel = ({ slice, ...otherProps }: CarouselProps) => {
       return <CarouselVariant1 slice={slice} {...otherProps} />;
     case "variation2":
       return <CarouselVariant2 slice={slice} {...otherProps} />;
+    case "variation3":
+      return <CarouselVariant3 slice={slice} {...otherProps} />;
     default:
       return <CarouselDefault slice={slice} {...otherProps} />;
   }

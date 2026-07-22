@@ -3,9 +3,10 @@ import { ReactNode } from "react";
 import FooterComponent from "@/components/LandingNavigation/LandingFooter";
 import HeaderComponent from "@/components/LandingNavigation/LandingHeader";
 import {
+  EcommerceDocument,
   FooterDocument,
   // HeaderDocument,
-  LandingDocument,
+  LandingDocument
 } from "@/prismicio-types";
 import { AlternateLanguage } from "@prismicio/client";
 
@@ -20,7 +21,7 @@ const Footer = async (props: PropsLayoutHF) => {
   const client = createClient();
 
   const footer = (await client.getSingle("footer", {
-    lang: props.lang,
+    lang: props.lang
   })) as FooterDocument;
 
   return <FooterComponent footer={footer} {...props} />;
